@@ -21,7 +21,7 @@ function Login() {
       if (result.code === "401") {
         alert("Username or password wrong");
       } else {
-        auth.signin(() => {
+        auth.login(() => {
           history.push("/");
         });
       }

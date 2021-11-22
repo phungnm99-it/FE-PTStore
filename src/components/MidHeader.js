@@ -69,7 +69,7 @@ function HeaderMid() {
                       <button
                         className="text-cart"
                         onClick={() => {
-                          context.signout(() => history.push("/"));
+                          context.logout(() => history.push("/"));
                         }}
                       >
                         <i className="fas fa-sign-out-alt"></i> Đăng xuất

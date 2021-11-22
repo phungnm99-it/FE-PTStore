@@ -1,10 +1,10 @@
 const Auth = {
   isAuthenticated: false,
-  signin(cb) {
+  login(cb) {
     Auth.isAuthenticated = true;
     cb();
   },
-  signout(cb) {
+  logout(cb) {
     Auth.isAuthenticated = false;
     cb();
   },

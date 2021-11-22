@@ -23,21 +23,21 @@ function AuthProvider({ children }) {
     setCart(product);
   };
 
-  const signin = (cb) => {
-    return fakeAuth.signin(() => {
+  const login = (cb) => {
+    return fakeAuth.login(() => {
       setUser("user");
       cb();
     });
   };
 
-  const signout = (cb) => {
-    return fakeAuth.signout(() => {
+  const logout = (cb) => {
+    return fakeAuth.logout(() => {
       setUser(null);
       cb();
     });
   };
 
-  const value = { user, signin, signout, cart, addToCart, updateCart };
+  const value = { user, login, logout, cart, addToCart, updateCart };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }
