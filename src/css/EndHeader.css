@@ -62,6 +62,7 @@
   font-family: inherit;
   margin: 0;
   width: 230px;
+  padding-top: 13px;
 }
 /* thêm màu background khi nút dropdown khi hover */
 .navbarmenu a:hover,
