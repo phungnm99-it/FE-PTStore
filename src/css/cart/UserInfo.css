@@ -1,0 +1,128 @@
+.info-user {
+  display: block;
+  overflow: hidden;
+  border-top: 1px solid #d1d1d1;
+  padding: 10px 30px;
+}
+
+.info-user h4 {
+  display: block;
+  overflow: hidden;
+  font-size: 14px;
+  text-transform: uppercase;
+  color: #333;
+}
+
+.info-user .form-info-user,
+.texterror {
+  display: block !important;
+}
+
+.info-user .form-info-user {
+  display: none;
+  overflow: hidden;
+  padding: 10px 0 0;
+}
+
+.form-info-user .fillinform {
+  display: block;
+  overflow: hidden;
+  padding: 10px 0;
+}
+
+.form-info-user .fillinform .fillname {
+  float: left;
+  width: 49%;
+  margin: 0 1% 0 0;
+}
+
+.form-info-user .fillinform input {
+  display: block;
+  overflow: hidden;
+  border: 1px solid #d1d1d1;
+  border-radius: 8px;
+  padding: 10px;
+  color: #333;
+  box-sizing: border-box;
+  width: 100%;
+  margin-bottom: 10px;
+  height: 38px;
+}
+
+.form-info-user .fillinform .fillname:nth-child(2) {
+  float: right;
+  margin-right: 0;
+}
+
+.form-info-user .fillinform .chooseAddress {
+  float: left;
+  width: 49%;
+  margin: 0 1% 0 0;
+}
+
+.form-info-user .fillinform .district {
+  float: right;
+  margin-right: 0;
+}
+
+.form-info-user .fillinform .chooseAddress select {
+  display: block;
+  overflow: hidden;
+  border: 1px solid #d1d1d1;
+  border-radius: 8px;
+  box-sizing: border-box;
+  width: 100%;
+  margin-bottom: 10px;
+  background-color: white;
+  height: 38px;
+}
+
+.final-total .total-price {
+  display: block;
+  overflow: hidden;
+  padding: 10px 0 10px;
+  width: 100%;
+}
+
+.final-total .total-price strong {
+  float: left;
+  color: #333;
+  font-size: 16px;
+}
+
+.final-total .total-price strong:nth-child(2) {
+  float: right;
+  color: #f30c28;
+}
+
+.btn-buy button.submitpay {
+  display: block;
+  overflow: hidden;
+  color: #fff;
+  text-align: center;
+  height: 45px;
+  margin: 10px auto;
+  width: 100%;
+  border-radius: 4px;
+  border: 0;
+  cursor: pointer;
+  background: linear-gradient(180deg, #f79429, #f7712e);
+}
+
+.btn-buy button.submitonlpay {
+  display: block;
+  overflow: hidden;
+  color: #fff;
+  text-align: center;
+  height: 45px;
+  margin: 10px auto;
+  width: 100%;
+  border-radius: 4px;
+  border: 0;
+  cursor: pointer;
+  background: linear-gradient(180deg, #288ad6, #0e74c2);
+}
+
+.info-user .final-total .btn-buy {
+  margin-bottom: 20px;
+}

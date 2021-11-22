@@ -1,0 +1,35 @@
+.cartTopContent {
+  overflow: hidden;
+  display: block;
+  width: 100%;
+  max-width: 600px;
+  margin: auto;
+  min-width: 0;
+}
+
+.cartTopContent .buyMore {
+  float: left;
+  overflow: hidden;
+  font-size: 15px;
+  color: #288ad6;
+  line-height: 16px;
+  padding: 10px;
+}
+
+.cartTopContent .buyMore:before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-top: 1px solid #288ad6;
+  border-left: 1px solid #288ad6;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 3px 2px 0;
+  transform: rotate(-45deg);
+}
+
+.cartTopContent span {
+  float: right;
+  padding: 9px 10px;
+  font-size: 15px;
+}

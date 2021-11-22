@@ -1,0 +1,26 @@
+.footer {
+  background-color: #f0f0e9;
+}
+
+.footer .footer-widget {
+  margin-bottom: 0px;
+}
+
+.text-color {
+  color: #8c8c88;
+}
+
+.footer .inputEmail {
+  border-radius: 12px;
+  height: 42px;
+  width: 380px;
+}
+
+.footer .btnSend {
+  border-radius: 12px;
+  height: 42px;
+  margin-left: -12px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  width: 60px;
+}

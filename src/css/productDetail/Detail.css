@@ -1,0 +1,249 @@
+.detail .container {
+  min-width: 1200px;
+  width: 1200px;
+  margin: 0 auto;
+}
+
+.product-details .top-product {
+  display: flex;
+}
+
+.product-details h1 {
+  margin: 20px 0 10px 0;
+  flex-basis: auto;
+  flex-grow: 3;
+  display: flex;
+}
+
+:-webkit-any(article, aside, nav, section) h1 {
+  font-size: 1.5em;
+  margin-block-start: 0.83em;
+  margin-block-end: 0.83em;
+}
+
+h1 {
+  display: block;
+  font-size: 2em;
+  margin-block-start: 0.67em;
+  margin-block-end: 0.67em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+}
+
+.product-details .product-details-container {
+  display: flex;
+  margin-top: 2%;
+}
+
+.product-details .product-image {
+  min-width: 700px;
+  max-width: 700px;
+  margin-right: 15px;
+}
+
+.product-details .product-image {
+  position: relative;
+  margin: 0 auto;
+  top: 5px;
+  left: 0;
+  height: 450px;
+  overflow: hidden;
+}
+
+.product-center {
+  flex-grow: 1;
+  margin-left: 15px;
+}
+
+.product-center .price {
+  margin-bottom: 10px;
+}
+
+.product-center .price strong {
+  font-size: 25px;
+  color: #fd475a;
+}
+
+.product-center .price i {
+  font-size: 15px;
+  margin-left: 5px;
+}
+
+.product-center .freeship {
+  background: #fe980f 0% 0% no-repeat padding-box;
+  border-radius: 4px;
+  color: #fff;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0 0 5px 0;
+}
+
+.product-center .freeship span {
+  display: block;
+  text-transform: uppercase;
+  font-weight: 300;
+  line-height: 30px;
+  margin: 0;
+}
+
+.product-option .options {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.product-option .selected {
+  border: 2px solid #00483d;
+  padding: 4px;
+}
+
+.product-option .item {
+  display: block;
+  width: 20%;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: #fff;
+  position: relative;
+  width: 112px;
+}
+
+.product-option .item span {
+  display: flex;
+  justify-content: left;
+  justify-items: left;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+.product-option .item span label {
+  white-space: nowrap;
+  flex-basis: 100%;
+}
+
+label {
+  cursor: default;
+}
+
+.product-option .item span label strong {
+  color: #333;
+  font-weight: normal;
+  text-align: center;
+  font-weight: bold;
+}
+.product-option .item strong {
+  color: #fd475a;
+  display: block;
+  text-align: center;
+}
+
+.product-action {
+  display: flex;
+  justify-items: stretch;
+}
+
+.product-action .btn-red {
+  background: transparent linear-gradient(180deg, #ff990e 0%, #ff6801 100%) 0%
+    0% no-repeat padding-box;
+  box-shadow: 0 4px 6px #00000029;
+  border-radius: 3px;
+}
+
+.product-action .btnbuy {
+  margin-right: 10px;
+  display: block;
+  text-align: center;
+  color: #fff;
+  padding: 4px 10px;
+  flex-grow: 2;
+}
+
+.product-action .btnbuy strong {
+  display: block;
+}
+
+.product-action .btnbuy:last-child {
+  margin-right: 0;
+}
+
+.product-action .btn-orange {
+  background: transparent linear-gradient(180deg, #fd475a 0%, #bf1e2d 100%) 0%
+    0% no-repeat padding-box;
+  box-shadow: 0 4px 6px #00000029;
+}
+
+.product-action .btn-icon {
+  border-radius: 4px;
+  padding: 5px 3px 5px 0;
+  font-size: 22px;
+  position: relative;
+  width: 10px;
+  max-width: 40px;
+  min-width: 40px;
+  width: 40px;
+  flex-grow: 1;
+}
+
+.product-details .product-shop {
+  min-width: 450px;
+  max-width: 450px;
+  margin-bottom: 5%;
+  margin-top: 3%;
+}
+
+.product-shop {
+  background: #fff 0% 0% no-repeat padding-box;
+  border: 1px solid #999;
+  border-radius: 6px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+}
+
+.product-shop .warranty {
+  margin-bottom: 10px;
+}
+
+.product-shop .warranty h4 {
+  text-transform: uppercase;
+  margin: 0 0 10px 0;
+  padding: 0;
+  font-size: 17px;
+  font-weight: bold;
+}
+
+.h4 {
+  display: block;
+  margin-block-start: 1.33em;
+  margin-block-end: 1.33em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+}
+
+.product-shop .warranty p {
+  line-height: 1.5;
+  padding: 0;
+  font-size: 15px;
+  display: flex;
+}
+
+.product-shop .warranty p i {
+  color: #fe980f;
+  margin-right: 5px;
+}
+
+.product-image .productImage {
+  width: auto;
+  height: 500px;
+}
+
+.product-image .productImage img {
+  width: 700px;
+  height: 450px;
+}

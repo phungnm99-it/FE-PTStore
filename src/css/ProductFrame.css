@@ -1,0 +1,66 @@
+.productFrame {
+  flex: 1 0 21%;
+  margin: -5px;
+  flex-flow: wrap;
+  animation: append 0.2s ease-in-out;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.productFrame .item {
+  margin: 0 5px 5px 0;
+  width: 280px;
+  background: #fff;
+  box-shadow: 0 4px 6px #00000029;
+  border-radius: 12px;
+  text-align: center;
+  position: relative;
+  padding-left: 0px;
+  height: auto;
+}
+
+.productFrame .item .img {
+  height: 60%;
+  width: 100%;
+}
+
+.productFrame .item .img img {
+  height: 220px;
+  width: 200px;
+  margin-top: 20px;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-bottom: 10px;
+}
+
+.productFrame .item .info {
+  width: 100%;
+  height: 40%;
+}
+
+.productFrame .item .info .nameProduct {
+  color: #000;
+  font-weight: bold;
+  display: block;
+  font-size: 17px;
+  text-align: center;
+}
+
+.productFrame .item .info a.title,
+.productFrame .item .info a.title:link,
+.productFrame .item .info a.title:visited {
+  color: #000;
+  font-weight: bold;
+  display: block;
+}
+
+.productFrame .item .info .priceProduct {
+  display: block;
+  clear: both;
+  padding-bottom: 10px;
+}
+
+.productFrame .item .info .priceProduct strong {
+  font-size: 16px;
+  color: #fd475a;
+}

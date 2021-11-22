@@ -1,0 +1,111 @@
+.container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.row {
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+.textColor {
+  color: black;
+}
+
+.background {
+  background-color: orange;
+}
+
+/* định dạng nút button */
+.buttontinh {
+  float: left;
+  background-color: orange;
+  color: white;
+  font-size: 20px;
+  padding: 14px 16px;
+  height: 50px;
+  text-align: center;
+  border: none;
+  width: 230px;
+  cursor: pointer;
+}
+
+/* thanh navigation */
+.navbarmenu {
+  overflow: hidden;
+  background-color: orange;
+  font-family: Arial;
+}
+/* đường dẫn bên trong navigation */
+.navbarmenu a {
+  float: left;
+  font-size: 16px;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+/* thành phần dropdown */
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+/* nút dropdown */
+.dropdown .nut_dropdown {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: black;
+  background-color: orange;
+  font-family: inherit;
+  margin: 0;
+  width: 230px;
+}
+/* thêm màu background khi nút dropdown khi hover */
+.navbarmenu a:hover,
+.dropdown:hover .nut_dropdown {
+  color: white;
+}
+/* Ẩn nội dung dropdown*/
+.noidung_dropdown {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 230px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+/* thiết lập style cho đường dẫn bên trong dropdown */
+.noidung_dropdown a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+/* chọn background cho đường dẫn bên trong dropdown khi hover*/
+.noidung_dropdown a:hover {
+  background-color: #ddd;
+}
+/* Hiển thị nội dung dropdown khi được hover */
+.dropdown:hover .noidung_dropdown {
+  display: block;
+}
+.nav-row {
+  background: orange;
+  margin-top: 8px;
+}
+.isDrop {
+  display: block;
+}
+
+.fa-caret-down:before {
+  margin-left: 10px;
+}
+
+.navbarmenu .buttontinh {
+  color: black;
+}

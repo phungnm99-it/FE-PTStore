@@ -1,0 +1,81 @@
+.headermidpartial {
+  height: 80px;
+  background-color: white;
+}
+
+.container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.row {
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+.inputSearch {
+  width: 445px;
+  height: 40px;
+  border-radius: 20px;
+}
+
+.buttonSearch {
+  background-color: #fe980f;
+  color: white;
+}
+
+.shop-menu .text-cart {
+  border-radius: 20px;
+  width: 140px;
+  height: 40px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+  margin-top: 0px;
+  color: black;
+  font-size: 15px;
+  background: orange;
+}
+
+.shop-menu .text-login {
+  border: none;
+  background: none;
+  font-weight: bolder;
+  font-size: 15px;
+  color: orange;
+  margin-left: 5px;
+  margin-top: 8px;
+}
+
+.shop-menu .text-login i {
+  margin-right: 5px;
+}
+
+.text-login :hover {
+  cursor: pointer;
+}
+
+.btnSearch {
+  width: 30px;
+  height: 30px;
+  background: #fff;
+  position: absolute;
+  cursor: pointer;
+  top: 1px;
+  right: 18px;
+  padding-top: 3px;
+  padding-left: 3px;
+  border-radius: 0 25px 25px 0;
+}
+
+.btnSearch img {
+  width: 25px;
+  height: 25px;
+  margin-top: 5px;
+}
+
+.logo img {
+  width: 210px;
+}
