@@ -1,17 +1,21 @@
-import React from "react";
-import "../../css/admin/login.css";
-import iconClose from "../../images/iconClose.png";
+import React, { useContext } from "react";
+import "../../css/admin/loginAdmin.css";
 import loginAdmin from "../../images/loginAdmin.jpg";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+import { AdminContext } from "../../AdminContext";
+
 function AdminLogin() {
-  console.log("admin");
+  const context = useContext(AdminContext);
+  const history = useHistory();
+  const handleLogin = () => {
+    context.login(() => {
+      history.push("/admin");
+    });
+  };
   return (
     <div className="loginAdmin">
       <div className="jquery-modal blocker current">
         <div className="container modal">
-          <div className="loginForm">
-            <img className="icon-close" src={iconClose} alt="" />
-          </div>
           <div className="wrap-loginAdmin">
             <div className="loginAdmin-pic js-tilt" data-tilt="">
               <img src={loginAdmin} alt="imgLoginAdmin" />
@@ -56,6 +60,7 @@ function AdminLogin() {
 
               <div className="container-login100-form-btn">
                 <button
+                  onClick={handleLogin}
                   type="button"
                   className="btn-LoginAdmin"
                   value="Đăng nhập"

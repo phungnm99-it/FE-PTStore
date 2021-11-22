@@ -8,9 +8,6 @@ function Manager() {
   return (
     <div>
       <AdminProvider>
-        <div>
-          <h1>Hello</h1>
-        </div>
         <Switch>
           <Route exact path="/admin/login">
             <AdminLogin />
