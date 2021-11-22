@@ -15,14 +15,14 @@ function HeaderMid() {
       <div className="header-middle headermidpartial">
         <div className="container">
           <div className="row">
-            <div className="col-md-1 clearfix">
+            <div className="col-md-2">
               <div className="logo pull-left">
                 <Link to="/">
                   <img src={logo} alt="PT Store logo" width="162" />
                 </Link>
               </div>
             </div>
-            <div className="col-md-5 clearfix">
+            <div className="col-md-4">
               <nav className="navbar navbar-light bg-light">
                 <div className="container-fluid">
                   <form
@@ -47,11 +47,11 @@ function HeaderMid() {
               </nav>
             </div>
             {context.user ? (
-              <div className="col-md-6 clearfix">
+              <div className="col-md-6">
                 <div className="shop-menu clearfix">
                   <ul id="ulhighlight" className="nav navbar-nav">
                     <li>
-                      <Link to="/cart" className="text-cart">
+                      <Link to="/cart" className="btn-Cart">
                         <i className="fas fa-shopping-cart"></i> Giỏ Hàng
                         {context.cart.length > 0 ? (
                           "[" + context.cart.length + "]"
@@ -61,13 +61,13 @@ function HeaderMid() {
                       </Link>
                     </li>
                     <li>
-                      <Link to="/account" className="text-cart">
+                      <Link to="/account" className="btn-Account">
                         <i className="fa fa-user"></i> Tài khoản
                       </Link>
                     </li>
                     <li>
                       <button
-                        className="text-cart"
+                        className="btn-Logout"
                         onClick={() => {
                           context.logout(() => history.push("/"));
                         }}
@@ -83,7 +83,7 @@ function HeaderMid() {
                 <div className="shop-menu clearfix">
                   <ul id="ulhighlight" className="nav navbar-nav">
                     <li>
-                      <Link to="/cart" className="text-cart">
+                      <Link to="/cart" className="btn-Cart">
                         <i className="fas fa-shopping-cart"></i> Giỏ Hàng
                         {context.cart.length > 0 ? (
                           "[" + context.cart.length + "]"
@@ -93,8 +93,13 @@ function HeaderMid() {
                       </Link>
                     </li>
                     <li>
-                      <Link to="/login" className="text-cart">
+                      <Link to="/login" className="btn-Login">
                         <i className="fas fa-sign-in-alt"></i> Đăng nhập
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/register" className="btn-Register">
+                        <i className="fas fa-sign-in-alt"></i> Đăng ký
                       </Link>
                     </li>
                   </ul>
