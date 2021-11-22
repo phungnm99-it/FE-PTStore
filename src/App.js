@@ -3,6 +3,7 @@ import { AuthProvider } from "./AuthContext";
 import { AuthContext } from "./AuthContext";
 import { useContext } from "react";
 import Header from "./components/Header";
+import Account from "./components/customer/Account";
 import {
   BrowserRouter as Router,
   Switch,
@@ -47,8 +48,8 @@ function App() {
             <Route path="/home/phone/detail/:id">
               <ProductDetail />
             </Route>
-            <PrivateRoute path="/protected">
-              <ProtectedPage />
+            <PrivateRoute path="/account">
+              <Account />
             </PrivateRoute>
           </Switch>
           <Footer />
@@ -77,10 +78,6 @@ function PrivateRoute({ children, ...rest }) {
       }
     />
   );
-}
-
-function ProtectedPage() {
-  return <h3>Protected</h3>;
 }
 
 export default App;
