@@ -1,6 +1,7 @@
 import React from "react";
 import FilterOrderTab from "./FilterOrderTab";
 import "../../css/customer/orderHistory.css";
+import { Link } from "react-router-dom";
 
 function OrderHistory() {
   return (
@@ -37,7 +38,9 @@ function OrderHistory() {
                       </thead>
                       <tbody>
                         <tr role="row" className="ood">
-                          <td>tienphan</td>
+                          <td>
+                            <Link to="/orderDetail">1234</Link>
+                          </td>
                           <td>thuytienpn106@gmail.com</td>
                           <td>0858679912</td>
                           <td>06/10/1999</td>
