@@ -1,0 +1,81 @@
+.orderHistory .orderHistory-form {
+  padding: 25px;
+}
+
+.orderHistory .orderHistory-form .table-border th {
+  height: 40px;
+  padding-top: 10px;
+}
+
+.orderHistory .box-order {
+  padding: 20px;
+}
+
+.orderHistory .body-content .account-layout .box-order .box-order-header {
+  display: flex;
+  background-color: orange;
+  padding: 0.5rem 1rem;
+  border-radius: 1.5rem;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+  border: 1px solid #7e7e7e;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.orderHistory .box-order .box-order-header .header-item {
+  color: #585858;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.orderHistory .text-center {
+  text-align: center !important;
+}
+
+.orderHistory .w-25 {
+  width: 25% !important;
+}
+
+.orderHistory .box-order .w-10 {
+  width: 10%;
+}
+
+.box-order .w-15 {
+  width: 15%;
+}
+
+.orderHistory table.dataTable {
+  width: 100%;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 1 0px;
+  margin-bottom: 20px;
+  clear: both;
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 100%;
+}
+
+#History-IDOrderCol {
+  width: 60px;
+}
+#History-ProductCol {
+  width: 180px;
+}
+#History-DateCol {
+  width: 50px;
+}
+#History-TotalCol {
+  width: 50px;
+}
+#History-StatusCol {
+  width: 70px;
+}
+#History-ControlCol {
+  width: 10px;
+}
+
+.orderHistory table thead {
+  width: 100%;
+}

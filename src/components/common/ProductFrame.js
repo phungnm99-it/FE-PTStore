@@ -1,7 +1,7 @@
 import React from "react";
-import "../css/ProductFrame.css";
+import "../../css/ProductFrame.css";
 import { Link } from "react-router-dom";
-import { priceFormat } from "../utils/priceFormat";
+import { priceFormat } from "../../utils/priceFormat";
 function ProductFrame(props) {
   return (
     <div className="productFrame">

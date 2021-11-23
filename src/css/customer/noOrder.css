@@ -1,0 +1,25 @@
+.not-found-list {
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  padding: 40px 0;
+}
+
+.not-found-list p {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 10px 0;
+}
+
+.not-found-list .button_direct {
+  border: 1px solid #fe980f;
+  padding: 10px;
+  display: block;
+  margin: 0 auto 10px;
+  width: 22%;
+  border-radius: 4px;
+}
+
+.not-found-list a {
+  color: #fe980f;
+}

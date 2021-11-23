@@ -1,10 +1,10 @@
-import "../css/MidHeader.css";
+import "../../css/MidHeader.css";
 //import Login from "./Login";
-import { AuthContext } from "../AuthContext";
+import { AuthContext } from "../../AuthContext";
 import { useContext } from "react";
-import logo from "../images/logo-ptstore.png";
+import logo from "../../images/logo-ptstore.png";
 import { Link, useHistory } from "react-router-dom";
-import iconSearch from "../images/iconSearch.png";
+import iconSearch from "../../images/iconSearch.png";
 //import Logout from "./Logout";
 
 function HeaderMid() {

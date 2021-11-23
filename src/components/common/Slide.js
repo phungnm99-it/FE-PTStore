@@ -1,10 +1,10 @@
 import React from "react";
-import "../css/Slide.css";
+import "../../css/Slide.css";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import slide1 from "../images/slide1.jpg";
-import slide2 from "../images/slide2.png";
-import slide3 from "../images/slide3.png";
+import slide1 from "../../images/slide1.jpg";
+import slide2 from "../../images/slide2.png";
+import slide3 from "../../images/slide3.png";
 function Slide() {
   const responsive = {
     desktop: {

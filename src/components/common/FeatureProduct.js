@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import ProductFrame from "./ProductFrame";
-import "../css/RecommendProduct.css";
-import productApi from "../api/productApi";
-function RecommendProducts() {
+import "../../css/FeatureProduct.css";
+import productApi from "../../api/productApi";
+function FeaturedProducts() {
   const [product, setProduct] = useState([]);
   useEffect(() => {
     getProduct();
@@ -14,7 +14,7 @@ function RecommendProducts() {
   };
   return (
     <div>
-      <section className="recommendProducts">
+      <section className="featuredProducts">
         <div className="container">
           <div className="ins-preview-wrapper ins-preview-wrapper-480">
             <div className="ins-content-wrapper ins-content-wrapper-480">
@@ -37,7 +37,7 @@ function RecommendProducts() {
                               id="editable-text-1454703450633"
                               data-bind-menu="notification|text_editing"
                             >
-                              GỢI Ý DÀNH CHO BẠN
+                              SẢN PHẨM NỔI BẬT
                             </div>
                           </a>
                         </div>
@@ -65,4 +65,4 @@ function RecommendProducts() {
   );
 }
 
-export default RecommendProducts;
+export default FeaturedProducts;

@@ -1,0 +1,19 @@
+.orderHistory .box-order .box-order-list .header-item{
+    color: #585858;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.orderHistory .body-content .account-layout .box-order .box-order-list{
+    display: flex;
+    background-color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 1.5rem;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border: 1px solid #7e7e7e;
+    border-top: none;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}

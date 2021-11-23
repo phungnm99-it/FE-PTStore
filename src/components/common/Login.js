@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
-import { AuthContext } from "../AuthContext";
+import { AuthContext } from "../../AuthContext";
 import { useContext } from "react";
-import userApi from "../api/userApi";
-import "../css/Login.css";
+import userApi from "../../api/userApi";
+import "../../css/Login.css";
 
 function Login() {
   const history = useHistory();
