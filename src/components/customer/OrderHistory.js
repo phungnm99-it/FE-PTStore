@@ -20,29 +20,29 @@ function OrderHistory() {
                           <th className="sorting" id="History-IDOrderCol">
                             Mã đơn hàng
                           </th>
+                          <th className="sorting" id="History-DateCol">
+                            Ngày mua
+                          </th>
                           <th className="sorting" id="History-ProductCol">
                             Sản phẩm
-                          </th>
-                          <th className="sorting" id="History-DateCol">
-                            Ngày đặt
                           </th>
                           <th className="sorting" id="History-TotalCol">
                             Tổng tiền
                           </th>
                           <th className="sorting" id="History-StatusCol">
-                            Tình trạng
+                            Trạng thái đơn hàng
                           </th>
-                          <th className="sorting" id="History-ControlCol"></th>
+                          
                         </tr>
                       </thead>
                       <tbody>
                         <tr role="row" className="ood">
-                          <td>tienphan</td>
-                          <td>thuytienpn106@gmail.com</td>
-                          <td>0858679912</td>
-                          <td>06/10/1999</td>
-                          <td>Nữ</td>
-                          <td></td>
+                          <td>HSDI94985</td>
+                          <td>20/11/2021</td>
+                          <td>IPHONE 13 PROMAX 512GB</td>
+                          <td>39.000.000đ</td>
+                          <td>Giao hàng thành công</td>
+                          
                         </tr>
                       </tbody>
                     </table>

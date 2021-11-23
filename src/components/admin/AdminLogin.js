@@ -15,7 +15,7 @@ function AdminLogin() {
   return (
     <div className="loginAdmin">
       <div className="jquery-modal blocker current">
-        <div className="container modal">
+        <div className="container modal modal-signin-admin">
           <div className="wrap-loginAdmin">
             <div className="loginAdmin-pic js-tilt" data-tilt="">
               <img src={loginAdmin} alt="imgLoginAdmin" />

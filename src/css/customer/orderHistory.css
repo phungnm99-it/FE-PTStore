@@ -64,7 +64,7 @@
   width: 180px;
 }
 #History-DateCol {
-  width: 50px;
+  width: 40px;
 }
 #History-TotalCol {
   width: 50px;
@@ -72,9 +72,7 @@
 #History-StatusCol {
   width: 70px;
 }
-#History-ControlCol {
-  width: 10px;
-}
+
 
 .orderHistory table thead {
   width: 100%;

@@ -6,7 +6,6 @@ import AdminLogin from "./components/admin/AdminLogin";
 
 function Manager() {
   return (
-    <div>
       <AdminProvider>
         <Switch>
           <Route exact path="/admin/login">
@@ -17,7 +16,6 @@ function Manager() {
           </PrivateRoute>
         </Switch>
       </AdminProvider>
-    </div>
   );
 }
 
