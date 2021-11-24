@@ -1,7 +1,11 @@
 .loginAdmin .jquery-modal .container {
   min-width: 1000px;
-  width: 1000px;
+  padding-top: 30px;
 }
+.loginAdmin .modal{
+  overflow: hidden;
+}
+
 .loginAdmin .blocker {
   position: fixed;
   top: 0;
@@ -26,34 +30,34 @@
 }
 
 .loginAdmin .wrap-loginAdmin {
-  margin-top: 120px;
+  margin-top: 90px;
   margin-bottom: 50px;
-  margin-left: 30px;
-  margin-right: 30px;
-  width: var(--w_960px);
+  margin-left: 100px;
+  margin-right: 100px;
   background: rgb(255, 255, 255);
-  border-radius: var(--radius_10);
+  border-radius: 10px;
   overflow: hidden;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  padding: var(--p_wrap_login);
-  box-shadow: var(--shadow-form);
+  padding: 40px;
+  box-shadow: 10px;
 }
 
 .loginAdmin .loginAdmin-pic {
-  width: var(--w_316);
+  width: 300px;
 }
 .loginAdmin .loginAdmin-pic img {
   max-width: 350px;
   display: block;
-  margin-left: var(--auto);
+  /* margin-left: var(--auto);
   margin-top: var(--auto);
-  margin-right: var(--auto);
+  margin-right: var(--auto); */
 }
 
 .loginAdmin .loginAdmin-form {
-  width: var(--w300);
+  width: 500px;
+  margin-top: 20px;
 }
 
 .loginAdmin .loginAdmin-form-title {
@@ -88,11 +92,16 @@
   position: relative;
 }
 
+.modal-signin-admin{
+  display: block !important;
+}
+
 .loginAdmin .wrap-input100 {
   position: relative;
-  width: var(--onehundred_percent);
+  width: 100%;
   z-index: 1;
   margin-bottom: 10px;
+  margin-left: 50px;
 }
 
 .loginAdmin .inputLoginAdmin {
@@ -138,4 +147,6 @@
   font-size: 15px;
   color: black;
   font-weight: bold;
+  margin-right: 50px;
+  margin-top: 10px;
 }

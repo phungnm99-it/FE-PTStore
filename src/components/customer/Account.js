@@ -8,7 +8,7 @@ import Feedback from "./Feedback";
 class Account extends Component {
   constructor(props) {
     super(props);
-    this.state = { form: 0 };
+    this.state = { form: 0, avt: 'https://huyhoanhotel.com/wp-content/uploads/2016/05/765-default-avatar.png' };
   }
   inputFile = null;
 
@@ -33,6 +33,30 @@ class Account extends Component {
     this.inputFile.click();
   }
 
+  async getImg(event){
+    const file = event.target.files[0];
+    const base64 = await this.convertBase64(file);
+    this.setState({
+      avt: base64,
+    });
+
+    console.log(base64);
+  }
+
+  convertBase64 = (file) => {
+    return new Promise((resolve, reject) => {
+      const fileReader = new FileReader();
+      fileReader.readAsDataURL(file)
+      fileReader.onload = () => {
+        resolve(fileReader.result);
+      }
+      fileReader.onerror = (error) => {
+        reject(error);
+      }
+    })
+  }
+
+
   render() {
     return (
       <div id="top">
@@ -42,7 +66,8 @@ class Account extends Component {
               <div className="header">
                 <div class="info">
                   <div class="avt" id="myAvatar">
-                    <strong>T</strong>
+                    {/* <strong>T</strong> */}
+                    <img src={this.state.avt} alt="D.M cai avt" />
                   </div>
 
                   <div class="summer">
@@ -57,6 +82,7 @@ class Account extends Component {
                       name="upfile"
                       id="avtImage"
                       accept="image/*"
+                      onChange = {e => this.getImg(e)}
                       ref={(ref) => (this.inputFile = ref)}
                     />
                   </div>
