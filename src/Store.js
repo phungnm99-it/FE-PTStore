@@ -14,6 +14,7 @@ import FeaturedProducts from "./components/common/FeatureProduct";
 import RecommendProducts from "./components/common/RecommendProduct";
 import Cart from "./components/cart/Cart";
 import ProductDetail from "./components/productDetail/ProductDetail";
+import OrderDetail from "./components/customer/orderDetail/OrderDetail";
 
 function App() {
   return (
@@ -44,6 +45,9 @@ function App() {
           </Route>
           <PrivateRoute path="/account">
             <Account />
+          </PrivateRoute>
+          <PrivateRoute path="/orderDetail">
+            <OrderDetail />
           </PrivateRoute>
         </Switch>
         <Footer />

@@ -42,7 +42,6 @@ function OrderHistory() {
                           <td>IPHONE 13 PROMAX 512GB</td>
                           <td>39.000.000đ</td>
                           <td>Giao hàng thành công</td>
-                          
                         </tr>
                       </tbody>
                     </table>
