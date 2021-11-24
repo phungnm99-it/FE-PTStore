@@ -8,7 +8,6 @@ import Product from "./product/Product";
 import Review from "./review/Review";
 import Order from "./order/Order";
 import Feedback from "./Feedback";
-import { Link } from "react-router-dom";
 
 class Admin extends Component {
   constructor(props) {
@@ -43,7 +42,6 @@ class Admin extends Component {
   selectFile() {
     this.inputFile.click();
   }
-
   render() {
     return (
       <section className="pageAdmin">
@@ -81,28 +79,38 @@ class Admin extends Component {
                       </a>
                     </li>
                     <li className="nav-title">Theme</li>
-                    <li className="nav-item">
-                      <div className="DropDownFrame">
-                        <Link to="/admin/home/addAccount">
-                          <DropDown
-                            key="dropdown"
-                            title="Tài khoản"
-                            link={[
-                              { name: "Tài khoản Admin", url: "" },
-                              { name: "Tài khoản User", url: "" },
-                              { name: "Tài khoản đã khóa", url: "" },
-                            ]}
-                          />
-                        </Link>
-                      </div>
-                    </li>
+                    {/* <li className="nav-item">
+                                            <div className="DropDownFrame">
+                                            
+                                            <SideNavDropdown/>
+                                                <Link to = "/admin/home/addAccount"><DropDown key="dropdown" title="Tài khoản" link={[{name: 'Tài khoản Admin', url: ''},{name: 'Tài khoản User', url: ''},{name: 'Tài khoản đã khóa', url: ''}]}/></Link>
+                                            </div> 
+                                        </li> */}
 
-                    <li className="nav-item" onClick={() => this.formChoose(0)}>
-                      <a href="#" className="nav-link active btn-focus">
-                        <i className="fas fa-user-circle nav-icon"></i>
-                        Tài khoản
-                      </a>
-                    </li>
+                    <DropDown
+                      name="Tai khoan"
+                      icon="fas fa-user-circle nav-icon"
+                      subNav={[
+                        {
+                          name: "thg con 1",
+                          icon: "fas fa-user-circle nav-icon",
+                          link: "",
+                          formChoose: () => this.formChoose(0),
+                        },
+                        {
+                          name: "thg con 3",
+                          icon: "fas fa-user-circle nav-icon",
+                          link: "",
+                          formChoose: () => this.formChoose(3),
+                        },
+                        {
+                          name: "thg con 3",
+                          icon: "fas fa-user-circle nav-icon",
+                          link: "",
+                          formChoose: () => this.formChoose(3),
+                        },
+                      ]}
+                    />
                     <li className="nav-item" onClick={() => this.formChoose(2)}>
                       <a href="#" className="nav-link active btn-focus">
                         <i className="fal fa-tachometer-alt-slow nav-icon"></i>

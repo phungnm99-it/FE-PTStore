@@ -1,64 +1,41 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
+import "../../../css/admin/dropdown.css";
 
-class DropDown extends Component {
-  dropRef = React.createRef();
-  buttonRef = React.createRef();
-  //property = tai san
-  constructor(props) {
-    super(props);
-    this.state = { isDrop: false, top: 0, left: 0 };
-  }
-  componentDidMount() {
-    let root = document.getElementById("root");
-    root.appendChild(this.dropRef.current);
-    this.setState({
-      top:
-        this.buttonRef.current.getBoundingClientRect().top +
-        this.buttonRef.current.getBoundingClientRect().height,
-      left: this.buttonRef.current.getBoundingClientRect().left,
-    });
-  }
-
-  render() {
-    const dropDownStyle = {
-      top: this.state.top + "px",
-      left: this.state.left + "px",
-    };
-    return (
-      <div
-        class="dropdown"
+function DropDown(props) {
+  const [openSub, setOpen] = useState(false);
+  return (
+    <li className="nav-item">
+      <a
+        href="#"
+        className="nav-link active btn-focus"
         onClick={() => {
-          this.setState({ isDrop: !this.state.isDrop });
-        }}
-        onMouseOver={() => {
-          this.setState({ isDrop: true });
-        }}
-        onMouseLeave={() => {
-          this.setState({ isDrop: false });
+          setOpen(!openSub);
         }}
       >
-        <button ref={this.buttonRef} className="btn-drop">
-          {this.props.title}
-          <i className="fa fa-caret-down"></i>
-        </button>
-        <div
-          style={dropDownStyle}
-          className={
-            "dropdownMenu dropdown " + (this.state.isDrop ? "isDrop" : "")
-          }
-          ref={this.dropRef}
-        >
-          {this.props.link.map((item) => {
+        <i className={props.icon}></i>
+        {/* fas fa-user-circle nav-icon */}
+        {props.name}
+      </a>
+      <div className="sub-nav">
+        {props.subNav &&
+          openSub &&
+          props.subNav.map((sub, idx) => {
             return (
-              <a className="dropdownItem" href="#">
-                {item.name}
+              <a
+                className="nav-link active btn-focus"
+                key={idx}
+                onClick={() => {
+                  sub.formChoose && sub.formChoose();
+                }}
+              >
+                <i className={sub.icon}></i>
+                {sub.name}
               </a>
             );
           })}
-        </div>
       </div>
-    );
-  }
+    </li>
+  );
 }
 
 export default DropDown;

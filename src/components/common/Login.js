@@ -78,7 +78,7 @@ function Login() {
                         ĐĂNG NHẬP
                       </button>
                       <Link
-                        to="/home/pageregister"
+                        to="/register"
                         className="btn btn-link ajax-content"
                       >
                         ĐĂNG KÝ
@@ -88,7 +88,7 @@ function Login() {
 
                   <div className="row">
                     <p className="forgotpass">
-                      <Link to="/home/forgotpass" className="ajax-content">
+                      <Link to="/forgotPassword" className="ajax-content">
                         Quên mật khẩu?
                       </Link>
                     </p>
