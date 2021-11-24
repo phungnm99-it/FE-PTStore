@@ -10,7 +10,7 @@ import Order from "./order/Order";
 import Feedback from "./Feedback";
 import { Link } from "react-router-dom";
 
-class Admin extends Component {
+class Menu extends Component {
   constructor(props) {
     super(props);
     this.state = { form: 0 };
@@ -155,4 +155,4 @@ class Admin extends Component {
   }
 }
 
-export default Admin;
+export default Menu;

@@ -1,5 +1,5 @@
 import React from "react";
-import "../../css/Slide.css";
+import "../../css/common/Slide.css";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import slide1 from "../../images/slide1.jpg";

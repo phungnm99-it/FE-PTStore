@@ -1,4 +1,4 @@
-import "../../css/MidHeader.css";
+import "../../css/common/MidHeader.css";
 //import Login from "./Login";
 import { AuthContext } from "../../AuthContext";
 import { useContext } from "react";

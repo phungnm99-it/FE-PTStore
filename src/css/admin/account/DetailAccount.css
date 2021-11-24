@@ -1,0 +1,75 @@
+.detailAccount .jquery-modal .container{
+    min-width: 650px;
+    width: 650px;
+    height: auto;
+}
+
+.detailAccount .title-addAccount h2{
+    margin-top: 40px;
+    font-weight: bold;
+}
+
+.detailAccount .body-detailAccount {
+    flex: 1 1 auto;
+    padding-top: 15px;
+}
+
+.detailAccount .flex-sm-row {
+    flex-direction: row!important;
+}
+
+.detailAccount .media {
+    display: flex;
+    align-items: flex-start;
+}
+
+.detailAccount .row{
+    padding-left: 15px;
+    padding-right: 10px;
+}
+
+.detailAccount .col-sm-9, .detailAccount .col-sm-3, .detailAccount .col-sm-7, .detailAccount .col-sm-5{
+    padding-left: 0px;
+    padding-right: 0px;
+}
+.detailAccount .media, .media-body {
+    overflow: hidden;
+    zoom: 1;
+}
+
+.detailAccount .body-detailAccount img {
+    height: 150px;
+    width: 150px;
+}
+
+.detailAccount .nav li {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 15px;
+}
+
+
+.detailAccount .list-left .nav li{
+    font-weight: bold;
+}
+
+.detailAccount .btnEdit-detailAccount{
+    margin-top: 20px;
+}
+
+.detailAccount .btnEdit-detailAccount{
+    height: 40px;
+    border-radius: 12px;
+    width: 110px;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    color: white;
+    font-size: 15px;
+    background: #3c4b64;
+    border: none;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    
+}

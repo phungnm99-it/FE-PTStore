@@ -1,0 +1,298 @@
+.menuAdmin .sidebar {
+    min-width: 250px;
+    --cui-sidebar-width: 16rem;
+    position: relative;
+    display: flex;
+    flex: 0 0 var(--cui-sidebar-width);
+    flex-direction: column;
+    order: -1;
+    width: var(--cui-sidebar-width);
+    padding: 0;
+    color: hsla(0,0%,100%,.87);
+    color: var(--cui-sidebar-color,hsla(0,0%,100%,.87));
+    background: #3c4b64;
+    background: var(--cui-sidebar-bg,#3c4b64);
+    box-shadow: none;
+    transition: margin-left .15s,margin-right .15s,box-shadow 75ms,transform .15s,width .15s,z-index 0s ease .15s;
+}
+
+html:not([dir=rtl]) .ms-auto {
+    margin-left: auto!important;
+}
+
+html:not([dir=rtl]) .sidebar-nav .nav-icon:first-child {
+    margin-left: -1rem;
+}
+
+.pageAdmin .account{
+    height: 100%;
+    flex-basis: 100%;
+    display: flex; 
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.pageAdmin .account .sidebar {
+    width: 270px;
+    min-width: 270px;
+    height: 100%;
+    flex-grow: 1;
+    padding-right: 3px;
+    padding-top: 30px;
+}
+
+.pageAdmin .account .sidebar .ctn {
+    min-height: 680px;
+    height: 100%;
+    position: relative;
+    width: auto;
+}
+
+.pageAdmin .account .sidebar .header {
+    padding: 0px 30px 10px 30px;
+}
+
+.pageAdmin .account .sidebar .header .info {
+    display: flex;
+}
+
+.pageAdmin .account .sidebar .header .info .avt {
+    width: 60px;
+    height: 60px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+}
+
+.pageAdmin .account .sidebar .header .info .avt strong {
+    font-size: 40px;
+    text-align: center;
+    height: 60px;
+    width: 60px;
+    display: block;
+    background: #fe980f;
+    border-radius: 12px;
+    color: #fff;
+}
+
+.pageAdmin .account .sidebar .header .info .summer {
+    padding: 10px 0;
+}
+
+.pageAdmin .account .sidebar .header .info p {
+    margin: 0 0 3px 0;
+    padding: 0;
+}
+
+.pageAdmin .account .sidebar .header .info p strong {
+    font-size: 16px;
+}
+
+.pageAdmin .account .sidebar .header .info p.change-avatar {
+    cursor: pointer;
+    color: #999;
+}
+
+#avtImage {
+    display: none;
+}
+
+.pageAdmin .account .sidebar nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.pageAdmin .account .sidebar nav ul li a {
+    display: flex;
+    padding: 12px 0 12px 30px;
+    font-size: 15px;
+    color: #C5C5D1;
+}
+
+.account .menuAdmin .nav-item{
+    height: 50px;
+    width: auto;
+}
+
+.account .menuAdmin .nav-item a{
+    height: 50px;
+    font-size: 16px;
+}
+
+.account .menuAdmin .nav-link.active {
+    color: hsla(0,0%,100%,.87);
+    color: var(--cui-sidebar-nav-link-active-color,hsla(0,0%,100%,.87));
+    background: hsla(0,0%,100%,.05);
+    background: var(--cui-sidebar-nav-link-active-bg,hsla(0,0%,100%,.05));
+}
+
+.menuAdmin .nav-link {
+    display: flex;
+    flex: 1 1;
+    align-items: center;
+    padding: 0.8445rem 1rem;
+    color: hsla(0,0%,100%,.6);
+    color: var(--cui-sidebar-nav-link-color,hsla(0,0%,100%,.6));
+    text-decoration: none;
+    white-space: nowrap;
+    background: 0 0;
+    background: var(--cui-sidebar-nav-link-bg,transparent);
+    transition: background .15s ease,color .15s ease;
+}
+
+.menuAdmin .nav-link {
+    display: block;
+    padding: 0.5rem 1rem;
+    color: #321fdb;
+    color: var(--cui-nav-link-color,#321fdb);
+    text-decoration: none;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
+}
+
+.menuAdmin .nav-icon {
+    flex: 0 0 4rem;
+    height: 1.25rem;
+    font-size: 1.25rem;
+    color: hsla(0,0%,100%,.6);
+    color: var(--cui-sidebar-nav-link-icon-color,hsla(0,0%,100%,.6));
+    text-align: center;
+    fill: currentColor;
+    transition: inherit;
+}
+
+.menuAdmin .badge {
+    display: inline-block;
+    padding: 0.35em 0.65em;
+    font-size: .75em;
+    font-weight: 700;
+    line-height: 1;
+    color: hsla(0,0%,100%,.87);
+    color: var(--cui-badge-color,hsla(0,0%,100%,.87));
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: text-bottom;
+    border-radius: 0.25rem;
+}
+
+.menuAdmin .nav-title {
+    padding: 0.75rem 1rem;
+    margin-top: 1rem;
+    font-size: 80%;
+    font-weight: 700;
+    color: hsla(0,0%,100%,.6);
+    color: var(--cui-sidebar-nav-title-color,hsla(0,0%,100%,.6));
+    text-transform: uppercase;
+    transition: height .15s,margin .15s;
+}
+
+.pageAdmin .bodyAdmin{
+    flex-basis: 100%;
+}
+
+.pageAdmin .dropdown{
+    float: none;
+    overflow: inherit;
+    width: 100%;
+}
+
+.pageAdmin .DropDownFrame{
+    background: var(--cui-sidebar-nav-link-active-bg,hsla(0,0%,100%,.05));
+    overflow: hidden;
+}
+
+.pageAdmin .btn-drop{
+    height: 100%;
+    background: none;
+    color: #C5C5D1;
+    border: none;
+    text-decoration: none;
+    width: 100%;
+    color: var(--cui-sidebar-nav-link-active-color,hsla(0,0%,100%,.87));
+    font-size: 15px;
+    padding-left: 15px;
+    text-align: left;
+}
+
+.pageAdmin .DropDownFrame i{
+    margin-left: 100px;
+}
+
+/* ĐỔi màu nền khi hover và focus vào nút*/
+.pageAdmin .account .menuAdmin .DropDownFrame:hover, .pageAdmin .DropDownFrame:focus {
+    background-color: #3c4b64;
+}
+
+
+
+
+/* thanh navigation */
+.navbarmenu {
+    overflow: hidden;
+    background-color: orange;
+    font-family: Arial;
+  }
+ /* đường dẫn bên trong navigation */
+.navbarmenu a {
+    float: left;
+    font-size: 16px;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+ /* thành phần dropdown */
+.dropdown {
+    float: left;
+    overflow: hidden;
+}
+ /* thêm màu background khi nút dropdown khi hover */
+  .navbarmenu a:hover, .dropdown:hover .nut_dropdown {
+    color: white;
+  }
+ /* Ẩn nội dung dropdown*/
+.dropdownMenu {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 230px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+ /* thiết lập style cho đường dẫn bên trong dropdown */
+.dropdownMenu a {
+    float: none;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    width: auto;
+    background-color: #3c4b64;
+}
+
+.dropdownMenu .dropdownItem{
+    color: white;
+    font-size: 15px;
+}
+ /* chọn background cho đường dẫn bên trong dropdown khi hover*/
+  .dropdownMenu a:hover {
+    background-color: #3c4b64;
+}
+ /* Hiển thị nội dung dropdown khi được hover */
+  .dropdown:hover .dropdownMenu {
+    display: block;
+}
+.nav-row{
+    background: orange;
+    margin-top: 8px;
+}
+.isDrop{
+    display: block;
+}
+
+
+
+
+
+
+

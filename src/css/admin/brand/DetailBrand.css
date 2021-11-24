@@ -1,0 +1,75 @@
+.detailBrand .jquery-modal .container{
+    min-width: 600px;
+    width: 600px;
+    height: auto;
+}
+
+.detailBrand .title-addAccount h2{
+    margin-top: 40px;
+    font-weight: bold;
+}
+
+.detailBrand .body-detailBrand {
+    flex: 1 1 auto;
+    padding-top: 15px;
+}
+
+.detailBrand .flex-sm-row {
+    flex-direction: row!important;
+}
+
+.detailBrand .media {
+    display: flex;
+    align-items: flex-start;
+}
+
+.detailBrand .row{
+    padding-left: 15px;
+    padding-right: 10px;
+}
+
+.detailBrand .col-sm-9, .detailBrand .col-sm-3, .detailBrand .col-sm-7, .detailBrand .col-sm-5{
+    padding-left: 0px;
+    padding-right: 0px;
+}
+.detailBrand .media, .media-body {
+    overflow: hidden;
+    zoom: 1;
+}
+
+.detailBrand .body-detailBrand img {
+    height: 150px;
+    width: 150px;
+}
+
+.detailBrand .nav li {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 15px;
+}
+
+
+.detailBrand .list-left .nav li{
+    font-weight: bold;
+}
+
+.detailBrand .btnEdit-detailBrand{
+    margin-top: 20px;
+}
+
+.detailBrand .btnEdit-detailBrand{
+    height: 40px;
+    border-radius: 12px;
+    width: 110px;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    color: white;
+    font-size: 15px;
+    background: #3c4b64;
+    border: none;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    
+}

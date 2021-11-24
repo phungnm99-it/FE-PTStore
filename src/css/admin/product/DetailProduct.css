@@ -1,0 +1,80 @@
+.detailProduct .jquery-modal .container{
+    min-width: 600px;
+    width: 600px;
+    height: auto;
+}
+
+.detailProduct .title-addAccount h2{
+    margin-top: 40px;
+    font-weight: bold;
+}
+
+.detailProduct h3{
+    font-size: 20px;
+}
+
+.detailProduct .body-detailProduct {
+    flex: 1 1 auto;
+    padding-top: 15px;
+}
+
+.detailProduct .flex-sm-row {
+    flex-direction: row!important;
+}
+
+.detailProduct .media {
+    display: flex;
+    align-items: flex-start;
+}
+
+.detailProduct .row{
+    padding-left: 15px;
+    padding-right: 10px;
+}
+
+.detailProduct .col-sm-7, .detailProduct .col-sm-5{
+    padding-left: 30px;
+    padding-right: 10px;
+}
+.detailProduct .media, .media-body {
+    overflow: hidden;
+    zoom: 1;
+}
+
+.detailProduct .body-detailProduct img {
+    height: 250px;
+    width: 400px;
+    margin-left: 70px;
+}
+
+.detailProduct .nav li {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 15px;
+}
+
+
+.detailProduct .list-left .nav li{
+    font-weight: bold;
+}
+
+.detailProduct .btnEdit-detailProduct{
+    margin-top: 20px;
+}
+
+.detailProduct .btnEdit-detailProduct{
+    height: 40px;
+    border-radius: 12px;
+    width: 110px;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    color: white;
+    font-size: 15px;
+    background: #3c4b64;
+    border: none;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    
+}

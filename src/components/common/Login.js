@@ -3,7 +3,7 @@ import { Link, useHistory } from "react-router-dom";
 import { AuthContext } from "../../AuthContext";
 import { useContext } from "react";
 import userApi from "../../api/userApi";
-import "../../css/Login.css";
+import "../../css/common/Login.css";
 
 function Login() {
   const history = useHistory();
