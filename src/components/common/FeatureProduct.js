@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ProductFrame from "./ProductFrame";
-import "../../css/FeatureProduct.css";
+import "../../css/common/FeatureProduct.css";
 import productApi from "../../api/productApi";
 function FeaturedProducts() {
   const [product, setProduct] = useState([]);

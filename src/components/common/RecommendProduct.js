@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ProductFrame from "./ProductFrame";
-import "../../css/RecommendProduct.css";
+import "../../css/common/RecommendProduct.css";
 import productApi from "../../api/productApi";
 function RecommendProducts() {
   const [product, setProduct] = useState([]);

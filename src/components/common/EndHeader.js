@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "../../css/EndHeader.css";
+import "../../css/common/EndHeader.css";
 import { Link } from "react-router-dom";
 function EndHeader() {
   return (
