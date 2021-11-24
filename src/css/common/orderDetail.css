@@ -1,161 +1,165 @@
-.orderDetail .jquery-modal .modal{
-    max-width: 550px;
-    min-width: 550px;
-    height: auto;
-    overflow: hidden;
-    background-color: #fff;
+.orderDetail .jquery-modal .modal {
+  max-width: 550px;
+  min-width: 550px;
+  height: auto;
+  overflow: hidden;
+  background-color: #fff;
 }
 
-.orderDetail .headerOrderDetail{
-    background-color: #fff!important;
+.orderDetail .headerOrderDetail {
+  background-color: #fff !important;
 }
 
-.orderDetail .headerOrderDetail p{
-    margin-bottom: 10px;
-    font-size: 15px;
+.orderDetail .headerOrderDetail p {
+  margin-bottom: 10px;
+  font-size: 15px;
 }
 
-.orderDetail .text-muted{
-    color: #6c757d!important;
+.orderDetail .text-muted {
+  color: #6c757d !important;
 }
 
 .text-dark {
-    color: #343a40!important;
+  color: #343a40 !important;
 }
 
 .font-weight-bold {
-    font-weight: 700!important;
+  font-weight: 700 !important;
 }
 
 .bodyOrderDetail {
-    -ms-flex: 1 1 auto;
-    flex: 1 1 auto;
-    padding-top: 15px;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  padding-top: 15px;
 }
 
 .media {
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-align: start;
-    align-items: flex-start;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: start;
+  align-items: flex-start;
 }
-
 
 .flex-sm-row {
-    -ms-flex-direction: row!important;
-    flex-direction: row!important;
+  -ms-flex-direction: row !important;
+  flex-direction: row !important;
 }
 
-.orderDetail .bodyOrderDetail h5{
-    font-size: 20px;
+.orderDetail .bodyOrderDetail h5 {
+  font-size: 20px;
 }
 
-.orderDetail .bodyOrderDetail img{
-    height: 150px;
-    width: 200px;
+.orderDetail .bodyOrderDetail img {
+  height: 150px;
+  width: 200px;
 }
 
-.orderDetail .px-3{
-    padding-left: 1rem !important;
+.orderDetail .modal {
+  display: block !important;
 }
 
-.orderDetail .col{
-    -ms-flex-preferred-size: 0;
-    flex-basis: 0;
-    -ms-flex-positive: 1;
-    flex-grow: 1;
-    max-width: 100%;
+.orderDetail .px-3 {
+  padding-left: 1rem !important;
+}
+
+.orderDetail .col {
+  -ms-flex-preferred-size: 0;
+  flex-basis: 0;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  max-width: 100%;
 }
 
 #progressbar {
-    margin-bottom: 30px;
-    overflow: hidden;
-    color: orange;
-    padding-left: 0px;
-    margin-top: 30px;
+  margin-bottom: 30px;
+  overflow: hidden;
+  color: orange;
+  padding-left: 0px;
+  margin-top: 30px;
 }
 
 #progressbar li {
-    list-style-type: none;
-    font-size: 14px;
-    width: 25%;
-    float: left;
-    position: relative;
-    font-weight: 400;
-    color: #455A64 !important;
+  list-style-type: none;
+  font-size: 14px;
+  width: 25%;
+  float: left;
+  position: relative;
+  font-weight: 400;
+  color: #455a64 !important;
 }
 
 #progressbar #step1:before {
-    content: "1";
-    color: #fff;
-    width: 29px;
-    margin-left: 15px !important;
-    padding-left: 11px !important;
+  content: "1";
+  color: #fff;
+  width: 29px;
+  margin-left: 15px !important;
+  padding-left: 11px !important;
 }
 
 #progressbar #step2:before {
-    content: "2";
-    color: #fff;
-    width: 29px;
+  content: "2";
+  color: #fff;
+  width: 29px;
 }
 
 #progressbar #step3:before {
-    content: "3";
-    color: #fff;
-    width: 29px;
+  content: "3";
+  color: #fff;
+  width: 29px;
 }
 
 #progressbar #step4:before {
-    content: "4";
-    color: #fff;
-    width: 29px;
-    margin-right: 15px !important;
-    padding-right: 11px !important;
+  content: "4";
+  color: #fff;
+  width: 29px;
+  margin-right: 15px !important;
+  padding-right: 11px !important;
 }
 
-#progressbar li.active:before, #progressbar li.active:after {
-    background: orange;
+#progressbar li.active:before,
+#progressbar li.active:after {
+  background: orange;
 }
 
 #progressbar li:before {
-    line-height: 29px;
-    display: block;
-    font-size: 12px;
-    background: #455A64;
-    border-radius: 50%;
-    margin: auto;
+  line-height: 29px;
+  display: block;
+  font-size: 12px;
+  background: #455a64;
+  border-radius: 50%;
+  margin: auto;
 }
 
 #progressbar li:nth-child(1):after {
-    left: 25%;
-    width: 121%;
+  left: 25%;
+  width: 121%;
 }
 
 #progressbar li:nth-child(2):after {
-    left: 50%;
+  left: 50%;
 }
 
 #progressbar li:nth-child(3):after {
-    left: 50%;
+  left: 50%;
 }
 
 #progressbar li:nth-child(4):after {
-    left: 25% !important;
-    width: 50% !important;
+  left: 25% !important;
+  width: 50% !important;
 }
 
 #progressbar li:after {
-    content: '';
-    width: 121%;
-    height: 2px;
-    background: #455A64;
-    position: absolute;
-    left: 0%;
-    right: 0%;
-    top: 15px;
-    z-index: -1;
+  content: "";
+  width: 121%;
+  height: 2px;
+  background: #455a64;
+  position: absolute;
+  left: 0%;
+  right: 0%;
+  top: 15px;
+  z-index: -1;
 }
 
 .text-center {
-    text-align: center!important;
+  text-align: center !important;
 }

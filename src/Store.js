@@ -15,6 +15,8 @@ import RecommendProducts from "./components/common/RecommendProduct";
 import Cart from "./components/cart/Cart";
 import ProductDetail from "./components/productDetail/ProductDetail";
 import OrderDetail from "./components/customer/orderDetail/OrderDetail";
+import Register from "./components/common/Register";
+import ForgotPassword from "./components/common/ForgotPassword";
 
 function App() {
   return (
@@ -39,6 +41,12 @@ function App() {
           </Route>
           <Route exact path="/cart">
             <Cart />
+          </Route>
+          <Route exact path="/register">
+            <Register />
+          </Route>
+          <Route exact path="/forgotPassword">
+            <ForgotPassword />
           </Route>
           <Route path="/home/phone/detail/:id">
             <ProductDetail />
