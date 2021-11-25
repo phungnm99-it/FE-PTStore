@@ -1,12 +1,25 @@
-.detailAccount .jquery-modal .container{
-    min-width: 650px;
-    width: 650px;
-    height: auto;
+.detailAccount .title-addAccount {
+    margin-bottom: 30px;
+    margin-left: 20px;
 }
 
-.detailAccount .title-addAccount h2{
-    margin-top: 40px;
-    font-weight: bold;
+.detailAccount .form{
+    background: #ffffff 0% 0% no-repeat padding-box;
+    box-shadow: 0px 4px 6px #00000029;
+    border-radius: 12px;
+    position: relative;
+    padding: 10px 0;
+    height: auto;
+    border: 1px solid #ccc;
+    margin-left: 100px;
+    margin-right: 100px;
+    margin-bottom: 30px;
+}
+
+.detailAccount .form .body-detailAccount{
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-top: 20px;
 }
 
 .detailAccount .body-detailAccount {

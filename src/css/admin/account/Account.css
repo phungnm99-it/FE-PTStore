@@ -335,7 +335,7 @@ table.dataTable tbody tr {
 }
 
 .account-management .iconEdit{
-    margin-right: 8px;
+    margin-right: 0px;
     font-size: 13px;
     color: #7774e7;
 }
@@ -347,6 +347,17 @@ table.dataTable tbody tr {
 
 .account-management .iconDetail{
     font-size: 13px;
-    margin-right: 8px;
+    margin-right: 0px;
+}
+
+.account-management .iconUnlock{
+    font-size: 13px;
+    margin-left: 13px;
+    color: green;
+}
+
+.account-management .iconEdit, .account-management .iconDetail, .account-management .iconDelete{
+    border: none;
+    background-color: #f9f9f9;
 }
 

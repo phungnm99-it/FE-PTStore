@@ -1,166 +1,197 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import "../../css/admin/Menu.css";
 import Header from "./common/Header";
-import Account from "./account/Account";
 import Brand from "./brand/Brand";
 import DropDown from "./common/DropDown";
 import Product from "./product/Product";
 import Review from "./review/Review";
 import Order from "./order/Order";
 import Feedback from "./Feedback";
+import AccountAdmin from "./account/AccountAdmin";
+import AccountUser from "./account/AccountUser";
+import AccountShipper from "./account/AccountShipper";
+import LockedAccount from "./account/LockedAccount";
+import AddAccount from "./account/AddAccount";
+import EditAccount from "./account/EditAccount";
+import DetailAccount from "./account/DetailAccount";
 
-class Admin extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { form: 0 };
-  }
-  inputFile = null;
+function Admin (props){
+  const  [form, setForm] = useState();
+  // constructor(props) {
+  //   super(props);
+  //   // state class
+  //   state = { form: 0 };
+  // }
+  let inputFile = null;
 
-  switchRender = () => {
-    switch (this.state.form) {
+  const switchRender = () => {
+    switch (form) {
       case 0:
-        return <Account />;
+        return;
+      case 1:
+        return <AccountAdmin switch={(e) => setForm(e)}/>
       case 2:
-        return <Brand />;
+        return <AccountUser switch={(e) => setForm(e)} />;
       case 3:
-        return <Product />;
+        return <AccountShipper switch={(e) => setForm(e)}/> ;
       case 4:
-        return <Order />;
+        return <LockedAccount/>;
       case 5:
-        return <Review />;
+        return <AddAccount />;
       case 6:
-        return <Feedback />;
+        return <EditAccount/>;
+      case 7:
+        return  <DetailAccount/>;
+      case 8: 
+        return; 
       default:
         return null;
     }
   };
-  formChoose(n) {
-    this.setState({
-      form: n,
-    });
+
+  // setForm(n) {
+  //   setState({
+  //     form: n,
+  //   });
+  // }
+  const selectFile = () => {
+    inputFile.click();
   }
-  selectFile() {
-    this.inputFile.click();
-  }
-  render() {
-    return (
-      <section className="pageAdmin">
-        <div className="account">
-          <div className="menuAdmin">
-            <div className="sidebar">
-              <div className="ctn">
-                <div class="header">
-                  <div class="info">
-                    <div class="avt" id="myAvatar">
-                      <strong>T</strong>
-                    </div>
-                    <div class="summer">
-                      <p>
-                        <strong>Tien Phan Nguyen Thụy</strong>
-                      </p>
-                      <p class="change-avatar">
-                        <i class="icon-change-avatar"></i> Thay đổi ảnh đại diện
-                      </p>
-                      <input
-                        type="file"
-                        name="upfile"
-                        id="avtImage"
-                        accept="image/*"
-                      />
-                    </div>
+  return (
+    <section className="pageAdmin">
+      <div className="account">
+        <div className="menuAdmin">
+          <div className="sidebar">
+            <div className="ctn">
+              <div class="header">
+                <div class="info">
+                  <div class="avt" id="myAvatar">
+                    <strong>T</strong>
+                  </div>
+                  <div class="summer">
+                    <p>
+                      <strong>Tien Phan Nguyen Thụy</strong>
+                    </p>
+                    <p class="change-avatar">
+                      <i class="icon-change-avatar"></i> Thay đổi ảnh đại diện
+                    </p>
+                    <input
+                      type="file"
+                      name="upfile"
+                      id="avtImage"
+                      accept="image/*"
+                    />
                   </div>
                 </div>
-                <nav>
-                  <ul>
-                    <li className="nav-item">
-                      <a href="#" className="nav-link active">
-                        <i className="fal fa-tachometer-alt-slow nav-icon"></i>
-                        Dashboard
-                      </a>
-                    </li>
-                    <li className="nav-title">Theme</li>
-                    {/* <li className="nav-item">
-                                            <div className="DropDownFrame">
-                                            
-                                            <SideNavDropdown/>
-                                                <Link to = "/admin/home/addAccount"><DropDown key="dropdown" title="Tài khoản" link={[{name: 'Tài khoản Admin', url: ''},{name: 'Tài khoản User', url: ''},{name: 'Tài khoản đã khóa', url: ''}]}/></Link>
-                                            </div> 
-                                        </li> */}
-
-                    <DropDown
-                      name="Tai khoan"
-                      icon="fas fa-user-circle nav-icon"
-                      subNav={[
-                        {
-                          name: "thg con 1",
-                          icon: "fas fa-user-circle nav-icon",
-                          link: "",
-                          formChoose: () => this.formChoose(0),
-                        },
-                        {
-                          name: "thg con 3",
-                          icon: "fas fa-user-circle nav-icon",
-                          link: "",
-                          formChoose: () => this.formChoose(3),
-                        },
-                        {
-                          name: "thg con 3",
-                          icon: "fas fa-user-circle nav-icon",
-                          link: "",
-                          formChoose: () => this.formChoose(3),
-                        },
-                      ]}
-                    />
-                    <li className="nav-item" onClick={() => this.formChoose(2)}>
-                      <a href="#" className="nav-link active btn-focus">
-                        <i className="fal fa-tachometer-alt-slow nav-icon"></i>
-                        Thương hiệu
-                      </a>
-                    </li>
-                    <li className="nav-item" onClick={() => this.formChoose(3)}>
-                      <a href="#" className="nav-link active btn-focus">
-                        <i class="fad fa-mobile-android-alt nav-icon"></i>
-                        Điện thoại
-                      </a>
-                    </li>
-                    <li className="nav-item" onClick={() => this.formChoose(4)}>
-                      <a href="#" className="nav-link active btn-focus">
-                        <i className="fad fa-box-open nav-icon"></i>
-                        Đơn hàng
-                      </a>
-                    </li>
-                    <li className="nav-item" onClick={() => this.formChoose(5)}>
-                      <a href="#" className="nav-link active btn-focus">
-                        <i className="fas fa-thumbs-up nav-icon"></i>
-                        Đánh giá sản phẩm
-                      </a>
-                    </li>
-                    <li className="nav-item" onClick={() => this.formChoose(6)}>
-                      <a href="#" className="nav-link active btn-focus">
-                        <i className="fas fa-comments-dollar nav-icon"></i>
-                        Góp ý
-                      </a>
-                    </li>
-                    <li className="nav-item">
-                      <a href="#" className="nav-link active btn-focus">
-                        <i className="fas fa-bell nav-icon"></i>
-                        Subscriber
-                      </a>
-                    </li>
-                  </ul>
-                </nav>
               </div>
+              <nav>
+                <ul>
+                  <li className="nav-item">
+                    <a href="#" className="nav-link active">
+                      <i className="fas fa-tachometer-alt nav-icon"></i>
+                      Trang chủ
+                    </a>
+                  </li>
+                  <li className="nav-title">Theme</li>
+
+                  <DropDown
+                    name="Quản lý Tài khoản"
+                    icon="fas fa-user-cog nav-icon"
+                    subNav={[
+                      {
+                        name: "Tài khoản Admin",
+                        icon: "fas fa-user-circle nav-icon",
+                        link: "",
+                        formChoose: () => setForm(1),
+                      },
+                      {
+                        name: "Tài khoản User",
+                        icon: "fas fa-user-circle nav-icon",
+                        link: "",
+                        formChoose: () => setForm(2),
+                      },
+                      {
+                        name: "Tài khoản Shipper",
+                        icon: "fas fa-user-circle nav-icon",
+                        link: "",
+                        formChoose: () => setForm(3),
+                      },
+                      {
+                        name: "Tài khoản đã khóa",
+                        icon: "fas fa-user-circle nav-icon",
+                        link: "",
+                        formChoose: () => setForm(4),
+                      },
+                    ]}
+                  />
+                  <li className="nav-item" onClick={() => setForm(5)}>
+                    <a className="nav-link active btn-focus">
+                      <i className="fas fa-tachometer-alt nav-icon"></i>
+                      Quản lý Thương hiệu
+                    </a>
+                  </li>
+                  <DropDown
+                    name="Quản lý Sản phẩm"
+                    icon="fas fa-user-cog nav-icon"
+                    subNav={[
+                      {
+                        name: "Thông tin sản phẩm",
+                        icon: "fas fa-user-circle nav-icon",
+                        link: "",
+                        formChoose: () => setForm(),
+                      },
+                      {
+                        name: "Quản lý Giá sản phẩm",
+                        icon: "fas fa-user-circle nav-icon",
+                        link: "",
+                        formChoose: () => setForm(),
+                      },
+                      {
+                        name: "Quản lý Số lượng",
+                        icon: "fas fa-user-circle nav-icon",
+                        link: "",
+                        formChoose: () => setForm(),
+                      },
+                      
+                    ]}
+                  />
+                  <li className="nav-item" onClick={() => setForm(4)}>
+                    <a className="nav-link active btn-focus">
+                      <i className="fas fa-box-open nav-icon"></i>
+                      Quản lý Đơn hàng
+                    </a>
+                  </li>
+                  <li className="nav-item" onClick={() => setForm(5)}>
+                    <a href="#" className="nav-link active btn-focus">
+                      <i className="fas fa-thumbs-up nav-icon"></i>
+                      Quản lý Đánh giá 
+                    </a>
+                  </li>
+                  <li className="nav-item" onClick={() => setForm(6)}>
+                    <a href="#" className="nav-link active btn-focus">
+                      <i className="fas fa-comments-dollar nav-icon"></i>
+                      Quản lý Góp ý
+                    </a>
+                  </li>
+                  <li className="nav-item">
+                    <a href="#" className="nav-link active btn-focus">
+                      <i className="fas fa-bell nav-icon"></i>
+                      Quản lý Subscriber
+                    </a>
+                  </li>
+                </ul>
+              </nav>
             </div>
-            <div className="body-content"></div>
           </div>
-          <div className="bodyAdmin">
-            <Header />
-            <div className="bodyMain">{this.switchRender()}</div>
-          </div>
+          <div className="body-content"></div>
         </div>
-      </section>
-    );
-  }
+        <div className="bodyAdmin">
+          <Header />
+          <div className="bodyMain">{switchRender()}</div>
+        </div>
+      </div>
+    </section>
+  );
 }
 
 export default Admin;
