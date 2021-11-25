@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import FilterOrderTab from "./FilterOrderTab";
 import "../../css/customer/orderHistory.css";
+import OrderDetail from "./orderDetail/OrderDetail";
 
 function OrderHistory() {
+  const [model, setModel] = useState(false);
   return (
     <div>
       <section className="orderHistory">
@@ -33,7 +35,6 @@ function OrderHistory() {
                             Trạng thái đơn hàng
                           </th>
                           <th className="sorting" id="History-Control"></th>
-                          
                         </tr>
                       </thead>
                       <tbody>
@@ -43,7 +44,11 @@ function OrderHistory() {
                           <td>IPHONE 13 PROMAX 512GB</td>
                           <td>39.000.000đ</td>
                           <td>Giao hàng thành công</td>
-                          <td><i className="fas fa-list iconDetail"></i></td>
+                          <td>
+                            <button onClick={() => setModel(true)}>
+                              <i className="fas fa-list iconDetail"></i>
+                            </button>
+                          </td>
                         </tr>
                       </tbody>
                     </table>
@@ -54,7 +59,7 @@ function OrderHistory() {
           </div>
         </div>
       </section>
-      {/* <NoOrders/> */}
+      {model && <OrderDetail onClose={() => setModel(false)} />}
     </div>
   );
 }

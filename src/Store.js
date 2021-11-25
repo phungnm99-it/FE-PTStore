@@ -18,6 +18,7 @@ import OrderDetail from "./components/customer/orderDetail/OrderDetail";
 import Register from "./components/common/Register";
 import ForgotPassword from "./components/common/ForgotPassword";
 import ResetPassword from "./components/common/ResetPassword";
+import Feedback from "./components/customer/Feedback";
 
 function App() {
   return (
@@ -46,6 +47,9 @@ function App() {
           <Route exact path="/register">
             <Register />
           </Route>
+          <Route exact path="/feedback">
+            <Feedback />
+          </Route>
           <Route exact path="/forgotPassword">
             <ForgotPassword />
           </Route>
@@ -54,9 +58,6 @@ function App() {
           </Route>
           <PrivateRoute path="/account">
             <Account />
-          </PrivateRoute>
-          <PrivateRoute path="/orderDetail">
-            <OrderDetail />
           </PrivateRoute>
           <Route exact path="/resetPass">
             <ResetPassword />

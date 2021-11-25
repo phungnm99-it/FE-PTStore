@@ -1,6 +1,7 @@
 import React from "react";
 import iconClose from "../../images/iconClose.png";
 import "../../css/customer/changePassword.css"
+
 function ChangePasswordForm(props) {
   //const [isLogin, setIsLogin] = useState(true);
   return (
