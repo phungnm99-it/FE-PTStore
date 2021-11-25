@@ -14,12 +14,12 @@ import FeaturedProducts from "./components/common/FeatureProduct";
 import RecommendProducts from "./components/common/RecommendProduct";
 import Cart from "./components/cart/Cart";
 import ProductDetail from "./components/productDetail/ProductDetail";
-import OrderDetail from "./components/customer/orderDetail/OrderDetail";
 import Register from "./components/common/Register";
 import ForgotPassword from "./components/common/ForgotPassword";
 import ResetPassword from "./components/common/ResetPassword";
 import Feedback from "./components/customer/Feedback";
 import Contact from "./components/common/Contact";
+import ProductPage from "./components/common/product/ProductPage";
 
 function App() {
   return (
@@ -52,10 +52,13 @@ function App() {
             <Feedback />
           </Route>
           <Route exact path="/contact">
-            <Contact/>
+            <Contact />
           </Route>
           <Route exact path="/forgotPassword">
             <ForgotPassword />
+          </Route>
+          <Route exact path="/product">
+            <ProductPage />
           </Route>
           <Route path="/home/phone/detail/:id">
             <ProductDetail />

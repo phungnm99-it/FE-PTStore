@@ -31,13 +31,13 @@ function EndHeader() {
                 ]}
               />
               {/* <DropDownItem title="Tìm theo hãng" link={[{name: 'link 1', url: ''},{name: 'link 3', url: ''}]}/> */}
-              <Link to="/home/phone" className="buttontinh">
+              <Link to="/product" className="buttontinh">
                 Sản phẩm HOT
               </Link>
-              <Link to="/home/phone" className="buttontinh">
+              <Link to="/product" className="buttontinh">
                 CT Khuyến mãi
               </Link>
-              <Link to="/contact" className="buttontinh">
+              <Link to="/feedback" className="buttontinh">
                 Liên hệ
               </Link>
             </div>

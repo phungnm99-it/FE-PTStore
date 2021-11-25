@@ -1,0 +1,37 @@
+.product-specs .nav li {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.product-specs h3 {
+  padding-left: 15px;
+  font-size: 20px;
+}
+
+.product-specs .specs-special {
+  margin-top: 25px;
+}
+
+.product-specs .product-specs-button {
+  bottom: -10px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  margin-top: 40px;
+  background: #fdfdfe 0% 0% no-repeat padding-box;
+  box-shadow: 0 3px 6px #fe980f;
+  border-radius: 10px;
+  font-size: 15px;
+  color: #191919;
+  padding: 8px;
+  width: 250px;
+  margin-left: 50px;
+}
+
+.product-specs .product-specs-button strong {
+  margin-top: -2px;
+}
+
+.product-specs .list-left .nav li {
+  font-weight: bold;
+}

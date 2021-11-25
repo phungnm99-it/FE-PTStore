@@ -1,0 +1,74 @@
+.review-content {
+  margin: 15px 50px 0 50px;
+}
+
+.review-content .item {
+  display: flex;
+  margin-bottom: 20px;
+  padding: 0px;
+}
+
+.review-content .item .avt {
+  width: 60px;
+  height: 55px;
+  border: 1px solid #ccc;
+  border-radius: 25px;
+  background: #f1f1f1;
+  overflow: hidden;
+}
+
+.review-content .item .avt img {
+  max-width: 100%;
+}
+
+.review-content .item .info {
+  padding-left: 20px;
+  flex-basis: 100%;
+}
+
+.review-content .item .info p {
+  margin: 5px 0;
+  display: flex;
+  align-items: start;
+}
+
+.review-content .item .info p label i {
+  color: gray;
+  font-size: 12px;
+}
+
+.review-content .item .info .content {
+  margin-top: 15px;
+  text-align: justify;
+  line-height: 1.4;
+}
+
+.childs {
+  margin-top: 20px;
+  border-left: 2px solid #a7a9ac;
+  padding-left: 20px;
+}
+
+.replyHolder {
+  background: #e5e5e5 0% 0% no-repeat padding-box;
+  border-radius: 13px;
+  width: 320px;
+  display: flex;
+  padding: 0 10px;
+}
+
+.replyHolder input {
+  outline: none;
+  padding: 10px 0;
+  border: none;
+  background: none;
+  flex-basis: 100%;
+  font-weight: bold;
+}
+
+.replyHolder button {
+  border: none;
+  background: none;
+  width: 20px;
+  text-align: center;
+}

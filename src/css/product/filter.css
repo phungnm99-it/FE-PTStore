@@ -1,0 +1,53 @@
+.filter .container {
+  min-width: 1200px;
+  width: 1200px;
+  margin: 0 auto;
+}
+
+.filter .filter-total {
+  position: relative;
+  display: flex;
+}
+
+.filter .filter-total .left,
+.filter .filter-total .right {
+  cursor: pointer;
+}
+
+.filter .right label,
+.filter .left label {
+  font-size: 15px;
+  font-weight: 500;
+  border: 1px solid #ced4da;
+  padding: 5px 10px;
+  border-radius: 12px;
+  width: auto;
+  height: auto;
+  margin-right: 5px;
+  margin-top: 10px;
+}
+
+.filter .filter-total ul {
+  border: 1px solid #ced4da;
+  height: auto;
+  width: 200px;
+  padding: 5px 15px;
+  font-size: 15px;
+  font-weight: 300px;
+  border-radius: 12px;
+  margin-top: -5px;
+}
+
+.filter .filter-total ul li {
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
+.filter .filter-total ul li a:hover {
+  color: #fe980f;
+}
+
+.filter .filter-total ul li a {
+  color: black;
+  font-weight: 400;
+}

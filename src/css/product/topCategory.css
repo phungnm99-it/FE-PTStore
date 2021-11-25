@@ -1,0 +1,27 @@
+.top-category-ads {
+  margin: 10px 0 0 0;
+}
+
+.top-category-ads .ads-container {
+  display: flex;
+}
+
+.top-category-ads .item:last-child {
+  margin-right: 0;
+}
+
+.top-category-ads .item a:last-child img {
+  margin: 0;
+}
+
+.top-category-ads .item img {
+  margin-bottom: 8px;
+}
+
+.img-border-radius {
+  border-radius: 4px;
+}
+
+.img-responsive {
+  width: 100%;
+}

@@ -1,12 +1,7 @@
-import React, { Component, useState } from "react";
+import React, { useState } from "react";
 import "../../css/admin/Menu.css";
 import Header from "./common/Header";
-import Brand from "./brand/Brand";
 import DropDown from "./common/DropDown";
-import Product from "./product/Product";
-import Review from "./review/Review";
-import Order from "./order/Order";
-import Feedback from "./Feedback";
 import AccountAdmin from "./account/AccountAdmin";
 import AccountUser from "./account/AccountUser";
 import AccountShipper from "./account/AccountShipper";
@@ -15,13 +10,8 @@ import AddAccount from "./account/AddAccount";
 import EditAccount from "./account/EditAccount";
 import DetailAccount from "./account/DetailAccount";
 
-function Admin (props){
-  const  [form, setForm] = useState();
-  // constructor(props) {
-  //   super(props);
-  //   // state class
-  //   state = { form: 0 };
-  // }
+function Admin() {
+  const [form, setForm] = useState();
   let inputFile = null;
 
   const switchRender = () => {
@@ -29,21 +19,21 @@ function Admin (props){
       case 0:
         return;
       case 1:
-        return <AccountAdmin switch={(e) => setForm(e)}/>
+        return <AccountAdmin switch={(e) => setForm(e)} />;
       case 2:
         return <AccountUser switch={(e) => setForm(e)} />;
       case 3:
-        return <AccountShipper switch={(e) => setForm(e)}/> ;
+        return <AccountShipper switch={(e) => setForm(e)} />;
       case 4:
-        return <LockedAccount/>;
+        return <LockedAccount />;
       case 5:
         return <AddAccount />;
       case 6:
-        return <EditAccount/>;
+        return <EditAccount />;
       case 7:
-        return  <DetailAccount/>;
-      case 8: 
-        return; 
+        return <DetailAccount />;
+      case 8:
+        return;
       default:
         return null;
     }
@@ -56,7 +46,7 @@ function Admin (props){
   // }
   const selectFile = () => {
     inputFile.click();
-  }
+  };
   return (
     <section className="pageAdmin">
       <div className="account">
@@ -152,7 +142,6 @@ function Admin (props){
                         link: "",
                         formChoose: () => setForm(),
                       },
-                      
                     ]}
                   />
                   <li className="nav-item" onClick={() => setForm(4)}>
@@ -164,7 +153,7 @@ function Admin (props){
                   <li className="nav-item" onClick={() => setForm(5)}>
                     <a href="#" className="nav-link active btn-focus">
                       <i className="fas fa-thumbs-up nav-icon"></i>
-                      Quản lý Đánh giá 
+                      Quản lý Đánh giá
                     </a>
                   </li>
                   <li className="nav-item" onClick={() => setForm(6)}>
