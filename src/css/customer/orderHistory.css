@@ -85,3 +85,8 @@
   color: #7774e7;
   margin-left: 10px;
 }
+
+.orderHistory button{
+  border: none;
+  background-color: #f9f9f9;
+}

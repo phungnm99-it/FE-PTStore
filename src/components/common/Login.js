@@ -4,7 +4,7 @@ import { AuthContext } from "../../AuthContext";
 import { useContext } from "react";
 import userApi from "../../api/userApi";
 import "../../css/common/Login.css";
-import { GoogleLogin } from "react-google-login";
+/* import { GoogleLogin } from "react-google-login"; */
 
 function Login() {
   const clientId =
@@ -46,7 +46,7 @@ function Login() {
           <div className="loginForm">
             <div className="form">
               <h2>ĐĂNG NHẬP</h2>
-              <div className="external">
+              {/* <div className="external">
                 <GoogleLogin
                   clientId={clientId}
                   buttonText="Đăng nhập với Google"
@@ -56,7 +56,7 @@ function Login() {
                   className="loginGoogleButton"
                   isSignedIn={true}
                 />
-              </div>
+              </div> */}
 
               <div className="split">
                 <p>Hoặc</p>

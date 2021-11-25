@@ -1,13 +1,50 @@
 .orderDetail .jquery-modal .modal {
-  max-width: 550px;
+  max-width: 600px;
   min-width: 550px;
   height: auto;
-  overflow: hidden;
   background-color: #fff;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.orderDetail .modal {
+  vertical-align: middle;
+  z-index: 2;
+  box-sizing: border-box;
+  background: #fff;
+  padding: 15px 30px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px #000;
+  text-align: left;
+  display: inline-block;
+  height: 480px;
+  
+}
+
+.orderDetail .blocker {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0.75);
+  text-align: center;
+}
+
+.orderDetail .icon-close{
+  position: absolute;
+  right: 5px;
+  top: 7px;
+  cursor: pointer;
 }
 
 .orderDetail .headerOrderDetail {
   background-color: #fff !important;
+  margin-top: 30px;
 }
 
 .orderDetail .headerOrderDetail p {
@@ -33,7 +70,7 @@
   padding-top: 15px;
 }
 
-.media {
+.orderDetail .bodyOrderDetail .media {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-align: start;
@@ -50,8 +87,10 @@
 }
 
 .orderDetail .bodyOrderDetail img {
-  height: 150px;
-  width: 200px;
+  height: 180px;
+  width: 260px;
+  margin-left: -80px;
+  margin-right: 0px;
 }
 
 .orderDetail .modal {
@@ -162,4 +201,8 @@
 
 .text-center {
   text-align: center !important;
+}
+
+.orderDetail .status-orderDetail{
+  margin-bottom: 20px;
 }

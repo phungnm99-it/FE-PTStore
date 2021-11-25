@@ -1,0 +1,83 @@
+
+.feedback{
+    margin-top: 3%;
+    overflow: hidden;
+}
+
+.feedback .container{
+    min-width: 1200px;
+    margin-left: 25px;
+    padding-right: 30px;
+}
+
+.background{
+    background-color: white;
+}
+
+.feedback .title{
+    color: #FE980F;
+    font-family: 'Roboto', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    margin: 0 15px;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.label-feedback{
+    font-size: 23px;
+    color: #fe980f;
+    margin-bottom: 3%;
+    margin-top: 0%;
+}
+
+.margin-top-button{
+    margin-top: 2%;
+}
+
+.buttonfeedback{
+    width: 150px;
+    border-radius: 12px;  
+}
+
+.feedback  #contact-page .form-control{
+    background-color: #fff;
+    border: 1px solid #ddd;
+    color: #696763;
+    height: 40px;
+    padding: 6px 12px;
+    width: 100%;
+    font-size: 16px;
+    border-radius: 10px; 
+}
+
+.feedback .selectTopic{
+    background-color: #fff;
+    border: 1px solid #ddd;
+    color: #696763;
+    height: 40px;
+    padding: 6px 12px;
+    width: 100%;
+    font-size: 16px;
+    border-radius: 10px;
+}
+
+.feedback .selectTopic option{
+    color: #696763;
+}
+
+.feedback .btn-contact button{
+    margin-bottom: 20px;
+    color: #fff;
+    background-color: #FE980F;
+    border: none;
+    height: 40px;
+    width: 150px;
+    border-radius: 8px;
+    font-weight: bold;
+    margin-left: 250px;
+    margin-top: 10px;
+    font-size: 16px;
+
+}

@@ -2,9 +2,9 @@ import React from "react";
 
 function StatusOD() {
   return (
-    <div>
-      <div class="row px-3">
-        <div class="col">
+    <div className="status-orderDetail">
+      <div className="row px-3">
+        <div className="col">
           <ul id="progressbar">
             <li class="step0 active " id="step1">
               Chờ xác nhận

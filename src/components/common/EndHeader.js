@@ -37,7 +37,7 @@ function EndHeader() {
               <Link to="/home/phone" className="buttontinh">
                 CT Khuyến mãi
               </Link>
-              <Link to="/feedback" className="buttontinh">
+              <Link to="/contact" className="buttontinh">
                 Liên hệ
               </Link>
             </div>
