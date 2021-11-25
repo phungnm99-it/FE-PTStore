@@ -32,7 +32,7 @@ function AccountInfo() {
                 <div className="col col-lg">
                   <div className="box-bg-white">
                     <div className="account-form">
-                      <form onsubmit="return validFormAccount(this);">
+                      <div>
                         <div className="form-controls">
                           <label>Tên đăng nhập:</label>
                           <div className="controls">
@@ -220,7 +220,7 @@ function AccountInfo() {
                             </div>
                           </div>
                         </div>
-                      </form>
+                      </div>
                     </div>
                   </div>
                 </div>
