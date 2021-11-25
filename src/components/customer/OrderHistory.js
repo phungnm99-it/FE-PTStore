@@ -32,6 +32,7 @@ function OrderHistory() {
                           <th className="sorting" id="History-StatusCol">
                             Trạng thái đơn hàng
                           </th>
+                          <th className="sorting" id="History-Control"></th>
                           
                         </tr>
                       </thead>
@@ -42,6 +43,7 @@ function OrderHistory() {
                           <td>IPHONE 13 PROMAX 512GB</td>
                           <td>39.000.000đ</td>
                           <td>Giao hàng thành công</td>
+                          <td><i className="fas fa-list iconDetail"></i></td>
                         </tr>
                       </tbody>
                     </table>

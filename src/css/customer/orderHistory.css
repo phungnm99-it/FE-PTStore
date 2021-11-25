@@ -61,7 +61,7 @@
   width: 60px;
 }
 #History-ProductCol {
-  width: 180px;
+  width: 300px;
 }
 #History-DateCol {
   width: 40px;
@@ -72,8 +72,16 @@
 #History-StatusCol {
   width: 70px;
 }
+#History-Control{
+  width: 10px;
+}
 
 
 .orderHistory table thead {
   width: 100%;
+}
+
+.orderHistory .iconDetail{
+  color: #7774e7;
+  margin-left: 10px;
 }

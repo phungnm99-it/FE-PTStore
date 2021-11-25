@@ -67,7 +67,7 @@ class Account extends Component {
                 <div class="info">
                   <div class="avt" id="myAvatar">
                     {/* <strong>T</strong> */}
-                    <img src={this.state.avt} alt="D.M cai avt" />
+                    <img src={this.state.avt} alt="" />
                   </div>
 
                   <div class="summer">

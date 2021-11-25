@@ -17,6 +17,7 @@ import ProductDetail from "./components/productDetail/ProductDetail";
 import OrderDetail from "./components/customer/orderDetail/OrderDetail";
 import Register from "./components/common/Register";
 import ForgotPassword from "./components/common/ForgotPassword";
+import ResetPassword from "./components/common/ResetPassword";
 
 function App() {
   return (
@@ -57,6 +58,9 @@ function App() {
           <PrivateRoute path="/orderDetail">
             <OrderDetail />
           </PrivateRoute>
+          <Route exact path="/resetPass">
+            <ResetPassword />
+          </Route>
         </Switch>
         <Footer />
       </AuthProvider>

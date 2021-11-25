@@ -98,7 +98,7 @@ function AccountInfo() {
                           <div className="controls">
                             <input
                               className="form-input"
-                              type="text"
+                              type="date"
                               value="06/10/1999"
                               name="UserBirthDate"
                               id="UserBirthDate"
@@ -210,7 +210,7 @@ function AccountInfo() {
                             </div>
                             <div className="col-md-4">
                               <button
-                                className="btn btn-link ajax-content"
+                                className="btn-changePass"
                                 onClick={() => {
                                   setIsOpen(true);
                                 }}
