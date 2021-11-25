@@ -5,14 +5,19 @@ import HeadOD from "./HeadOD";
 import BodyOD from "./BodyOD";
 import StatusOD from "./StatusOD";
 
-function OrderDetail() {
+function OrderDetail(props) {
   return (
     <div>
       <div className="orderDetail">
         <div className="jquery-modal blocker current">
           <div className="container modal">
             <div className="orderSuccess-form">
-              <img alt="iconClose" className="icon-close" src={iconClose} />
+              <img
+                alt="iconClose"
+                className="icon-close"
+                src={iconClose}
+                onClick={props.onClose}
+              />
               <div className="form">
                 <HeadOD />
                 <BodyOD />
