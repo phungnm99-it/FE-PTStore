@@ -10,7 +10,7 @@ function OrderDetail(props) {
     <div>
       <div className="orderDetail">
         <div className="jquery-modal blocker current">
-          <div className="container modal">
+          <div className="container modal modal-orderDetail">
             <div className="orderSuccess-form">
               <img
                 alt="iconClose"
@@ -20,9 +20,9 @@ function OrderDetail(props) {
               />
               <div className="form">
                 <HeadOD />
-                <BodyOD />
-                <BodyOD />
                 <StatusOD />
+                <BodyOD />
+                <BodyOD />
               </div>
             </div>
           </div>

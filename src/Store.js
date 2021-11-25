@@ -19,6 +19,7 @@ import Register from "./components/common/Register";
 import ForgotPassword from "./components/common/ForgotPassword";
 import ResetPassword from "./components/common/ResetPassword";
 import Feedback from "./components/customer/Feedback";
+import Contact from "./components/common/Contact";
 
 function App() {
   return (
@@ -49,6 +50,9 @@ function App() {
           </Route>
           <Route exact path="/feedback">
             <Feedback />
+          </Route>
+          <Route exact path="/contact">
+            <Contact/>
           </Route>
           <Route exact path="/forgotPassword">
             <ForgotPassword />
