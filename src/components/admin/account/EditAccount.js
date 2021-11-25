@@ -7,15 +7,10 @@ function EditAccount() {
   return (
     <div>
       <div className="editAccount">
-        <div className="jquery-modal blocker current">
-          <div className="container modal">
-            <div className="loginForm">
-              <img className="icon-close" src={iconClose} />
-            </div>
-            <div className="form">
-              <div className="title-addAccount">
-                <h2>Chỉnh sửa tài khoản</h2>
-              </div>
+        <div className="title-addAccount">
+          <h2>Chỉnh sửa tài khoản</h2>
+        </div>
+        <div className="form">
               <div className="input-addAccount">
                 <form>
                   <div className="mb-3">
@@ -217,8 +212,6 @@ function EditAccount() {
                   </div>
                 </form>
               </div>
-            </div>
-          </div>
         </div>
       </div>
     </div>

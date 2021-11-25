@@ -1,22 +1,15 @@
 import React from "react";
 import "../../../css/admin/account/DetailAccount.css";
-import iconClose from "../../../images/iconClose.png";
 import noAvt from "../../../images/no-avt.png";
-import { Link } from "react-router-dom";
 
-function DetailAccount() {
+function DetailAccount(props) {
   return (
     <div>
       <div className="detailAccount">
-        <div className="jquery-modal blocker current">
-          <div className="container modal">
-            <div className="loginForm">
-              <img className="icon-close" src={iconClose} />
-            </div>
-            <div className="form">
-              <div className="title-addAccount">
+        <div className="title-addAccount">
                 <h2>Thông tin chi tiết</h2>
-              </div>
+        </div>
+        <div className="form">
               <div className="body-detailAccount">
                 <div className="row">
                   <div className="col-sm-9">
@@ -59,17 +52,14 @@ function DetailAccount() {
                   </div>
                 </div>
               </div>
-              <div className="btn-detailAccount">
-                <Link
-                  to="/admin/home/editAccount"
-                  type="submit"
+              {/* <div className="btn-detailAccount">
+                <button
+                  
                   className="btnEdit-detailAccount"
                 >
                   Chỉnh sửa
-                </Link>
-              </div>
-            </div>
-          </div>
+                </button>
+              </div> */}
         </div>
       </div>
     </div>
