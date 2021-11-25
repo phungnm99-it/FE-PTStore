@@ -1,28 +1,26 @@
 import React from "react";
 import iconClose from "../../images/iconClose.png";
+import "../../css/customer/changePassword.css"
 function ChangePasswordForm(props) {
   //const [isLogin, setIsLogin] = useState(true);
   return (
     <div>
-      <div className="forgotPassword">
+      <div className="changePassword">
         <div className="jquery-modal blocker current">
-          <div className="container modal">
-            <div className="forgotPassword-form">
+          <div className="container modal modal-changePassword">
+            <div className="changePassword-form">
               <img
                 alt="icon-close"
                 className="icon-close"
                 src={iconClose}
                 onClick={() => props.onCLose()}
               />
-              <div className="form">
-                <div className="forgot">
+              <div className="changePassword">
                   <div>
-                    <h4>ĐỔI MẬT KHẨU</h4>
+                    <p>ĐỔI MẬT KHẨU</p>
                   </div>
-                  <form
-                    method="post"
-                    action="/Account/ForgotPassword"
-                    class="js-validation-reminder form-horizontal push-30-t push-50"
+                  <div
+                    className="js-validation-reminder form-horizontal push-30-t push-50"
                   >
                     <div className="row">
                       <label>Nhập mật khẩu cũ</label>
@@ -60,9 +58,8 @@ function ChangePasswordForm(props) {
                         khẩu
                       </button>
                     </div>
-                  </form>
+                  </div>
                 </div>
-              </div>
             </div>
           </div>
         </div>
