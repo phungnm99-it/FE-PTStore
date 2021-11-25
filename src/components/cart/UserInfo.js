@@ -93,7 +93,7 @@ function UserInfo() {
         <div className="final-total">
           <div className="total-price">
             <strong>Tổng tiền</strong>
-            <strong>20.000.000đ</strong>
+            <strong>27.980.000</strong>
           </div>
           <div className="btn-buy">
             <button type="button" className="submitpay">

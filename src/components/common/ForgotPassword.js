@@ -1,5 +1,6 @@
 import React from "react";
 import "../../css/common/ForgotPassword.css";
+import { Link} from "react-router-dom";
 
 function ForgotPassword() {
   return (
@@ -9,7 +10,10 @@ function ForgotPassword() {
           <div className="forgotPassForm">
             <div className="form">
               <div className="title-forgotPass">
-                <h4>CẤP LẠI MẬT KHẨU</h4>
+                <p>CẤP LẠI MẬT KHẨU</p>
+              </div>
+              <div className="comment-forgotPass">
+                <p>Để cập nhật lại mật khẩu mới bạn vui lòng nhập Email đã dùng để đăng ký tài khoản vào khung bên dưới.</p>
               </div>
 
               <div className="row">
@@ -24,8 +28,7 @@ function ForgotPassword() {
               </div>
               <div className="row">
                 <button type="submit">
-                  <i className="si si-envelope-open pull-right"></i> Cấp lại mật
-                  khẩu
+                  <Link to ="/resetPass" className="btn-forgotPass">Cấp lại mật khẩu</Link> 
                 </button>
               </div>
             </div>
