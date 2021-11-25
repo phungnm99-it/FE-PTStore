@@ -5,7 +5,13 @@ import { Link, useHistory } from "react-router-dom";
 import { AdminContext } from "../../AdminContext";
 
 function AdminLogin() {
-
+  const context = useContext(AdminContext);
+  const history = useHistory();
+  const handleLogin = () => {
+    context.login(() => {
+      history.push("/admin");
+    });
+  };
   return (
     <div className="loginAdmin">
       <div className="jquery-modal blocker current">
@@ -54,7 +60,7 @@ function AdminLogin() {
 
               <div className="container-login100-form-btn">
                 <button
-                  // onClick={()=>handleLogin()}
+                  onClick={handleLogin}
                   type="button"
                   className="btn-LoginAdmin"
                   value="Đăng nhập"
