@@ -1,0 +1,14 @@
+.productItem  img {
+    height: 180px;
+    width: 260px;
+    margin-left: -80px;
+    margin-right: 0px;
+}
+
+.productItem{
+    margin-top: 20px;
+}
+
+.productItem .bold{
+    font-size: 18px;
+}

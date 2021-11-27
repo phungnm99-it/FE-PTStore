@@ -1,21 +1,17 @@
 import React from "react";
 import "../../../css/admin/product/AddProduct.css";
-import iconClose from "../../../images/iconClose.png";
+
 import noAvt from "../../../images/no-avt.png";
 
 function AddProduct() {
   return (
     <div>
       <div className="addProduct">
-        <div className="jquery-modal blocker current">
-          <div className="container modal">
-            <div className="loginForm">
-              <img className="icon-close" src={iconClose} />
-            </div>
-            <div className="form">
-              <div className="title-addAccount">
-                <h2>Thêm sản phẩm</h2>
-              </div>
+        <div className="title-addAccount">
+          <h2>Thêm sản phẩm</h2>
+        </div>
+        <div className="form">
+              
               <div className="input-addAccount">
                 <form>
                   <div className="mb-3">
@@ -313,8 +309,6 @@ function AddProduct() {
                   </div>
                 </form>
               </div>
-            </div>
-          </div>
         </div>
       </div>
     </div>

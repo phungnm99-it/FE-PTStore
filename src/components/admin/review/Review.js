@@ -1,8 +1,8 @@
 import React from "react";
 import "../../../css/admin/review/Review.css";
-import { Link } from "react-router-dom";
 
-function Review() {
+
+function Review(props) {
   return (
     <div>
       <section className="pageAdmin">
@@ -77,27 +77,27 @@ function Review() {
                             </td>
                             <td>19/11/2021</td>
                             <td>
-                              <Link
+                              {/* <Link
                                 to="/admin/home/replyReview"
                                 className="iconReply"
                                 href="#"
                               >
                                 <i className="fas fa-reply"></i>
-                              </Link>
-                              <Link
-                                to="/admin/home/detailReview"
+                              </Link> */}
+                              <button
+                                onClick={() => props.switch(19)}
                                 className="iconDetail"
-                                href="#"
+                                
                               >
                                 <i className="fas fa-list"></i>
-                              </Link>
-                              <Link
-                                to="/admin/home/deleteReview"
+                              </button>
+                              <button
+                                
                                 className="iconDelete"
-                                href="#"
+                                
                               >
                                 <i className="fas fa-backspace"></i>
-                              </Link>
+                              </button>
                             </td>
                           </tr>
                         </tbody>

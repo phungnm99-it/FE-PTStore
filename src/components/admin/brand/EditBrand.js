@@ -1,21 +1,16 @@
 import React from "react";
-import "../../../css/admin/brand/AddBrand.css";
-import iconClose from "../../../images/iconClose.png";
+import "../../../css/admin/brand/EditBrand.css";
 import noAvt from "../../../images/no-avt.png";
 
 function EditBrand() {
   return (
     <div>
       <div className="editBrand">
-        <div className="jquery-modal blocker current">
-          <div className="container modal">
-            <div className="loginForm">
-              <img className="icon-close" src={iconClose} />
-            </div>
-            <div className="form">
-              <div className="title-addAccount">
-                <h2>Chỉnh sửa thương hiệu</h2>
-              </div>
+        <div className="title-addAccount">
+          <h2>Chỉnh sửa thương hiệu</h2>
+        </div>
+        <div className="form">
+              
               <div className="input-addAccount">
                 <form>
                   <div className="mb-3">
@@ -72,8 +67,6 @@ function EditBrand() {
                   </div>
                 </form>
               </div>
-            </div>
-          </div>
         </div>
       </div>
     </div>

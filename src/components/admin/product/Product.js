@@ -2,7 +2,7 @@ import React from "react";
 import "../../../css/admin/product/Product.css";
 import { Link } from "react-router-dom";
 
-function Product() {
+function Product(props) {
   return (
     <div>
       <section className="pageAdmin">
@@ -16,8 +16,8 @@ function Product() {
                     <h4 className="c-grey-900 mB-20">Danh sách</h4>
                     <div className="dataTables_wrapper">
                       <div className="buttonControl">
-                        <button className="Add">
-                          <Link to="/admin/home/addProduct">Thêm sản phẩm</Link>
+                        <button className="Add" onClick={() => props.switch(15)}>
+                          Thêm sản phẩm
                         </button>
                       </div>
                       <div className="dataTables_length" id="dataTable_length">
@@ -92,27 +92,27 @@ function Product() {
                             <td>.....</td>
                             <td>Còn hàng</td>
                             <td>
-                              <Link
-                                to="/admin/home/editProductInfo"
+                              <button
+                                onClick={() => props.switch(16)}
                                 className="iconEdit"
-                                href="#"
+                                
                               >
                                 <i className="fas fa-edit"></i>
-                              </Link>
-                              <Link
-                                to="/admin/home/detailProduct"
+                              </button>
+                              <button
+                                onClick={() => props.switch(17)}
                                 className="iconDetail"
-                                href="#"
+                                
                               >
                                 <i class="fas fa-list"></i>
-                              </Link>
-                              <Link
-                                to="/admin/home/deleteProduct"
+                              </button>
+                              <button
+                                
                                 className="iconDelete"
-                                href="#"
+                               
                               >
                                 <i className="fas fa-backspace"></i>
-                              </Link>
+                              </button>
                             </td>
                           </tr>
                         </tbody>

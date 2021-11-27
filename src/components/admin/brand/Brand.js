@@ -1,7 +1,7 @@
 import React from "react";
 import "../../../css/admin/brand/Brands.css";
 import { Link } from "react-router-dom";
-function Brand() {
+function Brand(props) {
   return (
     <div>
       <section className="pageAdmin">
@@ -15,10 +15,8 @@ function Brand() {
                     <h4 className="c-grey-900 mB-20">Danh sách</h4>
                     <div className="dataTables_wrapper">
                       <div className="buttonControl">
-                        <button className="Add">
-                          <Link to="/admin/home/addBrand">
+                        <button className="Add" onClick={() => props.switch(9)}>
                             Thêm thương hiệu
-                          </Link>
                         </button>
                       </div>
                       <div className="dataTables_length" id="dataTable_length">
@@ -70,27 +68,27 @@ function Brand() {
                             <td>Iphone</td>
                             <td></td>
                             <td>
-                              <Link
-                                to="/admin/home/editBrand"
+                              <button
+                                onClick={() => props.switch(10)}
                                 className="iconEdit"
-                                href="#"
+                                
                               >
                                 <i className="fas fa-edit"></i>
-                              </Link>
-                              <Link
-                                to="/admin/home/detailBrand"
+                              </button>
+                              <button
+                                onClick={() => props.switch(11)}
                                 className="iconDetail"
-                                href="#"
+                                
                               >
-                                <i class="fas fa-list"></i>
-                              </Link>
-                              <Link
-                                to="/admin/home/deleteBrand"
+                                <i className="fas fa-list"></i>
+                              </button>
+                              <button
+                                
                                 className="iconDelete"
-                                href="#"
+                                
                               >
                                 <i className="fas fa-backspace"></i>
-                              </Link>
+                              </button>
                             </td>
                           </tr>
                         </tbody>

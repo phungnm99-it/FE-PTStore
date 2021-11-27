@@ -327,7 +327,7 @@ table.dataTable tbody tr {
 .brands-management .iconEdit{
     font-size: 13px;
     color: #7774e7;
-    margin-right: 10px;
+    margin-right: 5px;
 }
 
 .brands-management .iconDelete{
@@ -337,6 +337,11 @@ table.dataTable tbody tr {
 
 .brands-management .iconDetail{
     font-size: 13px;
-    margin-right: 10px;
+    margin-right: 5px;
+}
+
+.brands-management .iconEdit, .brands-management .iconDetail, .brands-management .iconDelete{
+    border: none;
+    background-color: #f9f9f9;
 }
 

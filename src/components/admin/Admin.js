@@ -8,8 +8,21 @@ import AccountShipper from "./account/AccountShipper";
 import LockedAccount from "./account/LockedAccount";
 import AddAccount from "./account/AddAccount";
 import EditAccount from "./account/EditAccount";
-import DetailAccount from "./account/DetailAccount";
-
+import DetailAccount from "./account/DetailAccount"
+import Brand from "./brand/Brand"
+import AddBrand from "./brand/AddBrand";
+import EditBrand from "./brand/EditBrand";
+import DetailBrand from "./brand/DetailBrand";
+import Product from "./product/Product";
+import AddProduct from "./product/AddProduct";
+import DetailProduct from "./product/DetailProduct";
+import EditProduct from "./product/EditProduct";
+import Review from "./review/Review"
+import DetailReview from "./review/DetailReview";
+import ProductPrice from "./product/ProductPrice";
+import EditPrice from "./product/EditPrice";
+import Order from "./order/Order"
+import EditOrder from "./order/EditOrder";
 function Admin() {
   const [form, setForm] = useState();
   let inputFile = null;
@@ -33,7 +46,35 @@ function Admin() {
       case 7:
         return <DetailAccount />;
       case 8:
+        return <Brand switch={(e) => setForm(e)}/>;
+      case 9: 
+        return <AddBrand/>;
+      case 10: 
+        return <EditBrand/>;
+      case 11:
+        return <DetailBrand/>;
+      case 12:
+        return <Product switch={(e) => setForm(e)}/>;
+      case 13:
+        return <ProductPrice switch={(e) => setForm(e)}/>;
+      case 14:
         return;
+      case 15:
+        return <AddProduct/>;
+      case 16:
+        return <EditProduct/>;
+      case 17:
+        return <DetailProduct/>;
+      case 18: 
+        return <Review switch={(e) => setForm(e)}/>
+      case 19:
+        return <DetailReview/>;
+      case 20:
+        return <EditPrice/>;
+      case 21: 
+        return <Order switch={(e) => setForm(e)}/>;
+      case 22:
+        return <EditOrder/>;
       default:
         return null;
     }
@@ -114,7 +155,7 @@ function Admin() {
                       },
                     ]}
                   />
-                  <li className="nav-item" onClick={() => setForm(5)}>
+                  <li className="nav-item" onClick={() => setForm(8)}>
                     <a className="nav-link active btn-focus">
                       <i className="fas fa-tachometer-alt nav-icon"></i>
                       Quản lý Thương hiệu
@@ -128,29 +169,54 @@ function Admin() {
                         name: "Thông tin sản phẩm",
                         icon: "fas fa-user-circle nav-icon",
                         link: "",
-                        formChoose: () => setForm(),
+                        formChoose: () => setForm(12),
                       },
                       {
                         name: "Quản lý Giá sản phẩm",
                         icon: "fas fa-user-circle nav-icon",
                         link: "",
-                        formChoose: () => setForm(),
+                        formChoose: () => setForm(13),
                       },
                       {
                         name: "Quản lý Số lượng",
                         icon: "fas fa-user-circle nav-icon",
                         link: "",
-                        formChoose: () => setForm(),
+                        formChoose: () => setForm(14),
                       },
                     ]}
                   />
-                  <li className="nav-item" onClick={() => setForm(4)}>
-                    <a className="nav-link active btn-focus">
-                      <i className="fas fa-box-open nav-icon"></i>
-                      Quản lý Đơn hàng
-                    </a>
-                  </li>
-                  <li className="nav-item" onClick={() => setForm(5)}>
+                  <DropDown
+                    name="Quản lý Đơn hàng"
+                    icon="fas fa-box-open nav-icon"
+                    subNav={[
+                      {
+                        name: "Tất cả đơn hàng",
+                        icon: "fas fa-user-circle nav-icon",
+                        link: "",
+                        formChoose: () => setForm(21),
+                      },
+                      {
+                        name: "Đơn hàng chờ xác nhận",
+                        icon: "fas fa-user-circle nav-icon",
+                        link: "",
+                        formChoose: () => setForm(13),
+                      },
+                      {
+                        name: "Đơn hàng đã xác nhận",
+                        icon: "fas fa-user-circle nav-icon",
+                        link: "",
+                        formChoose: () => setForm(14),
+                      },
+                      {
+                        name: "Đơn hàng đã hoàn thành",
+                        icon: "fas fa-user-circle nav-icon",
+                        link: "",
+                        formChoose: () => setForm(14),
+                      },
+                    ]}
+                  />
+                  
+                  <li className="nav-item" onClick={() => setForm(18)}>
                     <a href="#" className="nav-link active btn-focus">
                       <i className="fas fa-thumbs-up nav-icon"></i>
                       Quản lý Đánh giá
