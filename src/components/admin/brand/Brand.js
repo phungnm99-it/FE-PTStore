@@ -8,6 +8,7 @@ function Brand(props) {
       setBrands(res.data);
     });
   }, []);
+  
   return (
     <div>
       <section className="pageAdmin">

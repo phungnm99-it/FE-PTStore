@@ -23,8 +23,8 @@ function AccountInfo() {
       console.log(response.data);
       setInfo(response.data);
       setName(info.fullName);
-      setUsername(info.username)
-      setPhoneNumber(info.phoneNumber)
+      setUsername(info.username);
+      setPhoneNumber(info.phoneNumber);
     });
   }, []);
   // lay quan tu ma tinh
@@ -51,7 +51,6 @@ function AccountInfo() {
                             <input
                               className="form-input"
                               type="text"
-                              readOnly
                               value={username}
                               name="UserName"
                               id="UserName"

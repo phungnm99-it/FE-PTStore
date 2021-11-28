@@ -70,7 +70,7 @@ function App() {
           <PrivateRoute path="/account">
             <Account />
           </PrivateRoute>
-          <Route exact path="/resetPass">
+          <Route path="/resetPassword/:id">
             <ResetPassword />
           </Route>
         </Switch>
