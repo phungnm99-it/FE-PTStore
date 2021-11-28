@@ -1,5 +1,4 @@
 import axios from "axios";
-import Auth from "./auth";
 
 const axiosClient = axios.create({
   baseURL: process.env.REACT_APP_API_URL,
@@ -15,7 +14,7 @@ const axiosClient = axios.create({
 
 axiosClient.interceptors.request.use(
   async (config) => {
-    const token = Auth.getAccessToken();
+    const token = sessionStorage.getItem("access_token");
     if (token) {
       config.headers["Authorization"] = `Bearer ${token}`;
     }

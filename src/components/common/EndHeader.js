@@ -1,7 +1,17 @@
-import React, { Component } from "react";
+import React, { Component, useEffect, useState } from "react";
 import "../../css/common/EndHeader.css";
 import { Link } from "react-router-dom";
+import brandApi from "../../api/brandApi";
 function EndHeader() {
+  const [brand, setBrand] = useState([]);
+  useEffect(() => {
+    getActiveBrand();
+  }, []);
+  const getActiveBrand = async () => {
+    brandApi.getActive().then((response) => {
+      setBrand(response.data);
+    });
+  };
   return (
     <div className="nav-row">
       <div className="container">
@@ -22,14 +32,7 @@ function EndHeader() {
           </div>
           <div className="mainmenu pull-left">
             <div className="navbarmenu">
-              <DropDownItem
-                key="dropdown"
-                title="Điện thoại"
-                link={[
-                  { name: "link 1", url: "" },
-                  { name: "link 2", url: "" },
-                ]}
-              />
+              <DropDownItem key="dropdown" title="Điện thoại" link={brand} />
               {/* <DropDownItem title="Tìm theo hãng" link={[{name: 'link 1', url: ''},{name: 'link 3', url: ''}]}/> */}
               <Link to="/product" className="buttontinh">
                 Sản phẩm HOT
@@ -99,9 +102,10 @@ class DropDownItem extends Component {
           ref={this.dropRef}
         >
           {this.props.link.map((item, index) => {
+            let lk = "/brand/" + item.name;
             return (
               <li style={{ listStyle: "none" }} key={index}>
-                <Link to="/home/phone">{item.name}</Link>
+                <Link to={lk}>{item.name}</Link>
               </li>
             );
           })}

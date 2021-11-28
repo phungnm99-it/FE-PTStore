@@ -8,9 +8,6 @@ const Auth = {
     Auth.isAuthenticated = false;
     cb();
   },
-  getAccessToken: function () {
-    return sessionStorage.getItem("access_token");
-  },
 };
 
 export default Auth;

@@ -24,6 +24,7 @@ function Login() {
       if (result.code === "401") {
         alert("Username or password wrong");
       } else {
+        sessionStorage.setItem("access_token", result.token);
         auth.login(() => {
           history.push("/");
         });

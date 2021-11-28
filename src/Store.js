@@ -20,6 +20,7 @@ import ResetPassword from "./components/common/ResetPassword";
 import Feedback from "./components/customer/Feedback";
 import Contact from "./components/common/Contact";
 import ProductPage from "./components/common/product/ProductPage";
+import BrandPage from "./components/common/product/BrandPage";
 
 function App() {
   return (
@@ -62,6 +63,9 @@ function App() {
           </Route>
           <Route path="/home/phone/detail/:id">
             <ProductDetail />
+          </Route>
+          <Route path="/brand/:brandName">
+            <BrandPage />
           </Route>
           <PrivateRoute path="/account">
             <Account />

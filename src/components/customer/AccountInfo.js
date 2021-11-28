@@ -2,18 +2,29 @@ import React, { useState, useEffect } from "react";
 import "../../css/customer/accountInfo.css";
 import ChangePassword from "./ChangePassword";
 import { getProvinces } from "../../service/provinces-service";
+import userApi from "../../api/userApi";
 
 function AccountInfo() {
   const [modalIsOpen, setIsOpen] = useState(false);
   // state tinh, state quan
   const [provinces, setProvinces] = useState([]);
   const [districts, setDistrict] = useState([]);
-
+  const [info, setInfo] = useState({});
+  const [name, setName] = useState("");
+  const [username, setUsername] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
   useEffect(() => {
     // lay tinh tu api
     getProvinces().then((res) => {
-      console.log(res.data);
       setProvinces(res.data);
+    });
+
+    userApi.getInfo().then((response) => {
+      console.log(response.data);
+      setInfo(response.data);
+      setName(info.fullName);
+      setUsername(info.username)
+      setPhoneNumber(info.phoneNumber)
     });
   }, []);
   // lay quan tu ma tinh
@@ -21,6 +32,7 @@ function AccountInfo() {
     let filter = provinces.filter((x) => x.code.toString() === code);
     filter.length > 0 ? setDistrict(filter[0].districts) : setDistrict([]);
   };
+
   return (
     <div>
       <section className="account">
@@ -39,7 +51,8 @@ function AccountInfo() {
                             <input
                               className="form-input"
                               type="text"
-                              value="TienPhan"
+                              readOnly
+                              value={username}
                               name="UserName"
                               id="UserName"
                               placeholder="Tên đăng nhập"
@@ -53,7 +66,8 @@ function AccountInfo() {
                             <input
                               className="form-input"
                               type="text"
-                              value="Tien Phan Nguyen Thụy"
+                              value={name}
+                              onChange={(e) => setName(e.target.value)}
                               name="FullName"
                               id="FullName"
                               placeholder="Họ và tên"
@@ -67,7 +81,7 @@ function AccountInfo() {
                             <input
                               className="form-input"
                               type="tel"
-                              value="0858679912"
+                              value={phoneNumber}
                               name="PhoneNumber"
                               id="PhoneNumber"
                               placeholder="Điện thoại *"
@@ -83,7 +97,8 @@ function AccountInfo() {
                             <input
                               className="form-input"
                               type="text"
-                              value="thuytienpn106@gmail.com"
+                              readOnly
+                              value={info.email}
                               name="Email"
                               id="Email"
                               placeholder="Email *"
