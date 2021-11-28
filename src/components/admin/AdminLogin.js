@@ -1,16 +1,31 @@
-import React, { useContext } from "react";
+import React, { useState, useContext } from "react";
 import "../../css/admin/loginAdmin.css";
 import loginAdmin from "../../images/loginAdmin.jpg";
 import { Link, useHistory } from "react-router-dom";
 import { AdminContext } from "../../AdminContext";
+import loginApi from "../../api/admin/loginApi";
 
 function AdminLogin() {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
   const context = useContext(AdminContext);
   const history = useHistory();
-  const handleLogin = () => {
-    context.login(() => {
-      history.push("/admin");
-    });
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    let formData = new FormData();
+    if (username === "" && password === "") alert("Enter!!!");
+    else {
+      formData.append("Username", username);
+      formData.append("Password", password);
+      let result = await loginApi.login(formData);
+      if (result.code === "401") {
+        alert("Username or password wrong");
+      } else {
+        context.login(() => {
+          history.push("/admin");
+        });
+      }
+    }
   };
   return (
     <div className="loginAdmin">
@@ -30,6 +45,7 @@ function AdminLogin() {
                 <input
                   className="inputLoginAdmin"
                   type="text"
+                  onChange={(e) => setUsername(e.target.value)}
                   placeholder="Tài khoản quản trị"
                   name="userNameAdmin"
                   id="userNameAdmin"
@@ -44,6 +60,7 @@ function AdminLogin() {
                   autoComplete="off"
                   className="inputLoginAdmin"
                   type="password"
+                  onChange={(e) => setPassword(e.target.value)}
                   placeholder="Mật khẩu"
                   name="passwordAdmin"
                   id="passwordAdmin"
@@ -60,7 +77,7 @@ function AdminLogin() {
 
               <div className="container-login100-form-btn">
                 <button
-                  onClick={handleLogin}
+                  onClick={(e) => handleLogin(e)}
                   type="button"
                   className="btn-LoginAdmin"
                   value="Đăng nhập"

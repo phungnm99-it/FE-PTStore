@@ -1,7 +1,13 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "../../../css/admin/brand/Brands.css";
-import { Link } from "react-router-dom";
+import brandApi from "../../../api/brandApi";
 function Brand(props) {
+  const [brands, setBrands] = useState([]);
+  useEffect(() => {
+    brandApi.getAll().then((res) => {
+      setBrands(res.data);
+    });
+  }, []);
   return (
     <div>
       <section className="pageAdmin">
@@ -16,7 +22,7 @@ function Brand(props) {
                     <div className="dataTables_wrapper">
                       <div className="buttonControl">
                         <button className="Add" onClick={() => props.switch(9)}>
-                            Thêm thương hiệu
+                          Thêm thương hiệu
                         </button>
                       </div>
                       <div className="dataTables_length" id="dataTable_length">
@@ -63,34 +69,32 @@ function Brand(props) {
                           </tr>
                         </thead>
                         <tbody>
-                          <tr role="row" className="ood">
-                            <td>11111111</td>
-                            <td>Iphone</td>
-                            <td></td>
-                            <td>
-                              <button
-                                onClick={() => props.switch(10)}
-                                className="iconEdit"
-                                
-                              >
-                                <i className="fas fa-edit"></i>
-                              </button>
-                              <button
-                                onClick={() => props.switch(11)}
-                                className="iconDetail"
-                                
-                              >
-                                <i className="fas fa-list"></i>
-                              </button>
-                              <button
-                                
-                                className="iconDelete"
-                                
-                              >
-                                <i className="fas fa-backspace"></i>
-                              </button>
-                            </td>
-                          </tr>
+                          {brands.map((item) => {
+                            return (
+                              <tr role="row" className="ood">
+                                <td>{item.id}</td>
+                                <td>{item.name}</td>
+                                <td></td>
+                                <td>
+                                  <button
+                                    onClick={() => props.switch(10)}
+                                    className="iconEdit"
+                                  >
+                                    <i className="fas fa-edit"></i>
+                                  </button>
+                                  <button
+                                    onClick={() => props.switch(11)}
+                                    className="iconDetail"
+                                  >
+                                    <i className="fas fa-list"></i>
+                                  </button>
+                                  <button className="iconDelete">
+                                    <i className="fas fa-backspace"></i>
+                                  </button>
+                                </td>
+                              </tr>
+                            );
+                          })}
                         </tbody>
                       </table>
                       <div

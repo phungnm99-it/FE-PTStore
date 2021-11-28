@@ -6,6 +6,7 @@ import { useEffect, useContext } from "react";
 import { AuthContext } from "../../AuthContext";
 import { priceFormat } from "../../utils/priceFormat";
 function Detail() {
+  window.scrollTo(0, 0);
   const context = useContext(AuthContext);
   const { id } = useParams();
   const [info, setInfo] = useState({});
@@ -22,7 +23,7 @@ function Detail() {
       price: info.price,
       currentPrice: info.currentPrice,
       imageUrl: info.imageUrl,
-      quantity: 1
+      quantity: 1,
     };
     context.addToCart({ product });
     console.log(context.cart);

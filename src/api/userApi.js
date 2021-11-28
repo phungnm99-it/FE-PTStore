@@ -8,8 +8,13 @@ const userApi = {
 
   loginWithGoogle: (tokenId) => {
     const url = "/user/loginWithGoogle";
-    return axiosClient.post(url, tokenId)
-  }
+    return axiosClient.post(url, tokenId);
+  },
+
+  getInfo: () => {
+    const url = "/user/getUser";
+    return axiosClient.get(url);
+  },
 };
 
 export default userApi;

@@ -18,20 +18,23 @@ function SlideBrand() {
         <div className="container">
           <div className="box-quicklink">
             <div className="lst-quickfilter q-manu">
-              {brand.map((item) => (
-                <Link
-                  key={item.id}
-                  to="/brand/"
-                  data-href={item.name}
-                  data-index="0"
-                  className={
-                    "box-quicklink__item bd-radius quicklink-logo" +
-                    (brand === "iphone" && " active-brand")
-                  }
-                >
-                  <img src={item.imageUrl} className="no-text" />
-                </Link>
-              ))}
+              {brand.map((item) => {
+                let lk = "/brand/" + item.name;
+                return (
+                  <Link
+                    key={item.id}
+                    to={lk}
+                    data-href={item.name}
+                    data-index="0"
+                    className={
+                      "box-quicklink__item bd-radius quicklink-logo" +
+                      (brand === "iphone" && " active-brand")
+                    }
+                  >
+                    <img src={item.imageUrl} className="no-text" />
+                  </Link>
+                );
+              })}
             </div>
           </div>
         </div>
