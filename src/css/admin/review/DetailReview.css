@@ -1,9 +1,9 @@
-.detailBrand .title-addAccount {
+.detailReview .title-addAccount {
     margin-bottom: 30px;
     margin-left: 20px;
 }
 
-.detailBrand .form{
+.detailReview .form{
     background: #ffffff 0% 0% no-repeat padding-box;
     box-shadow: 0px 4px 6px #00000029;
     border-radius: 12px;
@@ -16,66 +16,61 @@
     margin-bottom: 30px;
 }
 
-.detailBrand .form .body-detailBrand{
+.detailReview .form .body-detailReview{
     margin-left: 40px;
     margin-right: 40px;
     margin-top: 20px;
 }
 
-.detailBrand .title-addAccount h2{
-    margin-top: 40px;
-    font-weight: bold;
-}
-
-.detailBrand .body-detailBrand {
+.detailReview .body-detailReview {
     flex: 1 1 auto;
     padding-top: 15px;
 }
 
-.detailBrand .flex-sm-row {
+.detailReview .flex-sm-row {
     flex-direction: row!important;
 }
 
-.detailBrand .media {
+.detailReview .media {
     display: flex;
     align-items: flex-start;
 }
 
-.detailBrand .row{
+.detailReview .row{
     padding-left: 15px;
     padding-right: 10px;
 }
 
-.detailBrand .col-sm-9, .detailBrand .col-sm-3, .detailBrand .col-sm-7, .detailBrand .col-sm-5{
+.detailReview .col-sm-9, .detailReview .col-sm-3, .detailReview .col-sm-7, .detailReview .col-sm-5{
     padding-left: 0px;
     padding-right: 0px;
 }
-.detailBrand .media, .media-body {
+.detailReview .media, .media-body {
     overflow: hidden;
     zoom: 1;
 }
 
-.detailBrand .body-detailBrand img {
-    height: 150px;
-    width: 150px;
+.detailReview .body-detailReview img {
+    height: 250px;
+    width: 210px;
 }
 
-.detailBrand .nav li {
+.detailReview .nav li {
     padding-top: 10px;
     padding-bottom: 10px;
     font-size: 15px;
 }
 
 
-.detailBrand .list-left .nav li{
+.detailReview .list-left .nav li{
     font-weight: bold;
 }
 
-.detailBrand .btnEdit-detailBrand{
+.detailReview .btnEdit-detailReview{
     margin-top: 20px;
 }
 
-.detailBrand .btnEdit-detailBrand{
+.detailReview .btnEdit-detailReview{
     height: 40px;
     border-radius: 12px;
     width: 110px;

@@ -2,7 +2,7 @@ import React from "react";
 import "../../../css/admin/order/Order.css";
 import { Link } from "react-router-dom";
 
-function Order() {
+function Order(props) {
   return (
     <div>
       <section className="pageAdmin">
@@ -83,20 +83,20 @@ function Order() {
                             <td>Tiền mặt</td>
                             <td>Đang chờ xử lý</td>
                             <td>
-                              <Link
-                                to="/admin/home/editOrder"
+                              <button
+                                onClick={() => props.switch(22)}
                                 className="iconEdit"
-                                href="#"
+                                
                               >
                                 <i className="fas fa-edit"></i>
-                              </Link>
-                              <Link
-                                to="/admin/home/detailOrder"
+                              </button>
+                              <button
+                                
                                 className="iconDetail"
-                                href="#"
+                                
                               >
-                                <i class="fas fa-list"></i>
-                              </Link>
+                                <i className="fas fa-list"></i>
+                              </button>
                             </td>
                           </tr>
                         </tbody>

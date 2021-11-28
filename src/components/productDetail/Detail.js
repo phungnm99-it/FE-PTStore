@@ -119,7 +119,7 @@ function Detail() {
                     className="btn-red btnQuickOrder btnbuy"
                   >
                     <strong>MUA NGAY</strong>
-                    <span> Giao hàng tận nhà (COD) hoặc Nhận tại cửa hàng</span>
+                    <span> Giao hàng tận nhà (COD) miễn phí vận chuyển</span>
                   </button>
                 </div>
               </div>

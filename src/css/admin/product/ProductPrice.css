@@ -1,4 +1,4 @@
-.pageAdmin .review-management .container-fluid{
+.pageAdmin .productPrice-management.container-fluid{
     /* width: 100%; */
     padding-right: 0.75rem;
     /* padding-right: var(--bs-gutter-x, 0.75rem); */
@@ -8,23 +8,23 @@
     margin-left: auto;
 }
 
-.review-management h4{
+.productPrice-management h4{
     font-size: 26px;
 }
 
-.review-management .c-grey-900, .account-management .cH-grey-900:hover {
+.productPrice-management .c-grey-900, .productPrice-management .cH-grey-900:hover {
     color: #313435 !important;
 }
 
-.review-management .mB-30 {
+.productPrice-management .mB-30 {
     margin-bottom: 30px !important;
 }
 
-.review-management .mT-10 {
+.productPrice-management .mT-10 {
     margin-top: 10px !important;
 }
 
-.review-management .row {
+.productPrice-management .row {
     --bs-gutter-x: 1.5rem;
     --bs-gutter-y: 0;
     display: -webkit-box;
@@ -37,14 +37,14 @@
     margin-left: calc(var(--bs-gutter-x) * -.5);
 }
 
-.review-management .col-md-12 {
+.productPrice-management .col-md-12 {
     -webkit-box-flex: 0;
     -ms-flex: 0 0 auto;
     flex: 0 0 auto;
     width: 100%;
 }
 
-.review-management .row > * {
+.productPrice-management .row > * {
     -ms-flex-negative: 0;
     flex-shrink: 0;
     width: 100%;
@@ -54,44 +54,44 @@
     margin-top: var(--bs-gutter-y);
 }
 
-.review-management .bgc-white, .bgcH-white:hover {
+.productPrice-management .bgc-white, .bgcH-white:hover {
     background-color: #ffffff !important;
 }
 
-.review-management .bdrs-3 {
+.productPrice-management .bdrs-3 {
     border-radius: 3px !important;
 }
 
-.review-management .bd {
+.productPrice-management .bd {
     border: 1px solid rgba(0, 0, 0, 0.0625) !important;
 }
 
-.review-management .p-20 {
+.productPrice-management .p-20 {
     padding: 20px !important;
 }
 
-.review-management .mB-20 {
+.productPrice-management .mB-20 {
     margin-bottom: 20px !important;
 }
 
-.review-management .dataTables_wrapper {
+.productPrice-management .dataTables_wrapper {
     overflow: hidden;
     padding-bottom: 5px;
 }
 
-.review-management .dataTables_wrapper {
+.productPrice-management .dataTables_wrapper {
     position: relative;
     clear: both;
     zoom: 1;
 }
 
-.review-management .dataTables_wrapper .dataTables_length {
+.productPrice-management .dataTables_wrapper .dataTables_length {
     color: #313435;
     float: left;
     margin-top: 8px;
 }
 
-.review-management .dataTables_wrapper .dataTables_length select {
+.productPrice-management .dataTables_wrapper .dataTables_length select {
     border: 1px solid rgba(0, 0, 0, 0.0625);
     border-radius: 2px;
     -webkit-box-shadow: none;
@@ -108,13 +108,13 @@
     width: 45%;
 }
 
-.review-management .dataTables_wrapper .dataTables_filter {
+.productPrice-management .dataTables_wrapper .dataTables_filter {
     color: #313435;
     float: right;
     margin-top: 8px;
 }
 
-.review-management .dataTables_wrapper .dataTables_filter input {
+.productPrice-management .dataTables_wrapper .dataTables_filter input {
     border: 1px solid rgba(0, 0, 0, 0.0625);
     border-radius: 2px;
     -webkit-box-shadow: none;
@@ -134,7 +134,7 @@
     -webkit-appearance: textfield;
 }
 
-.review-management table.dataTable {
+.productPrice-management table.dataTable {
     width: 100%;
     margin-left: auto;
     margin-right: auto;
@@ -145,8 +145,8 @@
     border-spacing: 0;
 }
 
-.review-management table.dataTable, .review-management table.dataTable th, 
-.review-management table.dataTable td {
+.productPrice-management table.dataTable, .productPrice-management table.dataTable th, 
+.productPrice-management table.dataTable td {
     box-sizing: content-box;
 }
 
@@ -194,23 +194,32 @@ table.dataTable, table.dataTable th, table.dataTable td {
     box-shadow: inset 0 0 0 9999px var(--bs-table-accent-bg);
 }
 
-#Review-IDCol{
+.productPrice-management #Product-IDCol{
     width: 70px;
 }
-#Review-UserCol{
-    width: 140px;
+.productPrice-management #Product-NameCol{
+    width: 250px;
 }
-#Review-ProductCol{
-    width: 200px;
+.productPrice-management#Product-ColorCol{
+    width: 30px;
 }
-#Review-ContentCol{
-    width: 300px;
+.productPrice-management #Product-BrandCol{
+    width: 20px;
 }
-#Review-TimeCol{
+.productPrice-management #Product-PriceCol{
     width: 60px;
 }
-#Review-ControlCol{
+.productPrice-management #Product-CurrentPriceCol{
+    width: 60px;
+}
+.productPrice-management #Product-ImageCol{
+    width: 250px;
+}
+.productPrice-management #Product-StatusCol{
     width: 40px;
+}
+.productPrice-management #ControlCol{
+    width: 45px;
 }
 
 .table > tbody {
@@ -242,7 +251,7 @@ table.dataTable tbody tr {
     border: none;
 }
 
-.review-management td a{
+.productPrice-management td a{
     color: #3c4b64;
     font-weight: bold;
 }
@@ -328,28 +337,27 @@ table.dataTable tbody tr {
     height: 0;
 }
 
-.review-management .Add a{
+.productPrice-management .Add a{
     color: white;
 }
 
-.review-management .iconReply{
-    margin-right: 8px;
+.productPrice-management .iconEdit{
+    margin-right: 0px;
     font-size: 13px;
     color: #7774e7;
 }
 
-.review-management .iconDelete{
+.productPrice-management .iconDetail{
+    margin-right: 0px;
+    font-size: 13px;
+}
+
+.productPrice-management .iconDelete{
     font-size: 13px;
     color: red;
 }
 
-.review-management .iconDetail{
-    font-size: 13px;
-    margin-right: 5px;
-}
-
-.review-management .iconDetail, .review-management .iconDelete{
+.productPrice-management .iconEdit, .productPrice-management .iconDetail, .productPrice-management .iconDelete{
     border: none;
     background-color: #f9f9f9;
 }
-

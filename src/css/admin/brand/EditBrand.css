@@ -3,10 +3,32 @@
     font-weight: bold;
 }
 
-.editBrand .jquery-modal .container{
-    min-width: 600px;
-    width: 600px;
+.editBrand{
+    height: 100%;
+    margin-top: 20px;
+}
+
+.editBrand .title-addAccount{
+    margin-bottom: 30px;
+    margin-left: 20px;
+}
+.editBrand .form{
+    background: #ffffff 0% 0% no-repeat padding-box;
+    box-shadow: 0px 4px 6px #00000029;
+    border-radius: 12px;
+    position: relative;
+    padding: 10px 0;
     height: auto;
+    border: 1px solid #ccc;
+    margin-left: 100px;
+    margin-right: 100px;
+    margin-bottom: 30px;
+}
+
+.editBrand .form .input-addAccount{
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-top: 20px;
 }
 
 .editBrand .input-addAccount .row{

@@ -1,21 +1,16 @@
 import React from "react";
 import "../../../css/admin/product/DetailProduct.css";
-import iconClose from "../../../images/iconClose.png";
 import imgProduct from "../../../images/no-avt.png";
 
 function DetailProduct() {
   return (
     <div>
       <div className="detailProduct">
-        <div className="jquery-modal blocker current">
-          <div className="container modal">
-            <div className="loginForm">
-              <img className="icon-close" src={iconClose} />
-            </div>
-            <div className="form">
-              <div className="title-addAccount">
-                <h2>Thông tin chi tiết</h2>
-              </div>
+        <div className="title-addAccount">
+          <h2>Thông tin chi tiết</h2>
+        </div>
+        <div className="form">
+              
               <div className="body-detailProduct">
                 <div className="row">
                   <img
@@ -94,7 +89,7 @@ function DetailProduct() {
                   </div>
                 </div>
               </div>
-              <div className="btn-detailProduct">
+              {/* <div className="btn-detailProduct">
                 <Link
                   to="/admin/home/editProductInfo"
                   type="submit"
@@ -102,9 +97,7 @@ function DetailProduct() {
                 >
                   Chỉnh sửa
                 </Link>
-              </div>
-            </div>
-          </div>
+              </div> */}
         </div>
       </div>
     </div>

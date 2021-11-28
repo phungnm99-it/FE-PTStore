@@ -8,15 +8,11 @@ function DetailBrand() {
   return (
     <div>
       <div className="detailBrand">
-        <div className="jquery-modal blocker current">
-          <div className="container modal">
-            <div className="loginForm">
-              <img className="icon-close" src={iconClose} />
-            </div>
-            <div className="form">
-              <div className="title-addAccount">
-                <h2>Thông tin chi tiết</h2>
-              </div>
+        <div className="title-addAccount">
+          <h2>Thông tin chi tiết</h2>
+        </div>
+        <div className="form">
+              
               <div className="body-detailBrand">
                 <div className="row">
                   <div className="col-sm-9">
@@ -47,7 +43,7 @@ function DetailBrand() {
                   </div>
                 </div>
               </div>
-              <div className="btn-detailBrand">
+              {/* <div className="btn-detailBrand">
                 <Link
                   to="/admin/home/editBrand"
                   type="submit"
@@ -55,9 +51,7 @@ function DetailBrand() {
                 >
                   Chỉnh sửa
                 </Link>
-              </div>
-            </div>
-          </div>
+              </div> */}
         </div>
       </div>
     </div>
