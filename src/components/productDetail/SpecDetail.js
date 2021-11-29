@@ -11,6 +11,7 @@ function SpecDetail(props) {
               <img
                 className="icon-close"
                 src={iconClose}
+                alt="iconClose"
                 onClick={() => props.onCLose()}
               />
               <tbody>

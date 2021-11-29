@@ -1,5 +1,6 @@
 import React from "react";
 import "../../../css/admin/account/Account.css"
+import { Link } from "react-router-dom";
 function AccountAdmin (props){
 
   return (
@@ -108,7 +109,7 @@ function AccountAdmin (props){
                                   <i class="fas fa-list"></i>
                                 </button>
                                 <button
-                                  to="/admin/home/deleteAccount"
+                                  onClick={() => props.switch(31)}
                                   className="iconDelete"
                                 >
                                   <i className="fas fa-backspace"></i>

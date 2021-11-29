@@ -129,6 +129,8 @@ html:not([dir="rtl"]) .sidebar-nav .nav-icon:first-child {
   background: var(--cui-sidebar-nav-link-active-bg, hsla(0, 0%, 100%, 0.05));
 }
 
+
+
 .menuAdmin .nav-link {
   display: flex;
   flex: 1 1;
@@ -189,9 +191,7 @@ html:not([dir="rtl"]) .sidebar-nav .nav-icon:first-child {
   transition: height 0.15s, margin 0.15s;
 }
 
-.pageAdmin .bodyMain{
-  z-index: 1;
-}
+
 
 .pageAdmin .bodyAdmin {
   flex-basis: 100%;

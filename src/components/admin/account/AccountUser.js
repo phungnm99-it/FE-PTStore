@@ -93,7 +93,7 @@ function AccountUser (props) {
                                             <i class="fas fa-list"></i>
                                         </button>
                                         <button
-                                            
+                                            onClick={() => props.switch(31)}
                                             className="iconDelete"  
                                         >
                                             <i className="fas fa-backspace"></i>

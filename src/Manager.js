@@ -3,7 +3,7 @@ import Admin from "./components/admin/Admin";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { AdminContext, AdminProvider } from "./AdminContext";
 import AdminLogin from "./components/admin/AdminLogin";
-
+import DeleteAccount from "./components/admin/account/DeleteAccount"
 function Manager() {
   return (
       <AdminProvider>
@@ -13,6 +13,9 @@ function Manager() {
           </Route>
           <PrivateRoute pathname="/admin">
             <Admin />
+          </PrivateRoute>
+          <PrivateRoute exact pathname="/admin/deleteAccount">
+            <DeleteAccount/>
           </PrivateRoute>
         </Switch>
       </AdminProvider>
