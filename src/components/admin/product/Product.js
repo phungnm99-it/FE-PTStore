@@ -76,7 +76,7 @@ function Product(props) {
                             <th className="sorting" id="Product-StatusCol">
                               Tình trạng
                             </th>
-                            <th className="sorting" id="ControlCol">
+                            <th className="sorting" id="Product-ControlCol">
                               Tác vụ
                             </th>
                           </tr>

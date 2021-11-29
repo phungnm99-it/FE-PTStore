@@ -50,7 +50,7 @@ function App() {
             <Register />
           </Route>
           <Route exact path="/feedback">
-            <Feedback />
+            <Contact />
           </Route>
           <Route exact path="/contact">
             <Contact />

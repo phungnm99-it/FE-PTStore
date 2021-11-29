@@ -193,26 +193,29 @@ table.dataTable, table.dataTable th, table.dataTable td {
     box-shadow: inset 0 0 0 9999px var(--bs-table-accent-bg);
 }
 
-#AccountCol{
-    width: 100px;
+#Account-IDCol{
+    width: 10%;
 }
-#EmailCol{
-    width: 170px;
+#Account-UserNameCol{
+    width: 12%;
 }
-#PhoneCol{
-    width: 90px;
+#Account-EmailCol{
+    width: 22%;
 }
-#BirthdayCol{
-    width: 70px;
+#Account-PhoneCol{
+    width: 8%;
 }
-#SexCol{
-    width: 60px;
+#Account-BirthdayCol{
+    width: 8%;
 }
-#AddressCol{
-    width: 300px;
+#Account-SexCol{
+    width: 5%;
 }
-#ControlCol{
-    width: 40px;
+#Account-AddressCol{
+    width: 25%;
+}
+#Account-ControlCol{
+    width: 10%;
 }
 
 .table > tbody {
@@ -356,8 +359,14 @@ table.dataTable tbody tr {
     color: green;
 }
 
-.account-management .iconEdit, .account-management .iconDetail, .account-management .iconDelete{
+.account-management .iconEdit, .account-management .iconDetail, .account-management .iconDelete,
+.account-management .iconUnlock{
     border: none;
     background-color: #f9f9f9;
+}
+
+.account-management .table{
+    table-layout: fixed;
+    width: 100%;
 }
 

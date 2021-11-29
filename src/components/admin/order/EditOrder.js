@@ -100,6 +100,32 @@ function EditOrder () {
                             readOnly
                             />
                         </div>
+                        <div className="row">
+                            <div className="mb-3 col-md-6">
+                                <label className="form-label" for="inputTotalPrice">
+                                Tổng tiền
+                                </label>
+                                <input
+                                type="text"
+                                className="form-control"
+                                id="inputTotalPrice"
+                                placeholder="Tổng tiền"
+                                readOnly
+                                />
+                            </div>
+                            <div className="mb-3 col-md-6">
+                                <label className="form-label" for="inputPaymentMethod">
+                                Hình thức thanh toán
+                                </label>
+                                <input
+                                type="text"
+                                className="form-control"
+                                id="inputPaymentMethod"
+                                placeholder="Hình thức thanh toán"
+                                readOnly
+                                />
+                            </div>
+                        </div>
                         <ProductItem/>
                         <div className="mb-3">
                             <button type="submit" class="btn btn-primary btn-color">

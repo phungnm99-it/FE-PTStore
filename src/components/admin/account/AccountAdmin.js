@@ -1,10 +1,10 @@
-import React, { Component } from "react";
+import React from "react";
+import "../../../css/admin/account/Account.css"
 function AccountAdmin (props){
 
   return (
     <div>
-      <div>
-        <div className="pageAdmin">
+      <div className="pageAdmin">
           <div className="account">
             <div className="account-management">
               <div className="container-fluid">
@@ -59,31 +59,35 @@ function AccountAdmin (props){
                         <table className="table table-striped table-bordered dataTable">
                           <thead>
                             <tr role="row">
-                              <th className="sorting" id="AccountCol">
+                              <th className="sorting" id="Account-IDCol">
+                                Mã tài khoản
+                              </th>
+                              <th className="sorting" id="Account-UserNameCol">
                                 Tài khoản
                               </th>
-                              <th className="sorting" id="EmailCol">
+                              <th className="sorting" id="Account-EmailCol">
                                 Email
                               </th>
-                              <th className="sorting_desc" id="PhoneCol">
+                              <th className="sorting_desc" id="Account-PhoneCol">
                                 Số điện thoại
                               </th>
-                              <th className="sorting" id="BirthdayCol">
+                              <th className="sorting" id="Account-BirthdayCol">
                                 Ngày sinh
                               </th>
-                              <th className="sorting" id="SexCol">
+                              <th className="sorting" id="Account-SexCol">
                                 Giới tính
                               </th>
-                              <th className="sorting" id="AddressCol">
+                              <th className="sorting" id="Account-AddressCol">
                                 Địa chỉ
                               </th>
-                              <th className="sorting" id="ControlCol">
+                              <th className="sorting" id="Account-ControlCol">
                                 Tác vụ
                               </th>
                             </tr>
                           </thead>
                           <tbody>
                             <tr role="row" className="ood">
+                              <td>HSLF348502</td>
                               <td>tienphan</td>
                               <td>thuytienpn106@gmail.com</td>
                               <td>0858679912</td>
@@ -111,14 +115,7 @@ function AccountAdmin (props){
                                 </button>
                               </td>
                             </tr>
-                            <tr role="row" className="ood">
-                              <td>tienphan</td>
-                              <td>thuytienpn106@gmail.com</td>
-                              <td>0858679912</td>
-                              <td>06/10/1999</td>
-                              <td>Nữ</td>
-                              <td>Thủ Đức</td>
-                            </tr>
+                            
                           </tbody>
                         </table>
                         <div
@@ -198,7 +195,6 @@ function AccountAdmin (props){
               </div>
             </div>
           </div>
-        </div>
       </div>
     </div>
   );

@@ -77,13 +77,7 @@ function Review(props) {
                             </td>
                             <td>19/11/2021</td>
                             <td>
-                              {/* <Link
-                                to="/admin/home/replyReview"
-                                className="iconReply"
-                                href="#"
-                              >
-                                <i className="fas fa-reply"></i>
-                              </Link> */}
+                              
                               <button
                                 onClick={() => props.switch(19)}
                                 className="iconDetail"

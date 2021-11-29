@@ -1,8 +1,8 @@
 import React from "react";
-import "../../css/admin/feedback/Feedback.css";
-import { Link } from "react-router-dom";
+import "../../../css/admin/feedback/Feedback.css"
 
-function Feedback() {
+
+function Feedback(props) {
   return (
     <div>
       <section className="pageAdmin">
@@ -47,10 +47,10 @@ function Feedback() {
                       <table className="table table-striped table-bordered dataTable">
                         <thead>
                           <tr role="row">
-                            <th className="sorting" id="Feedback-IDCol">
+                            <th className="sorting col-md-3" id="Feedback-IDCol">
                               Mã góp ý
                             </th>
-                            <th className="sorting" id="Feedback-UserCol">
+                            <th className="sorting col-md-4" id="Feedback-UserCol">
                               Tên người gửi
                             </th>
                             <th className="sorting" id="Feedback-EmailCol">
@@ -81,20 +81,20 @@ function Feedback() {
                             </td>
                             <td>19/11/2021</td>
                             <td>
-                              <Link
-                                to="/admin/home/replyReview"
+                              <button
+                                onClick={() => props.switch(25)}
                                 className="iconReply"
-                                href="#"
+                                
                               >
                                 <i className="fas fa-reply"></i>
-                              </Link>
-                              <Link
-                                to="/admin/home/detailReview"
+                              </button>
+                              <button
+                                onClick={() => props.switch(26)}
                                 className="iconDetail"
-                                href="#"
+                                
                               >
                                 <i className="fas fa-list"></i>
-                              </Link>
+                              </button>
                             </td>
                           </tr>
                         </tbody>

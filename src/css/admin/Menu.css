@@ -1,3 +1,4 @@
+
 .menuAdmin .sidebar {
   min-width: 250px;
   --cui-sidebar-width: 16rem;
@@ -186,6 +187,10 @@ html:not([dir="rtl"]) .sidebar-nav .nav-icon:first-child {
   color: var(--cui-sidebar-nav-title-color, hsla(0, 0%, 100%, 0.6));
   text-transform: uppercase;
   transition: height 0.15s, margin 0.15s;
+}
+
+.pageAdmin .bodyMain{
+  z-index: 1;
 }
 
 .pageAdmin .bodyAdmin {

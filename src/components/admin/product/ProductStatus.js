@@ -1,14 +1,13 @@
 import React from 'react';
-import '../../../css/admin/product/ProductPrice.css'
-
-function ProductPrice (props) {
+import "../../../css/admin/product/ProductStatus.css"
+function ProductStatus (props) {
     return (
         <div>
-           <section className="pageAdmin">
+            <section className="pageAdmin">
                 <div className="account">
-                    <div className="productPrice-management">
+                    <div className="productStatus-management">
                         <div className="container-fluid">
-                            <h4 className="c-grey-900 mT-10 mB-30">QUẢN LÝ GIÁ SẢN PHẨM</h4>
+                            <h4 className="c-grey-900 mT-10 mB-30">QUẢN LÝ TÌNH TRẠNG SẢN PHẨM</h4>
                             <div className="row">
                                 <div className="col-md-12">
                                 <div className="bgc-white bd bdrs-3 p-20 mB-20">
@@ -44,28 +43,34 @@ function ProductPrice (props) {
                                     <table className="table table-striped table-bordered dataTable">
                                         <thead>
                                         <tr role="row">
-                                            <th className="sorting" id="ProductPrice-IDCol">
+                                            <th className="sorting" id="ProductStatus-IDCol">
                                             Mã sản phẩm
                                             </th>
-                                            <th className="sorting" id="ProductPrice-NameCol">
+                                            <th className="sorting" id="ProductStatus-NameCol">
                                             Tên sản phẩm
                                             </th>
-                                            <th className="sorting" id="ProductPrice-ImageCol">
+                                            <th className="sorting" id="ProductStatus-ImageCol">
                                             Hình ảnh
                                             </th>
-                                            <th className="sorting" id="ProductPrice-PriceCol">
-                                            Giá niêm yết
+                                            <th className="sorting" id="ProductStatus-CurrentQuantityCol">
+                                            Số lượng hiện tại
                                             </th>
                                             <th
                                             className="sorting"
-                                            id="ProductPrice-CurrentPriceCol"
+                                            id="ProductStatus-SoldQuantityCol"
                                             >
-                                            Giá hiện tại
+                                            Số lượng đã bán
                                             </th>
-                                            <th className="sorting" id="ProductPrice-StatusCol">
+                                            <th className="sorting" id="ProductStatus-StatusCol">
                                             Tình trạng
                                             </th>
-                                            <th className="sorting" id="ProductPrice-ControlCol">
+                                            <th
+                                            className="sorting"
+                                            id="ProductStatus-FeaturedProductCol"
+                                            >
+                                            Sản phẩm nổi bật
+                                            </th>
+                                            <th className="sorting" id="ProductStatus-ControlCol">
                                             Tác vụ
                                             </th>
                                         </tr>
@@ -74,15 +79,18 @@ function ProductPrice (props) {
                                         <tr role="row" className="ood">
                                             <td>NH9385392</td>
                                             <td>Iphone 13 ProMax 512GB</td>
+                                            <td>...</td>
+                                            <td>15</td>
+                                            <td>12</td>
                                             
-                                            
-                                            <td>39.000.000đ</td>
-                                            <td>39.000.000đ</td>
-                                            <td>.....</td>
                                             <td>Còn hàng</td>
+                                            <td className="checkboxFeatured">
+                                                <input type="checkbox" id="checkboxInput" name=""/>
+                                                
+                                            </td>
                                             <td>
                                             <button
-                                                onClick={() => props.switch(20)}
+                                                onClick={() => props.switch(29)}
                                                 className="iconEdit"
                                                 
                                             >
@@ -183,9 +191,9 @@ function ProductPrice (props) {
                         </div>
                     </div>
                 </div>
-            </section> 
+            </section>
         </div>
     );
 }
 
-export default ProductPrice;
+export default ProductStatus;

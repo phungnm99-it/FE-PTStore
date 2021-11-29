@@ -206,25 +206,25 @@ table.dataTable td {
 }
 
 #Feedback-IDCol {
-  width: 70px;
+  width: 10%;
 }
 #Feedback-UserCol {
-  width: 140px;
+  width: 18%;
 }
 #Feedback-EmailCol {
-  width: 160px;
+  width: 20%;
 }
 #Feedback-TopicCol {
-  width: 80px;
+  width: 8%;
 }
 #Feedback-ContentCol {
-  width: 300px;
+  width: 31%;
 }
 #Feedback-TimeCol {
-  width: 60px;
+  width: 8%;
 }
 #Feedback-ControlCol {
-  width: 40px;
+  width: 5%;
 }
 
 .table > tbody {
@@ -347,17 +347,23 @@ table.dataTable tbody tr {
 }
 
 .feedback-management .iconReply {
-  margin-right: 20px;
+  margin-right: 0px;
   font-size: 13px;
   color: #7774e7;
 }
 
-.feedback-management .iconDelete {
-  font-size: 13px;
-  color: red;
-}
+
 
 .feedback-management .iconDetail {
   font-size: 13px;
-  margin-right: 8px;
+  margin-right: 0px;
+}
+
+.feedback-management .iconReply, .feedback-management .iconDetail{
+  border: none;
+  background-color: #f9f9f9;
+}
+.feedback-management .table{
+  table-layout: fixed;
+  width: 100%;
 }

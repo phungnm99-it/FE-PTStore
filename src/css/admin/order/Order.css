@@ -195,28 +195,28 @@ table.dataTable, table.dataTable th, table.dataTable td {
 }
 
 #Order-IDOrderCol{
-    width: 80px;
+    width: 10%;
 }
 #Order-NameUserCol{
-    width: 150px;
+    width: 20%;
 }
 #Order-ProductOrderCol{
-    width: 200px;
+    width: 23%;
 }
 #Order-StockCol{
-    width: 10px;
+    width: 5%;
 }
 #Order-TotalCostCol{
-    width: 60px;
+    width: 10%;
 }
 #Order-PaymentMethodCol{
-    width: 60px;
+    width: 10%;
 }
 #Order-StatusCol{
-    width: 80px;
+    width: 15%;
 }
 #Order-ControlCol{
-    width: 40px;
+    width: 7%;
 }
 
 .table > tbody {
@@ -358,5 +358,10 @@ table.dataTable tbody tr {
 .order-management .iconEdit, .order-management .iconDetail{
     border: none;
     background-color: #f9f9f9;
+}
+
+.order-management .table{
+    table-layout: fixed;
+    width: 100%;
 }
 
