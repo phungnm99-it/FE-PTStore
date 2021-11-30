@@ -346,6 +346,7 @@ table.dataTable tbody tr {
 .account-management .iconDelete{
     font-size: 13px;
     color: red;
+    margin-left: 6px;
 }
 
 .account-management .iconDetail{

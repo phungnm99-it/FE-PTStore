@@ -1,24 +1,40 @@
-.deleteBrand .jquery-modal .container{
-    min-width: 500px;
-    width: 500px;
-    height: auto;
-    overflow: hidden;
-}
 
-.deleteBrand h2{
+.deleteBrand p{
     font-size: 17px;
     margin-top: 40px;
     margin-left: 10px;
     margin-right: 5px;
     text-align: center;
+    font-weight: bold;
 }
 
-.deleteBrand h4{
-    font-size: 13px;
+.deleteBrand h6{
+    font-size: 14px;
     margin-top: 20px;
     margin-left: 10px;
     margin-right: 5px;
-    
+    text-align: center;
+    font-weight: 450;
+}
+
+.deleteBrand .form{
+    background: #ffffff 0% 0% no-repeat padding-box;
+    box-shadow: 0px 4px 6px #00000029;
+    border-radius: 12px;
+    position: relative;
+    padding: 10px 0;
+    height: auto;
+    border: 1px solid #ccc;
+    margin-left: 200px;
+    margin-right: 200px;
+    margin-bottom: 30px;
+    margin-top: 190px;
+}
+
+.deleteBrand .row{
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-bottom: 20px;
 }
 
 .deleteBrand .btn-color {

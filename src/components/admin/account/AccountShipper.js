@@ -94,7 +94,7 @@ function AccountShipper (props) {
                                             <i class="fas fa-list"></i>
                                         </button>
                                         <button
-                                            to="/admin/home/deleteAccount"
+                                            onClick={() => props.switch(31)}
                                             className="iconDelete"
                                             
                                         >

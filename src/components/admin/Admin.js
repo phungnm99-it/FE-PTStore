@@ -31,6 +31,9 @@ import FeedbackHasBeenReplied from "./feedback/FeedbackHasBeenReplied";
 import ProductStatus from "./product/ProductStatus";
 import EditProductStatus from "./product/EditProductStatus";
 import DetailOrder from "./order/DetailOrder";
+import DeleteAccount from "./account/DeleteAccount"
+import DeleteBrand from "./brand/DeleteBrand";
+import DeleteProduct from "./product/DeleteProduct";
 function Admin() {
   const [form, setForm] = useState();
   let inputFile = null;
@@ -98,7 +101,13 @@ function Admin() {
       case 29:
         return <EditProductStatus/>;
       case 30: 
-        return <DetailOrder/>
+        return <DetailOrder/>;
+      case 31:
+        return <DeleteAccount/>;
+      case 32:
+        return <DeleteBrand/>;
+      case 33:
+        return <DeleteProduct/>;
       default:
         return null;
     }
@@ -278,6 +287,7 @@ function Admin() {
           </div>
           <div className="body-content"></div>
         </div>
+        
         <div className="bodyAdmin">
           <Header />
           <div className="bodyMain">{switchRender()}</div>

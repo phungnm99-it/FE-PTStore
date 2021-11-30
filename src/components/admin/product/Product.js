@@ -107,7 +107,7 @@ function Product(props) {
                                 <i class="fas fa-list"></i>
                               </button>
                               <button
-                                
+                                onClick={() => props.switch(33)}
                                 className="iconDelete"
                                
                               >

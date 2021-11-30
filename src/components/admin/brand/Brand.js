@@ -89,7 +89,7 @@ function Brand(props) {
                                   >
                                     <i className="fas fa-list"></i>
                                   </button>
-                                  <button className="iconDelete">
+                                  <button onClick={() => props.switch(32)} className="iconDelete">
                                     <i className="fas fa-backspace"></i>
                                   </button>
                                 </td>

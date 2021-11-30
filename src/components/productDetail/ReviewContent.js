@@ -7,8 +7,8 @@ function ReviewContent() {
     <div>
       <div className="review-content" id="reviewContent">
         <div className="item">
-          <div class="avt">
-            <img src={noAvt} />
+          <div className="avt">
+            <img src={noAvt} alt="noAvt" />
           </div>
           <div className="info">
             <p
@@ -25,7 +25,7 @@ function ReviewContent() {
                 <i>4 ngày trước</i>
               </label>
             </p>
-            <div class="content">
+            <div className="content">
               San pham tot, thai do nhiet tinh
               <br />
             </div>
