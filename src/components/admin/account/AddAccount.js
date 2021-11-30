@@ -1,9 +1,24 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "../../../css/admin/account/AddAccount.css";
-import iconClose from "../../../images/iconClose.png";
+import { getProvinces } from "../../../service/provinces-service";
 import noAvt from "../../../images/no-avt.png";
 
 function AddAccount(props) {
+  // state tinh, state quan
+  const [provinces, setProvinces] = useState([]);
+  const [districts, setDistrict] = useState([]);
+  useEffect(() => {
+    // lay tinh tu api
+    getProvinces().then((res) => {
+      console.log(res.data);
+      setProvinces(res.data);
+    });
+  }, []);
+  // lay quan tu ma tinh
+  const getDistrictFromCode = (code) => {
+    let filter = provinces.filter((x) => x.code.toString() === code);
+    filter.length > 0 ? setDistrict(filter[0].districts) : setDistrict([]);
+  };
   return (
     <div className="addAccount">
       <div className="title-addAccount">
@@ -158,19 +173,21 @@ function AddAccount(props) {
                       name="SystemCityID"
                       id="SystemCityID"
                       placeholder="Tỉnh/Thành phố"
+                      onChange={(e) => {
+                            getDistrictFromCode(e.target.value);
+                          }}
                     >
                       <option className="textSelectCity" value="">
                         Tỉnh/Thành Phố
                       </option>
-                      <option value="1">Hà Nội</option>
-                      <option value="50">TP HCM</option>
-                      <option value="57">An Giang</option>
-                      <option value="49">Bà Rịa</option>
-                      <option value="15">Bắc Giang</option>
-                      <option value="4">Bắc Kạn</option>
-                      <option value="62">Bạc Liêu</option>
-                      <option value="18">Bắc Ninh</option>
-                      <option value="53">Bến Tre</option>
+                      {/* maps tinh thanh option */}
+                      {provinces.map((pro, idx) => {
+                            return (
+                              <option key={idx} value={pro.code}>
+                                {pro.name}
+                              </option>
+                            );
+                          })}
                     </select>
                   </div>
                 </div>
@@ -185,11 +202,18 @@ function AddAccount(props) {
                       placeholder="Quận/Huyện"
                       data-required="1"
                     >
-                      <option value="">Quận/Huyện</option>
-                      <option value="591">Thành phố Mỹ Tho</option>
-                      <option value="592">Thị xã Gò Công</option>
-                      <option value="593">Thị xã Cai Lậy</option>
-                      <option value="594">Huyện Tân Phước</option>
+                      {" "}
+                          {districts?.map((dis, idx) => {
+                            return (
+                              <option
+                                key={idx}
+                                value={dis.code}
+                                //   onClick={}
+                              >
+                                {dis.name}
+                              </option>
+                            );
+                          })}
                     </select>
                   </div>
                 </div>

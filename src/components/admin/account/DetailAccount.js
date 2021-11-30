@@ -56,14 +56,14 @@ function DetailAccount(props) {
                   </div>
                 </div>
               </div>
-              {/* <div className="btn-detailAccount">
+              <div className="btn-detailAccount">
                 <button
-                  
+                  onClick={() => props.switch(6)}
                   className="btnEdit-detailAccount"
                 >
                   Chỉnh sửa
                 </button>
-              </div> */}
+              </div>
         </div>
       </div>
     </div>

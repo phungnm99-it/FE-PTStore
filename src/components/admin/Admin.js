@@ -34,6 +34,9 @@ import DetailOrder from "./order/DetailOrder";
 import DeleteAccount from "./account/DeleteAccount"
 import DeleteBrand from "./brand/DeleteBrand";
 import DeleteProduct from "./product/DeleteProduct";
+import AdminInfo from "./adminInfo/AdminInfo";
+import EditInfo from "./adminInfo/EditInfo";
+import ChangePass from "./adminInfo/ChangePass";
 function Admin() {
   const [form, setForm] = useState();
   let inputFile = null;
@@ -55,7 +58,7 @@ function Admin() {
       case 6:
         return <EditAccount />;
       case 7:
-        return <DetailAccount />;
+        return <DetailAccount switch={(e) => setForm(e)} />;
       case 8:
         return <Brand switch={(e) => setForm(e)}/>;
       case 9: 
@@ -63,7 +66,7 @@ function Admin() {
       case 10: 
         return <EditBrand/>;
       case 11:
-        return <DetailBrand/>;
+        return <DetailBrand switch={(e) => setForm(e)}/>;
       case 12:
         return <Product switch={(e) => setForm(e)}/>;
       case 13:
@@ -75,11 +78,11 @@ function Admin() {
       case 16:
         return <EditProduct/>;
       case 17:
-        return <DetailProduct/>;
+        return <DetailProduct switch={(e) => setForm(e)}/>;
       case 18: 
         return <Review switch={(e) => setForm(e)}/>
       case 19:
-        return <DetailReview/>;
+        return <DetailReview switch={(e) => setForm(e)}/>;
       case 20:
         return <EditPrice/>;
       case 21: 
@@ -93,7 +96,7 @@ function Admin() {
       case 25:
         return <ReplyFeedback/>;
       case 26:
-        return <DetailFeedback/>;
+        return <DetailFeedback switch={(e) => setForm(e)}/>;
       case 27:
         return <Subscriber/>;
       case 28:
@@ -103,11 +106,17 @@ function Admin() {
       case 30: 
         return <DetailOrder/>;
       case 31:
-        return <DeleteAccount/>;
+        return <DeleteAccount switch={(e) => setForm(e)}/>;
       case 32:
-        return <DeleteBrand/>;
+        return <DeleteBrand switch={(e) => setForm(e)}/>;
       case 33:
-        return <DeleteProduct/>;
+        return <DeleteProduct switch={(e) => setForm(e)}/>;
+      case 34:
+        return <AdminInfo switch={(e) => setForm(e)}/>
+      case 35:
+        return <EditInfo/>;
+      case 36:
+        return <ChangePass/>
       default:
         return null;
     }
@@ -289,7 +298,23 @@ function Admin() {
         </div>
         
         <div className="bodyAdmin">
-          <Header />
+          <div className="headerAdmin">
+            <div className="header header-sticky mb-4">
+                <div className="container-fluid">
+                  <button type="button" className="header-toggler ps-1">
+                    <i className="fas fa-list"></i>
+                  </button>
+                  <a  className="header-nav d-none d-md-flex me-auto">
+                    Trang chủ
+                  </a>
+                </div>
+                <div className="InfoAdmin">
+                  
+                  <i className="fas fa-user nav-icon"></i>
+                  <span onClick={() => setForm(34)}>Thuy Tien</span>
+                </div>
+            </div> 
+          </div>
           <div className="bodyMain">{switchRender()}</div>
         </div>
       </div>

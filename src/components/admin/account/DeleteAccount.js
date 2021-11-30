@@ -14,12 +14,12 @@ function DeleteAccount() {
               <div className="row">
                 <div className="mb-3 pull-right btn-group-Delete">
                   <button
-                    type="submit"
+                    
                     className="btn btn-primary btn-color btn-Cancel"
                   >
                     Hủy
                   </button>
-                  <button type="submit" className="btn btn-primary btn-color">
+                  <button  className="btn btn-primary btn-color">
                     Khóa
                   </button>
                 </div>
