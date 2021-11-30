@@ -7,7 +7,7 @@ function DetailProduct() {
     <div>
       <div className="detailProduct">
         <div className="title-addAccount">
-          <h2>Thông tin chi tiết</h2>
+          <h2>Thông tin chi tiết sản phẩm</h2>
         </div>
         <div className="form">
               
@@ -29,7 +29,10 @@ function DetailProduct() {
                           <li>Thương hiệu:</li>
                           <li>Màu sắc:</li>
                           <li>Giá niêm yết:</li>
-                          <li>Giá hiện tại</li>
+                          <li>Giá hiện tại:</li>
+                          <li>Số lượng hiện tại:</li>
+                          <li>Số lượng đã bán:</li>
+                          <li>Tình trạng:</li>
                         </ul>
                       </div>
                     </div>
@@ -42,6 +45,9 @@ function DetailProduct() {
                           <li>Xanh dương</li>
                           <li>39.000.000đ</li>
                           <li>39.000.000đ</li>
+                          <li>50</li>
+                          <li>20</li>
+                          <li>Còn hàng</li>
                         </ul>
                       </div>
                     </div>

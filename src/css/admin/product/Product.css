@@ -194,32 +194,37 @@ table.dataTable, table.dataTable th, table.dataTable td {
     box-shadow: inset 0 0 0 9999px var(--bs-table-accent-bg);
 }
 
-.product-management #Product-IDCol{
-    width: 70px;
+ #Product-IDCol{
+    width: 10%;
 }
-.product-management #Product-NameCol{
-    width: 250px;
+ #Product-NameCol{
+    width: 22%;
 }
-.product-management#Product-ColorCol{
-    width: 30px;
+#Product-ColorCol{
+    width: 7%;
 }
-.product-management #Product-BrandCol{
-    width: 20px;
+ #Product-BrandCol{
+    width: 8%;
 }
-.product-management #Product-PriceCol{
-    width: 60px;
+ #Product-PriceCol{
+    width: 10%;
 }
-.product-management #Product-CurrentPriceCol{
-    width: 60px;
+ #Product-CurrentPriceCol{
+    width: 10%;
 }
-.product-management #Product-ImageCol{
-    width: 250px;
+ #Product-ImageCol{
+    width: 15%;
 }
-.product-management #Product-StatusCol{
-    width: 40px;
+ #Product-StatusCol{
+    width: 8%;
 }
-.product-management #ControlCol{
-    width: 45px;
+ #Product-ControlCol{
+    width: 10%;
+}
+
+.product-management .table{
+    table-layout: fixed;
+    width: 100%;
 }
 
 .table > tbody {

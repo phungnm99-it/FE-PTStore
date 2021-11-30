@@ -9,7 +9,7 @@ function DetailBrand() {
     <div>
       <div className="detailBrand">
         <div className="title-addAccount">
-          <h2>Thông tin chi tiết</h2>
+          <h2>Thông tin chi tiết thương hiệu</h2>
         </div>
         <div className="form">
               

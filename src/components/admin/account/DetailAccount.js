@@ -7,7 +7,7 @@ function DetailAccount(props) {
     <div>
       <div className="detailAccount">
         <div className="title-addAccount">
-                <h2>Thông tin chi tiết</h2>
+          <h2>Thông tin chi tiết tài khoản</h2>
         </div>
         <div className="form">
               <div className="body-detailAccount">
@@ -18,6 +18,7 @@ function DetailAccount(props) {
                         <div className="list-left">
                           <ul className="nav">
                             <li>Mã tài khoản:</li>
+                            <li>Ngày tạo tài khoản:</li>
                             <li>Tên đăng nhập:</li>
                             <li>Họ và tên:</li>
                             <li>Email:</li>
@@ -25,6 +26,7 @@ function DetailAccount(props) {
                             <li>Ngày sinh:</li>
                             <li>Giới tính</li>
                             <li>Địa chỉ:</li>
+                            
                           </ul>
                         </div>
                       </div>
@@ -32,6 +34,7 @@ function DetailAccount(props) {
                         <div className="list-right">
                           <ul className="nav">
                             <li>HIDSF890e30</li>
+                            <li>29/11/2021</li>
                             <li>tienphan</li>
                             <li>Phan Nguyễn Thủy Tiên</li>
                             <li>thuytienpn106@gmail.com</li>
@@ -39,6 +42,7 @@ function DetailAccount(props) {
                             <li>06/10/1999</li>
                             <li>Nữ</li>
                             <li>264 đường Linh Trung, TP.Thủ Đức, TPHCM</li>
+                            
                           </ul>
                         </div>
                       </div>

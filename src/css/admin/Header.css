@@ -284,4 +284,41 @@ html:not([dir=rtl]) .header-nav {
 
 .headerAdmin a{
     font-size: 16px;
+    color: black !important;
 }
+
+/* Nút Dropdown*/
+.headerAdmin .nut_dropdown {
+    background-color: #0080ff;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    z-index: 2;
+}
+/* Nội dung Dropdown */
+.headerAdmin .noidung-dropdown {
+    /*Ẩn nội dung các đường dẫn*/
+    
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    
+    
+}
+/* Thiết kế style cho các đường dẫn trong Dropdown */
+.headerAdmin .noidung-dropdown a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    z-index: 2;
+}
+/* thay đổi màu background khi hover vào đường dẫn */
+.noidung-dropdown a:hover {background-color: #ddd;}
+/* hiển thị nội dung dropdown khi hover */
+ .dropdown:hover .noidung-dropdown {display: block;}
+/* Thay đổi màu background cho nút khi được hover */
+ .dropdown:hover .nut_dropdown {background-color: #00bfff;}
+

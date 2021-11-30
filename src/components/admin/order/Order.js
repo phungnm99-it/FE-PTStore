@@ -91,7 +91,7 @@ function Order(props) {
                                 <i className="fas fa-edit"></i>
                               </button>
                               <button
-                                
+                                onClick={() => props.switch(30)}
                                 className="iconDetail"
                                 
                               >

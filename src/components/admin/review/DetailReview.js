@@ -5,12 +5,12 @@ function DetailReview () {
     return (
         <div className="detailReview">
             <div className="title-addAccount">
-                    <h2>Thông tin chi tiết</h2>
+                <h2>Thông tin chi tiết đánh giá</h2>
             </div>
             <div className="form">
                 <div className="body-detailReview">
                     <div className="row">
-                    <div className="col-sm-9">
+                    <div className="col-sm-12">
                         <div className="media-body">
                         <div className="col-sm-5">
                             <div className="list-left">
@@ -21,8 +21,9 @@ function DetailReview () {
                                 <li>Họ và tên:</li>
                                 <li>Email:</li>
                                 <li>Số điện thoại:</li>
-                                <li>Nội dung đánh giá:</li>
+                                
                                 <li>Thời gian đánh giá:</li>
+                                <li>Nội dung đánh giá:</li>
                             </ul>
                             </div>
                         </div>
@@ -42,12 +43,12 @@ function DetailReview () {
                         </div>
                         </div>
                     </div>
-                    <div className="col-sm-3">
+                    {/* <div className="col-sm-3">
                         <img
                         className="align-self-center img-fluid"
                         src={noAvt}
                         ></img>
-                    </div>
+                    </div> */}
                     </div>
                 </div>
                 {/* <div className="btn-detailAccount">

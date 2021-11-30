@@ -13,13 +13,7 @@ function AccountUser (props) {
                             <div className="bgc-white bd bdrs-3 p-20 mB-20">
                                 <h4 className="c-grey-900 mB-20">Danh sách</h4>
                                 <div className="dataTables_wrapper">
-                                {/* <div className="buttonControl">
-                                    <button className="Add">
-                                    <Link to="/admin/home/addAccount">
-                                        Thêm tài khoản
-                                    </Link>
-                                    </button>
-                                </div> */}
+                                
                                 <div className="dataTables_length" id="dataTable_length">
                                     <label>
                                     Hiển thị:
@@ -49,31 +43,35 @@ function AccountUser (props) {
                                 <table className="table table-striped table-bordered dataTable">
                                     <thead>
                                     <tr role="row">
-                                        <th className="sorting" id="AccountCol">
-                                        Tài khoản
+                                        <th className="sorting" id="Account-IDCol">
+                                            Mã tài khoản
                                         </th>
-                                        <th className="sorting" id="EmailCol">
-                                        Email
+                                        <th className="sorting" id="Account-UserNameCol">
+                                            Tài khoản
                                         </th>
-                                        <th className="sorting_desc" id="PhoneCol">
-                                        Số điện thoại
+                                        <th className="sorting" id="Account-EmailCol">
+                                            Email
                                         </th>
-                                        <th className="sorting" id="BirthdayCol">
-                                        Ngày sinh
+                                        <th className="sorting_desc" id="Account-PhoneCol">
+                                            Số điện thoại
                                         </th>
-                                        <th className="sorting" id="SexCol">
-                                        Giới tính
+                                        <th className="sorting" id="Account-BirthdayCol">
+                                            Ngày sinh
                                         </th>
-                                        <th className="sorting" id="AddressCol">
-                                        Địa chỉ
+                                        <th className="sorting" id="Account-SexCol">
+                                            Giới tính
                                         </th>
-                                        <th className="sorting" id="ControlCol">
-                                        Tác vụ
+                                        <th className="sorting" id="Account-AddressCol">
+                                            Địa chỉ
+                                        </th>
+                                        <th className="sorting" id="Account-ControlCol">
+                                            Tác vụ
                                         </th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     <tr role="row" className="ood">
+                                        <td>HSLF348502</td>
                                         <td>tienphan</td>
                                         <td>thuytienpn106@gmail.com</td>
                                         <td>0858679912</td>
@@ -91,27 +89,18 @@ function AccountUser (props) {
                                         <button
                                             onClick={() => props.switch(7)}
                                             className="iconDetail"
-                                            
                                         >
                                             <i class="fas fa-list"></i>
                                         </button>
                                         <button
                                             
-                                            className="iconDelete"
-                                            
+                                            className="iconDelete"  
                                         >
                                             <i className="fas fa-backspace"></i>
                                         </button>
                                         </td>
                                     </tr>
-                                    <tr role="row" className="ood">
-                                        <td>tienphan</td>
-                                        <td>thuytienpn106@gmail.com</td>
-                                        <td>0858679912</td>
-                                        <td>06/10/1999</td>
-                                        <td>Nữ</td>
-                                        <td>Thủ Đức</td>
-                                    </tr>
+                                    
                                     </tbody>
                                 </table>
                                 <div

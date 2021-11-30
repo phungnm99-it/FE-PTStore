@@ -1,4 +1,4 @@
-.pageAdmin .brands-management .container-fluid{
+.pageAdmin .productStatus-management.container-fluid{
     /* width: 100%; */
     padding-right: 0.75rem;
     /* padding-right: var(--bs-gutter-x, 0.75rem); */
@@ -7,23 +7,24 @@
     margin-right: auto;
     margin-left: auto;
 }
-.brands-management h4{
+
+.productStatus-management h4{
     font-size: 26px;
 }
 
-.brands-management .c-grey-900, .account-management .cH-grey-900:hover {
+.productStatus-management .c-grey-900, .productStatus-management .cH-grey-900:hover {
     color: #313435 !important;
 }
 
-.brands-management .mB-30 {
+.productStatus-management .mB-30 {
     margin-bottom: 30px !important;
 }
 
-.brands-management .mT-10 {
+.productStatus-management .mT-10 {
     margin-top: 10px !important;
 }
 
-.brands-management .row {
+.productStatus-management .row {
     --bs-gutter-x: 1.5rem;
     --bs-gutter-y: 0;
     display: -webkit-box;
@@ -36,14 +37,14 @@
     margin-left: calc(var(--bs-gutter-x) * -.5);
 }
 
-.brands-management .col-md-12 {
+.productStatus-management .col-md-12 {
     -webkit-box-flex: 0;
     -ms-flex: 0 0 auto;
     flex: 0 0 auto;
     width: 100%;
 }
 
-.brands-management .row > * {
+.productStatus-management .row > * {
     -ms-flex-negative: 0;
     flex-shrink: 0;
     width: 100%;
@@ -53,44 +54,44 @@
     margin-top: var(--bs-gutter-y);
 }
 
-.brands-management .bgc-white, .bgcH-white:hover {
+.productStatus-management .bgc-white, .bgcH-white:hover {
     background-color: #ffffff !important;
 }
 
-.brands-management .bdrs-3 {
+.productStatus-management .bdrs-3 {
     border-radius: 3px !important;
 }
 
-.brands-management .bd {
+.productStatus-management .bd {
     border: 1px solid rgba(0, 0, 0, 0.0625) !important;
 }
 
-.brands-management .p-20 {
+.productStatus-management .p-20 {
     padding: 20px !important;
 }
 
-.brands-management .mB-20 {
+.productStatus-management .mB-20 {
     margin-bottom: 20px !important;
 }
 
-.brands-management .dataTables_wrapper {
+.productStatus-management .dataTables_wrapper {
     overflow: hidden;
     padding-bottom: 5px;
 }
 
-.brands-management .dataTables_wrapper {
+.productStatus-management .dataTables_wrapper {
     position: relative;
     clear: both;
     zoom: 1;
 }
 
-.brands-management .dataTables_wrapper .dataTables_length {
+.productStatus-management .dataTables_wrapper .dataTables_length {
     color: #313435;
     float: left;
     margin-top: 8px;
 }
 
-.brands-management .dataTables_wrapper .dataTables_length select {
+.productStatus-management .dataTables_wrapper .dataTables_length select {
     border: 1px solid rgba(0, 0, 0, 0.0625);
     border-radius: 2px;
     -webkit-box-shadow: none;
@@ -107,13 +108,13 @@
     width: 45%;
 }
 
-.brands-management .dataTables_wrapper .dataTables_filter {
+.productStatus-management .dataTables_wrapper .dataTables_filter {
     color: #313435;
     float: right;
     margin-top: 8px;
 }
 
-.brands-management .dataTables_wrapper .dataTables_filter input {
+.productStatus-management .dataTables_wrapper .dataTables_filter input {
     border: 1px solid rgba(0, 0, 0, 0.0625);
     border-radius: 2px;
     -webkit-box-shadow: none;
@@ -133,7 +134,7 @@
     -webkit-appearance: textfield;
 }
 
-.brands-management table.dataTable {
+.productStatus-management table.dataTable {
     width: 100%;
     margin-left: auto;
     margin-right: auto;
@@ -144,7 +145,8 @@
     border-spacing: 0;
 }
 
-.brands-management table.dataTable, .brands-management table.dataTable th, .brands-management table.dataTable td {
+.productStatus-management table.dataTable, .productStatus-management table.dataTable th, 
+.productStatus-management table.dataTable td {
     box-sizing: content-box;
 }
 
@@ -192,19 +194,32 @@ table.dataTable, table.dataTable th, table.dataTable td {
     box-shadow: inset 0 0 0 9999px var(--bs-table-accent-bg);
 }
 
-#Brand-IDCol{
-    width: 15%;
-}
-#Brand-NameCol{
-    width: 32%;
-}
-#Brand-ImgCol{
-    width: 43%;
-}
-#Brand-ControlCol{
+#ProductStatus-IDCol{
     width: 10%;
 }
-.brands-management .table{
+#ProductStatus-NameCol{
+    width: 23%;
+}
+#ProductStatus-ImageCol{
+    width: 25%;
+}
+#ProductStatus-CurrentQuantityCol{
+    width: 7%;
+}
+#ProductStatus-SoldQuantityCol{
+    width: 6%;
+}
+#ProductStatus-StatusCol{
+    width: 10%;
+}
+#ProductStatus-FeaturedProductCol{
+    width: 5%;
+}
+#ProductStatus-ControlCol{
+    width: 5%;
+}
+
+.productStatus-management .table{
     table-layout: fixed;
     width: 100%;
 }
@@ -238,7 +253,7 @@ table.dataTable tbody tr {
     border: none;
 }
 
-.brands-management td a{
+.productStatus-management td a{
     color: #3c4b64;
     font-weight: bold;
 }
@@ -324,28 +339,42 @@ table.dataTable tbody tr {
     height: 0;
 }
 
-.brands-management .Add a{
+.productStatus-management .Add a{
     color: white;
 }
 
-.brands-management .iconEdit{
+.productStatus-management .iconEdit{
+    margin-right: 0px;
     font-size: 13px;
     color: #7774e7;
-    margin-right: 5px;
 }
 
-.brands-management .iconDelete{
+.productStatus-management .iconDetail{
+    margin-right: 0px;
+    font-size: 13px;
+}
+
+.productStatus-management .iconDelete{
     font-size: 13px;
     color: red;
 }
 
-.brands-management .iconDetail{
-    font-size: 13px;
-    margin-right: 5px;
-}
-
-.brands-management .iconEdit, .brands-management .iconDetail, .brands-management .iconDelete{
+.productStatus-management .iconEdit, .productStatus-management .iconDetail, .productStatus-management .iconDelete{
     border: none;
     background-color: #f9f9f9;
 }
+
+.productStatus-management .checkboxFeatured{
+    width: 40px;
+    height: 10px;
+    background: #555;
+    margin: 20px 80px;
+    position: relative;
+    border-radius: 3px;   
+}
+
+.productStatus-management input[type="checkbox"]{
+    margin-left: 20px;
+}
+
 

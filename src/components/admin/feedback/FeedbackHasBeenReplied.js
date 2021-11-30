@@ -1,13 +1,13 @@
 import React from 'react';
-import "../../../css/admin/account/Account.css"
-function LockedAccount (props) {
+import "../../../css/admin/feedback/Feedback.css"
+function FeedbackHasBeenReplied (props) {
     return (
         <div>
-            <div className="pageAdmin">
-                    <div className="account">
-                    <div className="account-management">
+            <section className="pageAdmin">
+                <div className="account">
+                    <div className="feedback-management">
                         <div className="container-fluid">
-                        <h4 className="c-grey-900 mT-10 mB-30">QUẢN LÝ TÀI KHOẢN KHÓA</h4>
+                        <h4 className="c-grey-900 mT-10 mB-30">QUẢN LÝ GÓP Ý ĐÃ PHẢN HỒI</h4>
                         <div className="row">
                             <div className="col-md-12">
                             <div className="bgc-white bd bdrs-3 p-20 mB-20">
@@ -20,7 +20,7 @@ function LockedAccount (props) {
                                     <select
                                         name="dataTable_length"
                                         aria-controls="dataTable"
-                                        className=""
+                                        class=""
                                     >
                                         <option value="10">10</option>
                                         <option value="25">25</option>
@@ -42,61 +42,57 @@ function LockedAccount (props) {
                                 </div>
                                 <table className="table table-striped table-bordered dataTable">
                                     <thead>
-                                        <tr role="row">
-                                            <th className="sorting" id="Account-IDCol">
-                                                Mã tài khoản
-                                            </th>
-                                            <th className="sorting" id="Account-UserNameCol">
-                                                Tài khoản
-                                            </th>
-                                            <th className="sorting" id="Account-EmailCol">
-                                                Email
-                                            </th>
-                                            <th className="sorting_desc" id="Account-PhoneCol">
-                                                Số điện thoại
-                                            </th>
-                                            <th className="sorting" id="Account-BirthdayCol">
-                                                Ngày sinh
-                                            </th>
-                                            <th className="sorting" id="Account-SexCol">
-                                                Giới tính
-                                            </th>
-                                            <th className="sorting" id="Account-AddressCol">
-                                                Địa chỉ
-                                            </th>
-                                            <th className="sorting" id="Account-ControlCol">
-                                                Tác vụ
-                                            </th>
-                                        </tr>
+                                    <tr role="row">
+                                        <th className="sorting col-md-3" id="Feedback-IDCol">
+                                        Mã góp ý
+                                        </th>
+                                        <th className="sorting col-md-4" id="Feedback-UserCol">
+                                        Tên người gửi
+                                        </th>
+                                        <th className="sorting" id="Feedback-EmailCol">
+                                        Email
+                                        </th>
+                                        <th className="sorting" id="Feedback-TopicCol">
+                                        Chủ đề
+                                        </th>
+                                        <th className="sorting" id="Feedback-ContentCol">
+                                        Nội dung
+                                        </th>
+                                        <th className="sorting" id="Feedback-TimeCol">
+                                        Thời gian gửi
+                                        </th>
+                                        <th className="sorting" id="Feedback-ControlCol">
+                                        Tác vụ
+                                        </th>
+                                    </tr>
                                     </thead>
                                     <tbody>
-                                        <tr role="row" className="ood">
-                                            <td>HSLF348502</td>
-                                            <td>tienphan</td>
-                                            <td>thuytienpn106@gmail.com</td>
-                                            <td>0858679912</td>
-                                            <td>06/10/1999</td>
-                                            <td>Nữ</td>
-                                            <td>Thủ Đức</td>
-                                            <td>
+                                    <tr role="row" className="ood">
+                                        <td>LSFL8990</td>
+                                        <td>Phan Nguyen Thuy Tien</td>
+                                        <td>thuytienpn106@gmail.com</td>
+                                        <td>Góp ý</td>
+                                        <td>
+                                        Sản phẩm mượt, giao hàng nhanh, phục vụ nhiệt tình
+                                        </td>
+                                        <td>19/11/2021</td>
+                                        <td>
+                                        {/* <button
+                                            onClick={() => props.switch(25)}
+                                            className="iconReply"
                                             
-                                            <button
-                                                onClick={() => props.switch(7)}
-                                                className="iconDetail"
-                                                
-                                            >
-                                                <i className="fas fa-list"></i>
-                                            </button>
-                                            <button
-                                                
-                                                className="iconUnlock"
-                                                
-                                            >
-                                                <i className="fas fa-unlock"></i>
-                                            </button>
-                                            </td>
-                                        </tr>
-                                    
+                                        >
+                                            <i className="fas fa-reply"></i>
+                                        </button> */}
+                                        <button
+                                            onClick={() => props.switch(26)}
+                                            className="iconDetail"
+                                            
+                                        >
+                                            <i className="fas fa-list"></i>
+                                        </button>
+                                        </td>
+                                    </tr>
                                     </tbody>
                                 </table>
                                 <div
@@ -175,10 +171,10 @@ function LockedAccount (props) {
                         </div>
                         </div>
                     </div>
-                    </div>
-            </div>
+                </div>
+            </section>
         </div>
     );
 }
 
-export default LockedAccount;
+export default FeedbackHasBeenReplied;

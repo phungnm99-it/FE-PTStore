@@ -23,6 +23,14 @@ import ProductPrice from "./product/ProductPrice";
 import EditPrice from "./product/EditPrice";
 import Order from "./order/Order"
 import EditOrder from "./order/EditOrder";
+import Feedback from "./feedback/Feedback";
+import ReplyFeedback from "./feedback/ReplyFeedback";
+import DetailFeedback from "./feedback/DetailFeedback";
+import Subscriber from "./subscriber/Subscriber";
+import FeedbackHasBeenReplied from "./feedback/FeedbackHasBeenReplied";
+import ProductStatus from "./product/ProductStatus";
+import EditProductStatus from "./product/EditProductStatus";
+import DetailOrder from "./order/DetailOrder";
 function Admin() {
   const [form, setForm] = useState();
   let inputFile = null;
@@ -38,7 +46,7 @@ function Admin() {
       case 3:
         return <AccountShipper switch={(e) => setForm(e)} />;
       case 4:
-        return <LockedAccount />;
+        return <LockedAccount switch={(e) => setForm(e)}/>;
       case 5:
         return <AddAccount />;
       case 6:
@@ -58,7 +66,7 @@ function Admin() {
       case 13:
         return <ProductPrice switch={(e) => setForm(e)}/>;
       case 14:
-        return;
+        return <ProductStatus switch={(e) => setForm(e)}/>;
       case 15:
         return <AddProduct/>;
       case 16:
@@ -75,6 +83,22 @@ function Admin() {
         return <Order switch={(e) => setForm(e)}/>;
       case 22:
         return <EditOrder/>;
+      case 23:
+        return;
+      case 24:
+        return <Feedback switch={(e) => setForm(e)}/>;
+      case 25:
+        return <ReplyFeedback/>;
+      case 26:
+        return <DetailFeedback/>;
+      case 27:
+        return <Subscriber/>;
+      case 28:
+        return <FeedbackHasBeenReplied switch={(e) => setForm(e)}/>
+      case 29:
+        return <EditProductStatus/>;
+      case 30: 
+        return <DetailOrder/>
       default:
         return null;
     }
@@ -94,17 +118,17 @@ function Admin() {
         <div className="menuAdmin">
           <div className="sidebar">
             <div className="ctn">
-              <div class="header">
-                <div class="info">
-                  <div class="avt" id="myAvatar">
+              <div className="header">
+                <div className="info">
+                  <div className="avt" id="myAvatar">
                     <strong>T</strong>
                   </div>
-                  <div class="summer">
+                  <div className="summer">
                     <p>
                       <strong>Tien Phan Nguyen Thụy</strong>
                     </p>
-                    <p class="change-avatar">
-                      <i class="icon-change-avatar"></i> Thay đổi ảnh đại diện
+                    <p className="change-avatar">
+                      <i className="icon-change-avatar"></i> Thay đổi ảnh đại diện
                     </p>
                     <input
                       type="file"
@@ -166,23 +190,24 @@ function Admin() {
                     icon="fas fa-user-cog nav-icon"
                     subNav={[
                       {
-                        name: "Thông tin sản phẩm",
+                        name: "Quản lý Thông tin",
                         icon: "fas fa-user-circle nav-icon",
                         link: "",
                         formChoose: () => setForm(12),
                       },
                       {
-                        name: "Quản lý Giá sản phẩm",
+                        name: "Quản lý Giá ",
                         icon: "fas fa-user-circle nav-icon",
                         link: "",
                         formChoose: () => setForm(13),
                       },
                       {
-                        name: "Quản lý Số lượng",
+                        name: "Quản lý Tình trạng",
                         icon: "fas fa-user-circle nav-icon",
                         link: "",
                         formChoose: () => setForm(14),
                       },
+
                     ]}
                   />
                   <DropDown
@@ -199,19 +224,19 @@ function Admin() {
                         name: "Đơn hàng chờ xác nhận",
                         icon: "fas fa-user-circle nav-icon",
                         link: "",
-                        formChoose: () => setForm(13),
+                        formChoose: () => setForm(21),
                       },
                       {
-                        name: "Đơn hàng đã xác nhận",
+                        name: "Đơn hàng đang giao",
                         icon: "fas fa-user-circle nav-icon",
                         link: "",
-                        formChoose: () => setForm(14),
+                        formChoose: () => setForm(21),
                       },
                       {
                         name: "Đơn hàng đã hoàn thành",
                         icon: "fas fa-user-circle nav-icon",
                         link: "",
-                        formChoose: () => setForm(14),
+                        formChoose: () => setForm(21),
                       },
                     ]}
                   />
@@ -222,13 +247,26 @@ function Admin() {
                       Quản lý Đánh giá
                     </a>
                   </li>
-                  <li className="nav-item" onClick={() => setForm(6)}>
-                    <a href="#" className="nav-link active btn-focus">
-                      <i className="fas fa-comments-dollar nav-icon"></i>
-                      Quản lý Góp ý
-                    </a>
-                  </li>
-                  <li className="nav-item">
+                  <DropDown
+                    name="Quản lý Góp ý"
+                    icon="fas fa-user-cog nav-icon"
+                    subNav={[
+                      {
+                        name: "Góp Ý chưa trả lời",
+                        icon: "fas fa-user-circle nav-icon",
+                        link: "",
+                        formChoose: () => setForm(24),
+                      },
+                      {
+                        name: "Góp ý đã trả lời",
+                        icon: "fas fa-user-circle nav-icon",
+                        link: "",
+                        formChoose: () => setForm(28),
+                      },
+                      
+                    ]}
+                  />
+                  <li className="nav-item" onClick={() => setForm(27)}>
                     <a href="#" className="nav-link active btn-focus">
                       <i className="fas fa-bell nav-icon"></i>
                       Quản lý Subscriber

@@ -55,16 +55,16 @@ function Brand(props) {
                       <table className="table table-striped table-bordered dataTable">
                         <thead>
                           <tr role="row">
-                            <th className="sorting" id="IDBrandCol">
+                            <th className="sorting" id="Brand-IDCol">
                               Mã thương hiệu
                             </th>
-                            <th className="sorting" id="NameBrandCol">
+                            <th className="sorting" id="Brand-NameCol">
                               Tên thương hiệu
                             </th>
-                            <th className="sorting_desc" id="ImgBrandCol">
+                            <th className="sorting_desc" id="Brand-ImgCol">
                               Hình ảnh
                             </th>
-                            <th className="sorting" id="ControlCol">
+                            <th className="sorting" id="Brand-ControlCol">
                               Tác vụ
                             </th>
                           </tr>
