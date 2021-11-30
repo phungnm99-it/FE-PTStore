@@ -295,3 +295,15 @@ html:not([dir="rtl"]) .sidebar-nav .nav-icon:first-child {
 .isDrop {
   display: block;
 }
+
+.headerAdmin .nav-icon{
+  font-size: 25px;
+  margin-right: 15px;
+  color: red;
+}
+
+.headerAdmin span{
+  margin-right: 15px;
+  font-size: 18px;
+  font-weight: 500;
+}

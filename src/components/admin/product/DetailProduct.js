@@ -2,7 +2,7 @@ import React from "react";
 import "../../../css/admin/product/DetailProduct.css";
 import imgProduct from "../../../images/no-avt.png";
 
-function DetailProduct() {
+function DetailProduct(props) {
   return (
     <div>
       <div className="detailProduct">
@@ -95,15 +95,14 @@ function DetailProduct() {
                   </div>
                 </div>
               </div>
-              {/* <div className="btn-detailProduct">
-                <Link
-                  to="/admin/home/editProductInfo"
-                  type="submit"
+              <div className="btn-detailProduct">
+                <button
+                  onClick={() => props.switch(16)}
                   className="btnEdit-detailProduct"
                 >
                   Chỉnh sửa
-                </Link>
-              </div> */}
+                </button>
+              </div>
         </div>
       </div>
     </div>

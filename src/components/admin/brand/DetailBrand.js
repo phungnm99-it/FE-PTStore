@@ -1,10 +1,10 @@
 import React from "react";
 import "../../../css/admin/brand/DetailBrand.css";
-import iconClose from "../../../images/iconClose.png";
-import noAvt from "../../../images/no-avt.png";
-import { Link } from "react-router-dom";
 
-function DetailBrand() {
+import noAvt from "../../../images/no-avt.png";
+
+
+function DetailBrand(props) {
   return (
     <div>
       <div className="detailBrand">
@@ -43,15 +43,14 @@ function DetailBrand() {
                   </div>
                 </div>
               </div>
-              {/* <div className="btn-detailBrand">
-                <Link
-                  to="/admin/home/editBrand"
-                  type="submit"
+               <div className="btn-detailBrand">
+                <button
+                  onClick={() => props.switch(10)}
                   className="btnEdit-detailBrand"
                 >
                   Chỉnh sửa
-                </Link>
-              </div> */}
+                </button>
+              </div> 
         </div>
       </div>
     </div>

@@ -315,10 +315,5 @@ html:not([dir=rtl]) .header-nav {
     display: block;
     z-index: 2;
 }
-/* thay đổi màu background khi hover vào đường dẫn */
-.noidung-dropdown a:hover {background-color: #ddd;}
-/* hiển thị nội dung dropdown khi hover */
- .dropdown:hover .noidung-dropdown {display: block;}
-/* Thay đổi màu background cho nút khi được hover */
- .dropdown:hover .nut_dropdown {background-color: #00bfff;}
+
 
