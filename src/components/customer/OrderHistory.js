@@ -54,7 +54,7 @@ function OrderHistory() {
                               <td>{item.orderCode}</td>
                               <td>{new Date(item.orderTime).toDateString()}</td>
                               <td>{item?.products.map((index) => {
-                                return <p key={index.productId}>{index.productName + " - Số lượng: " + index.quantity + " - Giá: " + priceFormat(index.currentPrice)}</p>
+                                return <p key={index.productId}>{index.productNameY}</p>
                               })}</td>
                               <td>{priceFormat(item?.totalCost)}</td>
                               <td>{item.status}</td>
