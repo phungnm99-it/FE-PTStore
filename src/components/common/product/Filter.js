@@ -12,7 +12,6 @@ class Filter extends Component {
 
   componentDidMount() {
     // document.body.appendChild(this.drop);
-    console.log(this.props);
     let root = document.getElementById("root");
   }
 

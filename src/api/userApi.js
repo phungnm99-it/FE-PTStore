@@ -15,6 +15,41 @@ const userApi = {
     const url = "/user/getUser";
     return axiosClient.get(url);
   },
+
+  updateAvatar: (formData) => {
+    const url = "/user/uploadImage";
+    return axiosClient.post(url, formData);
+  },
+
+  changePassword: (formData) => {
+    const url = "/user/changePassword";
+    return axiosClient.post(url, formData);
+  },
+
+  register: (formData) => {
+    const url = "/user/register";
+    return axiosClient.post(url, formData);
+  },
+
+  forgetPassword: (formData) => {
+    const url = "/user/forgetPassword";
+    return axiosClient.post(url, formData);
+  },
+
+  resetPassword: (formData) => {
+    const url = "/user/resetPassword";
+    return axiosClient.post(url, formData);
+  },
+
+  getAllOwnsOrder: () => {
+    const url = "/order/getAllOwnOrders";
+    return axiosClient.get(url);
+  },
+
+  getReview: () => {
+    const url = "/user/getReview";
+    return axiosClient.get(url);
+  },
 };
 
 export default userApi;

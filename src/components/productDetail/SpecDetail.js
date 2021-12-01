@@ -1,22 +1,32 @@
 import React from "react";
 import "../../css/productDetail/SpecDetail.css";
 import iconClose from "../../images/iconClose.png";
+import { useParams } from "react-router";
+import productApi from "../../api/productApi";
+import { useEffect, useState } from "react";
 function SpecDetail(props) {
+  const { id } = useParams();
+  const [info, setInfo] = useState({});
+  useEffect(() => {
+    productApi.getAll(id).then((response) => {
+      setInfo(response.data);
+    });
+  }, [id]);
   return (
     <div>
       <div className="detailSpecification">
         <div className="jquery-modal blocker current">
           <div className="modal" id="popup-modal">
+            <img
+              className="icon-close"
+              src={iconClose}
+              alt="iconClose"
+              onClick={() => props.onCLose()}
+            />
             <table className="table table-border">
-              <img
-                className="icon-close"
-                src={iconClose}
-                alt="iconClose"
-                onClick={() => props.onCLose()}
-              />
               <tbody>
                 <tr>
-                  <th colspan="2">
+                  <th colSpan="2">
                     <span className="f-16">Màn hình</span>
                   </th>
                 </tr>
@@ -25,7 +35,7 @@ function SpecDetail(props) {
                     <strong>Độ phân giải:</strong>
                   </td>
                   <td>
-                    <span>1668 x 2388 Pixels</span>
+                    <span>{info.screenResolution}</span>
                   </td>
                 </tr>
                 <tr>
@@ -33,7 +43,7 @@ function SpecDetail(props) {
                     <strong>Màn hình rộng:</strong>
                   </td>
                   <td>
-                    <span>11"</span>
+                    <span>{info.screenSize}</span>
                   </td>
                 </tr>
                 <tr>
@@ -41,11 +51,11 @@ function SpecDetail(props) {
                     <strong>Công nghệ màn hình:</strong>
                   </td>
                   <td>
-                    <span>11"</span>
+                    <span>{info.screenTech}</span>
                   </td>
                 </tr>
                 <tr>
-                  <th colspan="2">
+                  <th colSpan="2">
                     <span className="f-16">Hệ điều hành &amp; CPU</span>
                   </th>
                 </tr>
@@ -54,7 +64,7 @@ function SpecDetail(props) {
                     <strong>Hệ điều hành</strong>
                   </td>
                   <td>
-                    <span>iPadOS 14</span>
+                    <span>{info.os}</span>
                   </td>
                 </tr>
                 <tr>
@@ -62,7 +72,7 @@ function SpecDetail(props) {
                     <strong>Chip xử lý (CPU)</strong>
                   </td>
                   <td>
-                    <span>Apple M1 8 nhân</span>
+                    <span>{info.cpu}</span>
                   </td>
                 </tr>
                 <tr>
@@ -70,11 +80,11 @@ function SpecDetail(props) {
                     <strong>Chip đồ hoạ (GPU)</strong>
                   </td>
                   <td>
-                    <span>Apple GPU 8 nhân</span>
+                    <span>{info.gpu}</span>
                   </td>
                 </tr>
                 <tr>
-                  <th colspan="2">
+                  <th colSpan="2">
                     <span className="f-16">Camera</span>
                   </th>
                 </tr>
@@ -83,7 +93,7 @@ function SpecDetail(props) {
                     <strong>Camera trước</strong>
                   </td>
                   <td>
-                    <span>7538 mAh</span>
+                    <span>{info.frontCamera}</span>
                   </td>
                 </tr>
                 <tr>
@@ -91,11 +101,11 @@ function SpecDetail(props) {
                     <strong>Camera sau</strong>
                   </td>
                   <td>
-                    <span>7538 mAh</span>
+                    <span>{info.backCamera}</span>
                   </td>
                 </tr>
                 <tr>
-                  <th colspan="2">
+                  <th colSpan="2">
                     <span className="f-16">Bộ nhớ &amp; Lưu trữ</span>
                   </th>
                 </tr>
@@ -104,7 +114,7 @@ function SpecDetail(props) {
                     <strong>RAM</strong>
                   </td>
                   <td>
-                    <span>8 GB</span>
+                    <span>{info.ram}</span>
                   </td>
                 </tr>
                 <tr>
@@ -112,11 +122,11 @@ function SpecDetail(props) {
                     <strong>Bộ nhớ trong</strong>
                   </td>
                   <td>
-                    <span>128 GB</span>
+                    <span>{info.rom}</span>
                   </td>
                 </tr>
                 <tr>
-                  <th colspan="2">
+                  <th colSpan="2">
                     <span className="f-16"> Kết nối</span>
                   </th>
                 </tr>
@@ -125,7 +135,7 @@ function SpecDetail(props) {
                     <strong>Số khe SIM</strong>
                   </td>
                   <td>
-                    <span>1 Nano SIM &amp; 1 eSIM</span>
+                    <span>{info.sim}</span>
                   </td>
                 </tr>
                 <tr>
@@ -133,46 +143,40 @@ function SpecDetail(props) {
                     <strong>WiFi</strong>
                   </td>
                   <td>
-                    <ol className="ol-specs">
-                      <li>Dual-band</li>
-                      <li>Wi-Fi 802.11 a/b/g/n/ac/ax</li>
-                      <li>Wi-Fi hotspot</li>
-                    </ol>
+                    {info.wifi}
+                    {/* <ol className="ol-specs">{info.wifi}</ol> */}
                   </td>
                 </tr>
-                <tr>
+                {/* <tr>
                   <td className="table-gray">
                     <strong>Bluetooth</strong>
                   </td>
                   <td>
-                    <ol className="ol-specs">
-                      <li>A2DP</li>
-                      <li>LE</li>
-                      <li>v5.0</li>
-                    </ol>
+                    <ol className="ol-specs">{info.bluetooth}</ol>
                   </td>
-                </tr>
+                </tr> */}
                 <tr>
                   <td className="table-gray">
                     <strong>GPS</strong>
                   </td>
                   <td>
-                    <ol className="ol-specs">
+                    {info.gps}
+                    {/* <ol className="ol-specs">
                       <li>A-GPS</li>
                       <li>GLONASS</li>
-                    </ol>
+                    </ol> */}
                   </td>
                 </tr>
-                <tr>
+                {/* <tr>
                   <td className="table-gray">
                     <strong>Cổng kết nối/sạc</strong>
                   </td>
                   <td>
                     <span>Type-C</span>
                   </td>
-                </tr>
+                </tr> */}
                 <tr>
-                  <th colspan="2">
+                  <th colSpan="2">
                     <span className="f-16">Pin &amp; Sạc</span>
                   </th>
                 </tr>
@@ -181,7 +185,7 @@ function SpecDetail(props) {
                     <strong>Dung lượng pin</strong>
                   </td>
                   <td>
-                    <span>7538 mAh</span>
+                    <span>{info.battery}</span>
                   </td>
                 </tr>
               </tbody>

@@ -1,7 +1,18 @@
 import React, { useState } from "react";
 import "../../css/productDetail/MainInfo.css";
 import SpecDetail from "./SpecDetail";
+import { useParams } from "react-router";
+import productApi from "../../api/productApi";
+import { useEffect } from "react";
+
 function Specifications() {
+  const { id } = useParams();
+  const [info, setInfo] = useState({});
+  useEffect(() => {
+    productApi.getAll(id).then((response) => {
+      setInfo(response.data);
+    });
+  }, [id]);
   const [modalIsOpen, setIsOpen] = useState(false);
   return (
     <div>
@@ -24,13 +35,13 @@ function Specifications() {
         <div className="col-sm-7">
           <div className="list-right">
             <ul className="nav">
-              <li>OLED6.1"Super Retina XD</li>
-              <li>iOS 14</li>
-              <li>2 camera 12 MP</li>
-              <li>12 MP</li>
-              <li>4 GB</li>
-              <li>64 GB</li>
-              <li>2815 mAh</li>
+              <li>{info.screenSize}</li>
+              <li>{info.os}</li>
+              <li>{info.backCamera}</li>
+              <li>{info.frontCamera}</li>
+              <li>{info.ram}</li>
+              <li>{info.rom}</li>
+              <li>{info.battery}</li>
             </ul>
           </div>
         </div>

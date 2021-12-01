@@ -3,6 +3,7 @@ import "../../css/customer/accountInfo.css";
 import ChangePassword from "./ChangePassword";
 import { getProvinces } from "../../service/provinces-service";
 import userApi from "../../api/userApi";
+import { isElementOfType } from "react-dom/test-utils";
 
 function AccountInfo() {
   const [modalIsOpen, setIsOpen] = useState(false);
@@ -11,8 +12,6 @@ function AccountInfo() {
   const [districts, setDistrict] = useState([]);
   const [info, setInfo] = useState({});
   const [name, setName] = useState("");
-  const [username, setUsername] = useState("");
-  const [phoneNumber, setPhoneNumber] = useState("");
   useEffect(() => {
     // lay tinh tu api
     getProvinces().then((res) => {
@@ -22,9 +21,6 @@ function AccountInfo() {
     userApi.getInfo().then((response) => {
       console.log(response.data);
       setInfo(response.data);
-      setName(info.fullName);
-      setUsername(info.username);
-      setPhoneNumber(info.phoneNumber);
     });
   }, []);
   // lay quan tu ma tinh
@@ -51,7 +47,7 @@ function AccountInfo() {
                             <input
                               className="form-input"
                               type="text"
-                              value={username}
+                              value={info.username}
                               name="UserName"
                               id="UserName"
                               placeholder="Tên đăng nhập"
@@ -65,7 +61,7 @@ function AccountInfo() {
                             <input
                               className="form-input"
                               type="text"
-                              value={name}
+                              value={info.fullName}
                               onChange={(e) => setName(e.target.value)}
                               name="FullName"
                               id="FullName"
@@ -80,8 +76,7 @@ function AccountInfo() {
                             <input
                               className="form-input"
                               type="tel"
-                              value={phoneNumber}
-                              name="PhoneNumber"
+                              value={info.phoneNumber}
                               id="PhoneNumber"
                               placeholder="Điện thoại *"
                               data-required="1"
@@ -96,7 +91,6 @@ function AccountInfo() {
                             <input
                               className="form-input"
                               type="text"
-                              readOnly
                               value={info.email}
                               name="Email"
                               id="Email"
@@ -111,12 +105,10 @@ function AccountInfo() {
                           <label>Ngày tháng năm sinh:</label>
                           <div className="controls">
                             <input
-                              className="form-input"
+                              max="2030-12-31"
                               type="date"
-                              value="06/10/1999"
-                              name="UserBirthDate"
+                              value={info.birthday}
                               id="UserBirthDate"
-                              placeholder="Ngày tháng năm sinh"
                             />
                           </div>
                         </div>
@@ -129,7 +121,6 @@ function AccountInfo() {
                               id="Male"
                               name="sex"
                               value="Nam"
-                              checked
                             />
                              {" "}
                             <label className="textMale" for="html">
@@ -206,7 +197,7 @@ function AccountInfo() {
                             <input
                               className="form-input"
                               type="text"
-                              value="So 1 Vo Van Ngan"
+                              value={info.address}
                               name="Address"
                               id="Address"
                               placeholder="Địa chỉ *"
@@ -219,7 +210,7 @@ function AccountInfo() {
                           <div className="controls submit-controls">
                             <div className="col-md-10">
                               <button className="btn-editInfo" type="submit">
-                                XÁC NHẬN
+                                CẬP NHẬT
                               </button>
                             </div>
                             <div className="col-md-4">
