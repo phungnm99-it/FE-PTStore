@@ -1,10 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import FilterOrderTab from "./FilterOrderTab";
 import "../../css/customer/orderHistory.css";
 import OrderDetail from "./orderDetail/OrderDetail";
+import userApi from "../../api/userApi";
+import { priceFormat } from "../../utils/priceFormat";
 
 function OrderHistory() {
   const [model, setModel] = useState(false);
+  const [orders, setOrders] = useState([]);
+
+  useEffect(() => {
+    userApi.getAllOwnsOrder().then((response) => {
+      setOrders(response.data);
+      console.log(response.data);
+    });
+  }, []);
   return (
     <div>
       <section className="orderHistory">
@@ -38,18 +48,24 @@ function OrderHistory() {
                         </tr>
                       </thead>
                       <tbody>
-                        <tr role="row" className="ood">
-                          <td>HSDI94985</td>
-                          <td>20/11/2021</td>
-                          <td>IPHONE 13 PROMAX 512GB</td>
-                          <td>39.000.000đ</td>
-                          <td>Giao hàng thành công</td>
-                          <td>
-                            <button onClick={() => setModel(true)}>
-                              <i className="fas fa-list iconDetail"></i>
-                            </button>
-                          </td>
-                        </tr>
+                        {orders.map((item) => {
+                          return (
+                            <tr key={item.id} role="row" className="ood">
+                              <td>{item.orderCode}</td>
+                              <td>{new Date(item.orderTime).toDateString()}</td>
+                              <td>{item?.products.map((index) => {
+                                return <p key={index.productId}>{index.productName + " - Số lượng: " + index.quantity + " - Giá: " + priceFormat(index.currentPrice)}</p>
+                              })}</td>
+                              <td>{priceFormat(item?.totalCost)}</td>
+                              <td>{item.status}</td>
+                              <td>
+                                <button onClick={() => setModel(true)}>
+                                  <i className="fas fa-list iconDetail"></i>
+                                </button>
+                              </td>
+                            </tr>
+                          );
+                        })}
                       </tbody>
                     </table>
                   </div>

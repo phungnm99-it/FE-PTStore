@@ -30,7 +30,12 @@ const productApi = {
   getReviewByProductId: (id) => {
     const url = "/product/review/" + id;
     return axiosClient.get(url);
-  }
+  },
+
+  checkCanReview: (id) => {
+    const url = "/product/checkCanReview/" + id;
+    return axiosClient.get(url);
+  },
 };
 
 export default productApi;

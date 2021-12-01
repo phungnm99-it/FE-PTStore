@@ -3,39 +3,42 @@ import React from "react";
 import "../../css/productDetail/ReviewContent.css";
 
 function ReviewContent(item) {
-  console.log("123");
-  return (
-    <div>
-      <div className="review-content" id="reviewContent">
-        <div className="item">
-          <div className="avt">
-            <img src={item.imageUrl} alt="noAvt" />
-          </div>
-          <div className="info">
-            <p
-              itemProp="author"
-              itemType="http://schema.org/Person"
-              itemScope=""
-            >
-              <strong className="name" itemProp="name" content="Fred Benson">
-                {item.userName}
-              </strong>
-            </p>
-            <p>
-              <label>
-                <i>{new Date(item.reviewTime).toDateString()}</i>
-              </label>
-            </p>
-            <div className="content">
-              {item.content}
-              <br />
+  if (!item) {
+    return <div>{"Chưa có đánh giá"}</div>;
+  } else {
+    return (
+      <div>
+        <div className="review-content" id="reviewContent">
+          <div className="item">
+            <div className="avt">
+              <img src={item.imageUrl} alt="noAvt" />
+            </div>
+            <div className="info">
+              <p
+                itemProp="author"
+                itemType="http://schema.org/Person"
+                itemScope=""
+              >
+                <strong className="name" itemProp="name" content="Fred Benson">
+                  {item.userName}
+                </strong>
+              </p>
+              <p>
+                <label>
+                  <i>{new Date(item.reviewTime).toDateString()}</i>
+                </label>
+              </p>
+              <div className="content">
+                {item.content}
+                <br />
+              </div>
             </div>
           </div>
         </div>
+        ;
       </div>
-      ;
-    </div>
-  );
+    );
+  }
 }
 
 export default ReviewContent;

@@ -9,7 +9,6 @@ class FilterPrice extends Component {
 
   componentDidMount() {
     // document.body.appendChild(this.drop);
-    console.log(this.props);
     let root = document.getElementById("root");
     this.setState({
       left: this.buttonRef.current.getBoundingClientRect().left - 140,

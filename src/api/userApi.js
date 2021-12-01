@@ -40,6 +40,16 @@ const userApi = {
     const url = "/user/resetPassword";
     return axiosClient.post(url, formData);
   },
+
+  getAllOwnsOrder: () => {
+    const url = "/order/getAllOwnOrders";
+    return axiosClient.get(url);
+  },
+
+  getReview: () => {
+    const url = "/user/getReview";
+    return axiosClient.get(url);
+  },
 };
 
 export default userApi;

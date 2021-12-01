@@ -5,7 +5,6 @@ import brandApi from "../../../api/brandApi";
 import { useParams } from "react-router-dom";
 function SlideBrand() {
   const { brandName } = useParams();
-  console.log(brandName);
   const [brands, setBrands] = useState([]);
   useEffect(() => {
     getActiveBrand();
