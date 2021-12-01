@@ -5,7 +5,7 @@ const Auth = {
     cb();
   },
   logout(cb) {
-    Auth.isAuthenticated = false;
+    Auth.isAuthenticated = false; 
     cb();
   },
 };

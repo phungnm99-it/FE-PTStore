@@ -1,5 +1,5 @@
 import { useState, createContext } from "react";
-import fakeAuth from "./config/auth";
+import Auth from "./config/auth";
 
 const AuthContext = createContext();
 
@@ -24,14 +24,14 @@ function AuthProvider({ children }) {
   };
 
   const login = (cb) => {
-    return fakeAuth.login(() => {
+    return Auth.login(() => {
       setUser("user");
       cb();
     });
   };
 
   const logout = (cb) => {
-    return fakeAuth.logout(() => {
+    return Auth.logout(() => {
       setUser(null);
       cb();
     });

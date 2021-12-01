@@ -30,7 +30,7 @@ function ReviewInput() {
                   title="Nội dung"
                   placeholder="Nội dung đánh giá (tối thiểu 20 ký tự)"
                   name="Content"
-                  spellcheck="false"
+                  spellCheck="false"
                   data-required="1"
                   data-minlength="20"
                 ></textarea>
