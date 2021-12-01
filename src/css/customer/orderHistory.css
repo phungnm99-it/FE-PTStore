@@ -58,22 +58,27 @@
 }
 
 #History-IDOrderCol {
-  width: 60px;
+  width: 10%;
 }
 #History-ProductCol {
-  width: 300px;
+  width: 43%;
 }
 #History-DateCol {
-  width: 40px;
+  width: 15%;
 }
 #History-TotalCol {
-  width: 50px;
+  width: 12%;
 }
 #History-StatusCol {
-  width: 70px;
+  width: 15%;
 }
 #History-Control{
-  width: 10px;
+  width: 5%;
+}
+
+.orderHistory .table{
+  table-layout: fixed;
+  width: 100%;
 }
 
 

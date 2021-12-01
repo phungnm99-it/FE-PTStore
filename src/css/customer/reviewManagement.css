@@ -1,0 +1,90 @@
+.reviewHistory .reviewHistory-form {
+    padding: 25px;
+  }
+  
+  .reviewHistory .reviewHistory-form .table-border th {
+    height: 40px;
+    padding-top: 10px;
+  }
+  
+  .reviewHistory .box-order {
+    padding: 20px;
+  }
+  
+  .reviewHistory .body-content .account-layout .box-order .box-order-header {
+    display: flex;
+    background-color: orange;
+    padding: 0.5rem 1rem;
+    border-radius: 1.5rem;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border: 1px solid #7e7e7e;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .reviewHistory .box-order .box-order-header .header-item {
+    color: #585858;
+    font-size: 16px;
+    font-weight: 500;
+  }
+  
+  .reviewHistory .text-center {
+    text-align: center !important;
+  }
+  
+  .reviewHistory .w-25 {
+    width: 25% !important;
+  }
+  
+  .reviewHistory .box-order .w-10 {
+    width: 10%;
+  }
+  
+  .box-order .w-15 {
+    width: 15%;
+  }
+  
+  .reviewHistory table.dataTable {
+    width: 100%;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 1 0px;
+    margin-bottom: 20px;
+    clear: both;
+    border-collapse: separate;
+    border-spacing: 0;
+    width: 100%;
+  }
+  
+  #ReviewHistory-ProductCol {
+    width: 35%;
+  }
+  #ReviewHistory-DateCol {
+    width: 15%;
+  }
+  #ReviewHistory-ContentCol {
+    width: 50%;
+  }
+
+  
+  .reviewHistory .table{
+    table-layout: fixed;
+    width: 100%;
+  }
+  
+  
+  .reviewHistory table thead {
+    width: 100%;
+  }
+  
+  .reviewHistory .iconDetail{
+    color: #7774e7;
+    margin-left: 10px;
+  }
+  
+  .reviewHistory button{
+    border: none;
+    background-color: #f9f9f9;
+  }
+  

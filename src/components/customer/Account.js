@@ -5,6 +5,7 @@ import OrderHistory from "./OrderHistory";
 import AccountInfo from "./AccountInfo";
 import { Link } from "react-router-dom";
 import Feedback from "./Feedback";
+import ReviewManagement from "./ReviewManagement";
 class Account extends Component {
   constructor(props) {
     super(props);
@@ -18,6 +19,8 @@ class Account extends Component {
         return <AccountInfo />;
       case 2:
         return <OrderHistory />;
+      case 3: 
+        return <ReviewManagement/>;
       case 4:
         return <Feedback />;
       default:
@@ -109,7 +112,7 @@ class Account extends Component {
                       <span>Đơn hàng của bạn</span>
                     </a>
                   </li>
-                  <li onClick={() => this.formChoose()}>
+                  <li onClick={() => this.formChoose(3)}>
                     <a href="#review">
                       <i className="fas fa-thumbs-up"></i>
                       <span>Quản lý đánh giá</span>
