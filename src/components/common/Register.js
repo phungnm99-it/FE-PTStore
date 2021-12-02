@@ -1,17 +1,19 @@
 import React, { useState, useEffect } from "react";
 import "../../css/common/Register.css";
 import { getProvinces } from "../../service/provinces-service";
+import userApi from "../../api/userApi";
+import { useHistory } from "react-router-dom";
 
 function Register() {
   //const [sexInfo, setSex] = useState(0);
   // state tinh, state quan
+  const history = useHistory();
   const [provinces, setProvinces] = useState([]);
   const [districts, setDistrict] = useState([]);
 
   useEffect(() => {
     // lay tinh tu api
     getProvinces().then((res) => {
-      console.log(res.data);
       setProvinces(res.data);
     });
   }, []);
@@ -19,6 +21,44 @@ function Register() {
   const getDistrictFromCode = (code) => {
     let filter = provinces.filter((x) => x.code.toString() === code);
     filter.length > 0 ? setDistrict(filter[0].districts) : setDistrict([]);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    let province = document.getElementById("SystemCityID");
+    let username = document.getElementById("inputUserName").value;
+    let phoneNumber = document.getElementById("inputPhone").value;
+    let fullName = document.getElementById("inputName").value;
+    let email = document.getElementById("inputEmail").value;
+    let password = document.getElementById("inputPassword").value;
+    let birthday = document.getElementById("inputBirthday").value.split("-");
+    let gender = document.querySelector('input[name="sex"]:checked').value;
+    let district = document.getElementById("SystemDistrictID");
+    let address =
+      document.getElementById("inputAddress").value +
+      ", " +
+      district.options[district.selectedIndex].text +
+      ", " +
+      province.options[province.selectedIndex].text;
+    console.log(address);
+    console.log([birthday[1], birthday[2], birthday[0]].join("-"));
+    let formData = new FormData();
+    formData.append("username", username);
+    formData.append("gender", gender);
+    formData.append("password", password);
+    formData.append("fullname", fullName);
+    formData.append("birthday", birthday);
+    formData.append("email", email);
+    formData.append("address", address);
+    formData.append("phonenumber", phoneNumber);
+    userApi.register(formData).then((response) => {
+      if (response.code === "401") {
+        alert(response.message);
+      } else {
+        alert("Đăng ký thành công, vui lòng đăng nhập");
+        history.push("/login");
+      }
+    });
   };
   return (
     <div>
@@ -115,7 +155,7 @@ function Register() {
                         type="radio"
                         id="Female"
                         name="sex"
-                        value="Nu"
+                        value="Nữ"
                       />{" "}
                       <label className="textFemale" for="inputFemale">
                         Nữ
@@ -226,7 +266,11 @@ function Register() {
                     />
                   </div>
                   <div className="mb-3">
-                    <button type="submit" className="btn btn-primary btn-color">
+                    <button
+                      type="submit"
+                      onClick={(e) => handleSubmit(e)}
+                      className="btn btn-primary btn-color"
+                    >
                       ĐĂNG KÝ
                     </button>
                   </div>

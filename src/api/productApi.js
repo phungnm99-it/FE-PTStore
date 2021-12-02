@@ -36,6 +36,11 @@ const productApi = {
     const url = "/product/checkCanReview/" + id;
     return axiosClient.get(url);
   },
+
+  findByBrandName: (brandName) => {
+    const url = "/product/brand/" + brandName;
+    return axiosClient.get(url);
+  }
 };
 
 export default productApi;

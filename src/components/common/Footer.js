@@ -7,26 +7,29 @@ function Footer() {
         <div className="footer-widget">
           <div className="container">
             <div className="row">
-              <div className="col-sm-3">
+              {/* <div className="col-sm-3">
                 <div className="single-widget">
                   <h2>Sản Phẩm</h2>
                   <ul className="nav nav-pills nav-stacked"></ul>
                 </div>
-              </div>
-              <div className="col-sm-4">
+              </div> */}
+              <div className="col-sm-7">
                 <div className="single-widget">
-                  <h2>Thông tin cửa hàng</h2>
+                  {/* <h2>Thông tin cửa hàng</h2> */}
                   <ul className="nav nav-pills nav-stacked text-color">
-                    <li>Cửa Hàng Điện Thoại PT</li>
+                    <li>
+                      <h4>PT STORE</h4>
+                    </li>
                     <li>
                       Số 1 Võ Văn Ngân phường Linh Chiểu quận Thủ Đức thành phố
                       Hồ Chí Minh
                     </li>
-                    <li>SĐT: 0858679912</li>
-                    <li>Email: ptstore@gmail.com</li>
-                    <li>Thời gian hoạt động: 8:00AM - 10:00PM</li>
-                    <li>Tất cả các ngày trong tuần</li>
+                    <li>SĐT: 0858679912 - Email: ptstore.kltn@gmail.com</li>
+                    <li>
+                      Hoạt động: 8:00 AM - 10:00 PM Tất cả các ngày trong tuần
+                    </li>
                   </ul>
+                  <br />
                 </div>
               </div>
               {/* <div class="col-sm-2">
@@ -41,9 +44,8 @@ function Footer() {
                                 </div> */}
               <div className="col-sm-5">
                 <div className="single-widget">
-                  <h2>Theo dõi Cửa hàng</h2>
-
-                  <form method="post" className="searchform">
+                  {/* <h2>Theo dõi Cửa hàng</h2> */}
+                  <div className="searchform">
                     <input
                       className="inputEmail"
                       type="email"
@@ -55,11 +57,11 @@ function Footer() {
                     <button type="submit" className="btnSend">
                       <i className="far fa-paper-plane"></i>
                     </button>
-                    <p>
+                    <h5>
                       Đăng ký để nhận những chương trình khuyến mãi hot nhất từ
-                      cửa hàng.
-                    </p>
-                  </form>
+                      cửa hàng!
+                    </h5>
+                  </div>
                 </div>
               </div>
             </div>

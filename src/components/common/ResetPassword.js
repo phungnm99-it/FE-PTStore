@@ -1,49 +1,67 @@
-import React from 'react';
-import '../../css/common/ResetPassword.css'
-function ResetPassword () {
-    return (
-        <div>
-            <div className="pageResetPass">
-                <div className="midResetPass">
-                    <div className="resetPassForm">
-                        <div className="form">
-                            <div className="title-resetPass">
-                                <p>Tạo lại mật khẩu của bạn</p>
-                            </div>
+import React from "react";
+import "../../css/common/ResetPassword.css";
+import { useParams, useHistory } from "react-router-dom";
+import userApi from "../../api/userApi";
+function ResetPassword() {
+  let { id } = useParams();
+  const history = useHistory();
+  const handleSubmit = (e) => {
+    let newPassword = document.getElementById("NewPassword").value;
+    let formData = new FormData();
+    formData.append("HashId", id);
+    formData.append("NewPassword", newPassword);
+    userApi.resetPassword(formData).then((res) => {
+      if (res.code === "200") {
+        alert("Thay đổi mật khẩu thành công. Vui lòng đăng nhập!");
+        history.push("/login");
+      } else {
+        alert("Error");
+      }
+    });
+  };
+  return (
+    <div>
+      <div className="pageResetPass">
+        <div className="midResetPass">
+          <div className="resetPassForm">
+            <div className="form">
+              <div className="title-resetPass">
+                <p>Tạo lại mật khẩu của bạn</p>
+              </div>
 
-                            <div className="row">
-                                <label>Mật khẩu mới</label>
-                                <input
-                                className="form-control"
-                                type="Password"
-                                id="NewPassword"
-                                name="NewPassword"
-                                placeholder="Nhập mật khẩu mới"
-                                />
-                            </div>
+              <div className="row">
+                <label>Mật khẩu mới</label>
+                <input
+                  className="form-control"
+                  type="Password"
+                  id="NewPassword"
+                  name="NewPassword"
+                  placeholder="Nhập mật khẩu mới"
+                />
+              </div>
 
-                            <div className="row">
-                                <label>Xác nhận mật khẩu</label>
-                                <input
-                                className="form-control"
-                                type="Password"
-                                id="ConfirmPassword"
-                                name="ConfirmPassword"
-                                placeholder="Nhập lại mật khẩu mới"
-                                />
-                            </div>
+              <div className="row">
+                <label>Xác nhận mật khẩu</label>
+                <input
+                  className="form-control"
+                  type="Password"
+                  id="ConfirmPassword"
+                  name="ConfirmPassword"
+                  placeholder="Nhập lại mật khẩu mới"
+                />
+              </div>
 
-                            <div className="row">
-                                <button type="submit">
-                                    <p className="btn-resetPass">Tạo lại mật khẩu</p> 
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+              <div className="row">
+                <button type="submit" onClick={(e) => handleSubmit(e)}>
+                  <p className="btn-resetPass">Tạo lại mật khẩu</p>
+                </button>
+              </div>
             </div>
+          </div>
         </div>
-    );
+      </div>
+    </div>
+  );
 }
 
 export default ResetPassword;

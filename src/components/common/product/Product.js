@@ -6,6 +6,7 @@ import productApi from "../../../api/productApi";
 function Products() {
   const [product, setProduct] = useState([]);
   const [page, setPage] = useState(1);
+  const [totalPage, setTotalPage] = useState(1);
   //const {page} = useParams(1);
   useEffect(() => {
     getProduct();
@@ -13,6 +14,7 @@ function Products() {
   const getProduct = async () => {
     productApi.getAll().then((response) => {
       setProduct(response.data);
+      setTotalPage(Math.floor(response.data.length));
     });
   };
   return (
