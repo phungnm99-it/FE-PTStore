@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../../css/admin/Menu.css";
-import Header from "./common/Header";
+import "../../css/admin/Header.css"
 import DropDown from "./common/DropDown";
 import AccountAdmin from "./account/AccountAdmin";
 import AccountUser from "./account/AccountUser";
