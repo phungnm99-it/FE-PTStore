@@ -37,6 +37,7 @@ import DeleteProduct from "./product/DeleteProduct";
 import AdminInfo from "./adminInfo/AdminInfo";
 import EditInfo from "./adminInfo/EditInfo";
 import ChangePass from "./adminInfo/ChangePass";
+import PageMainAdmin from "./pagemain/PageMainAdmin";
 function Admin() {
   const [form, setForm] = useState();
   let inputFile = null;
@@ -44,7 +45,7 @@ function Admin() {
   const switchRender = () => {
     switch (form) {
       case 0:
-        return;
+        return <PageMainAdmin/>;
       case 1:
         return <AccountAdmin switch={(e) => setForm(e)} />;
       case 2:
@@ -159,7 +160,7 @@ function Admin() {
               </div>
               <nav>
                 <ul>
-                  <li className="nav-item">
+                  <li className="nav-item" onClick={() => setForm(0)}> 
                     <a href="#" className="nav-link active">
                       <i className="fas fa-tachometer-alt nav-icon"></i>
                       Trang chủ
@@ -304,7 +305,7 @@ function Admin() {
                   <button type="button" className="header-toggler ps-1">
                     <i className="fas fa-list"></i>
                   </button>
-                  <a  className="header-nav d-none d-md-flex me-auto">
+                  <a className="header-nav d-none d-md-flex me-auto" onClick={() => setForm(0)}>
                     Trang chủ
                   </a>
                 </div>

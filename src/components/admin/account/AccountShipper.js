@@ -13,7 +13,14 @@ function AccountShipper (props) {
                             <div className="bgc-white bd bdrs-3 p-20 mB-20">
                                 <h4 className="c-grey-900 mB-20">Danh sách</h4>
                                 <div className="dataTables_wrapper">
-                                
+                                    <div className="buttonControl">
+                          <button
+                            className="Add"
+                            onClick={() => props.switch(5)}
+                          >
+                            Thêm tài khoản
+                          </button>
+                                    </div>
                                 <div className="dataTables_length" id="dataTable_length">
                                     <label>
                                     Hiển thị:

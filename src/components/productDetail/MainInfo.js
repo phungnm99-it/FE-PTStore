@@ -19,7 +19,7 @@ function Specifications() {
       <div className="product-specs">
         <h3>Thông số kỹ thuật</h3>
 
-        <div className="col-sm-5">
+        <div className="col-sm-4">
           <div className="list-left">
             <ul className="nav">
               <li>Màn hình:</li>
@@ -32,7 +32,7 @@ function Specifications() {
             </ul>
           </div>
         </div>
-        <div className="col-sm-7">
+        <div className="col-sm-8">
           <div className="list-right">
             <ul className="nav">
               <li>{info.screenSize}</li>
