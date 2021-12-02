@@ -1,0 +1,159 @@
+.changePassShipper .title-addAccount h2{
+    margin-top: 40px;
+    font-weight: bold;
+}
+
+.changePassShipper{
+    height: 100%;
+    margin-top: 20px;
+}
+
+.changePassShipper .title-addAccount{
+    margin-bottom: 30px;
+    margin-left: 20px;
+    text-align: center;
+}
+.changePassShipper .form{
+    background: #ffffff 0% 0% no-repeat padding-box;
+    box-shadow: 0px 4px 6px #00000029;
+    border-radius: 12px;
+    position: relative;
+    padding: 10px 0;
+    height: auto;
+    border: 1px solid #ccc;
+    margin-left: 250px;
+    margin-right: 100px;
+    margin-bottom: 30px;
+    width: 600px;
+}
+
+.changePassShipper .form .input-addAccount{
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-top: 20px;
+}
+
+.changePassShipper .input-addAccount .row{
+    --bs-gutter-x: 1.5rem;
+    --bs-gutter-y: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-top: calc(var(--bs-gutter-y) * -1);
+    margin-right: calc(var(--bs-gutter-x) * -.5);
+    margin-left: calc(var(--bs-gutter-x) * -.5);
+}
+
+.changePassShipper .input-addAccount .mb-3 {
+    margin-bottom: 1rem !important;
+}
+
+.changePassShipper .input-addAccount .col-md-6 {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    width: 50%;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.changePassShipper .input-addAccount .form-label {
+    margin-bottom: 0.5rem;
+}
+
+.changePassShipper .input-addAccount .form-control {
+    display: block;
+    margin-bottom: 25px;
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 0.25rem;
+    -webkit-transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+    transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+    -o-transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+}
+
+.changePassShipper .input-addAccount .controls select{
+    display: block;
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    -webkit-appearance: none;
+    appearance: none;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.changePassShipper .btn-color {
+    color: #fff;
+}
+
+.changePassShipper .btn-primary {
+    color: #000;
+    background-color: #3c4b64;
+    border-color: #3c4b64;
+}
+
+.changePassShipper .btn {
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: white;
+    height: 40px;
+    width: 150px;
+    margin-top: 10px;
+    margin-left: 40%;
+    border-radius: 12px;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: 0.375rem 0.75rem;
+   
+    -webkit-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+    -o-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+}
+
+.changePassShipper .controls{
+    flex-basis: 100%;
+    flex-grow: 3;
+}
+
+.changePassShipper .radioFemale{
+    margin-left: 60px;
+}
+
+.changePassShipper .UploadImg{
+    display: block;
+    height: 120px;
+    width: 120px;
+    margin-left: 40px;
+}
