@@ -78,9 +78,15 @@ function UserInfo() {
       );
 
       const url = "/order/create";
-      axiosClient.post(url, JSON.stringify(data)).then(res => {
-        console.log(res.data);
-      })
+      axiosClient.post(url, JSON.stringify(data)).then((res) => {
+        if (res.data.code == 200) {
+          alert("Đặt hàng thành công!");
+          context.resetCart();
+          history.push("/account#order");
+        } else {
+          alert("Lỗi!");
+        }
+      });
     }
   };
 

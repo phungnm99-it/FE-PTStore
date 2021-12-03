@@ -53,9 +53,15 @@ function OrderHistory() {
                             <tr key={item.id} role="row" className="ood">
                               <td>{item.orderCode}</td>
                               <td>{new Date(item.orderTime).toDateString()}</td>
-                              <td>{item?.products.map((index) => {
-                                return <p key={index.productId}>{index.productNameY}</p>
-                              })}</td>
+                              <td>
+                                {item.products.map((index) => {
+                                  return (
+                                    <p key={index.productId}>
+                                      {index.productName}
+                                    </p>
+                                  );
+                                })}
+                              </td>
                               <td>{priceFormat(item?.totalCost)}</td>
                               <td>{item.status}</td>
                               <td>
