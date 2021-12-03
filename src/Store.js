@@ -61,7 +61,7 @@ function App() {
           <Route exact path="/product">
             <ProductPage />
           </Route>
-          <Route path="/home/phone/detail/:id">
+          <Route path="/phone/:id">
             <ProductDetail />
           </Route>
           <Route path="/brand/:brandName">

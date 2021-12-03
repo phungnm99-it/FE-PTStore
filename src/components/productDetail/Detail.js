@@ -26,7 +26,6 @@ function Detail() {
       quantity: 1,
     };
     context.addToCart({ product });
-    console.log(context.cart);
   };
   return (
     <div>

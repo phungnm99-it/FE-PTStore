@@ -2,9 +2,13 @@ import React, { useState, useContext } from "react";
 import "../../css/cart/ProductItem.css";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../AuthContext";
+import {priceFormat} from "../../utils/priceFormat"
+
 function ProductItem(props) {
   const [quantities, setQuantities] = useState(props.quantity || 1);
   let price = props.currentPrice;
+  let link = "/phone/" + props.id;
+  let href = "localhost:3000" + link;
   const context = useContext(AuthContext);
   const handleAdd = () => {
     setQuantities(quantities + 1);
@@ -22,7 +26,7 @@ function ProductItem(props) {
   return (
     <li className="product-item">
       <div className="imgsp">
-        <Link to="/home/phone/detail" target="_blank">
+        <Link to={link}>
           <img
             data-src={props.imageUrl}
             src={props.imageUrl}
@@ -36,22 +40,16 @@ function ProductItem(props) {
       <div className="infosp">
         <div className="name-price">
           <div className="name-container">
-            <a href="/product" className="product-item__name">
+            <a href={href} className="product-item__name">
               {" "}
               {props.name}{" "}
             </a>
           </div>
           <span>
             {" "}
-            {(price * quantities).toLocaleString("en-US", {
-              style: "currency",
-              currency: "VND",
-            })}
+            {priceFormat(price * quantities)}
             <strike>
-              {(props.price * quantities).toLocaleString("en-US", {
-                style: "currency",
-                currency: "VND",
-              })}
+              {priceFormat(props.price * quantities)}
             </strike>
           </span>
         </div>

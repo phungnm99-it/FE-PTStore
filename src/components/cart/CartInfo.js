@@ -6,7 +6,7 @@ function CartInfo() {
     <div>
       <div className="backgroundCart">
         <div className="cartTopContent">
-          <Link to="/" className="buyMore">
+          <Link to="/product" className="buyMore">
             Mua thêm sản phẩm khác
           </Link>
           <span>Giỏ hàng của bạn</span>
