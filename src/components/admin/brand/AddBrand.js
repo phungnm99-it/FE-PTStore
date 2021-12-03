@@ -4,8 +4,13 @@ import noAvt from "../../../images/no-avt.png";
 
 function AddBrand(props) {
   const [name, setName] = useState("");
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    //chưa let hình
+    let name = document.getElementById("inputNameBrand").value;
     
+    let formData = new FormData();
+    formData.append ("Name", name);
   }
   return (
     <div>
@@ -49,7 +54,7 @@ function AddBrand(props) {
               </div>
 
               <div className="mb-3">
-                <button type="submit" class="btn btn-primary btn-color">
+                <button type="submit" onClick={(e) => handleSubmit(e)} className="btn btn-primary btn-color">
                   Thêm
                 </button>
               </div>

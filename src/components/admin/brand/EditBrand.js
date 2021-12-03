@@ -3,6 +3,16 @@ import "../../../css/admin/brand/EditBrand.css";
 import noAvt from "../../../images/no-avt.png";
 
 function EditBrand() {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    //chưa let hình
+    let id = document.getElementById ("inputIDBrand").value;
+    let name = document.getElementById("inputNameBrand").value;
+    
+    let formData = new FormData();
+    formData.append ("Name", name);
+    formData.append("Id", id);
+  };
   return (
     <div>
       <div className="editBrand">
@@ -61,7 +71,7 @@ function EditBrand() {
                   </div>
 
                   <div className="mb-3">
-                    <button type="submit" class="btn btn-primary btn-color">
+                    <button type="submit" onClick={(e) => handleSubmit(e)} className="btn btn-primary btn-color">
                       Cập Nhật
                     </button>
                   </div>

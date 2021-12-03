@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "../../../css/admin/account/EditAccount.css";
 import noAvt from "../../../images/no-avt.png";
+import userApi from "../../../api/userApi"
 import { getProvinces } from "../../../service/provinces-service";
 
 function EditAccount() {
@@ -18,6 +19,38 @@ function EditAccount() {
   const getDistrictFromCode = (code) => {
     let filter = provinces.filter((x) => x.code.toString() === code);
     filter.length > 0 ? setDistrict(filter[0].districts) : setDistrict([]);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    let id = document.getElementById("inputIDAccount").value;
+    let username = document.getElementById("inputUserName").value;
+    let phoneNumber = document.getElementById("inputPhone").value;
+    let fullName = document.getElementById("inputName").value;
+    let email = document.getElementById("inputEmail").value;
+    let birthday = document.getElementById("inputBirthday").value.split("-");
+    let gender = document.querySelector('input[name="sex"]:checked').value;
+    let password = document.getElementById("inputPassword").value;
+    let province = document.getElementById("SystemCityID");
+    let district = document.getElementById("SystemDistrictID");
+    let address =
+      document.getElementById("inputAddress").value +
+      ", " +
+      district.options[district.selectedIndex].text +
+      ", " +
+      province.options[province.selectedIndex].text;
+    console.log(address);
+    console.log([birthday[1], birthday[2], birthday[0]].join("-"));
+    let formData = new FormData();
+    formData.append("username", username);
+    formData.append("phonenumber", phoneNumber);
+    formData.append("fullname", fullName);
+    formData.append("email", email);
+    formData.append("birthday", birthday);
+    formData.append("gender", gender);
+    formData.append("password", password);  
+    formData.append("address", address);
+    
   };
 
   return (
@@ -236,7 +269,7 @@ function EditAccount() {
                     />
                   </div>
                   <div className="mb-3">
-                    <button type="submit" class="btn btn-primary btn-color">
+                    <button type="submit" onClick={(e) => handleSubmit(e)} className="btn btn-primary btn-color">
                       Cập Nhật
                     </button>
                   </div>

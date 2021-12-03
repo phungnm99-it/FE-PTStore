@@ -1,6 +1,25 @@
 import React from 'react';
 import "../../../css/admin/feedback/ReplyFeedback.css"
 function ReplyFeedback () {
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        let id = document.getElementById("inputIDFeedback").value;
+        let fullName = document.getElementById("inputName").value;
+        let email = document.getElementById("inputEmail").value;
+        let topic = document.getElementById("inputTopic").value;
+        let date = document.getElementById("inputFeedbackTime").value;
+        let content = document.getElementById("inputContent").value;
+        let replyContent = document.getElementById("inputReply").value;
+        console.log(replyContent)
+        let formData = new FormData();
+        formData.append("Id", id);
+        formData.append("FullName", fullName);
+        formData.append("Email", email);
+        formData.append("Topic", topic);
+        formData.append("Date", date);
+        formData.append("Content", content);
+        formData.append("ReplyContent", replyContent);
+    };
     return (
         <div>
             <div className="replyFeedback">
@@ -100,7 +119,7 @@ function ReplyFeedback () {
                     </div>
                     
                     <div className="mb-3">
-                        <button type="submit" className="btn btn-primary btn-color">
+                        <button type="submit" onClick={(e) => handleSubmit(e)} className="btn btn-primary btn-color">
                         GỬI PHẢN HỒI
                         </button>
                     </div>

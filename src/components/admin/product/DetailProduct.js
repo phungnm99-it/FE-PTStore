@@ -73,9 +73,9 @@ function DetailProduct(props) {
                           <li>Bộ nhớ trong:</li>
                           <li>Số khe sim:</li>
                           <li>Wifi:</li>
-                          <li>Bluetooth:</li>
+                          
                           <li>GPS:</li>
-                          <li>Cổng kết nối/ Sạc:</li>
+                          
                           <li>Dung lượng Pin:</li>
                         </ul>
                       </div>

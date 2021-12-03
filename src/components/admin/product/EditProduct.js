@@ -4,6 +4,49 @@ import "../../../css/admin/product/EditProduct.css";
 import noAvt from "../../../images/no-avt.png";
 
 function EditProduct() {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    
+    //Chưa let hình ảnh
+    let id = document.getElementById ("inputIDProduct").value;
+    let name = document.getElementById("inputNameProduct").value;
+    let brandName = document.getElementById("SystemBrandID").value;
+    let color = document.getElementById("inputColor").value;
+    let screenResolution = document.getElementById("inputScreenResolution").value;
+    let screenSize = document.getElementById ("inputScreenSize").value;
+    let screenTech = document.getElementById ("inputScreenTech").value;
+    let os = document.getElementById ("inputOS").value;
+    let cpu = document.getElementById ("inputCPU").value;
+    let gpu = document.getElementById ("inputGPU").value;
+    let frontCamera = document.getElementById ("inputFrontCamera").value;
+    let backCamera = document.getElementById ("inputBackCamera").value;
+    let ram = document.getElementById ("inputRAM").value;
+    let rom = document.getElementById ("inputROM").value;
+    let sim = document.getElementById ("inputSIM").value;
+    let wifi = document.getElementById ("inputWifi").value; 
+    let gps = document.getElementById ("inputGPS").value;
+    let battery = document.getElementById ("inputBattery").value;
+    console.log(battery);
+    let formData = new FormData();
+    formData.append ("Id", id);
+    formData.append("Name", name);
+    formData.append("BrandName", brandName);
+    formData.append ("Color", color);
+    formData.append("ScreenResolution", screenResolution);
+    formData.append("ScreenSize", screenSize);
+    formData.append("ScreenTech", screenTech);
+    formData.append("Os", os);
+    formData.append("Cpu", cpu);
+    formData.append("Gpu",gpu);
+    formData.append("FrontCamera", frontCamera);
+    formData.append("BackCamera", backCamera);
+    formData.append("Ram", ram);
+    formData.append("Rom", rom);
+    formData.append("Sim", sim);
+    formData.append("Wifi",wifi);
+    formData.append("Gps", gps);
+    formData.append("Battery", battery);  
+  };
   return (
     <div>
       <div className="editProductInfo">
@@ -261,7 +304,7 @@ function EditProduct() {
                       required
                     />
                   </div>
-                  <div className="mb-3 ">
+                  {/* <div className="mb-3 ">
                     <label className="form-label" for="inputBluetooth">
                       Bluetooth
                     </label>
@@ -272,7 +315,7 @@ function EditProduct() {
                       placeholder="Bluetooth"
                       required
                     />
-                  </div>
+                  </div> */}
                   <div className="mb-3 ">
                     <label className="form-label" for="inputGPS">
                       GPS
@@ -285,7 +328,7 @@ function EditProduct() {
                       required
                     />
                   </div>
-                  <div className="mb-3 ">
+                  {/* <div className="mb-3 ">
                     <label className="form-label" for="inputGPS">
                       Cổng kết nối/ Sạc
                     </label>
@@ -296,7 +339,7 @@ function EditProduct() {
                       placeholder="Cổng kết nối/ Sạc"
                       required
                     />
-                  </div>
+                  </div> */}
                   <div className="mb-3">
                     <label className=" form-title">DUNG LƯỢNG PIN</label>
                   </div>
@@ -314,7 +357,7 @@ function EditProduct() {
                   </div>
 
                   <div className="mb-3">
-                    <button type="submit" class="btn btn-primary btn-color">
+                    <button type="submit" onClick={(e) => handleSubmit(e)} className="btn btn-primary btn-color">
                       Cập Nhật
                     </button>
                   </div>
