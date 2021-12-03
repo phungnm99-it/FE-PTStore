@@ -8,7 +8,7 @@ function ProductFrame(props) {
       <div className="item">
         <div className="img">
           <Link
-            to={`/home/phone/detail/${props.id}`}
+            to={`/phone/${props.id}`}
             title="Apple iPhone 12 mini - Chính hãng VN/A"
           >
             <img
@@ -20,7 +20,7 @@ function ProductFrame(props) {
         </div>
         <div className="info">
           <Link
-            to={`/home/phone/detail/${props.id}`}
+            to={`/phone/${props.id}`}
             className="nameProduct"
             title={props.name}
           >

@@ -50,6 +50,11 @@ const userApi = {
     const url = "/user/getReview";
     return axiosClient.get(url);
   },
+
+  order: (data) => {
+    const url = "/order/create"
+    return axiosClient.post(url, data);
+  }
 };
 
 export default userApi;

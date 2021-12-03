@@ -6,6 +6,7 @@ const AuthContext = createContext();
 function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
   const [cart, setCart] = useState([]);
+  
 
   const addToCart = ({ product }) => {
     setCart((prev) => {
