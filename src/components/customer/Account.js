@@ -1,4 +1,4 @@
-import React, { Component, useRef, useState } from "react";
+import React, { Component, useEffect, useRef, useState } from "react";
 import "../../css/customer/account.css";
 import {useParams} from 'react-router-dom';
 import OrderHistory from "./OrderHistory";
@@ -8,8 +8,7 @@ import Feedback from "./Feedback";
 import ReviewManagement from "./ReviewManagement";
 function Account(props) {
   const { id } = useParams();
-  const [form, setForm] = useState(id || 0);
-
+  const [form, setForm] = useState(parseInt(id) || 0);
   const [avt, setAvt] = useState(
     "https://huyhoanhotel.com/wp-content/uploads/2016/05/765-default-avatar.png"
   );
@@ -28,6 +27,8 @@ function Account(props) {
         return null;
     }
   };
+
+  useEffect(()=>{window.scrollTo(0, 0)},[])
 
   const selectFile = () => {
     // debugger
@@ -89,25 +90,25 @@ function Account(props) {
             <nav>
               <ul>
                 <li onClick={() => setForm(0)}>
-                  <a className={form === 0 && "activeTab"} href="#info">
+                  <a className={form === 0 && "activeTab"} >
                     <i className="fas fa-user"></i>
                     <span>Thông tin tài khoản</span>
                   </a>
                 </li>
                 <li onClick={() => setForm(2)}>
-                  <a className={form === 2 && "activeTab"} href="#order">
+                  <a className={form === 2 && "activeTab"} >
                     <i className="fas fa-box-open"></i>
                     <span>Đơn hàng của bạn</span>
                   </a>
                 </li>
                 <li onClick={() => setForm(3)}>
-                  <a href="#review">
+                  <a >
                     <i className="fas fa-thumbs-up"></i>
                     <span>Quản lý đánh giá</span>
                   </a>
                 </li>
                 <li onClick={() => setForm(4)}>
-                  <a href="#feedback">
+                  <a >
                     <i className="fas fa-comments-dollar"></i>
                     <span>Phản hồi, đánh giá</span>
                   </a>

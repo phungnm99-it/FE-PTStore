@@ -73,6 +73,10 @@ function App() {
           <Route path="/account/:id">
             <Account />
           </Route>
+          <Route path="/account">
+            <Account />
+          </Route>
+
           <Route path="/resetPassword/:id">
             <ResetPassword />
           </Route>

@@ -21,6 +21,7 @@ function AccountInfo() {
     userApi.getInfo().then((response) => {
       console.log(response.data);
       setInfo(response.data);
+      debugger
     });
   }, []);
   // lay quan tu ma tinh
@@ -107,7 +108,7 @@ function AccountInfo() {
                             <input
                               max="2030-12-31"
                               type="date"
-                              value={info.birthday}
+                              value="2030-12-31"
                               id="UserBirthDate"
                             />
                           </div>
