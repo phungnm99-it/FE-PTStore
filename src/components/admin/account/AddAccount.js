@@ -12,6 +12,7 @@ function AddAccount(props) {
     getProvinces().then((res) => {
       console.log(res.data);
       setProvinces(res.data);
+      setDistrict(res.data[0].districts)
     });
   }, []);
   // lay quan tu ma tinh
@@ -217,7 +218,7 @@ function AddAccount(props) {
                       {/* maps tinh thanh option */}
                       {provinces.map((pro, idx) => {
                             return (
-                              <option key={idx} value={pro.code}>
+                              <option key={idx} value={pro.code} selected={(idx === 0)}>
                                 {pro.name}
                               </option>
                             );
@@ -242,6 +243,7 @@ function AddAccount(props) {
                               <option
                                 key={idx}
                                 value={dis.code}
+                                selected={(idx === 0)}
                                 //   onClick={}
                               >
                                 {dis.name}

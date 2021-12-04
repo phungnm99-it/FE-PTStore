@@ -307,3 +307,7 @@ html:not([dir="rtl"]) .sidebar-nav .nav-icon:first-child {
   font-size: 18px;
   font-weight: 500;
 }
+
+.pageAdmin .btn-focus{
+  cursor: pointer;
+}
