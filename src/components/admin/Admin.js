@@ -38,8 +38,8 @@ import AdminInfo from "./adminInfo/AdminInfo";
 import EditInfo from "./adminInfo/EditInfo";
 import ChangePass from "./adminInfo/ChangePass";
 import PageMainAdmin from "./pagemain/PageMainAdmin";
-function Admin() {
-  const [form, setForm] = useState();
+function Admin(props) {
+  const [form, setForm] = useState(props.form || 0);
   let inputFile = null;
 
   const switchRender = () => {
@@ -63,7 +63,7 @@ function Admin() {
       case 8:
         return <Brand switch={(e) => setForm(e)}/>;
       case 9: 
-        return <AddBrand/>;
+        return <AddBrand switch={(e) => setForm(e)} />;
       case 10: 
         return <EditBrand/>;
       case 11:

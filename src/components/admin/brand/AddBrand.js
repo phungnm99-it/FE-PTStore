@@ -1,16 +1,23 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router";
 import "../../../css/admin/brand/AddBrand.css";
 import noAvt from "../../../images/no-avt.png";
 
 function AddBrand(props) {
+  const history = useHistory();
   const [name, setName] = useState("");
   const handleSubmit = (e) => {
     e.preventDefault();
-    //chưa let hình
-    let name = document.getElementById("inputNameBrand").value;
+
+    console.log(name);
+    if(name !== ""){
+      // await 
+      props.switch(8);
+    } else {
+      alert("cl");
+    }
     
-    let formData = new FormData();
-    formData.append ("Name", name);
+    history.push('/admin')
   }
   return (
     <div>

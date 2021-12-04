@@ -87,11 +87,11 @@ function AdminLogin() {
                 </button>
               </div>
 
-              <div className="text-right p-t-12">
+              {/* <div className="text-right p-t-12">
                 <Link to="" className="textForgotPassAdmin">
                   Bạn quên mật khẩu?
                 </Link>
-              </div>
+              </div> */}
             </form>
           </div>
         </div>
