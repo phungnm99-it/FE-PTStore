@@ -63,7 +63,7 @@ function Admin() {
       case 8:
         return <Brand switch={(e) => setForm(e)}/>;
       case 9: 
-        return <AddBrand/>;
+        return <AddBrand switch={(e) => setForm(e)}/>;
       case 10: 
         return <EditBrand/>;
       case 11:

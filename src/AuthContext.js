@@ -23,6 +23,12 @@ function AuthProvider({ children }) {
     });
   };
 
+  const removeItem = (id) => {
+    setCart((prev) => {
+      return prev.filter(item => item.id != id);
+    })
+  }
+
   const updateCart = ({ product }) => {
     setCart(product);
   };
@@ -41,7 +47,7 @@ function AuthProvider({ children }) {
     });
   };
 
-  const value = { user, login, logout, cart, addToCart, updateCart, resetCart };
+  const value = { user, login, logout, cart, addToCart, updateCart, resetCart, removeItem };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }

@@ -35,7 +35,7 @@ function ProductItem(props) {
             className=" ls-is-cached lazyloaded"
           />
         </Link>
-        <button> Xóa </button>
+        <button onClick={() => context.removeItem(props.id)}> Xóa </button>
       </div>
       <div className="infosp">
         <div className="name-price">

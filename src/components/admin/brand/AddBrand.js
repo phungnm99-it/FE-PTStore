@@ -1,12 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../../../css/admin/brand/AddBrand.css";
 import noAvt from "../../../images/no-avt.png";
 
 function AddBrand(props) {
   const [name, setName] = useState("");
-  const handleSubmit = () => {
-    
-  }
+  useEffect(() => {
+    document.getElementById("buttonRedirect").style.visibility = "hidden";
+  }, []);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (name !== "") {
+      console.log("go this");
+      document.getElementById("buttonRedirect").click();
+    } else {
+      alert("Nhap name!");
+    }
+  };
   return (
     <div>
       <div className="addBrand">
@@ -49,8 +58,16 @@ function AddBrand(props) {
               </div>
 
               <div className="mb-3">
-                <button type="submit" class="btn btn-primary btn-color">
+                <button
+                  onClick={(e) => handleSubmit(e)}
+                  class="btn btn-primary btn-color"
+                >
                   Thêm
+                </button>
+              </div>
+              <div>
+                <button onClick={() => props.switch(8)} id="buttonRedirect">
+                  Redirect
                 </button>
               </div>
             </form>
