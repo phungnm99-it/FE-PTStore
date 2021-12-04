@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../../css/admin/Menu.css";
-import "../../css/admin/Header.css"
+import "../../css/admin/Header.css";
 import DropDown from "./common/DropDown";
 import AccountAdmin from "./account/AccountAdmin";
 import AccountUser from "./account/AccountUser";
@@ -8,8 +8,8 @@ import AccountShipper from "./account/AccountShipper";
 import LockedAccount from "./account/LockedAccount";
 import AddAccount from "./account/AddAccount";
 import EditAccount from "./account/EditAccount";
-import DetailAccount from "./account/DetailAccount"
-import Brand from "./brand/Brand"
+import DetailAccount from "./account/DetailAccount";
+import Brand from "./brand/Brand";
 import AddBrand from "./brand/AddBrand";
 import EditBrand from "./brand/EditBrand";
 import DetailBrand from "./brand/DetailBrand";
@@ -17,11 +17,11 @@ import Product from "./product/Product";
 import AddProduct from "./product/AddProduct";
 import DetailProduct from "./product/DetailProduct";
 import EditProduct from "./product/EditProduct";
-import Review from "./review/Review"
+import Review from "./review/Review";
 import DetailReview from "./review/DetailReview";
 import ProductPrice from "./product/ProductPrice";
 import EditPrice from "./product/EditPrice";
-import Order from "./order/Order"
+import Order from "./order/Order";
 import EditOrder from "./order/EditOrder";
 import Feedback from "./feedback/Feedback";
 import ReplyFeedback from "./feedback/ReplyFeedback";
@@ -31,21 +31,21 @@ import FeedbackHasBeenReplied from "./feedback/FeedbackHasBeenReplied";
 import ProductStatus from "./product/ProductStatus";
 import EditProductStatus from "./product/EditProductStatus";
 import DetailOrder from "./order/DetailOrder";
-import DeleteAccount from "./account/DeleteAccount"
+import DeleteAccount from "./account/DeleteAccount";
 import DeleteBrand from "./brand/DeleteBrand";
 import DeleteProduct from "./product/DeleteProduct";
 import AdminInfo from "./adminInfo/AdminInfo";
 import EditInfo from "./adminInfo/EditInfo";
 import ChangePass from "./adminInfo/ChangePass";
 import PageMainAdmin from "./pagemain/PageMainAdmin";
-function Admin() {
-  const [form, setForm] = useState();
+function Admin(props) {
+  const [form, setForm] = useState(props.form || 0);
   let inputFile = null;
 
   const switchRender = () => {
     switch (form) {
       case 0:
-        return <PageMainAdmin/>;
+        return <PageMainAdmin />;
       case 1:
         return <AccountAdmin switch={(e) => setForm(e)} />;
       case 2:
@@ -53,7 +53,7 @@ function Admin() {
       case 3:
         return <AccountShipper switch={(e) => setForm(e)} />;
       case 4:
-        return <LockedAccount switch={(e) => setForm(e)}/>;
+        return <LockedAccount switch={(e) => setForm(e)} />;
       case 5:
         return <AddAccount />;
       case 6:
@@ -61,63 +61,63 @@ function Admin() {
       case 7:
         return <DetailAccount switch={(e) => setForm(e)} />;
       case 8:
-        return <Brand switch={(e) => setForm(e)}/>;
-      case 9: 
-        return <AddBrand switch={(e) => setForm(e)}/>;
-      case 10: 
-        return <EditBrand/>;
+        return <Brand switch={(e) => setForm(e)} />;
+      case 9:
+        return <AddBrand switch={(e) => setForm(e)} />;
+      case 10:
+        return <EditBrand />;
       case 11:
-        return <DetailBrand switch={(e) => setForm(e)}/>;
+        return <DetailBrand switch={(e) => setForm(e)} />;
       case 12:
-        return <Product switch={(e) => setForm(e)}/>;
+        return <Product switch={(e) => setForm(e)} />;
       case 13:
-        return <ProductPrice switch={(e) => setForm(e)}/>;
+        return <ProductPrice switch={(e) => setForm(e)} />;
       case 14:
-        return <ProductStatus switch={(e) => setForm(e)}/>;
+        return <ProductStatus switch={(e) => setForm(e)} />;
       case 15:
-        return <AddProduct/>;
+        return <AddProduct />;
       case 16:
-        return <EditProduct/>;
+        return <EditProduct />;
       case 17:
-        return <DetailProduct switch={(e) => setForm(e)}/>;
-      case 18: 
-        return <Review switch={(e) => setForm(e)}/>
+        return <DetailProduct switch={(e) => setForm(e)} />;
+      case 18:
+        return <Review switch={(e) => setForm(e)} />;
       case 19:
-        return <DetailReview switch={(e) => setForm(e)}/>;
+        return <DetailReview switch={(e) => setForm(e)} />;
       case 20:
-        return <EditPrice/>;
-      case 21: 
-        return <Order switch={(e) => setForm(e)}/>;
+        return <EditPrice />;
+      case 21:
+        return <Order switch={(e) => setForm(e)} />;
       case 22:
-        return <EditOrder/>;
+        return <EditOrder />;
       case 23:
         return;
       case 24:
-        return <Feedback switch={(e) => setForm(e)}/>;
+        return <Feedback switch={(e) => setForm(e)} />;
       case 25:
-        return <ReplyFeedback/>;
+        return <ReplyFeedback />;
       case 26:
-        return <DetailFeedback switch={(e) => setForm(e)}/>;
+        return <DetailFeedback switch={(e) => setForm(e)} />;
       case 27:
-        return <Subscriber/>;
+        return <Subscriber />;
       case 28:
-        return <FeedbackHasBeenReplied switch={(e) => setForm(e)}/>
+        return <FeedbackHasBeenReplied switch={(e) => setForm(e)} />;
       case 29:
-        return <EditProductStatus/>;
-      case 30: 
-        return <DetailOrder/>;
+        return <EditProductStatus />;
+      case 30:
+        return <DetailOrder />;
       case 31:
-        return <DeleteAccount switch={(e) => setForm(e)}/>;
+        return <DeleteAccount switch={(e) => setForm(e)} />;
       case 32:
-        return <DeleteBrand switch={(e) => setForm(e)}/>;
+        return <DeleteBrand switch={(e) => setForm(e)} />;
       case 33:
-        return <DeleteProduct switch={(e) => setForm(e)}/>;
+        return <DeleteProduct switch={(e) => setForm(e)} />;
       case 34:
-        return <AdminInfo switch={(e) => setForm(e)}/>
+        return <AdminInfo switch={(e) => setForm(e)} />;
       case 35:
-        return <EditInfo/>;
+        return <EditInfo />;
       case 36:
-        return <ChangePass/>
+        return <ChangePass />;
       default:
         return null;
     }
@@ -147,7 +147,8 @@ function Admin() {
                       <strong>Tien Phan Nguyen Thụy</strong>
                     </p>
                     <p className="change-avatar">
-                      <i className="icon-change-avatar"></i> Thay đổi ảnh đại diện
+                      <i className="icon-change-avatar"></i> Thay đổi ảnh đại
+                      diện
                     </p>
                     <input
                       type="file"
@@ -160,7 +161,7 @@ function Admin() {
               </div>
               <nav>
                 <ul>
-                  <li className="nav-item" onClick={() => setForm(0)}> 
+                  <li className="nav-item" onClick={() => setForm(0)}>
                     <a href="#" className="nav-link active">
                       <i className="fas fa-tachometer-alt nav-icon"></i>
                       Trang chủ
@@ -226,7 +227,6 @@ function Admin() {
                         link: "",
                         formChoose: () => setForm(14),
                       },
-
                     ]}
                   />
                   <DropDown
@@ -259,7 +259,7 @@ function Admin() {
                       },
                     ]}
                   />
-                  
+
                   <li className="nav-item" onClick={() => setForm(18)}>
                     <a href="#" className="nav-link active btn-focus">
                       <i className="fas fa-thumbs-up nav-icon"></i>
@@ -282,7 +282,6 @@ function Admin() {
                         link: "",
                         formChoose: () => setForm(28),
                       },
-                      
                     ]}
                   />
                   <li className="nav-item" onClick={() => setForm(27)}>
@@ -297,24 +296,26 @@ function Admin() {
           </div>
           <div className="body-content"></div>
         </div>
-        
+
         <div className="bodyAdmin">
           <div className="headerAdmin">
             <div className="header header-sticky mb-4">
-                <div className="container-fluid">
-                  <button type="button" className="header-toggler ps-1">
-                    <i className="fas fa-list"></i>
-                  </button>
-                  <a className="header-nav d-none d-md-flex me-auto" onClick={() => setForm(0)}>
-                    Trang chủ
-                  </a>
-                </div>
-                <div className="InfoAdmin">
-                  
-                  <i className="fas fa-user nav-icon"></i>
-                  <span onClick={() => setForm(34)}>Thuy Tien</span>
-                </div>
-            </div> 
+              <div className="container-fluid">
+                <button type="button" className="header-toggler ps-1">
+                  <i className="fas fa-list"></i>
+                </button>
+                <a
+                  className="header-nav d-none d-md-flex me-auto"
+                  onClick={() => setForm(0)}
+                >
+                  Trang chủ
+                </a>
+              </div>
+              <div className="InfoAdmin">
+                <i className="fas fa-user nav-icon"></i>
+                <span onClick={() => setForm(34)}>Thuy Tien</span>
+              </div>
+            </div>
           </div>
           <div className="bodyMain">{switchRender()}</div>
         </div>

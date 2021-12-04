@@ -1,20 +1,23 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import { useHistory } from "react-router";
 import "../../../css/admin/brand/AddBrand.css";
 import noAvt from "../../../images/no-avt.png";
 
 function AddBrand(props) {
+  const history = useHistory();
   const [name, setName] = useState("");
-  useEffect(() => {
-    document.getElementById("buttonRedirect").style.visibility = "hidden";
-  }, []);
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    console.log(name);
     if (name !== "") {
-      console.log("go this");
-      document.getElementById("buttonRedirect").click();
+      // await
+      props.switch(8);
     } else {
-      alert("Nhap name!");
+      alert("cl");
     }
+
+    history.push("/admin");
   };
   return (
     <div>
@@ -59,15 +62,11 @@ function AddBrand(props) {
 
               <div className="mb-3">
                 <button
+                  type="submit"
                   onClick={(e) => handleSubmit(e)}
-                  class="btn btn-primary btn-color"
+                  className="btn btn-primary btn-color"
                 >
                   Thêm
-                </button>
-              </div>
-              <div>
-                <button onClick={() => props.switch(8)} id="buttonRedirect">
-                  Redirect
                 </button>
               </div>
             </form>

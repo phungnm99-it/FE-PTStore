@@ -2,6 +2,29 @@ import React from 'react';
 import "../../../css/admin/order/EditOrder.css"
 import ProductItem from './ProductItem';
 function EditOrder () {
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        let id = document.getElementById("inputIDOrder").value;
+        let dateOrder = document.getElementById("inputDateOrder").value;
+        let status = document.getElementById("selectStatus").value;
+        let userName = document.getElementById("inputUserName").value;
+        let phoneNumber = document.getElementById("inputPhone").value;
+        let email = document.getElementById("inputEmail").value;
+        let address = document.getElementById("inputAddress").value;
+        let totalPrice = document.getElementById("inputTotalPrice").value;
+        let paymentMethod = document.getElementById("inputPaymentMethod").value;
+        
+        let formData = new FormData();
+        formData.append("Id", id);
+        formData.append("DateOrder", dateOrder);
+        formData.append("Status", status);
+        formData.append("UserName", userName);
+        formData.append("PhoneNumber", phoneNumber);
+        formData.append("Email", email);
+        formData.append("Address", address);
+        formData.append("TotalPrice", totalPrice);
+        formData.append("PaymentMethod", paymentMethod);
+    };
     return (
         <div>
             <div className="editOrder">
@@ -40,6 +63,7 @@ function EditOrder () {
                             Trạng thái đơn hàng
                             </label>
                             <select
+                            id="selectStatus"
                             name="dataTable_length"
                             aria-controls="dataTable"
                             className="form-control"
@@ -128,7 +152,7 @@ function EditOrder () {
                         </div>
                         <ProductItem/>
                         <div className="mb-3">
-                            <button type="submit" class="btn btn-primary btn-color">
+                            <button type="submit" onClick={(e) => handleSubmit(e)} className="btn btn-primary btn-color">
                             Cập Nhật
                             </button>
                         </div>
