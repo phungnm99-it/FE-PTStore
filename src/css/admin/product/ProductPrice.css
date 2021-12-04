@@ -360,3 +360,12 @@ table.dataTable tbody tr {
     border: none;
     background-color: #f9f9f9;
 }
+
+.productPrice-management th, .productPrice-management td{
+    text-align: center;
+}
+
+.productPrice-management td img{
+    height: 45px;
+    width: 50px;
+}

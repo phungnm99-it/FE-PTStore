@@ -349,3 +349,12 @@ table.dataTable tbody tr {
     background-color: #f9f9f9;
 }
 
+.brands-management td img{
+    height: 40px;
+    width: 120px;
+}
+
+.brands-management th, .brands-management td{
+    text-align: center;
+}
+

@@ -1,8 +1,14 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import orderApi from "../../../api/orderApi";
 import "../../../css/admin/order/Order.css";
-import { Link } from "react-router-dom";
-
 function Order(props) {
+  const [orders, setOrders] = useState([]);
+  useEffect(() => {
+    orderApi.getAll().then((res) => {
+      setOrders(res.data);
+      console.log(res.data);
+    });
+  }, []);
   return (
     <div>
       <section className="pageAdmin">
@@ -51,7 +57,7 @@ function Order(props) {
                               Mã đơn hàng
                             </th>
                             <th className="sorting" id="Order-NameUserCol">
-                              Tên khách hàng
+                              Tên người nhận
                             </th>
                             <th className="sorting" id="Order-ProductOrderCol">
                               Sản phẩm
@@ -74,31 +80,36 @@ function Order(props) {
                           </tr>
                         </thead>
                         <tbody>
-                          <tr role="row" className="ood">
-                            <td>FJUJ7879</td>
-                            <td>Phan Nguyễn Thủy Tiên</td>
-                            <td>Iphone 13 ProMax 512GB</td>
-                            <td>1</td>
-                            <td>39.000.000đ</td>
-                            <td>Tiền mặt</td>
-                            <td>Đang chờ xử lý</td>
-                            <td>
-                              <button
-                                onClick={() => props.switch(22)}
-                                className="iconEdit"
-                                
-                              >
-                                <i className="fas fa-edit"></i>
-                              </button>
-                              <button
-                                onClick={() => props.switch(30)}
-                                className="iconDetail"
-                                
-                              >
-                                <i className="fas fa-list"></i>
-                              </button>
-                            </td>
-                          </tr>
+                          {orders.map((item)=>{
+                            return(
+                              <tr role="row" className="ood">
+                                <td>{item.id}</td>
+                                <td>Phan Nguyễn Thủy Tiên</td>
+                                <td>Iphone 13 ProMax 512GB</td>
+                                <td>1</td>
+                                <td>39.000.000đ</td>
+                                <td>Tiền mặt</td>
+                                <td>Đang chờ xử lý</td>
+                                <td>
+                                  <button
+                                    onClick={() => props.switch(22)}
+                                    className="iconEdit"
+                                    
+                                  >
+                                    <i className="fas fa-edit"></i>
+                                  </button>
+                                  <button
+                                    onClick={() => props.switch(30)}
+                                    className="iconDetail"
+                                    
+                                  >
+                                    <i className="fas fa-list"></i>
+                                  </button>
+                                </td>
+                              </tr>
+                            )
+                          })}
+                          
                         </tbody>
                       </table>
                       <div

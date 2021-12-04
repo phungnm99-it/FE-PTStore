@@ -367,3 +367,7 @@ table.dataTable tbody tr {
   table-layout: fixed;
   width: 100%;
 }
+
+.feedback-management th, .feedback-management td{
+  text-align: center;
+}

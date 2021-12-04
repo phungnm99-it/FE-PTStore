@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from "react";
 import "../../../css/admin/brand/Brands.css";
 import brandApi from "../../../api/brandApi";
+
 function Brand(props) {
   const [brands, setBrands] = useState([]);
   useEffect(() => {
     brandApi.getAll().then((res) => {
       setBrands(res.data);
+      
+      console.log(res.data);
     });
   }, []);
   
@@ -62,6 +65,7 @@ function Brand(props) {
                               Tên thương hiệu
                             </th>
                             <th className="sorting_desc" id="Brand-ImgCol">
+                              
                               Hình ảnh
                             </th>
                             <th className="sorting" id="Brand-ControlCol">
@@ -75,7 +79,9 @@ function Brand(props) {
                               <tr role="row" className="ood">
                                 <td>{item.id}</td>
                                 <td>{item.name}</td>
-                                <td></td>
+                                {/* ???? */}
+                                <td><img src={item.imageUrl} alt="imgBrand"/>                                
+                                </td>
                                 <td>
                                   <button
                                     onClick={() => props.switch(10)}

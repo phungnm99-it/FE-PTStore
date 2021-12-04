@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import productApi from "../../../api/productApi";
 import "../../../css/admin/product/Product.css";
-import { Link } from "react-router-dom";
 
 function Product(props) {
+  const [products, setProducts] = useState([]);
+  useEffect(() => {
+    productApi.getAll().then((res) => {
+      setProducts(res.data);
+      
+      console.log(res.data);
+    });
+  }, []);
   return (
     <div>
       <section className="pageAdmin">
@@ -82,39 +90,43 @@ function Product(props) {
                           </tr>
                         </thead>
                         <tbody>
-                          <tr role="row" className="ood">
-                            <td>NH9385392</td>
-                            <td>Iphone 13 ProMax 512GB</td>
-                            <td>Xanh dương</td>
-                            <td>Iphone</td>
-                            <td>39.000.000đ</td>
-                            <td>39.000.000đ</td>
-                            <td>.....</td>
-                            <td>Còn hàng</td>
-                            <td>
-                              <button
-                                onClick={() => props.switch(16)}
-                                className="iconEdit"
+                          {products.map((item)=>{
+                            return(
+                              <tr role="row" className="ood">
+                                <td>{item.id}</td>
+                                <td>{item.name}</td>
+                                <td>{item.color}</td>
+                                <td>{item.brandName}</td>
+                                <td>{item.price}</td>
+                                <td>{item.currentPrice}</td>
+                                <td><img src={item.imageUrl} alt="imgProduct"/></td>
+                                <td>{item.status}</td>
+                                <td>
+                                <button
+                                  onClick={() => props.switch(16)}
+                                  className="iconEdit"
+                                  
+                                >
+                                  <i className="fas fa-edit"></i>
+                                </button>
+                                <button
+                                  onClick={() => props.switch(17)}
+                                  className="iconDetail"
+                                  
+                                >
+                                  <i class="fas fa-list"></i>
+                                </button>
+                                <button
+                                  onClick={() => props.switch(33)}
+                                  className="iconDelete"
                                 
-                              >
-                                <i className="fas fa-edit"></i>
-                              </button>
-                              <button
-                                onClick={() => props.switch(17)}
-                                className="iconDetail"
-                                
-                              >
-                                <i class="fas fa-list"></i>
-                              </button>
-                              <button
-                                onClick={() => props.switch(33)}
-                                className="iconDelete"
-                               
-                              >
-                                <i className="fas fa-backspace"></i>
-                              </button>
+                                >
+                                  <i className="fas fa-backspace"></i>
+                                </button>
                             </td>
-                          </tr>
+                              </tr>
+                            )
+                          })}
                         </tbody>
                       </table>
                       <div

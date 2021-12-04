@@ -366,3 +366,12 @@ table.dataTable tbody tr {
     border: none;
     background-color: #f9f9f9;
 }
+
+.product-management th, .product-management td{
+    text-align: center;
+}
+
+.product-management td img{
+    height: 45px;
+    width: 50px;
+}

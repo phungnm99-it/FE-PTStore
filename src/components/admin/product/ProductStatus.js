@@ -1,6 +1,16 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import "../../../css/admin/product/ProductStatus.css"
+import productApi from '../../../api/productApi';
+import imgBrand from "../../../images/noOder.png"
 function ProductStatus (props) {
+    const [products, setProducts] = useState([]);
+    useEffect(() => {
+        productApi.getAll().then((res) => {
+        setProducts(res.data);
+        
+        console.log(res.data);
+        });
+    }, []);
     return (
         <div>
             <section className="pageAdmin">
@@ -76,33 +86,35 @@ function ProductStatus (props) {
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        <tr role="row" className="ood">
-                                            <td>NH9385392</td>
-                                            <td>Iphone 13 ProMax 512GB</td>
-                                            <td>...</td>
-                                            <td>15</td>
-                                            <td>12</td>
-                                            
-                                            <td>Còn hàng</td>
-                                            <td className="checkboxFeatured">
-                                                <input type="checkbox" id="checkboxInput" name=""/>
-                                                
-                                            </td>
-                                            <td>
-                                            <button
-                                                onClick={() => props.switch(29)}
-                                                className="iconEdit"
-                                                
-                                            >
-                                                <i className="fas fa-edit"></i>
-                                            </button>
-                                            <button
-                                                onClick={() => props.switch(17)}
-                                                className="iconDetail"
-                                                
-                                            >
-                                                <i class="fas fa-list"></i>
-                                            </button>
+                                            {products.map((item)=>{
+                                                return(
+                                                    <tr role="row" className="ood">
+                                                        <td>{item.id}</td>
+                                                        <td>{item.name}</td>
+                                                        <td><img src={item.imageUrl} alt="imgProduct"/></td>
+                                                        <td>{item.stock}</td>
+                                                        <td>12</td>
+                                                        
+                                                        <td>{item.status}</td>
+                                                        <td className="checkboxFeatured">
+                                                            <input type="checkbox" id="checkboxInput" name=""/>
+                                                            
+                                                        </td>
+                                                        <td>
+                                                        <button
+                                                            onClick={() => props.switch(29)}
+                                                            className="iconEdit"
+                                                            
+                                                        >
+                                                            <i className="fas fa-edit"></i>
+                                                        </button>
+                                                        <button
+                                                            onClick={() => props.switch(17)}
+                                                            className="iconDetail"
+                                                            
+                                                        >
+                                                            <i class="fas fa-list"></i>
+                                                        </button>
                                             {/* <button
                                                 
                                                 className="iconDelete"
@@ -112,6 +124,9 @@ function ProductStatus (props) {
                                             </button> */}
                                             </td>
                                         </tr>
+                                                )
+                                            })}
+                                        
                                         </tbody>
                                     </table>
                                     <div
