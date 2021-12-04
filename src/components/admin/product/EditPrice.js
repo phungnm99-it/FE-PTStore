@@ -1,6 +1,19 @@
 import React from 'react';
 import '../../../css/admin/product/EditPrice.css'
 function EditPrice (){
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        let id = document.getElementById("inputIDProduct").value;
+        let name = document.getElementById("inputNameProduct").value;
+        let price = document.getElementById("inputPriceProduct").value;
+        let currentPrice = document.getElementById("inputCurrentPriceProduct").value;
+        let formData = new FormData();
+        formData.append("Id", id);
+        formData.append("Name", name);
+        formData.append("Price", price);
+        formData.append("CurrentPrice", currentPrice);
+    };
     return (
         <div>
             <div className="editProductPrice">
@@ -61,7 +74,7 @@ function EditPrice (){
                         </div>
 
                         <div className="mb-3">
-                            <button type="submit" class="btn btn-primary btn-color">
+                            <button type="submit" onClick={(e) => handleSubmit(e)} className="btn btn-primary btn-color">
                             Cập Nhật
                             </button>
                         </div>

@@ -1,6 +1,21 @@
 import React from 'react';
 import "../../../css/admin/product/EditProductStatus.css"
 function EditProductStatus () {
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        let id = document.getElementById("inputIDProduct").value;
+        let name = document.getElementById("inputNameProduct").value;
+        let currentStock = document.getElementById("inputCurrentQuantity").value;
+        let status = document.getElementById("inputStatusProduct").value;
+        let featuredProduct = document.getElementById("checkbox-featuredProduct").value;
+        let formData = new FormData();
+        formData.append("Id", id);
+        formData.append("Name", name);
+        formData.append("Stock", currentStock);
+        formData.append ("Status", status);
+        formData.append("FeaturedProduct", featuredProduct);   
+    };
     return (
         <div>
             <div className="editProductStatus">
@@ -45,8 +60,7 @@ function EditProductStatus () {
                                 className="form-control"
                                 id="inputCurrentQuantity"
                                 placeholder="Số lượng hiện tại"
-                                required
-                                
+                                required 
                                 />
                             </div>
                             <div className="mb-3 col-md-6">
@@ -89,7 +103,7 @@ function EditProductStatus () {
                         
 
                         <div className="mb-3">
-                            <button type="submit" class="btn btn-primary btn-color">
+                            <button type="submit" onClick={(e) => handleSubmit(e)} className="btn btn-primary btn-color">
                             Cập Nhật
                             </button>
                         </div>

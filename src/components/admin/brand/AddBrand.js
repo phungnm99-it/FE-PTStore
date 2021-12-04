@@ -1,11 +1,23 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router";
 import "../../../css/admin/brand/AddBrand.css";
 import noAvt from "../../../images/no-avt.png";
 
 function AddBrand(props) {
+  const history = useHistory();
   const [name, setName] = useState("");
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    console.log(name);
+    if(name !== ""){
+      // await 
+      props.switch(8);
+    } else {
+      alert("cl");
+    }
     
+    history.push('/admin')
   }
   return (
     <div>
@@ -49,7 +61,7 @@ function AddBrand(props) {
               </div>
 
               <div className="mb-3">
-                <button type="submit" class="btn btn-primary btn-color">
+                <button type="submit" onClick={(e) => handleSubmit(e)} className="btn btn-primary btn-color">
                   Thêm
                 </button>
               </div>
