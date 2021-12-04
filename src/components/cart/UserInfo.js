@@ -82,7 +82,7 @@ function UserInfo() {
         if (res.data.code == 200) {
           alert("Đặt hàng thành công!");
           context.resetCart();
-          history.push("/account#order");
+          history.push("/account/3");
         } else {
           alert("Lỗi!");
         }

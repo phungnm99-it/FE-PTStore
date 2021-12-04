@@ -51,7 +51,7 @@ function HeaderMid() {
                 <div className="shop-menu clearfix">
                   <ul id="ulhighlight" className="nav navbar-nav">
                     <li>
-                      <Link to="/account/" className="btn-Cart">
+                      <Link to="/cart" className="btn-Cart">
                         <i className="fas fa-shopping-cart"></i> Giỏ Hàng
                         {context.cart.length > 0 ? (
                           "[" + context.cart.length + "]"
