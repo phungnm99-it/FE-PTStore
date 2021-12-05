@@ -4,16 +4,17 @@ import Products from "./Product";
 import RecommendProduct from "../../common/RecommendProduct";
 import SlideBrand from "./SlideBrand";
 import TopCategory from "./TopCategory";
+import { ProductProvider } from "./ProductContext";
 
 function ProductPage() {
   return (
-    <div>
+    <ProductProvider>
       <TopCategory />
       <SlideBrand />
       <Filter />
       <Products />
       <RecommendProduct />
-    </div>
+    </ProductProvider>
   );
 }
 
