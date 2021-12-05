@@ -1,0 +1,87 @@
+
+.pageMainAdmin .counterSection{
+    display: block;
+    margin-bottom: 30px;
+    box-shadow: 0 5px 20px rgb(0 0 0 / 5%);
+    border: 0px solid #e7e7e7;
+    padding: 30px 35px;
+    background: #fff;
+    border-radius: 5px;
+    min-height: 125px;
+    margin-left: 20px;
+}
+
+.pageMainAdmin .col-lg-3{
+    width: 24% !important;
+}
+
+.pageMainAdmin .full{
+    width: 100%;
+    float: left;
+}
+
+.pageMainAdmin .counterIcon{
+    display: block;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    float: left;
+    margin: 8px 0 8px;
+}
+
+.pageMainAdmin .counterIcon i{
+    font-size: 50px;
+    line-height: normal;
+    width: 100%;
+    float: left;
+    text-align: center;
+}
+
+.pageMainAdmin .counterNo{
+    padding: 0 12px;
+    align-content: center;
+    align-items: center;
+    float: right;
+    width: 100%;
+}
+
+.pageMainAdmin .yellow_color{
+    color: #ff9800;
+}
+
+.pageMainAdmin .green_color{
+    color: #009688;
+}
+
+.pageMainAdmin .red_color{
+    color: #e91e63;
+}
+
+.pageMainAdmin .blue_color{
+    color:#2196f3;
+}
+
+.pageMainAdmin .counterNo p.totalNo{
+    margin: 0;
+    font-size: 45px;
+    float: left;
+    width: 100%;
+    line-height: normal;
+    font-weight: 600;
+    color: #455a64;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.pageMainAdmin .counterNo p.headCounter{
+    float: left;
+    width: 100%;
+    color: #99abb4;
+    font-weight: 300;
+    margin: 0px 0 0 0;
+    font-size: 20px;
+    text-align: center;
+    line-height: 21px;
+}

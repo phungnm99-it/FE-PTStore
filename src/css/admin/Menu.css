@@ -323,3 +323,6 @@ html:not([dir="rtl"]) .sidebar-nav .nav-icon:first-child {
   cursor: pointer;
 }
 
+.headerAdmin .InfoAdmin, .headerAdmin a{
+  cursor: pointer;
+}

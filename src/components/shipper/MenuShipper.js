@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import "../../css/shipper/MenuShipper.css"
 import Dashboard from './Dashboard';
 import noAvt from "../../images/no-avt.png"
@@ -7,8 +7,37 @@ import ChangePass from './ChangePass';
 import EditInfo from './EditInfo';
 function MenuShipper () {
     const [form, setForm] = useState();
-    let inputFile = null;
+    const [avt, setAvt] = useState(
+        "https://huyhoanhotel.com/wp-content/uploads/2016/05/765-default-avatar.png"
+      );
+    const inputFile = useRef(null);
+    useEffect(()=>{window.scrollTo(0, 0)},[])
 
+    const selectFile = () => {
+        // debugger
+        inputFile.current.click();
+    };
+
+    const getImg = async (event) => {
+        const file = event.target.files[0];
+        const base64 = await convertBase64(file);
+        // api
+        setAvt(base64);
+        console.log(base64);
+      };
+
+    const convertBase64 = (file) => {
+        return new Promise((resolve, reject) => {
+          const fileReader = new FileReader();
+          fileReader.readAsDataURL(file);
+          fileReader.onload = () => {
+            resolve(fileReader.result);
+          };
+          fileReader.onerror = (error) => {
+            reject(error);
+          };
+        });
+    };
     const switchRender = () => {
         switch (form) {
           case 0:
@@ -33,13 +62,13 @@ function MenuShipper () {
                         <div className="header">
                             <div className="info">
                             <div className="avt" id="myAvatar">
-                                <img src={noAvt} alt="AvtShipper"/>
+                                <img src={avt} alt="AvtShipper"/>
                             </div>
                             <div className="summer">
                                 <p onClick={() => setForm(1)}>
                                 <strong>Tien Phan Nguyen Thụy</strong>
                                 </p>
-                                <p className="change-avatar">
+                                <p className="change-avatar" onClick={() => selectFile()}>
                                 <i className="icon-change-avatar"></i> Thay đổi ảnh đại diện
                                 </p>
                                 <input
@@ -47,6 +76,8 @@ function MenuShipper () {
                                 name="upfile"
                                 id="avtImage"
                                 accept="image/*"
+                                onChange={(e) => getImg(e)}
+                                ref={inputFile}
                                 />
                             </div>
                             </div>
