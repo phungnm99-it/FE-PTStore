@@ -6,7 +6,11 @@ const AuthContext = createContext();
 function AuthProvider({ children }) {
   const initUser = () => {
     if (Auth.isLogin()) {
-      return "user";
+      if (Auth.getCurrentUser().role === "User") return "user";
+      else {
+        Auth.logout();
+        return null;
+      }
     } else {
       Auth.logout();
       return null;
