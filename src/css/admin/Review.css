@@ -348,3 +348,7 @@ table.dataTable tbody tr {
     margin-right: 8px;
 }
 
+.review-management th, .review-management td{
+    text-align: center;
+}
+

@@ -16,6 +16,7 @@ function AccountInfo() {
     // lay tinh tu api
     getProvinces().then((res) => {
       setProvinces(res.data);
+      setDistrict(res.data[0].districts)
     });
 
     userApi.getInfo().then((response) => {
@@ -158,7 +159,7 @@ function AccountInfo() {
                               {/* maps tinh thanh option */}
                               {provinces.map((pro, idx) => {
                                 return (
-                                  <option key={idx} value={pro.code}>
+                                  <option key={idx} value={pro.code} selected={(idx === 0)}>
                                     {pro.name}
                                   </option>
                                 );
@@ -182,6 +183,7 @@ function AccountInfo() {
                                   <option
                                     key={idx}
                                     value={dis.code}
+                                    selected={(idx === 0)}
                                     //   onClick={}
                                   >
                                     {dis.name}

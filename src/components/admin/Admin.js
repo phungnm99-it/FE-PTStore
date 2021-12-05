@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import "../../css/admin/Menu.css";
 import "../../css/admin/Header.css";
 import DropDown from "./common/DropDown";
@@ -40,7 +40,38 @@ import ChangePass from "./adminInfo/ChangePass";
 import PageMainAdmin from "./pagemain/PageMainAdmin";
 function Admin(props) {
   const [form, setForm] = useState(props.form || 0);
-  let inputFile = null;
+  const [avt, setAvt] = useState(
+    "https://huyhoanhotel.com/wp-content/uploads/2016/05/765-default-avatar.png"
+  );
+  const inputFile = useRef(null);
+
+  useEffect(()=>{window.scrollTo(0, 0)},[])
+
+  const selectFile = () => {
+    // debugger
+    inputFile.current.click();
+  };
+
+  const getImg = async (event) => {
+    const file = event.target.files[0];
+    const base64 = await convertBase64(file);
+    // api
+    setAvt(base64);
+    console.log(base64);
+  };
+
+  const convertBase64 = (file) => {
+    return new Promise((resolve, reject) => {
+      const fileReader = new FileReader();
+      fileReader.readAsDataURL(file);
+      fileReader.onload = () => {
+        resolve(fileReader.result);
+      };
+      fileReader.onerror = (error) => {
+        reject(error);
+      };
+    });
+  };
 
   const switchRender = () => {
     switch (form) {
@@ -128,9 +159,9 @@ function Admin(props) {
   //     form: n,
   //   });
   // }
-  const selectFile = () => {
+  /* const selectFile = () => {
     inputFile.click();
-  };
+  }; */
   return (
     <section className="pageAdmin">
       <div className="account">
@@ -140,13 +171,14 @@ function Admin(props) {
               <div className="header">
                 <div className="info">
                   <div className="avt" id="myAvatar">
-                    <strong>T</strong>
+                    {/* <strong>T</strong> */}
+                    <img src={avt} alt="" />
                   </div>
                   <div className="summer">
                     <p>
                       <strong>Tien Phan Nguyen Thụy</strong>
                     </p>
-                    <p className="change-avatar">
+                    <p className="change-avatar" onClick={() => selectFile()}>
                       <i className="icon-change-avatar"></i> Thay đổi ảnh đại
                       diện
                     </p>
@@ -155,6 +187,8 @@ function Admin(props) {
                       name="upfile"
                       id="avtImage"
                       accept="image/*"
+                      onChange={(e) => getImg(e)}
+                      ref={inputFile}
                     />
                   </div>
                 </div>
@@ -162,7 +196,7 @@ function Admin(props) {
               <nav>
                 <ul>
                   <li className="nav-item" onClick={() => setForm(0)}>
-                    <a href="#" className="nav-link active">
+                    <a href="#" className="nav-link ">
                       <i className="fas fa-tachometer-alt nav-icon"></i>
                       Trang chủ
                     </a>

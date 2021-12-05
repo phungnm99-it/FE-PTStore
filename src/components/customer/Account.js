@@ -68,12 +68,12 @@ function Account(props) {
                   <img src={avt} alt="" />
                 </div>
 
-                <div class="summer">
+                <div className="summer">
                   <p>
                     <strong>Tien Phan Nguyen Thụy</strong>
                   </p>
-                  <p class="change-avatar" onClick={() => selectFile()}>
-                    <i class="icon-change-avatar"></i> Thay đổi ảnh đại diện
+                  <p className="change-avatar" onClick={() => selectFile()}>
+                    <i className="icon-change-avatar"></i> Thay đổi ảnh đại diện
                   </p>
                   <input
                     type="file"

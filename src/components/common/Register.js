@@ -24,6 +24,11 @@ function Register() {
     filter.length > 0 ? setDistrict(filter[0].districts) : setDistrict([]);
   };
 
+  //kiem tra sdt 10 so
+  const validateInput = (checkingText) => {
+    
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault();
     let province = document.getElementById("SystemCityID");

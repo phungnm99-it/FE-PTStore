@@ -122,11 +122,22 @@ html:not([dir="rtl"]) .sidebar-nav .nav-icon:first-child {
   font-size: 16px;
 }
 
-.account .menuAdmin .nav-link.active {
+.account .menuAdmin .nav-link {
   color: hsla(0, 0%, 100%, 0.87);
   color: var(--cui-sidebar-nav-link-active-color, hsla(0, 0%, 100%, 0.87));
+}
+
+.account .menuAdmin a:hover, .account .menuAdmin a:active{
   background: hsla(0, 0%, 100%, 0.05);
-  background: var(--cui-sidebar-nav-link-active-bg, hsla(0, 0%, 100%, 0.05));
+}
+
+.nav-link, .nav-link > i{
+  background: hsla(0, 0%, 100%, 0.05);
+}
+
+.account .menuAdmin .nav-link:hover i,
+.account .menuAdmin .nav-link.active i{
+  background: hsla(0, 0%, 100%, 0.05);
 }
 
 
@@ -307,3 +318,8 @@ html:not([dir="rtl"]) .sidebar-nav .nav-icon:first-child {
   font-size: 18px;
   font-weight: 500;
 }
+
+.pageAdmin .btn-focus{
+  cursor: pointer;
+}
+

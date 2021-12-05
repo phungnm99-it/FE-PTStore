@@ -1,6 +1,13 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import "../../../css/admin/subscriber/subscriber.css"
+import subscriberApi from "../../../api/subscriberApi"
 function Subscriber (props){
+    const [subscribers, setSubscribers] = useState([]);
+    useEffect(() => {
+        subscriberApi.getAll().then((res) => {
+          setSubscribers(res.data);
+        });
+      }, []);
     return (
         <div>
             <section className="pageAdmin">
@@ -55,12 +62,16 @@ function Subscriber (props){
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            <tr role="row" className="ood">
-                                                <td>LSFL8990</td>
-                                                <td>thuytienpn106@gmail.com</td>
-                                                <td>Đang theo dõi</td>
-                                               
-                                            </tr>
+                                                {subscribers.map((item) => {
+                                                    return(
+                                                        <tr role="row" className="ood">
+                                                            <td>{item.id}</td>
+                                                            <td>{item.email}</td>
+                                                            <td>{item.status}</td>                                                     
+                                                        </tr>
+                                                    )
+                                                })}
+                                            
                                             </tbody>
                                         </table>
                                         <div
