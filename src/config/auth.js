@@ -1,12 +1,43 @@
+import jwt_decode from "jwt-decode";
+
 const Auth = {
-  isAuthenticated: false,
-  login(cb) {
-    Auth.isAuthenticated = true;
-    cb();
+  setAccessToken: function (token) {
+    localStorage.setItem("access_token", token);
   },
-  logout(cb) {
-    Auth.isAuthenticated = false; 
-    cb();
+
+  setGoogleLogin: function () {
+    localStorage.setItem("isSocial", true);
+  },
+
+  getAccessToken: function () {
+    return localStorage.getItem("access_token");
+  },
+
+  isAuthenticated: function () {
+    return localStorage.getItem("access_token") ? true : false;
+  },
+
+  logout: function () {
+    localStorage.removeItem("access_token");
+    localStorage.removeItem("user");
+    localStorage.removeItem("isSocial");
+  },
+
+  isValidateToken: function () {
+    return this.getCurrentUser()["exp"] * 1000 > Date.now();
+  },
+
+  isLogin: function () {
+    return this.getAccessToken() != null && this.isValidateToken;
+  },
+
+  isSocialLogin: function () {
+    return localStorage.getItem("isSocial") ? true : false;
+  },
+
+  getCurrentUser: function () {
+    const token = this.getAccessToken();
+    return jwt_decode(token);
   },
 };
 

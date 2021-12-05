@@ -5,6 +5,7 @@ import { useContext } from "react";
 import userApi from "../../api/userApi";
 import "../../css/common/Login.css";
 import { GoogleLogin } from "react-google-login";
+import Auth from "../../config/auth";
 
 function Login() {
   const clientId =
@@ -12,7 +13,7 @@ function Login() {
   const history = useHistory();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const auth = useContext(AuthContext);
+  const authContext = useContext(AuthContext);
   const handleLogin = async (e) => {
     e.preventDefault();
     let formData = new FormData();
@@ -24,10 +25,9 @@ function Login() {
       if (result.code === "401") {
         alert("Username or password wrong");
       } else {
-        sessionStorage.setItem("access_token", result.token);
-        auth.login(() => {
-          history.push("/");
-        });
+        Auth.setAccessToken(result.token);
+        authContext.login();
+        history.push("/");
       }
     }
   };

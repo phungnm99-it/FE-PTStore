@@ -67,15 +67,15 @@ function App() {
           <Route path="/brand/:brandName">
             <BrandPage />
           </Route>
-          {/* <PrivateRoute path="/account/:id">
+          <PrivateRoute path="/account/:id">
             <Account />
-          </PrivateRoute> */}
-          <Route path="/account/:id">
+          </PrivateRoute>
+          {/* <Route path="/account/:id">
             <Account />
-          </Route>
-          <Route path="/account">
+          </Route> */}
+          <PrivateRoute path="/account">
             <Account />
-          </Route>
+          </PrivateRoute>
 
           <Route path="/resetPassword/:id">
             <ResetPassword />
