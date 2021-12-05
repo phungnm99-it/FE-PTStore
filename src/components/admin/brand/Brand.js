@@ -1,17 +1,31 @@
 import React, { useState, useEffect } from "react";
 import "../../../css/admin/brand/Brands.css";
 import brandApi from "../../../api/brandApi";
+import Pagination from "react-pagination-library";
+import "react-pagination-library/build/css/index.css";
 
 function Brand(props) {
+  window.scrollTo(0, 0);
   const [brands, setBrands] = useState([]);
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPage, setTotalPage] = useState(1);
+
   useEffect(() => {
     brandApi.getAll().then((res) => {
-      setBrands(res.data);
-      
-      console.log(res.data);
+      if (currentPage * 5 - 1 > res.data.length) {
+        setBrands(res.data.slice((currentPage - 1) * 5));
+      } else {
+        setBrands(res.data.slice((currentPage - 1) * 5, currentPage * 5));
+      }
+      setTotalPage(Math.round(res.data.length / 5) + 1);
     });
-  }, []);
-  
+  }, [currentPage]);
+
+  const changeCurrentPage = (numPage) => {
+    setCurrentPage(numPage);
+  };
+
   return (
     <div>
       <section className="pageAdmin">
@@ -29,7 +43,7 @@ function Brand(props) {
                           Thêm thương hiệu
                         </button>
                       </div>
-                      <div className="dataTables_length" id="dataTable_length">
+                      {/* <div className="dataTables_length" id="dataTable_length">
                         <label>
                           Hiển thị:
                           <select
@@ -43,7 +57,7 @@ function Brand(props) {
                             <option value="100">100</option>
                           </select>
                         </label>
-                      </div>
+                      </div> */}
                       <div id="dataTable_filter" className="dataTables_filter">
                         <label>
                           Tìm kiếm:
@@ -65,7 +79,6 @@ function Brand(props) {
                               Tên thương hiệu
                             </th>
                             <th className="sorting_desc" id="Brand-ImgCol">
-                              
                               Hình ảnh
                             </th>
                             <th className="sorting" id="Brand-ControlCol">
@@ -80,7 +93,8 @@ function Brand(props) {
                                 <td>{item.id}</td>
                                 <td>{item.name}</td>
                                 {/* ???? */}
-                                <td><img src={item.imageUrl} alt="imgBrand"/>                                
+                                <td>
+                                  <img src={item.imageUrl} alt="imgBrand" />
                                 </td>
                                 <td>
                                   <button
@@ -95,7 +109,10 @@ function Brand(props) {
                                   >
                                     <i className="fas fa-list"></i>
                                   </button>
-                                  <button onClick={() => props.switch(32)} className="iconDelete">
+                                  <button
+                                    onClick={() => props.switch(32)}
+                                    className="iconDelete"
+                                  >
                                     <i className="fas fa-backspace"></i>
                                   </button>
                                 </td>
@@ -108,7 +125,13 @@ function Brand(props) {
                         className="dataTables_paginate paging_simple_numbers"
                         id="dataTable_paginate"
                       >
-                        <a
+                        <Pagination
+                          currentPage={currentPage}
+                          totalPages={totalPage}
+                          changeCurrentPage={changeCurrentPage}
+                          theme="square-i"
+                        />
+                        {/* <a
                           className="paginate_button previous disabled"
                           id="dataTable_previous"
                         >
@@ -123,56 +146,7 @@ function Brand(props) {
                           >
                             1
                           </a>
-                          <a
-                            className="paginate_button "
-                            aria-controls="dataTable"
-                            data-dt-idx="2"
-                            tabindex="0"
-                          >
-                            2
-                          </a>
-                          <a
-                            className="paginate_button "
-                            aria-controls="dataTable"
-                            data-dt-idx="3"
-                            tabindex="0"
-                          >
-                            3
-                          </a>
-                          <a
-                            className="paginate_button "
-                            aria-controls="dataTable"
-                            data-dt-idx="4"
-                            tabindex="0"
-                          >
-                            4
-                          </a>
-                          <a
-                            className="paginate_button "
-                            aria-controls="dataTable"
-                            data-dt-idx="5"
-                            tabindex="0"
-                          >
-                            5
-                          </a>
-                          <a
-                            className="paginate_button "
-                            aria-controls="dataTable"
-                            data-dt-idx="6"
-                            tabindex="0"
-                          >
-                            6
-                          </a>
-                        </span>
-                        <a
-                          className="paginate_button next"
-                          aria-controls="dataTable"
-                          data-dt-idx="7"
-                          tabindex="0"
-                          id="dataTable_next"
-                        >
-                          <i className="fas fa-forward"></i>
-                        </a>
+                          </span> */}
                       </div>
                     </div>
                   </div>

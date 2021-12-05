@@ -2,15 +2,30 @@ import React, { useState, useEffect } from "react";
 import productApi from "../../../api/productApi";
 import "../../../css/admin/product/Product.css";
 
+import Pagination from "react-pagination-library";
+import "react-pagination-library/build/css/index.css";
+
+import { priceFormat } from "../../../utils/priceFormat";
+
 function Product(props) {
   const [products, setProducts] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPage, setTotalPage] = useState(1);
   useEffect(() => {
     productApi.getAll().then((res) => {
-      setProducts(res.data);
-      
-      console.log(res.data);
+      if (currentPage * 5 - 1 > res.data.length) {
+        setProducts(res.data.slice((currentPage - 1) * 5));
+        console.log(1);
+      } else {
+        setProducts(res.data.slice((currentPage - 1) * 5, currentPage * 5));
+      }
+      setTotalPage(Math.round(res.data.length / 5) + 1);
     });
-  }, []);
+  }, [currentPage]);
+
+  const changeCurrentPage = (numPage) => {
+    setCurrentPage(numPage);
+  };
   return (
     <div>
       <section className="pageAdmin">
@@ -24,11 +39,14 @@ function Product(props) {
                     <h4 className="c-grey-900 mB-20">Danh sách</h4>
                     <div className="dataTables_wrapper">
                       <div className="buttonControl">
-                        <button className="Add" onClick={() => props.switch(15)}>
+                        <button
+                          className="Add"
+                          onClick={() => props.switch(15)}
+                        >
                           Thêm sản phẩm
                         </button>
                       </div>
-                      <div className="dataTables_length" id="dataTable_length">
+                      {/* <div className="dataTables_length" id="dataTable_length">
                         <label>
                           Hiển thị:
                           <select
@@ -42,7 +60,7 @@ function Product(props) {
                             <option value="100">100</option>
                           </select>
                         </label>
-                      </div>
+                      </div> */}
                       <div id="dataTable_filter" className="dataTables_filter">
                         <label>
                           Tìm kiếm:
@@ -90,42 +108,41 @@ function Product(props) {
                           </tr>
                         </thead>
                         <tbody>
-                          {products.map((item)=>{
-                            return(
+                          {products.map((item) => {
+                            return (
                               <tr role="row" className="ood">
                                 <td>{item.id}</td>
                                 <td>{item.name}</td>
                                 <td>{item.color}</td>
                                 <td>{item.brandName}</td>
-                                <td>{item.price}</td>
-                                <td>{item.currentPrice}</td>
-                                <td><img src={item.imageUrl} alt="imgProduct"/></td>
+                                <td>{priceFormat(item.price ?? 0)}</td>
+                                <td>{priceFormat(item.currentPrice ?? 0)}</td>
+                                <td>
+                                  <img src={item.imageUrl} alt="imgProduct" />
+                                </td>
                                 <td>{item.status}</td>
                                 <td>
-                                <button
-                                  onClick={() => props.switch(16)}
-                                  className="iconEdit"
-                                  
-                                >
-                                  <i className="fas fa-edit"></i>
-                                </button>
-                                <button
-                                  onClick={() => props.switch(17)}
-                                  className="iconDetail"
-                                  
-                                >
-                                  <i class="fas fa-list"></i>
-                                </button>
-                                <button
-                                  onClick={() => props.switch(33)}
-                                  className="iconDelete"
-                                
-                                >
-                                  <i className="fas fa-backspace"></i>
-                                </button>
-                            </td>
+                                  <button
+                                    onClick={() => props.switch(16)}
+                                    className="iconEdit"
+                                  >
+                                    <i className="fas fa-edit"></i>
+                                  </button>
+                                  <button
+                                    onClick={() => props.switch(17)}
+                                    className="iconDetail"
+                                  >
+                                    <i class="fas fa-list"></i>
+                                  </button>
+                                  <button
+                                    onClick={() => props.switch(33)}
+                                    className="iconDelete"
+                                  >
+                                    <i className="fas fa-backspace"></i>
+                                  </button>
+                                </td>
                               </tr>
-                            )
+                            );
                           })}
                         </tbody>
                       </table>
@@ -133,71 +150,12 @@ function Product(props) {
                         className="dataTables_paginate paging_simple_numbers"
                         id="dataTable_paginate"
                       >
-                        <a
-                          className="paginate_button previous disabled"
-                          id="dataTable_previous"
-                        >
-                          Số trang
-                        </a>
-                        <span>
-                          <a
-                            className="paginate_button current"
-                            aria-controls="dataTable"
-                            data-dt-idx="1"
-                            tabindex="0"
-                          >
-                            1
-                          </a>
-                          <a
-                            className="paginate_button "
-                            aria-controls="dataTable"
-                            data-dt-idx="2"
-                            tabindex="0"
-                          >
-                            2
-                          </a>
-                          <a
-                            className="paginate_button "
-                            aria-controls="dataTable"
-                            data-dt-idx="3"
-                            tabindex="0"
-                          >
-                            3
-                          </a>
-                          <a
-                            className="paginate_button "
-                            aria-controls="dataTable"
-                            data-dt-idx="4"
-                            tabindex="0"
-                          >
-                            4
-                          </a>
-                          <a
-                            className="paginate_button "
-                            aria-controls="dataTable"
-                            data-dt-idx="5"
-                            tabindex="0"
-                          >
-                            5
-                          </a>
-                          <a
-                            className="paginate_button "
-                            aria-controls="dataTable"
-                            data-dt-idx="6"
-                            tabindex="0"
-                          >
-                            6
-                          </a>
-                        </span>
-                        <a
-                          className="paginate_button next"
-                          aria-controls="dataTable"
-                          data-dt-idx="7"
-                          tabindex="0"
-                          id="dataTable_next"
-                        >
-                          <i className="fas fa-forward"></i>
-                        </a>
+                        <Pagination
+                          currentPage={currentPage}
+                          totalPages={totalPage}
+                          changeCurrentPage={changeCurrentPage}
+                          theme="square-i"
+                        />
                       </div>
                     </div>
                   </div>
