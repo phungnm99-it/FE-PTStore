@@ -94,6 +94,10 @@
     cursor: pointer;
     color: #999;
   }
+
+  .pageShipper .summer p{
+    cursor: pointer;
+  }
   
   #avtImage {
     display: none;

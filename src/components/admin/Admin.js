@@ -241,23 +241,23 @@ function Admin(props) {
                   </li>
                   <DropDown
                     name="Quản lý Sản phẩm"
-                    icon="fas fa-user-cog nav-icon"
+                    icon="fas fa-mobile-alt nav-icon"
                     subNav={[
                       {
                         name: "Quản lý Thông tin",
-                        icon: "fas fa-user-circle nav-icon",
+                        icon: "fas fa-mobile-alt  nav-icon",
                         link: "",
                         formChoose: () => setForm(12),
                       },
                       {
                         name: "Quản lý Giá ",
-                        icon: "fas fa-user-circle nav-icon",
+                        icon: "fas fa-mobile-alt  nav-icon",
                         link: "",
                         formChoose: () => setForm(13),
                       },
                       {
                         name: "Quản lý Tình trạng",
-                        icon: "fas fa-user-circle nav-icon",
+                        icon: "fas fa-mobile-alt  nav-icon",
                         link: "",
                         formChoose: () => setForm(14),
                       },
@@ -269,25 +269,25 @@ function Admin(props) {
                     subNav={[
                       {
                         name: "Tất cả đơn hàng",
-                        icon: "fas fa-user-circle nav-icon",
+                        icon: "fas fa-box-open nav-icon",
                         link: "",
                         formChoose: () => setForm(21),
                       },
                       {
                         name: "Đơn hàng chờ xác nhận",
-                        icon: "fas fa-user-circle nav-icon",
+                        icon: "fas fa-box-open nav-icon",
                         link: "",
                         formChoose: () => setForm(21),
                       },
                       {
                         name: "Đơn hàng đang giao",
-                        icon: "fas fa-user-circle nav-icon",
+                        icon: "fas fa-box-open nav-icon",
                         link: "",
                         formChoose: () => setForm(21),
                       },
                       {
                         name: "Đơn hàng đã hoàn thành",
-                        icon: "fas fa-user-circle nav-icon",
+                        icon: "fas fa-box-open nav-icon",
                         link: "",
                         formChoose: () => setForm(21),
                       },
@@ -302,7 +302,7 @@ function Admin(props) {
                   </li>
                   <DropDown
                     name="Quản lý Góp ý"
-                    icon="fas fa-user-cog nav-icon"
+                    icon="fa fa-comments-o nav-icon"
                     subNav={[
                       {
                         name: "Góp Ý chưa trả lời",
