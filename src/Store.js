@@ -18,10 +18,8 @@ import Register from "./components/common/Register";
 import ForgotPassword from "./components/common/ForgotPassword";
 import ResetPassword from "./components/common/ResetPassword";
 import Contact from "./components/common/Contact";
-import ProductPage from "./components/common/product/ProductPage";
 import BrandPage from "./components/common/product/BrandPage";
 import CustomProductPage from "./components/common/product/CustomProductPage";
-import { ProductProvider } from "./components/common/product/ProductContext";
 
 function App() {
   return (

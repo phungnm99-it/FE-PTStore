@@ -4,17 +4,15 @@ import SlideBrand from "./SlideBrand";
 import TopCategory from "./TopCategory";
 import BrandProduct from "./BrandProduct";
 import Filter from "./Filter";
-import { ProductProvider } from "./ProductContext";
-
 function BrandPage() {
   return (
-    <ProductProvider>
+    <div>
       <TopCategory />
       <SlideBrand />
       <Filter />
       <BrandProduct />
       <RecommendProduct />
-    </ProductProvider>
+    </div>
   );
 }
 
