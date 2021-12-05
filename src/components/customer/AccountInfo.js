@@ -3,7 +3,6 @@ import "../../css/customer/accountInfo.css";
 import ChangePassword from "./ChangePassword";
 import { getProvinces } from "../../service/provinces-service";
 import userApi from "../../api/userApi";
-import { isElementOfType } from "react-dom/test-utils";
 
 function AccountInfo() {
   const [modalIsOpen, setIsOpen] = useState(false);
@@ -16,13 +15,12 @@ function AccountInfo() {
     // lay tinh tu api
     getProvinces().then((res) => {
       setProvinces(res.data);
-      setDistrict(res.data[0].districts)
+      setDistrict(res.data[0].districts);
     });
 
     userApi.getInfo().then((response) => {
       console.log(response.data);
       setInfo(response.data);
-      debugger
     });
   }, []);
   // lay quan tu ma tinh
@@ -159,7 +157,11 @@ function AccountInfo() {
                               {/* maps tinh thanh option */}
                               {provinces.map((pro, idx) => {
                                 return (
-                                  <option key={idx} value={pro.code} selected={(idx === 0)}>
+                                  <option
+                                    key={idx}
+                                    value={pro.code}
+                                    selected={idx === 0}
+                                  >
                                     {pro.name}
                                   </option>
                                 );
@@ -183,7 +185,7 @@ function AccountInfo() {
                                   <option
                                     key={idx}
                                     value={dis.code}
-                                    selected={(idx === 0)}
+                                    selected={idx === 0}
                                     //   onClick={}
                                   >
                                     {dis.name}

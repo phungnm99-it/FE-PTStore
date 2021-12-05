@@ -5,11 +5,11 @@ import { useContext } from "react";
 import logo from "../../images/logo-ptstore.png";
 import { Link, useHistory } from "react-router-dom";
 import iconSearch from "../../images/iconSearch.png";
+import Auth from "../../config/auth";
 //import Logout from "./Logout";
 
 function HeaderMid() {
   const context = useContext(AuthContext);
-  const history = useHistory();
   return (
     <div>
       <div className="header-middle headermidpartial">
@@ -46,7 +46,7 @@ function HeaderMid() {
                 </div>
               </nav>
             </div>
-            {context.user ? (
+            {Auth.isLogin() ? (
               <div className="col-md-6">
                 <div className="shop-menu clearfix">
                   <ul id="ulhighlight" className="nav navbar-nav">
@@ -69,7 +69,8 @@ function HeaderMid() {
                       <button
                         className="btn-Logout"
                         onClick={() => {
-                          context.logout(() => history.push("/"));
+                          context.logout();
+                          Auth.logout();
                         }}
                       >
                         <i className="fas fa-sign-out-alt"></i> Đăng xuất
