@@ -59,8 +59,11 @@ function App() {
           <Route exact path="/forgotPassword">
             <ForgotPassword />
           </Route>
-          <Route exact path="/product">
+          {/* <Route exact path="/product">
             <ProductPage />
+          </Route> */}
+          <Route exact path="/product">
+            <CustomProductPage />
           </Route>
           <Route path="/phone/:id">
             <ProductDetail />
@@ -83,15 +86,11 @@ function App() {
           </Route>
 
           <Route path="/dienthoai/:filter">
-            <ProductProvider>
-              <CustomProductPage />
-            </ProductProvider>
+            <CustomProductPage />
           </Route>
 
           <Route path="/dienthoai">
-            <ProductProvider>
-              <CustomProductPage />
-            </ProductProvider>
+            <CustomProductPage />
           </Route>
         </Switch>
         <Footer />

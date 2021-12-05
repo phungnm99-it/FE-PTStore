@@ -9,12 +9,10 @@ import ProductFrame from "../../common/ProductFrame";
 import productApi from "../../../api/productApi";
 import Pagination from "react-pagination-library";
 import "react-pagination-library/build/css/index.css";
-import { ProductContext } from "./ProductContext";
 
 function CustomProductPage() {
   const { filter } = useParams();
   const history = useHistory();
-  const context = useContext(ProductContext);
 
   const getCurrentPage = () => {
     if (filter !== undefined) {
@@ -39,9 +37,7 @@ function CustomProductPage() {
   };
 
   const [brands, setBrands] = useState([]);
-
   const [product, setProduct] = useState([]);
-
   const [currentPage, setCurrentPage] = useState(getCurrentPage());
   const [currentBrand, setCurrentBrand] = useState(getCurrentBrand());
   const [totalPage, setTotalPage] = useState(1);
@@ -73,7 +69,6 @@ function CustomProductPage() {
   };
 
   const handleClickBrand = (name) => {
-    context.changeBrandName(name);
     let lk = "/dienthoai/brand=" + name;
     history.push(lk);
   };
@@ -136,7 +131,7 @@ function CustomProductPage() {
       <div className="products">
         <div className="container">
           <div className="list-product">
-            <h1>Điện thoại</h1>
+            <h1>Điện thoại {currentBrand !== "all" ? currentBrand : ""}</h1>
             <div className="col-content lts-product">
               <div className="row-recommend">
                 {product.map((item, idx) => (
