@@ -34,7 +34,7 @@ function EndHeader() {
             <div className="navbarmenu">
               <DropDownItem key="dropdown" title="Điện thoại" link={brand} />
               {/* <DropDownItem title="Tìm theo hãng" link={[{name: 'link 1', url: ''},{name: 'link 3', url: ''}]}/> */}
-              <Link to="/product" className="buttontinh">
+              <Link to="/dienthoai" className="buttontinh">
                 Sản phẩm HOT
               </Link>
               <Link to="/product" className="buttontinh">

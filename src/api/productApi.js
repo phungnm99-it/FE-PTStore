@@ -40,6 +40,11 @@ const productApi = {
   findByBrandName: (brandName) => {
     const url = "/product/brand/" + brandName;
     return axiosClient.get(url);
+  },
+
+  getByFilter: (filter) => {
+    const url ="/product/filter?" + filter;
+    return axiosClient.post(url);
   }
 };
 

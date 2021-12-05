@@ -17,10 +17,11 @@ import ProductDetail from "./components/productDetail/ProductDetail";
 import Register from "./components/common/Register";
 import ForgotPassword from "./components/common/ForgotPassword";
 import ResetPassword from "./components/common/ResetPassword";
-import Feedback from "./components/customer/Feedback";
 import Contact from "./components/common/Contact";
 import ProductPage from "./components/common/product/ProductPage";
 import BrandPage from "./components/common/product/BrandPage";
+import CustomProductPage from "./components/common/product/CustomProductPage";
+import { ProductProvider } from "./components/common/product/ProductContext";
 
 function App() {
   return (
@@ -79,6 +80,18 @@ function App() {
 
           <Route path="/resetPassword/:id">
             <ResetPassword />
+          </Route>
+
+          <Route path="/dienthoai/:filter">
+            <ProductProvider>
+              <CustomProductPage />
+            </ProductProvider>
+          </Route>
+
+          <Route path="/dienthoai">
+            <ProductProvider>
+              <CustomProductPage />
+            </ProductProvider>
           </Route>
         </Switch>
         <Footer />

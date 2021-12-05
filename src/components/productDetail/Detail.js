@@ -1,5 +1,5 @@
 import "../../css/productDetail/Detail.css";
-import { useParams } from "react-router";
+import { useParams, useHistory } from "react-router";
 import { useState } from "react";
 import productApi from "../../api/productApi";
 import { useEffect, useContext } from "react";
@@ -8,6 +8,7 @@ import { priceFormat } from "../../utils/priceFormat";
 function Detail() {
   window.scrollTo(0, 0);
   const context = useContext(AuthContext);
+  const history = useHistory();
   const { id } = useParams();
   const [info, setInfo] = useState({});
   useEffect(() => {
@@ -26,6 +27,7 @@ function Detail() {
       quantity: 1,
     };
     context.addToCart({ product });
+    history.push("/cart");
   };
   return (
     <div>
