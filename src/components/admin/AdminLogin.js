@@ -1,9 +1,10 @@
 import React, { useState, useContext } from "react";
 import "../../css/admin/loginAdmin.css";
 import loginAdmin from "../../images/loginAdmin.jpg";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { AdminContext } from "../../AdminContext";
 import loginApi from "../../api/admin/loginApi";
+import Auth from "../../config/auth";
 
 function AdminLogin() {
   const [username, setUsername] = useState("");
@@ -21,9 +22,9 @@ function AdminLogin() {
       if (result.code === "401") {
         alert("Username or password wrong");
       } else {
-        context.login(() => {
-          history.push("/admin");
-        });
+        Auth.setAccessToken(result.token);
+        context.login();
+        history.push("/admin");
       }
     }
   };

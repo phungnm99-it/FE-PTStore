@@ -27,6 +27,7 @@ function Login() {
       } else {
         Auth.setAccessToken(result.token);
         authContext.login();
+        console.log(Auth.getCurrentUser());
         history.push("/");
       }
     }
