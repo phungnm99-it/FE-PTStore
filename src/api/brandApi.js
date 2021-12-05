@@ -21,6 +21,11 @@ const brandApi = {
     const url = "/brand/create";
     return axiosClient.post(url, formData);
   },
+
+  search: (name) => {
+    const url = "/brand/search?name=" + name;
+    return axiosClient.post(url);
+  },
 };
 
 export default brandApi;

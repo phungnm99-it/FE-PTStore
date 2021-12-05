@@ -2,13 +2,11 @@ import React, { useState, useEffect } from "react";
 import reviewApi from "../../../api/reviewApi";
 import "../../../css/admin/review/Review.css";
 
-
 function Review(props) {
   const [reviews, setReviews] = useState([]);
   useEffect(() => {
     reviewApi.getAll().then((res) => {
       setReviews(res.data);
-      
       console.log(res.data);
     });
   }, []);
@@ -77,37 +75,30 @@ function Review(props) {
                           </tr>
                         </thead>
                         <tbody>
-                          {reviews.map((item)=>{
-                            return(
+                          {reviews.map((item) => {
+                            return (
                               <tr role="row" className="ood">
                                 <td>{item.id}</td>
-                                <td>Phan Nguyen Thuy Tien</td>
-                                <td>Iphone 13 ProMax 512GB</td>
+                                <td>{item.userName}</td>
+                                <td>{item.productName}</td>
+                                <td>{item.content}</td>
                                 <td>
-                                  Sản phẩm mượt, giao hàng nhanh, phục vụ nhiệt tình
+                                  {new Date(item.reviewTime).toDateString()}
                                 </td>
-                                <td>19/11/2021</td>
                                 <td>
-                                  
                                   <button
                                     onClick={() => props.switch(19)}
                                     className="iconDetail"
-                                    
                                   >
                                     <i className="fas fa-list"></i>
                                   </button>
-                                  <button
-                                    
-                                    className="iconDelete"
-                                    
-                                  >
+                                  <button className="iconDelete">
                                     <i className="fas fa-backspace"></i>
                                   </button>
                                 </td>
                               </tr>
-                            )
+                            );
                           })}
-                          
                         </tbody>
                       </table>
                       <div

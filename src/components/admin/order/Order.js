@@ -1,14 +1,29 @@
 import React, { useState, useEffect } from "react";
 import orderApi from "../../../api/orderApi";
 import "../../../css/admin/order/Order.css";
+import { priceFormat } from "../../../utils/priceFormat";
+import brandApi from "../../../api/brandApi";
+import Pagination from "react-pagination-library";
 function Order(props) {
   const [orders, setOrders] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPage, setTotalPage] = useState(1);
+
   useEffect(() => {
     orderApi.getAll().then((res) => {
-      setOrders(res.data);
-      console.log(res.data);
+      if (currentPage * 5 - 1 > res.data.length) {
+        setOrders(res.data.slice((currentPage - 1) * 5));
+      } else {
+        setOrders(res.data.slice((currentPage - 1) * 5, currentPage * 5));
+      }
+      setTotalPage(Math.round(res.data.length / 5) + 1);
     });
-  }, []);
+  }, [currentPage]);
+
+  const changeCurrentPage = (numPage) => {
+    setCurrentPage(numPage);
+  };
+
   return (
     <div>
       <section className="pageAdmin">
@@ -24,7 +39,7 @@ function Order(props) {
                       {/* <div className="buttonControl">
                                                 <button className="Add"><Link to = "/admin/home/addAccount">Thêm tài khoản</Link></button>
                                             </div> */}
-                      <div className="dataTables_length" id="dataTable_length">
+                      {/* <div className="dataTables_length" id="dataTable_length">
                         <label>
                           Hiển thị:
                           <select
@@ -38,7 +53,7 @@ function Order(props) {
                             <option value="100">100</option>
                           </select>
                         </label>
-                      </div>
+                      </div> */}
                       <div id="dataTable_filter" className="dataTables_filter">
                         <label>
                           Tìm kiếm:
@@ -80,107 +95,61 @@ function Order(props) {
                           </tr>
                         </thead>
                         <tbody>
-                          {orders.map((item)=>{
-                            return(
+                          {orders.map((item) => {
+                            return (
                               <tr role="row" className="ood">
                                 <td>{item.id}</td>
-                                <td>Phan Nguyễn Thủy Tiên</td>
-                                <td>Iphone 13 ProMax 512GB</td>
-                                <td>1</td>
-                                <td>39.000.000đ</td>
-                                <td>Tiền mặt</td>
-                                <td>Đang chờ xử lý</td>
+                                <td>{item.name}</td>
+                                <td>
+                                  {item.products.map((index) => {
+                                    return (
+                                      <p key={index.productId}>
+                                        {index.productName}
+                                      </p>
+                                    );
+                                  })}
+                                </td>
+                                <td>
+                                  {item.products.map((index) => {
+                                    return (
+                                      <p key={index.productId}>
+                                        {index.quantity}
+                                      </p>
+                                    );
+                                  })}
+                                </td>
+                                <td>{priceFormat(item?.totalCost)}</td>
+                                <td>{item.paymentMethod}</td>
+                                <td>{item.status}</td>
                                 <td>
                                   <button
                                     onClick={() => props.switch(22)}
                                     className="iconEdit"
-                                    
                                   >
                                     <i className="fas fa-edit"></i>
                                   </button>
                                   <button
                                     onClick={() => props.switch(30)}
                                     className="iconDetail"
-                                    
                                   >
                                     <i className="fas fa-list"></i>
                                   </button>
                                 </td>
                               </tr>
-                            )
+                            );
                           })}
-                          
                         </tbody>
                       </table>
                       <div
                         className="dataTables_paginate paging_simple_numbers"
                         id="dataTable_paginate"
                       >
-                        <a
-                          className="paginate_button previous disabled"
-                          id="dataTable_previous"
-                        >
-                          Số trang
-                        </a>
-                        <span>
-                          <a
-                            className="paginate_button current"
-                            aria-controls="dataTable"
-                            data-dt-idx="1"
-                            tabindex="0"
-                          >
-                            1
-                          </a>
-                          <a
-                            className="paginate_button "
-                            aria-controls="dataTable"
-                            data-dt-idx="2"
-                            tabindex="0"
-                          >
-                            2
-                          </a>
-                          <a
-                            className="paginate_button "
-                            aria-controls="dataTable"
-                            data-dt-idx="3"
-                            tabindex="0"
-                          >
-                            3
-                          </a>
-                          <a
-                            className="paginate_button "
-                            aria-controls="dataTable"
-                            data-dt-idx="4"
-                            tabindex="0"
-                          >
-                            4
-                          </a>
-                          <a
-                            className="paginate_button "
-                            aria-controls="dataTable"
-                            data-dt-idx="5"
-                            tabindex="0"
-                          >
-                            5
-                          </a>
-                          <a
-                            className="paginate_button "
-                            aria-controls="dataTable"
-                            data-dt-idx="6"
-                            tabindex="0"
-                          >
-                            6
-                          </a>
-                        </span>
-                        <a
-                          className="paginate_button next"
-                          aria-controls="dataTable"
-                          data-dt-idx="7"
-                          tabindex="0"
-                          id="dataTable_next"
-                        >
-                          <i className="fas fa-forward"></i>
-                        </a>
+                        <Pagination
+                          currentPage={currentPage}
+                          totalPages={totalPage}
+                          changeCurrentPage={changeCurrentPage}
+                          theme="square-i"
+                        />
                       </div>
                     </div>
                   </div>
