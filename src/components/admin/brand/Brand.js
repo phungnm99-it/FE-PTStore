@@ -3,11 +3,10 @@ import "../../../css/admin/brand/Brands.css";
 import brandApi from "../../../api/brandApi";
 import Pagination from "react-pagination-library";
 import "react-pagination-library/build/css/index.css";
-
+import "../../../css/admin/paging.css"
 function Brand(props) {
   window.scrollTo(0, 0);
   const [brands, setBrands] = useState([]);
-
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPage, setTotalPage] = useState(1);
 
@@ -43,7 +42,7 @@ function Brand(props) {
                           Thêm thương hiệu
                         </button>
                       </div>
-                      {/* <div className="dataTables_length" id="dataTable_length">
+                      <div className="dataTables_length" id="dataTable_length">
                         <label>
                           Hiển thị:
                           <select
@@ -57,17 +56,16 @@ function Brand(props) {
                             <option value="100">100</option>
                           </select>
                         </label>
-                      </div> */}
+                      </div>
                       <div id="dataTable_filter" className="dataTables_filter">
-                        <label>
-                          Tìm kiếm:
+                        
                           <input
                             type="search"
-                            className=""
-                            placeholder=""
+                            className="inputSearch"
+                            placeholder="Bạn cần tìm..."
                             aria-controls="dataTable"
                           />
-                        </label>
+                        <button className="btn-Search">Tìm kiếm</button>
                       </div>
                       <table className="table table-striped table-bordered dataTable">
                         <thead>

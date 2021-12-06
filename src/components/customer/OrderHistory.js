@@ -4,7 +4,8 @@ import "../../css/customer/orderHistory.css";
 import OrderDetail from "./orderDetail/OrderDetail";
 import userApi from "../../api/userApi";
 import { priceFormat } from "../../utils/priceFormat";
-
+import { customStyles } from "../../utils/cssUtils";
+import Modal from "react-modal";
 function OrderHistory() {
   const [model, setModel] = useState(false);
   const [orders, setOrders] = useState([]);
@@ -15,6 +16,7 @@ function OrderHistory() {
       console.log(response.data);
     });
   }, []);
+  // Close lỗi
   return (
     <div>
       <section className="orderHistory">
@@ -81,7 +83,11 @@ function OrderHistory() {
           </div>
         </div>
       </section>
-      {model && <OrderDetail onClose={() => setModel(false)} />}
+      {/* kiểm tra state nào để mở modal - trong trường hợp này là model */}
+      {/* oke t off */}
+      <Modal isOpen={model} style={customStyles}>
+        <OrderDetail onCLose={() => setModel(false)} />
+      </Modal>
     </div>
   );
 }

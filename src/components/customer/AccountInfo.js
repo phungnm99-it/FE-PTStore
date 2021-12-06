@@ -3,6 +3,8 @@ import "../../css/customer/accountInfo.css";
 import ChangePassword from "./ChangePassword";
 import { getProvinces } from "../../service/provinces-service";
 import userApi from "../../api/userApi";
+import Modal from "react-modal";
+import { customStyles } from "../../utils/cssUtils";
 
 function AccountInfo() {
   const [modalIsOpen, setIsOpen] = useState(false);
@@ -238,7 +240,15 @@ function AccountInfo() {
             </div>
           </div>
         </div>
-        {modalIsOpen && <ChangePassword onCLose={() => setIsOpen(false)} />}
+        {/* modal mới */}
+        
+        {/* đổi tất cả modal thành cái này hết  */}
+         {/* kiểm tra state nào để mở modal - trong trường hợp này là modalIsOpen */}
+        <Modal isOpen={modalIsOpen} style={customStyles}>
+          <ChangePassword onCLose={() => setIsOpen(false)} />
+        </Modal>
+        {/* modal cũ */}
+        {/* {modalIsOpen && <ChangePassword onCLose={() => setIsOpen(false)} />} */}
       </section>
     </div>
   );

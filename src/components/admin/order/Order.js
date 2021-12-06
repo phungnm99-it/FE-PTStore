@@ -2,13 +2,12 @@ import React, { useState, useEffect } from "react";
 import orderApi from "../../../api/orderApi";
 import "../../../css/admin/order/Order.css";
 import { priceFormat } from "../../../utils/priceFormat";
-import brandApi from "../../../api/brandApi";
+
 import Pagination from "react-pagination-library";
 function Order(props) {
   const [orders, setOrders] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPage, setTotalPage] = useState(1);
-
   useEffect(() => {
     orderApi.getAll().then((res) => {
       if (currentPage * 5 - 1 > res.data.length) {
@@ -55,15 +54,14 @@ function Order(props) {
                         </label>
                       </div> */}
                       <div id="dataTable_filter" className="dataTables_filter">
-                        <label>
-                          Tìm kiếm:
+                        
                           <input
                             type="search"
-                            className=""
-                            placeholder=""
+                            className="inputSearch"
+                            placeholder="Bạn cần tìm..."
                             aria-controls="dataTable"
                           />
-                        </label>
+                        <button className="btn-Search">Tìm kiếm</button>
                       </div>
                       <table className="table table-striped table-bordered dataTable">
                         <thead>

@@ -1,0 +1,21 @@
+.square-i a{
+    border: 2px solid #3c4b64 !important;
+    color: #3c4b64 !important;
+}
+
+.p8 a, .square-i .is-active{
+    background-color: #3c4b64!important;
+    color: #fff !important;
+}
+
+.p1 a.is-active{
+    background-color: #3c4b64!important;
+}
+
+.pagination a{
+    padding: 8px 15px;
+}
+
+.pagination {
+    padding: 10px 0;
+}

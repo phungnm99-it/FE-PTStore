@@ -1,16 +1,27 @@
 import React, { useState, useEffect } from 'react';
 import "../../../css/admin/product/ProductStatus.css"
 import productApi from '../../../api/productApi';
-import imgBrand from "../../../images/noOder.png"
+import Pagination from "react-pagination-library";
+import "react-pagination-library/build/css/index.css";
 function ProductStatus (props) {
     const [products, setProducts] = useState([]);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [totalPage, setTotalPage] = useState(1);
     useEffect(() => {
         productApi.getAll().then((res) => {
-        setProducts(res.data);
-        
-        console.log(res.data);
+            if (currentPage * 5 - 1 > res.data.length) {
+                setProducts(res.data.slice((currentPage - 1) * 5));
+                console.log(1);
+              } else {
+                setProducts(res.data.slice((currentPage - 1) * 5, currentPage * 5));
+              }
+              setTotalPage(Math.round(res.data.length / 5) + 1);
         });
-    }, []);
+    }, [currentPage]);
+
+    const changeCurrentPage = (numPage) => {
+        setCurrentPage(numPage);
+    };
     return (
         <div>
             <section className="pageAdmin">
@@ -40,15 +51,14 @@ function ProductStatus (props) {
                                         </label>
                                     </div>
                                     <div id="dataTable_filter" className="dataTables_filter">
-                                        <label>
-                                        Tìm kiếm:
+                                        
                                         <input
                                             type="search"
-                                            className=""
-                                            placeholder=""
+                                            className="inputSearch"
+                                            placeholder="Bạn cần tìm..."
                                             aria-controls="dataTable"
                                         />
-                                        </label>
+                                        <button className="btn-Search">Tìm kiếm</button>
                                     </div>
                                     <table className="table table-striped table-bordered dataTable">
                                         <thead>
@@ -133,71 +143,12 @@ function ProductStatus (props) {
                                         className="dataTables_paginate paging_simple_numbers"
                                         id="dataTable_paginate"
                                     >
-                                        <a
-                                        className="paginate_button previous disabled"
-                                        id="dataTable_previous"
-                                        >
-                                        Số trang
-                                        </a>
-                                        <span>
-                                        <a
-                                            className="paginate_button current"
-                                            aria-controls="dataTable"
-                                            data-dt-idx="1"
-                                            tabindex="0"
-                                        >
-                                            1
-                                        </a>
-                                        <a
-                                            className="paginate_button "
-                                            aria-controls="dataTable"
-                                            data-dt-idx="2"
-                                            tabindex="0"
-                                        >
-                                            2
-                                        </a>
-                                        <a
-                                            className="paginate_button "
-                                            aria-controls="dataTable"
-                                            data-dt-idx="3"
-                                            tabindex="0"
-                                        >
-                                            3
-                                        </a>
-                                        <a
-                                            className="paginate_button "
-                                            aria-controls="dataTable"
-                                            data-dt-idx="4"
-                                            tabindex="0"
-                                        >
-                                            4
-                                        </a>
-                                        <a
-                                            className="paginate_button "
-                                            aria-controls="dataTable"
-                                            data-dt-idx="5"
-                                            tabindex="0"
-                                        >
-                                            5
-                                        </a>
-                                        <a
-                                            className="paginate_button "
-                                            aria-controls="dataTable"
-                                            data-dt-idx="6"
-                                            tabindex="0"
-                                        >
-                                            6
-                                        </a>
-                                        </span>
-                                        <a
-                                        className="paginate_button next"
-                                        aria-controls="dataTable"
-                                        data-dt-idx="7"
-                                        tabindex="0"
-                                        id="dataTable_next"
-                                        >
-                                        <i className="fas fa-forward"></i>
-                                        </a>
+                                        <Pagination
+                                            currentPage={currentPage}
+                                            totalPages={totalPage}
+                                            changeCurrentPage={changeCurrentPage}
+                                            theme="square-i"
+                                            />
                                     </div>
                                     </div>
                                 </div>

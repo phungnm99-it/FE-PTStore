@@ -17,7 +17,7 @@
 }
 
 .productPrice-management .mB-30 {
-    margin-bottom: 30px !important;
+    margin-bottom: 20px !important;
 }
 
 .productPrice-management .mT-10 {
@@ -368,4 +368,19 @@ table.dataTable tbody tr {
 .productPrice-management td img{
     height: 45px;
     width: 50px;
+}
+
+.productPrice-management .inputSearch{
+    border-radius: 8px;
+    width: 250px;
+    height: 35px;
+}
+
+.productPrice-management .btn-Search{
+    height: 34px;
+    background: #3c4b64;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    
 }

@@ -43,11 +43,20 @@ function Register() {
       document.getElementById("inputAddress").value +
       ", " +
       district.options[district.selectedIndex].text +
-      ", " +
+      ", " + 
       province.options[province.selectedIndex].text;
     // neu validate === false hoac chuoi rong thi k cho no post
-    if (checkPhone === false || phoneNumber.length < 1 || username.length < 1 || fullName.length < 1 ||
-      checkEmail === false || email.length < 1 || birthday.length < 1 ||  address.length < 1 || password.length < 1) {
+    if (
+      checkPhone === false ||
+      phoneNumber.length < 1 ||
+      username.length < 1 ||
+      fullName.length < 1 ||
+      checkEmail === false ||
+      email.length < 1 ||
+      birthday.length < 1 ||
+      address.length < 1 ||
+      password.length < 1
+    ) {
       alert("Vui lòng nhập đúng và đầy đủ thông tin");
     }
     console.log(address);
@@ -103,10 +112,14 @@ function Register() {
                         className="form-control"
                         id="inputPhone"
                         placeholder="Số điện thoại"
-                        onChange={(e) => validate(0, e.target.value, setCheckPhone)}
+                        onChange={(e) =>
+                          validate(0, e.target.value, setCheckPhone)
+                        }
                       />
                       {checkPhone ? null : (
-                        <p className="messageError">Vui lòng nhập đúng số điện thoại</p>
+                        <p className="messageError">
+                          Vui lòng nhập đúng số điện thoại
+                        </p>
                       )}
                     </div>
                   </div>
@@ -130,10 +143,14 @@ function Register() {
                       className="form-control"
                       id="inputEmail"
                       placeholder="Email"
-                      onChange={(e) => validate(1, e.target.value, setCheckEmail)}
+                      onChange={(e) =>
+                        validate(1, e.target.value, setCheckEmail)
+                      }
                     />
                   </div>
-                  {checkEmail ? null : <p className="messageError">Vui lòng nhập đúng Email</p>}
+                  {checkEmail ? null : (
+                    <p className="messageError">Vui lòng nhập đúng Email</p>
+                  )}
                   <div className="row">
                     <div className="mb-3 col-md-6">
                       <label
@@ -187,7 +204,9 @@ function Register() {
                       className="form-control"
                       id="inputPassword"
                       placeholder="Mật khẩu"
-                      onChange={(e) => validate(2, e.target.value, setCheckPass)}
+                      onChange={(e) =>
+                        validate(2, e.target.value, setCheckPass)
+                      }
                     />
                   </div>
                   <div className="mb-3">
@@ -199,9 +218,15 @@ function Register() {
                       className="form-control"
                       id="inputPasswordAgain"
                       placeholder="Nhập lại mật khẩu"
-                      onChange={(e) => validate(2, e.target.value, setCheckPass)}
+                      onChange={(e) =>
+                        validate(2, e.target.value, setCheckPass)
+                      }
                     />
-                    {checkPassword ? null : <p className="messageError">Nhập lại password không trùng khớp.</p>}
+                    {checkPassword ? null : (
+                      <p className="messageError">
+                        Nhập lại password không trùng khớp.
+                      </p>
+                    )}
                   </div>
                   <div className="row">
                     <div className="mb-3 col-md-6">

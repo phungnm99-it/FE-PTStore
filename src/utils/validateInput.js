@@ -15,8 +15,8 @@
       // check pass
     }
     if (caseVal === 2) {
-      let password = document.getElementById("inputPassword").value;
-      let rePass = document.getElementById("inputPasswordAgain").value;
+      let password = document.getElementById("inputPassword")?.value || '';
+      let rePass = document.getElementById("inputPasswordAgain")?.value || '';
       checkCallBack(password === rePass);
     } else {
       const check = value.match(regex);

@@ -315,7 +315,7 @@ html:not([dir="rtl"]) .sidebar-nav .nav-icon:first-child {
 
 .headerAdmin span{
   margin-right: 15px;
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 500;
 }
 
@@ -324,5 +324,9 @@ html:not([dir="rtl"]) .sidebar-nav .nav-icon:first-child {
 }
 
 .headerAdmin .InfoAdmin, .headerAdmin a{
+  cursor: pointer;
+}
+
+.pageAdmin .summer p{
   cursor: pointer;
 }

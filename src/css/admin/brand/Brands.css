@@ -16,7 +16,7 @@
 }
 
 .brands-management .mB-30 {
-    margin-bottom: 30px !important;
+    margin-bottom: 20px !important;
 }
 
 .brands-management .mT-10 {
@@ -356,5 +356,20 @@ table.dataTable tbody tr {
 
 .brands-management th, .brands-management td{
     text-align: center;
+}
+
+.brands-management .inputSearch{
+    border-radius: 8px;
+    width: 250px;
+    height: 35px;
+}
+
+.brands-management .btn-Search{
+    height: 34px;
+    background: #3c4b64;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    
 }
 

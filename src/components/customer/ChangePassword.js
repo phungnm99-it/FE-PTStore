@@ -1,9 +1,17 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import iconClose from "../../images/iconClose.png";
 import "../../css/customer/changePassword.css"
 
 function ChangePasswordForm(props) {
   //const [isLogin, setIsLogin] = useState(true);
+  const [checkPassword, setCheckPass] = useState(true);
+
+  const validate = () => {
+    let password = document.getElementById("NewPassword")?.value || '';
+    let rePass = document.getElementById("NewPasswordAgain")?.value || '';
+    setCheckPass(password === rePass);
+  };
+
   return (
     <div>
       <div className="changePassword">
@@ -14,6 +22,7 @@ function ChangePasswordForm(props) {
                 alt="icon-close"
                 className="icon-close"
                 src={iconClose}
+                
                 onClick={() => props.onCLose()}
               />
               <div className="changePassword">
@@ -41,6 +50,7 @@ function ChangePasswordForm(props) {
                         id="NewPassword"
                         name="NewPassword"
                         placeholder="Nhập mật khẩu mới"
+                        onChange={(e) => validate()}
                       />
                     </div>
                     <div className="row">
@@ -51,7 +61,10 @@ function ChangePasswordForm(props) {
                         id="NewPasswordAgain"
                         name="NewPasswordAgain"
                         placeholder="Nhập lại mật khẩu mới"
+                        onChange={(e) => validate()}
                       />
+                    
+                      {checkPassword ? null : <p className="messageError">Nhập lại password không trùng khớp.</p>}
                     </div>
                     <div className="row">
                       <button type="submit">

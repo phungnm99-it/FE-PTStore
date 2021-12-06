@@ -17,7 +17,7 @@
 }
 
 .productStatus-management .mB-30 {
-    margin-bottom: 30px !important;
+    margin-bottom: 20px !important;
 }
 
 .productStatus-management .mT-10 {
@@ -384,4 +384,19 @@ table.dataTable tbody tr {
     width: 50px;
 }
 
+
+.productStatus-management .inputSearch{
+    border-radius: 8px;
+    width: 250px;
+    height: 35px;
+}
+
+.productStatus-management .btn-Search{
+    height: 34px;
+    background: #3c4b64;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    
+}
 

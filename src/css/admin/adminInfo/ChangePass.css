@@ -157,3 +157,10 @@
     width: 120px;
     margin-left: 40px;
 }
+
+.changePassAdmin p.messageError{
+    color: red;
+    margin-top: -15px;
+    font-size: 13px;
+    text-align: left;
+  }

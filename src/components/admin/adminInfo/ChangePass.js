@@ -1,6 +1,13 @@
-import React from 'react';
+import React, {useState} from 'react';
 import "../../../css/admin/adminInfo/ChangePass.css"
 function ChangePass () {
+    const [checkPassword, setCheckPass] = useState(true);
+
+    const validate = () => {
+      let password = document.getElementById("NewPassword")?.value || '';
+      let rePass = document.getElementById("inputConfirmPass")?.value || '';
+      setCheckPass(password === rePass);
+    };
     return (
         <div>
             <div className="changePassAdmin">
@@ -32,6 +39,7 @@ function ChangePass () {
                             className="form-control"
                             id="inputNewPass"
                             placeholder="Nhập mật khẩu mới"
+                            onChange={(e) => validate()}
                             />
                         </div>
                         <div className="mb-3">
@@ -43,9 +51,10 @@ function ChangePass () {
                             className="form-control"
                             id="inputConfirmPass"
                             placeholder="Nhập lại mật khẩu mới"
+                            onChange={(e) => validate()}
                             />
                         </div>
-                        
+                        {checkPassword ? null : <p className="messageError">Nhập lại password không trùng khớp.</p>}
 
                         <div className="mb-3">
                             <button type="submit" className="btn btn-primary btn-color">
