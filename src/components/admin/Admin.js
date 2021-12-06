@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useContext } from "react";
 import "../../css/admin/Menu.css";
 import "../../css/admin/Header.css";
 import DropDown from "./common/DropDown";
@@ -42,14 +42,22 @@ import CompletedOrder from "./order/CompletedOrder";
 import DeliveredOrder from "./order/DeliveredOrder";
 import WaitDeliveryOrder from "./order/WaitDeliveryOrder";
 import WaitConfirmOrder from "./order/WaitConfirmOrder";
+import { AdminContext } from "../../AdminContext";
+import Auth from "../../config/auth";
+import { useHistory } from "react-router-dom";
+
 function Admin(props) {
+  const context = useContext(AdminContext);
+  const history = useHistory();
   const [form, setForm] = useState(props.form || 0);
   const [avt, setAvt] = useState(
     "https://huyhoanhotel.com/wp-content/uploads/2016/05/765-default-avatar.png"
   );
   const inputFile = useRef(null);
 
-  useEffect(()=>{window.scrollTo(0, 0)},[])
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const selectFile = () => {
     // debugger
@@ -126,7 +134,7 @@ function Admin(props) {
       case 22:
         return <EditOrder />;
       case 23:
-        return <CompletedOrder switch={(e) => setForm(e)}/>;
+        return <CompletedOrder switch={(e) => setForm(e)} />;
       case 24:
         return <Feedback switch={(e) => setForm(e)} />;
       case 25:
@@ -154,11 +162,11 @@ function Admin(props) {
       case 36:
         return <ChangePass />;
       case 37:
-        return <DeliveredOrder switch={(e) => setForm(e)}/>;
+        return <DeliveredOrder switch={(e) => setForm(e)} />;
       case 38:
-        return <WaitDeliveryOrder switch={(e) => setForm(e)}/>;
+        return <WaitDeliveryOrder switch={(e) => setForm(e)} />;
       case 39:
-        return <WaitConfirmOrder switch={(e) => setForm(e)}/>
+        return <WaitConfirmOrder switch={(e) => setForm(e)} />;
       default:
         return null;
     }
@@ -361,7 +369,14 @@ function Admin(props) {
                   Trang chủ
                 </a>
               </div>
-              <div className="InfoAdmin">
+              <div
+                className="InfoAdmin"
+                onClick={() => {
+                  context.logout();
+                  Auth.logout();
+                  history.push("/admin/login");
+                }}
+              >
                 <i className="fas fa-sign-out-alt nav-icon"></i>
                 <span> Đăng xuất</span>
               </div>

@@ -1,17 +1,21 @@
 import React, { Component, useEffect, useRef, useState } from "react";
 import "../../css/customer/account.css";
-import {useParams} from 'react-router-dom';
+import { useParams } from "react-router-dom";
 import OrderHistory from "./OrderHistory";
 import AccountInfo from "./AccountInfo";
 import { Link } from "react-router-dom";
 import Feedback from "./Feedback";
 import ReviewManagement from "./ReviewManagement";
+import userApi from "../../api/userApi";
 function Account(props) {
   const { id } = useParams();
   const [form, setForm] = useState(parseInt(id) || 0);
   const [avt, setAvt] = useState(
     "https://huyhoanhotel.com/wp-content/uploads/2016/05/765-default-avatar.png"
   );
+
+  const [name, setName] = useState("");
+
   const inputFile = useRef(null);
   const switchRender = () => {
     switch (form) {
@@ -28,7 +32,15 @@ function Account(props) {
     }
   };
 
-  useEffect(()=>{window.scrollTo(0, 0)},[])
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    userApi.getInfo().then((response) => {
+      if (response.data.imageUrl !== "") {
+        setAvt(response.data.imageUrl);
+      }
+      setName(response.data.fullName);
+    });
+  }, []);
 
   const selectFile = () => {
     // debugger
@@ -38,9 +50,16 @@ function Account(props) {
   const getImg = async (event) => {
     const file = event.target.files[0];
     const base64 = await convertBase64(file);
-    // api
-    setAvt(base64);
-    console.log(base64);
+
+    let formData = new FormData();
+    formData.append("image", file);
+    userApi.updateAvatar(formData).then((res) => {
+      if (res.code === "200") {
+        setAvt(base64);
+      } else {
+        alert("Lỗi!");
+      }
+    });
   };
 
   const convertBase64 = (file) => {
@@ -70,7 +89,7 @@ function Account(props) {
 
                 <div className="summer">
                   <p>
-                    <strong>Tien Phan Nguyen Thụy</strong>
+                    <strong>{name}</strong>
                   </p>
                   <p className="change-avatar" onClick={() => selectFile()}>
                     <i className="icon-change-avatar"></i> Thay đổi ảnh đại diện
@@ -90,25 +109,25 @@ function Account(props) {
             <nav>
               <ul>
                 <li onClick={() => setForm(0)}>
-                  <a className={form === 0 && "activeTab"} >
+                  <a className={form === 0 && "activeTab"}>
                     <i className="fas fa-user"></i>
                     <span>Thông tin tài khoản</span>
                   </a>
                 </li>
                 <li onClick={() => setForm(2)}>
-                  <a className={form === 2 && "activeTab"} >
+                  <a className={form === 2 && "activeTab"}>
                     <i className="fas fa-box-open"></i>
                     <span>Đơn hàng của bạn</span>
                   </a>
                 </li>
                 <li onClick={() => setForm(3)}>
-                  <a >
+                  <a>
                     <i className="fas fa-thumbs-up"></i>
                     <span>Quản lý đánh giá</span>
                   </a>
                 </li>
                 <li onClick={() => setForm(4)}>
-                  <a >
+                  <a>
                     <i className="fas fa-comments-dollar"></i>
                     <span>Phản hồi, đánh giá</span>
                   </a>
