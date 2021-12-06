@@ -187,3 +187,9 @@
 .pageRegister .label-birthday {
   margin-top: 12px;
 }
+
+.pageRegister .messageError{
+  color: red;
+  margin-top: 5px;
+  font-size: 13px;
+}
