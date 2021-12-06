@@ -3,19 +3,23 @@ import "../../css/common/Register.css";
 import { getProvinces } from "../../service/provinces-service";
 import userApi from "../../api/userApi";
 import { useHistory } from "react-router-dom";
-
+import { validate } from "../../utils/validateInput";
 function Register() {
   //const [sexInfo, setSex] = useState(0);
   // state tinh, state quan
   const history = useHistory();
   const [provinces, setProvinces] = useState([]);
   const [districts, setDistrict] = useState([]);
+  // validate bao nhieu dong thi bay nhiu state
+  const [checkPhone, setCheckPhone] = useState(true);
+  const [checkEmail, setCheckEmail] = useState(true);
+  const [checkPassword, setCheckPass] = useState(true);
 
   useEffect(() => {
     // lay tinh tu api
     getProvinces().then((res) => {
       setProvinces(res.data);
-      setDistrict(res.data[0].districts)
+      setDistrict(res.data[0].districts);
     });
   }, []);
   // lay quan tu ma tinh
@@ -23,8 +27,6 @@ function Register() {
     let filter = provinces.filter((x) => x.code.toString() === code);
     filter.length > 0 ? setDistrict(filter[0].districts) : setDistrict([]);
   };
-
-  
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -43,6 +45,11 @@ function Register() {
       district.options[district.selectedIndex].text +
       ", " +
       province.options[province.selectedIndex].text;
+    // neu validate === false hoac chuoi rong thi k cho no post
+    if (checkPhone === false || phoneNumber.length < 1 || username.length < 1 || fullName.length < 1 ||
+      checkEmail === false || email.length < 1 || birthday.length < 1 ||  address.length < 1 || password.length < 1) {
+      alert("Vui lòng nhập đúng và đầy đủ thông tin");
+    }
     console.log(address);
     console.log([birthday[1], birthday[2], birthday[0]].join("-"));
     let formData = new FormData();
@@ -63,6 +70,7 @@ function Register() {
       }
     });
   };
+
   return (
     <div>
       <div className="pageRegister">
@@ -95,8 +103,11 @@ function Register() {
                         className="form-control"
                         id="inputPhone"
                         placeholder="Số điện thoại"
-                        onBlur={this.handleInputValidation}
+                        onChange={(e) => validate(0, e.target.value, setCheckPhone)}
                       />
+                      {checkPhone ? null : (
+                        <p className="messageError">Vui lòng nhập đúng số điện thoại</p>
+                      )}
                     </div>
                   </div>
                   <div className="mb-3">
@@ -119,9 +130,10 @@ function Register() {
                       className="form-control"
                       id="inputEmail"
                       placeholder="Email"
+                      onChange={(e) => validate(1, e.target.value, setCheckEmail)}
                     />
                   </div>
-
+                  {checkEmail ? null : <p className="messageError">Vui lòng nhập đúng Email</p>}
                   <div className="row">
                     <div className="mb-3 col-md-6">
                       <label
@@ -175,6 +187,7 @@ function Register() {
                       className="form-control"
                       id="inputPassword"
                       placeholder="Mật khẩu"
+                      onChange={(e) => validate(2, e.target.value, setCheckPass)}
                     />
                   </div>
                   <div className="mb-3">
@@ -186,7 +199,9 @@ function Register() {
                       className="form-control"
                       id="inputPasswordAgain"
                       placeholder="Nhập lại mật khẩu"
+                      onChange={(e) => validate(2, e.target.value, setCheckPass)}
                     />
+                    {checkPassword ? null : <p className="messageError">Nhập lại password không trùng khớp.</p>}
                   </div>
                   <div className="row">
                     <div className="mb-3 col-md-6">
@@ -208,7 +223,11 @@ function Register() {
                           {/* maps tinh thanh option */}
                           {provinces.map((pro, idx) => {
                             return (
-                              <option key={idx} value={pro.code} selected={(idx === 0)}>
+                              <option
+                                key={idx}
+                                value={pro.code}
+                                selected={idx === 0}
+                              >
                                 {pro.name}
                               </option>
                             );
@@ -236,7 +255,7 @@ function Register() {
                               <option
                                 key={idx}
                                 value={dis.code}
-                                selected={(idx === 0)}
+                                selected={idx === 0}
                                 //   onClick={}
                               >
                                 {dis.name}
