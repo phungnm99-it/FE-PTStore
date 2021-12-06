@@ -3,11 +3,10 @@ import "../../../css/admin/brand/Brands.css";
 import brandApi from "../../../api/brandApi";
 import Pagination from "react-pagination-library";
 import "react-pagination-library/build/css/index.css";
-
+import "../../../css/admin/paging.css"
 function Brand(props) {
   window.scrollTo(0, 0);
   const [brands, setBrands] = useState([]);
-
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPage, setTotalPage] = useState(1);
 

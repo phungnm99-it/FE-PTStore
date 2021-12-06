@@ -1,8 +1,9 @@
-import React from "react";
+import React, {useState} from "react";
 import "../../css/common/ResetPassword.css";
 import { useParams, useHistory } from "react-router-dom";
 import userApi from "../../api/userApi";
-function ResetPassword() {
+function ResetPassword(props) {
+  const [checkPassword, setCheckPass] = useState(true);
   let { id } = useParams();
   const history = useHistory();
   const handleSubmit = (e) => {
@@ -18,6 +19,12 @@ function ResetPassword() {
         alert("Error");
       }
     });
+  };
+  //check new pass and confirm pass
+  const validate = () => {
+    let password = document.getElementById("NewPassword")?.value || '';
+    let rePass = document.getElementById("ConfirmPassword")?.value || '';
+    setCheckPass(password === rePass);
   };
   return (
     <div>
@@ -37,6 +44,7 @@ function ResetPassword() {
                   id="NewPassword"
                   name="NewPassword"
                   placeholder="Nhập mật khẩu mới"
+                  onChange={(e) => validate()}
                 />
               </div>
 
@@ -48,7 +56,9 @@ function ResetPassword() {
                   id="ConfirmPassword"
                   name="ConfirmPassword"
                   placeholder="Nhập lại mật khẩu mới"
+                  onChange={(e) => validate()}
                 />
+                {checkPassword ? null : <p className="messageError">Nhập lại password không trùng khớp.</p>}
               </div>
 
               <div className="row">

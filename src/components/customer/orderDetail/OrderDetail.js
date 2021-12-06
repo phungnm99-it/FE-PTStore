@@ -16,7 +16,7 @@ function OrderDetail(props) {
                 alt="iconClose"
                 className="icon-close"
                 src={iconClose}
-                onClick={props.onClose}
+                onClick={() => props.onCLose()}
               />
               <div className="form">
                 <HeadOD />

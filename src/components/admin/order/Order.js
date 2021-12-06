@@ -8,7 +8,6 @@ function Order(props) {
   const [orders, setOrders] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPage, setTotalPage] = useState(1);
-
   useEffect(() => {
     orderApi.getAll().then((res) => {
       if (currentPage * 5 - 1 > res.data.length) {
