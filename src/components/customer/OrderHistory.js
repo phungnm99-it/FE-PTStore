@@ -5,10 +5,24 @@ import OrderDetail from "./orderDetail/OrderDetail";
 import userApi from "../../api/userApi";
 import { priceFormat } from "../../utils/priceFormat";
 import { customStyles } from "../../utils/cssUtils";
+import noOrder from "../../images/noOder.png";
 import Modal from "react-modal";
 function OrderHistory() {
   const [model, setModel] = useState(false);
   const [orders, setOrders] = useState([]);
+  const [noOder, setNoOrder] = useState([]);
+
+  useEffect(() => {
+    getAllOwnsOrder();
+  }, []);
+
+  const getAllOwnsOrder = () => {
+    userApi.getAllOwnsOrder().then((res) => {
+      if (res.data !== null) {
+        setNoOrder(res.data);
+      }
+    });
+  };
 
   useEffect(() => {
     userApi.getAllOwnsOrder().then((response) => {
@@ -16,8 +30,31 @@ function OrderHistory() {
       console.log(response.data);
     });
   }, []);
-  // Close lỗi
-  return (
+
+  return noOder.length === 0 ? (
+    <section className="orderHistory">
+        <div className="body-content">
+          <h1>Đơn hàng của bạn</h1>
+          <div className="account-layout">
+            <div className="row equaHeight" data-obj=".col .box-bg-white">
+              <div className="col col-lg">
+                <div className="box-bg-white">
+                  <div className="not-found-list">
+                    <a>
+                      <img src={noOrder} alt="not-found-list" />
+                    </a>
+                    <p>Bạn chưa có đơn hàng nào</p>
+                    <a className="button_direct" href="/">
+                      Về trang chủ
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </section>
+  ) : (
     <div>
       <section className="orderHistory">
         <div className="body-content">
