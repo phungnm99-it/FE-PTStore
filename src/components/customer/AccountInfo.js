@@ -22,7 +22,15 @@ function AccountInfo() {
 
     userApi.getInfo().then((response) => {
       console.log(response.data);
+      document.getElementById("UserBirthDate").value =
+        response.data.birthday.split("T")[0];
       setInfo(response.data);
+
+      if (response.data.gender === "Nam") {
+        document.getElementById("Male").checked = true;
+      } else {
+        document.getElementById("Female").checked = true;
+      }
     });
   }, []);
   // lay quan tu ma tinh
@@ -106,12 +114,7 @@ function AccountInfo() {
                         <div className="form-controls">
                           <label>Ngày tháng năm sinh:</label>
                           <div className="controls">
-                            <input
-                              max="2030-12-31"
-                              type="date"
-                              value="2030-12-31"
-                              id="UserBirthDate"
-                            />
+                            <input type="date" id="UserBirthDate" />
                           </div>
                         </div>
                         <div className="form-controls">
@@ -241,9 +244,9 @@ function AccountInfo() {
           </div>
         </div>
         {/* modal mới */}
-        
+
         {/* đổi tất cả modal thành cái này hết  */}
-         {/* kiểm tra state nào để mở modal - trong trường hợp này là modalIsOpen */}
+        {/* kiểm tra state nào để mở modal - trong trường hợp này là modalIsOpen */}
         <Modal isOpen={modalIsOpen} style={customStyles}>
           <ChangePassword onCLose={() => setIsOpen(false)} />
         </Modal>
