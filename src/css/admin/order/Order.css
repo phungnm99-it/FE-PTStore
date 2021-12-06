@@ -17,7 +17,7 @@
 }
 
 .order-management .mB-30 {
-    margin-bottom: 30px !important;
+    margin-bottom: 20px !important;
 }
 
 .order-management .mT-10 {
@@ -367,5 +367,20 @@ table.dataTable tbody tr {
 
 .order-management th, .order-management td{
     text-align: center;
+}
+
+.order-management .inputSearch{
+    border-radius: 8px;
+    width: 250px;
+    height: 35px;
+}
+
+.order-management .btn-Search{
+    height: 34px;
+    background: #3c4b64;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    
 }
 

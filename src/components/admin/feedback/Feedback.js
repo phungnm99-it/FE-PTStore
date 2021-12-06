@@ -1,8 +1,25 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import feedbackApi from "../../../api/feedback";
 import "../../../css/admin/feedback/Feedback.css"
-
-
+import Pagination from "react-pagination-library";
 function Feedback(props) {
+  const [feedbacks, setFeedbacks] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPage, setTotalPage] = useState(1);
+  useEffect(() => {
+    feedbackApi.getAll().then((res) => {
+      if (currentPage * 5 - 1 > res.data.length) {
+        setFeedbacks(res.data.slice((currentPage - 1) * 5));
+      } else {
+        setFeedbacks(res.data.slice((currentPage - 1) * 5, currentPage * 5));
+      }
+      setTotalPage(Math.round(res.data.length / 5) + 1);
+    });
+  }, [currentPage]);
+
+  const changeCurrentPage = (numPage) => {
+    setCurrentPage(numPage);
+  };
   return (
     <div>
       <section className="pageAdmin">
@@ -34,15 +51,14 @@ function Feedback(props) {
                         </label>
                       </div>
                       <div id="dataTable_filter" className="dataTables_filter">
-                        <label>
-                          Tìm kiếm:
+                        
                           <input
                             type="search"
-                            className=""
-                            placeholder=""
+                            className="inputSearch"
+                            placeholder="Bạn cần tìm..."
                             aria-controls="dataTable"
                           />
-                        </label>
+                        <button className="btn-Search">Tìm kiếm</button>
                       </div>
                       <table className="table table-striped table-bordered dataTable">
                         <thead>
@@ -71,103 +87,49 @@ function Feedback(props) {
                           </tr>
                         </thead>
                         <tbody>
-                          <tr role="row" className="ood">
-                            <td>LSFL8990</td>
-                            <td>Phan Nguyen Thuy Tien</td>
-                            <td>thuytienpn106@gmail.com</td>
-                            <td>Góp ý</td>
-                            <td>
-                              Sản phẩm mượt, giao hàng nhanh, phục vụ nhiệt tình
-                            </td>
-                            <td>19/11/2021</td>
-                            <td>
-                              <button
-                                onClick={() => props.switch(25)}
-                                className="iconReply"
-                                
-                              >
-                                <i className="fas fa-reply"></i>
-                              </button>
-                              <button
-                                onClick={() => props.switch(26)}
-                                className="iconDetail"
-                                
-                              >
-                                <i className="fas fa-list"></i>
-                              </button>
-                            </td>
-                          </tr>
+                          {feedbacks.map((item) => {
+                            return(
+                              <tr role="row" className="ood">
+                                <td>{item.id}</td>
+                                <td>{item.name}</td>
+                                <td>thuytienpn106@gmail.com</td>
+                                <td>Góp ý</td>
+                                <td>
+                                  Sản phẩm mượt, giao hàng nhanh, phục vụ nhiệt tình
+                                </td>
+                                <td>19/11/2021</td>
+                                <td>
+                                  <button
+                                    onClick={() => props.switch(25)}
+                                    className="iconReply"
+                                    
+                                  >
+                                    <i className="fas fa-reply"></i>
+                                  </button>
+                                  <button
+                                    onClick={() => props.switch(26)}
+                                    className="iconDetail"
+                                    
+                                  >
+                                    <i className="fas fa-list"></i>
+                                  </button>
+                                </td>
+                              </tr>
+                            )
+                          })}
+                          
                         </tbody>
                       </table>
                       <div
                         className="dataTables_paginate paging_simple_numbers"
                         id="dataTable_paginate"
                       >
-                        <a
-                          className="paginate_button previous disabled"
-                          id="dataTable_previous"
-                        >
-                          Số trang
-                        </a>
-                        <span>
-                          <a
-                            className="paginate_button current"
-                            aria-controls="dataTable"
-                            data-dt-idx="1"
-                            tabindex="0"
-                          >
-                            1
-                          </a>
-                          <a
-                            className="paginate_button "
-                            aria-controls="dataTable"
-                            data-dt-idx="2"
-                            tabindex="0"
-                          >
-                            2
-                          </a>
-                          <a
-                            className="paginate_button "
-                            aria-controls="dataTable"
-                            data-dt-idx="3"
-                            tabindex="0"
-                          >
-                            3
-                          </a>
-                          <a
-                            className="paginate_button "
-                            aria-controls="dataTable"
-                            data-dt-idx="4"
-                            tabindex="0"
-                          >
-                            4
-                          </a>
-                          <a
-                            className="paginate_button "
-                            aria-controls="dataTable"
-                            data-dt-idx="5"
-                            tabindex="0"
-                          >
-                            5
-                          </a>
-                          <a
-                            className="paginate_button "
-                            aria-controls="dataTable"
-                            data-dt-idx="6"
-                            tabindex="0"
-                          >
-                            6
-                          </a>
-                        </span>
-                        <a
-                          className="paginate_button next"
-                          aria-controls="dataTable"
-                          data-dt-idx="7"
-                          tabindex="0"
-                          id="dataTable_next"
-                        >
-                          <i className="fas fa-forward"></i>
-                        </a>
+                        <Pagination
+                          currentPage={currentPage}
+                          totalPages={totalPage}
+                          changeCurrentPage={changeCurrentPage}
+                          theme="square-i"
+                        />
                       </div>
                     </div>
                   </div>

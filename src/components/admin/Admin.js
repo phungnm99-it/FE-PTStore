@@ -38,6 +38,10 @@ import AdminInfo from "./adminInfo/AdminInfo";
 import EditInfo from "./adminInfo/EditInfo";
 import ChangePass from "./adminInfo/ChangePass";
 import PageMainAdmin from "./pagemain/PageMainAdmin";
+import CompletedOrder from "./order/CompletedOrder";
+import DeliveredOrder from "./order/DeliveredOrder";
+import WaitDeliveryOrder from "./order/WaitDeliveryOrder";
+import WaitConfirmOrder from "./order/WaitConfirmOrder";
 function Admin(props) {
   const [form, setForm] = useState(props.form || 0);
   const [avt, setAvt] = useState(
@@ -122,7 +126,7 @@ function Admin(props) {
       case 22:
         return <EditOrder />;
       case 23:
-        return;
+        return <CompletedOrder switch={(e) => setForm(e)}/>;
       case 24:
         return <Feedback switch={(e) => setForm(e)} />;
       case 25:
@@ -149,6 +153,12 @@ function Admin(props) {
         return <EditInfo />;
       case 36:
         return <ChangePass />;
+      case 37:
+        return <DeliveredOrder switch={(e) => setForm(e)}/>;
+      case 38:
+        return <WaitDeliveryOrder switch={(e) => setForm(e)}/>;
+      case 39:
+        return <WaitConfirmOrder switch={(e) => setForm(e)}/>
       default:
         return null;
     }
@@ -175,7 +185,7 @@ function Admin(props) {
                     <img src={avt} alt="" />
                   </div>
                   <div className="summer">
-                    <p>
+                    <p onClick={() => setForm(34)}>
                       <strong>Tien Phan Nguyen Thụy</strong>
                     </p>
                     <p className="change-avatar" onClick={() => selectFile()}>
@@ -277,19 +287,25 @@ function Admin(props) {
                         name: "Đơn hàng chờ xác nhận",
                         icon: "fas fa-box-open nav-icon",
                         link: "",
-                        formChoose: () => setForm(21),
+                        formChoose: () => setForm(39),
+                      },
+                      {
+                        name: "Đơn hàng chờ lấy hàng",
+                        icon: "fas fa-box-open nav-icon",
+                        link: "",
+                        formChoose: () => setForm(38),
                       },
                       {
                         name: "Đơn hàng đang giao",
                         icon: "fas fa-box-open nav-icon",
                         link: "",
-                        formChoose: () => setForm(21),
+                        formChoose: () => setForm(37),
                       },
                       {
                         name: "Đơn hàng đã hoàn thành",
                         icon: "fas fa-box-open nav-icon",
                         link: "",
-                        formChoose: () => setForm(21),
+                        formChoose: () => setForm(23),
                       },
                     ]}
                   />
@@ -346,8 +362,8 @@ function Admin(props) {
                 </a>
               </div>
               <div className="InfoAdmin">
-                <i className="fas fa-user nav-icon"></i>
-                <span onClick={() => setForm(34)}>Thuy Tien</span>
+                <i className="fas fa-sign-out-alt nav-icon"></i>
+                <span> Đăng xuất</span>
               </div>
             </div>
           </div>

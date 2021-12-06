@@ -18,7 +18,7 @@
   }
   
   .subscriber-management .mB-30 {
-    margin-bottom: 30px !important;
+    margin-bottom: 20px !important;
   }
   
   .subscriber-management .mT-10 {
@@ -356,4 +356,19 @@
 .subscriber-management .table{
     table-layout: fixed;
     width: 100%;
+}
+
+.subscriber-management .inputSearch{
+  border-radius: 8px;
+  width: 250px;
+  height: 35px;
+}
+
+.subscriber-management .btn-Search{
+  height: 34px;
+  background: #3c4b64;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  
 }

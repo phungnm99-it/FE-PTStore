@@ -18,7 +18,7 @@
 }
 
 .feedback-management .mB-30 {
-  margin-bottom: 30px !important;
+  margin-bottom: 20px !important;
 }
 
 .feedback-management .mT-10 {
@@ -370,4 +370,19 @@ table.dataTable tbody tr {
 
 .feedback-management th, .feedback-management td{
   text-align: center;
+}
+
+.feedback-management .inputSearch{
+  border-radius: 8px;
+  width: 250px;
+  height: 35px;
+}
+
+.feedback-management .btn-Search{
+  height: 34px;
+  background: #3c4b64;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  
 }

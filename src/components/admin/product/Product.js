@@ -62,15 +62,14 @@ function Product(props) {
                         </label>
                       </div> */}
                       <div id="dataTable_filter" className="dataTables_filter">
-                        <label>
-                          Tìm kiếm:
+                        
                           <input
                             type="search"
-                            className=""
-                            placeholder=""
+                            className="inputSearch"
+                            placeholder="Bạn cần tìm..."
                             aria-controls="dataTable"
                           />
-                        </label>
+                        <button className="btn-Search">Tìm kiếm</button>
                       </div>
                       <table className="table table-striped table-bordered dataTable">
                         <thead>
