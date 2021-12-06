@@ -52,9 +52,14 @@ const userApi = {
   },
 
   order: (data) => {
-    const url = "/order/create"
+    const url = "/order/create";
     return axiosClient.post(url, data);
-  }
+  },
+
+  getAllUsers: () => {
+    const url = "/user/getAll";
+    return axiosClient.get(url);
+  },
 };
 
 export default userApi;
