@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect, useContext } from "react";
+import React, { useState, useRef, useEffect, useContext, useParams } from "react";
 import "../../css/admin/Menu.css";
 import "../../css/admin/Header.css";
 import DropDown from "./common/DropDown";
@@ -45,8 +45,10 @@ import WaitConfirmOrder from "./order/WaitConfirmOrder";
 import { AdminContext } from "../../AdminContext";
 import Auth from "../../config/auth";
 import { useHistory } from "react-router-dom";
+import userApi from "../../api/userApi";
 
 function Admin(props) {
+  
   const context = useContext(AdminContext);
   const history = useHistory();
   const [form, setForm] = useState(props.form || 0);
@@ -54,9 +56,19 @@ function Admin(props) {
     "https://huyhoanhotel.com/wp-content/uploads/2016/05/765-default-avatar.png"
   );
   const inputFile = useRef(null);
+  const [name, setName] = useState("");
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    userApi.getInfo().then((response) => {
+      if (response.data.imageUrl !== "") {
+        setAvt(response.data.imageUrl);
+      }
+      setName(response.data.fullName);
+    });
   }, []);
 
   const selectFile = () => {
@@ -67,9 +79,16 @@ function Admin(props) {
   const getImg = async (event) => {
     const file = event.target.files[0];
     const base64 = await convertBase64(file);
-    // api
-    setAvt(base64);
-    console.log(base64);
+    
+    let formData = new FormData();
+    formData.append("image", file);
+    userApi.updateAvatar(formData).then((res) => {
+      if (res.code === "200") {
+        setAvt(base64);
+      } else {
+        alert("Lỗi!");
+      }
+    });
   };
 
   const convertBase64 = (file) => {
@@ -194,7 +213,7 @@ function Admin(props) {
                   </div>
                   <div className="summer">
                     <p onClick={() => setForm(34)}>
-                      <strong>Tien Phan Nguyen Thụy</strong>
+                      <strong>{name}</strong>
                     </p>
                     <p className="change-avatar" onClick={() => selectFile()}>
                       <i className="icon-change-avatar"></i> Thay đổi ảnh đại

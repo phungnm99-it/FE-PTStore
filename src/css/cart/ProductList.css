@@ -29,3 +29,7 @@
   flex-flow: column wrap;
   padding: 0;
 }
+
+.backgroundCart .midCart .not-found-list{
+  background-color: #f0f0e9;
+}

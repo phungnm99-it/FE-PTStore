@@ -1,6 +1,27 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import '../../../css/admin/account/Account.css'
+import userApi from "../../../api/userApi";
+import Pagination from "react-pagination-library";
 function AccountUser (props) {
+    const [admins, setAdmins] = useState([]);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [totalPage, setTotalPage] = useState(1);
+    
+
+    useEffect(() => {
+        userApi.getAllUsers().then((res) => {let filterData = res.data.filter((ac) => ac.roleName === "User")
+        if (currentPage * 5 - 1 > filterData.length) {
+            setAdmins(filterData.slice((currentPage - 1) * 5));
+        } else {
+            setAdmins(filterData.slice((currentPage - 1) * 5, currentPage * 5));
+        }
+        setTotalPage(Math.round(filterData.length / 5) + 1);
+        });
+    }, [currentPage]);
+
+    const changeCurrentPage = (numPage) => {
+        setCurrentPage(numPage);
+    };
     return (
         <div>
                 <div className="pageAdmin">
@@ -70,36 +91,39 @@ function AccountUser (props) {
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr role="row" className="ood">
-                                        <td>HSLF348502</td>
-                                        <td>tienphan</td>
-                                        <td>thuytienpn106@gmail.com</td>
-                                        <td>0858679912</td>
-                                        <td>06/10/1999</td>
-                                        <td>Nữ</td>
-                                        <td>Thủ Đức</td>
-                                        <td>
-                                        <button
-                                            onClick={() => props.switch(6)}
-                                            className="iconEdit"
-                                            
-                                        >
-                                            <i className="fas fa-edit"></i>
-                                        </button>
-                                        <button
-                                            onClick={() => props.switch(7)}
-                                            className="iconDetail"
-                                        >
-                                            <i class="fas fa-list"></i>
-                                        </button>
-                                        <button
-                                            onClick={() => props.switch(31)}
-                                            className="iconDelete"  
-                                        >
-                                            <i className="fas fa-backspace"></i>
-                                        </button>
-                                        </td>
-                                    </tr>
+                                    {admins.map((item) => {
+                                        return (
+                                        <tr key={item.id} role="row" className="ood">
+                                            <td>{item.id}</td>
+                                            <td>{item.fullName}</td>
+                                            <td>{item.email}</td>
+                                            <td>{item.phoneNumber}</td>
+                                            <td>{item.birthday.split("T")[0]}</td>
+                                            <td>{item.gender}</td>
+                                            <td>{item.address}</td>
+                                            <td>
+                                            <button
+                                                className="iconEdit"
+                                                onClick={() => props.switch(6)}
+                                            >
+                                                <i className="fas fa-edit"></i>
+                                            </button>
+                                            <button
+                                                onClick={() => props.switch(7)}
+                                                className="iconDetail"
+                                            >
+                                                <i class="fas fa-list"></i>
+                                            </button>
+                                            <button
+                                                onClick={() => props.switch(31)}
+                                                className="iconDelete"
+                                            >
+                                                <i className="fas fa-backspace"></i>
+                                            </button>
+                                            </td>
+                                        </tr>
+                                        );
+                                    })}
                                     
                                     </tbody>
                                 </table>
@@ -107,71 +131,12 @@ function AccountUser (props) {
                                     className="dataTables_paginate paging_simple_numbers"
                                     id="dataTable_paginate"
                                 >
-                                    <a
-                                    className="paginate_button previous disabled"
-                                    id="dataTable_previous"
-                                    >
-                                    Số trang
-                                    </a>
-                                    <span>
-                                    <a
-                                        className="paginate_button current"
-                                        aria-controls="dataTable"
-                                        data-dt-idx="1"
-                                        tabindex="0"
-                                    >
-                                        1
-                                    </a>
-                                    <a
-                                        className="paginate_button "
-                                        aria-controls="dataTable"
-                                        data-dt-idx="2"
-                                        tabindex="0"
-                                    >
-                                        2
-                                    </a>
-                                    <a
-                                        className="paginate_button "
-                                        aria-controls="dataTable"
-                                        data-dt-idx="3"
-                                        tabindex="0"
-                                    >
-                                        3
-                                    </a>
-                                    <a
-                                        className="paginate_button "
-                                        aria-controls="dataTable"
-                                        data-dt-idx="4"
-                                        tabindex="0"
-                                    >
-                                        4
-                                    </a>
-                                    <a
-                                        className="paginate_button "
-                                        aria-controls="dataTable"
-                                        data-dt-idx="5"
-                                        tabindex="0"
-                                    >
-                                        5
-                                    </a>
-                                    <a
-                                        className="paginate_button "
-                                        aria-controls="dataTable"
-                                        data-dt-idx="6"
-                                        tabindex="0"
-                                    >
-                                        6
-                                    </a>
-                                    </span>
-                                    <a
-                                    className="paginate_button next"
-                                    aria-controls="dataTable"
-                                    data-dt-idx="7"
-                                    tabindex="0"
-                                    id="dataTable_next"
-                                    >
-                                    <i className="fas fa-forward"></i>
-                                    </a>
+                                    <Pagination
+                                    currentPage={currentPage}
+                                    totalPages={totalPage}
+                                    changeCurrentPage={changeCurrentPage}
+                                    theme="square-i"
+                                    />
                                 </div>
                                 </div>
                             </div>

@@ -4,7 +4,7 @@ import UserInfo from "./UserInfo";
 import ProductItem from "./ProductItem";
 import { useContext } from "react";
 import { AuthContext } from "../../AuthContext";
-
+import noOrder from "../../images/noOder.png"
 function ProductList() {
   const context = useContext(AuthContext);
   return context.cart.length > 0 ? (
@@ -31,7 +31,19 @@ function ProductList() {
       </div>
     </div>
   ) : (
-    <h1>Chưa có sản phẩm</h1>
+    <div className="backgroundCart">
+      <div className="midCart">
+        <div className="not-found-list">
+          <a>
+            <img src={noOrder} alt="not-found-list" />
+          </a>
+          <p>Bạn chưa có sản phẩm nào trong giỏ hàng</p>
+          <a className="button_direct" href="/">
+            Về trang chủ
+          </a>
+        </div>
+      </div>
+    </div>
   );
 }
 
