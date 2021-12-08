@@ -43,9 +43,14 @@ const productApi = {
   },
 
   getByFilter: (filter) => {
-    const url ="/product/filter?" + filter;
+    const url = "/product/filter?" + filter;
     return axiosClient.post(url);
-  }
+  },
+
+  getBestSell: () => {
+    const url = "/product/bestSell";
+    return axiosClient.get(url);
+  },
 };
 
 export default productApi;
