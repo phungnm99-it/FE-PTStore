@@ -15,7 +15,7 @@ function Order(props) {
       } else {
         setOrders(res.data.slice((currentPage - 1) * 5, currentPage * 5));
       }
-      setTotalPage(Math.round(res.data.length / 5) + 1);
+      setTotalPage(Math.round(res.data.length / 5));
     });
   }, [currentPage]);
 
@@ -54,13 +54,12 @@ function Order(props) {
                         </label>
                       </div> */}
                       <div id="dataTable_filter" className="dataTables_filter">
-                        
-                          <input
-                            type="search"
-                            className="inputSearch"
-                            placeholder="Bạn cần tìm..."
-                            aria-controls="dataTable"
-                          />
+                        <input
+                          type="search"
+                          className="inputSearch"
+                          placeholder="Bạn cần tìm..."
+                          aria-controls="dataTable"
+                        />
                         <button className="btn-Search">Tìm kiếm</button>
                       </div>
                       <table className="table table-striped table-bordered dataTable">
