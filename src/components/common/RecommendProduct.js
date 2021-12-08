@@ -8,7 +8,7 @@ function RecommendProducts() {
     getProduct();
   }, []);
   const getProduct = async () => {
-    productApi.getSaleProduct().then((response) => {
+    productApi.getBestSell().then((response) => {
       setProduct(response.data);
     });
   };
