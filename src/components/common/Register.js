@@ -43,7 +43,7 @@ function Register() {
       document.getElementById("inputAddress").value +
       ", " +
       district.options[district.selectedIndex].text +
-      ", " + 
+      ", " +
       province.options[province.selectedIndex].text;
     // neu validate === false hoac chuoi rong thi k cho no post
     if (
@@ -58,26 +58,26 @@ function Register() {
       password.length < 1
     ) {
       alert("Vui lòng nhập đúng và đầy đủ thông tin");
+    } else {
+      console.log([birthday[1], birthday[2], birthday[0]].join("-"));
+      let formData = new FormData();
+      formData.append("username", username);
+      formData.append("gender", gender);
+      formData.append("password", password);
+      formData.append("fullname", fullName);
+      formData.append("birthday", birthday);
+      formData.append("email", email);
+      formData.append("address", address);
+      formData.append("phonenumber", phoneNumber);
+      userApi.register(formData).then((response) => {
+        if (response.code === "401") {
+          alert(response.message);
+        } else {
+          alert("Đăng ký thành công, vui lòng đăng nhập");
+          history.push("/login");
+        }
+      });
     }
-    console.log(address);
-    console.log([birthday[1], birthday[2], birthday[0]].join("-"));
-    let formData = new FormData();
-    formData.append("username", username);
-    formData.append("gender", gender);
-    formData.append("password", password);
-    formData.append("fullname", fullName);
-    formData.append("birthday", birthday);
-    formData.append("email", email);
-    formData.append("address", address);
-    formData.append("phonenumber", phoneNumber);
-    userApi.register(formData).then((response) => {
-      if (response.code === "401") {
-        alert(response.message);
-      } else {
-        alert("Đăng ký thành công, vui lòng đăng nhập");
-        history.push("/login");
-      }
-    });
   };
 
   return (
