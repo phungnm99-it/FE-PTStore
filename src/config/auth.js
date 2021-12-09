@@ -28,7 +28,7 @@ const Auth = {
   },
 
   isLogin: function () {
-    return this.getAccessToken() != null && this.isValidateToken;
+    return this.getAccessToken() != null && this.isValidateToken();
   },
 
   isSocialLogin: function () {
