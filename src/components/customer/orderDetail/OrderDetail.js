@@ -28,6 +28,7 @@ function OrderDetail(props) {
           </div>
         </div>
       </div>
+      
     </div>
   );
 }

@@ -382,7 +382,6 @@ table.dataTable tbody tr {
     background: #3c4b64;
     color: white;
     border: none;
-    border-radius: 3px;
-    
+    border-radius: 3px; 
 }
 
