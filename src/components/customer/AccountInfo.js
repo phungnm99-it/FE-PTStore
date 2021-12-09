@@ -5,6 +5,7 @@ import { getProvinces } from "../../service/provinces-service";
 import userApi from "../../api/userApi";
 import Modal from "react-modal";
 import { customStyles } from "../../utils/cssUtils";
+import Auth from "../../config/auth";
 
 function AccountInfo() {
   const [modalIsOpen, setIsOpen] = useState(false);
@@ -51,20 +52,24 @@ function AccountInfo() {
                   <div className="box-bg-white">
                     <div className="account-form">
                       <div>
-                        <div className="form-controls">
-                          <label>Tên đăng nhập:</label>
-                          <div className="controls">
-                            <input
-                              className="form-input"
-                              type="text"
-                              value={info.username}
-                              name="UserName"
-                              id="UserName"
-                              placeholder="Tên đăng nhập"
-                              readOnly
-                            />
+                        {Auth.isGoogleLogin() ? (
+                          <div></div>
+                        ) : (
+                          <div className="form-controls">
+                            <label>Tên đăng nhập:</label>
+                            <div className="controls">
+                              <input
+                                className="form-input"
+                                type="text"
+                                value={info.username}
+                                name="UserName"
+                                id="UserName"
+                                placeholder="Tên đăng nhập"
+                                readOnly
+                              />
+                            </div>
                           </div>
-                        </div>
+                        )}
                         <div className="form-controls">
                           <label>Họ và tên:</label>
                           <div className="controls">
@@ -223,16 +228,20 @@ function AccountInfo() {
                                 CẬP NHẬT
                               </button>
                             </div>
-                            <div className="col-md-4">
-                              <button
-                                className="btn-changePass"
-                                onClick={() => {
-                                  setIsOpen(true);
-                                }}
-                              >
-                                ĐỔI MẬT KHẨU
-                              </button>
-                            </div>
+                            {Auth.isGoogleLogin() ? (
+                              <div></div>
+                            ) : (
+                              <div className="col-md-4">
+                                <button
+                                  className="btn-changePass"
+                                  onClick={() => {
+                                    setIsOpen(true);
+                                  }}
+                                >
+                                  ĐỔI MẬT KHẨU
+                                </button>
+                              </div>
+                            )}
                           </div>
                         </div>
                       </div>

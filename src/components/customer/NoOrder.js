@@ -1,8 +1,10 @@
 import React from "react";
 import noOrder from "../../images/noOder.png";
 import "../../css/customer/noOrder.css";
+import { useHistory } from "react-router-dom";
 
 function NoOrder() {
+  const history = useHistory();
   return (
     <div>
       <section className="orderHistory">
@@ -17,9 +19,12 @@ function NoOrder() {
                       <img src={noOrder} alt="not-found-list" />
                     </a>
                     <p>Bạn chưa có đơn hàng nào</p>
-                    <a className="button_direct" href="/">
+                    <button
+                      className="button_direct"
+                      onClick={() => history.push("/")}
+                    >
                       Về trang chủ
-                    </a>
+                    </button>
                   </div>
                 </div>
               </div>

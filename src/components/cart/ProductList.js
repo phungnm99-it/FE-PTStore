@@ -4,9 +4,11 @@ import UserInfo from "./UserInfo";
 import ProductItem from "./ProductItem";
 import { useContext } from "react";
 import { AuthContext } from "../../AuthContext";
-import noOrder from "../../images/noOder.png"
+import noOrder from "../../images/noOder.png";
+import { useHistory } from "react-router-dom";
 function ProductList() {
   const context = useContext(AuthContext);
+  const history = useHistory();
   return context.cart.length > 0 ? (
     <div>
       <div className="backgroundCart">
@@ -38,9 +40,9 @@ function ProductList() {
             <img src={noOrder} alt="not-found-list" />
           </a>
           <p>Bạn chưa có sản phẩm nào trong giỏ hàng</p>
-          <a className="button_direct" href="/">
+          <button className="button_direct" onClick={() => history.push("/")}>
             Về trang chủ
-          </a>
+          </button>
         </div>
       </div>
     </div>

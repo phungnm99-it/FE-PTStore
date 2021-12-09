@@ -37,7 +37,6 @@ function AuthProvider({ children }) {
     if (localStorage.getItem("cart") === null) {
       let x = [product];
       localStorage.setItem("cart", JSON.stringify(x));
-      console.log(x);
     } else {
       let x = JSON.parse(localStorage.getItem("cart"));
       let found = x.find((e) => e.id === product.id);
@@ -64,15 +63,19 @@ function AuthProvider({ children }) {
 
   const removeItem = (id) => {
     let x = JSON.parse(localStorage.getItem("cart"));
-    x.filter((item) => item.id != id);
+    let y = x.filter((item) => item.id != id);
     localStorage.removeItem("cart");
-    localStorage.setItem("cart", JSON.stringify(x));
+    localStorage.setItem("cart", JSON.stringify(y));
     setCart((prev) => {
       return prev.filter((item) => item.id != id);
     });
   };
 
   const updateCart = ({ product }) => {
+    if (localStorage.getItem("cart") === null) {
+      let x = [product];
+      localStorage.setItem("cart", JSON.stringify(x));
+    }
     setCart(product);
   };
 
