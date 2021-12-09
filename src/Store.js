@@ -20,6 +20,7 @@ import ResetPassword from "./components/common/ResetPassword";
 import Contact from "./components/common/Contact";
 import BrandPage from "./components/common/product/BrandPage";
 import CustomProductPage from "./components/common/product/CustomProductPage";
+import SearchPage from "./components/common/product/SearchPage";
 
 function App() {
   return (
@@ -81,6 +82,10 @@ function App() {
 
           <Route path="/resetPassword/:id">
             <ResetPassword />
+          </Route>
+
+          <Route path="/timkiem/:filter">
+            <SearchPage />
           </Route>
 
           <Route path="/dienthoai/:filter">

@@ -47,6 +47,7 @@ function Login() {
           alert("Google đang bị lỗi, vui lòng thử lại sau!");
         } else {
           Auth.setAccessToken(result.token);
+          Auth.setGoogleLogin();
           authContext.login();
           document.cookie.split(";").forEach(function (c) {
             document.cookie = c

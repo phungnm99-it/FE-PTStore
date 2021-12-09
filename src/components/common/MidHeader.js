@@ -10,6 +10,7 @@ import Auth from "../../config/auth";
 
 function HeaderMid() {
   const context = useContext(AuthContext);
+  const history = useHistory();
   return (
     <div>
       <div className="header-middle headermidpartial">
@@ -25,7 +26,7 @@ function HeaderMid() {
             <div className="col-md-4">
               <nav className="navbar navbar-light bg-light">
                 <div className="container-fluid">
-                  <form
+                  <div
                     className="d-inline pull-right"
                     asp-controller="DienThoai"
                     asp-action="Index"
@@ -39,10 +40,21 @@ function HeaderMid() {
                       aria-label="Search"
                     />
                     {/* <button id="searchbtn" className="btn btn-outline-success buttonSearch">Tìm Kiếm</button> */}
-                    <div className="btnSearch" id="search-cate">
+                    <div
+                      className="btnSearch"
+                      id="search-cate"
+                      onClick={() => {
+                        let x = document.getElementById("searchinput").value;
+                        if (x === "") alert("Nhập nội dung!!!");
+                        else {
+                          let link = "/timkiem/search=" + x;
+                          history.push(link);
+                        }
+                      }}
+                    >
                       <img src={iconSearch} alt="icon search" />
                     </div>
-                  </form>
+                  </div>
                 </div>
               </nav>
             </div>

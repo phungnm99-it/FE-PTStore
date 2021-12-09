@@ -32,7 +32,7 @@ const Auth = {
     return this.getAccessToken() != null && this.isValidateToken();
   },
 
-  isSocialLogin: function () {
+  isGoogleLogin: function () {
     return localStorage.getItem("isSocial") ? true : false;
   },
 

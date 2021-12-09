@@ -51,6 +51,11 @@ const productApi = {
     const url = "/product/bestSell";
     return axiosClient.get(url);
   },
+
+  search: (name) => {
+    const url = "/product/name=" + name;
+    return axiosClient.get(url);
+  },
 };
 
 export default productApi;
