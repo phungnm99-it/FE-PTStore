@@ -1,10 +1,12 @@
 import React, { useState, useRef, useEffect } from 'react';
 import "../../css/shipper/MenuShipper.css"
 import Dashboard from './Dashboard';
-import noAvt from "../../images/no-avt.png"
 import InfoShipper from './InfoShipper';
 import ChangePass from './ChangePass';
 import EditInfo from './EditInfo';
+import OrderReceived from './OrderReceived';
+import DeliveryHistory from './DeliveryHistory';
+
 function MenuShipper () {
     const [form, setForm] = useState();
     const [avt, setAvt] = useState(
@@ -47,7 +49,11 @@ function MenuShipper () {
           case 2:
               return <ChangePass />;
           case 3:
-              return <EditInfo/>
+              return <EditInfo/>;
+          case 4: 
+              return <OrderReceived />;
+          case 5:
+              return <DeliveryHistory/>
           default:
             return null;
         }
@@ -92,15 +98,15 @@ function MenuShipper () {
                             </li>
 
                                                         
-                            <li className="nav-item" >
+                            <li className="nav-item" onClick={() => setForm(4)} >
                                 <a className="nav-link active btn-focus">
                                 <i className="fas fa-tachometer-alt nav-icon"></i>
-                                Đơn hàng theo dõi
+                                Đơn hàng đã nhận
                                 </a>
                             </li>
                         
                             
-                            <li className="nav-item" >
+                            <li className="nav-item"  onClick={() => setForm(5)}>
                                 <a href="#" className="nav-link active btn-focus">
                                 <i className="fas fa-thumbs-up nav-icon"></i>
                                 Lịch sử giao hàng
@@ -125,11 +131,10 @@ function MenuShipper () {
                                 Trang chủ
                             </a>
                             </div>
-                            {/* <div className="InfoAdmin">
-                            
-                            <i className="fas fa-user nav-icon"></i>
-                            <span >Thuy Tien</span>
-                            </div> */}
+                            <div className="shipperLogout">
+                                <i className="fas fa-sign-out-alt nav-icon"></i>
+                                <span> Đăng xuất</span>
+                            </div>
                         </div> 
                     </div>
                     <div className="bodyMain">{switchRender()}</div>

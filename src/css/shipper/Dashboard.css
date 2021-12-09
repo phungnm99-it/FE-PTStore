@@ -1,0 +1,191 @@
+.pageMainShipper{ 
+    height: 100%;
+    flex-basis: 100%;
+    display: flex;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+.pageMainShipper .counterSection{
+    display: block;
+    margin-bottom: 30px;
+    box-shadow: 0 5px 20px rgb(0 0 0 / 5%);
+    border: 0px solid #e7e7e7;
+    padding: 30px 35px;
+    background: #fff;
+    border-radius: 5px;
+    min-height: 125px;
+    margin-left: 20px;
+}
+
+.pageMainShipper .col-lg-3{
+    width: 24% !important;
+}
+
+.pageMainShipper .full{
+    width: 100%;
+    float: left;
+}
+
+.pageMainShipper .counterIcon{
+    display: block;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    float: left;
+    margin: 8px 0 8px;
+}
+
+.pageMainShipper .counterIcon i{
+    font-size: 50px;
+    line-height: normal;
+    width: 100%;
+    float: left;
+    text-align: center;
+}
+
+.pageMainShipper .counterNo{
+    padding: 0 12px;
+    align-content: center;
+    align-items: center;
+    float: right;
+    width: 100%;
+}
+
+.pageMainShipper .yellow_color{
+    color: #ff9800;
+}
+
+.pageMainShipper .green_color{
+    color: #009688;
+}
+
+.pageMainShipper .red_color{
+    color: #e91e63;
+}
+
+.pageMainShipper .blue_color{
+    color:#2196f3;
+}
+
+.pageMainShipper .counterNo p.totalNo{
+    margin: 0;
+    font-size: 45px;
+    float: left;
+    width: 100%;
+    line-height: normal;
+    font-weight: 600;
+    color: #455a64;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.pageMainShipper .counterNo p.headCounter{
+    float: left;
+    width: 100%;
+    color: #99abb4;
+    font-weight: 300;
+    margin: 0px 0 0 0;
+    font-size: 20px;
+    text-align: center;
+    line-height: 21px;
+}
+
+.pageMainShipper .mT-10 {
+    margin-top: 10px !important;
+}
+
+.pageMainShipper .mB-30 {
+    margin-bottom: 20px !important;
+}
+
+.pageMainShipper .c-grey-900, .pageMainShipper .cH-grey-900:hover {
+    color: #313435 !important;
+}
+
+.pageMainShipper .row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: calc(var(--bs-gutter-y) * -1);
+    margin-right: calc(var(--bs-gutter-x) * -.5);
+    margin-left: calc(var(--bs-gutter-x) * -.5);
+}
+
+.pageMainShipper h4 {
+    font-size: 26px;
+    margin-left: 20px;
+}
+
+.pageMainShipper .col-md-12 {
+    flex: 0 0 auto;
+    width: 100%;
+}
+
+.pageMainShipper .mB-20 {
+    margin-bottom: 20px !important;
+}
+
+.pageMainShipper .p-20 {
+    padding: 20px !important;
+}
+
+.pageMainShipper .bd {
+    border: 1px solid rgba(0, 0, 0, 0.0625) !important;
+}
+
+.pageMainShipper .bdrs-3 {
+    border-radius: 3px !important;
+}
+
+.pageMainShipper .bgc-white, .bgcH-white:hover {
+    background-color: #ffffff !important;
+}
+
+.pageMainShipper .dataTables_wrapper {
+    position: relative;
+    clear: both;
+    zoom: 1;
+}
+
+.pageMainShipper .dataTables_wrapper {
+    overflow: hidden;
+    padding-bottom: 5px;
+}
+
+.pageMainShipper .table{
+    table-layout: fixed;
+    width: 100%;
+}
+
+#Shipper-IDCol{
+    width: 10%;
+}
+
+#Shipper-UserNameCol{
+    width: 20%;
+}
+
+#Shipper-PhoneCol{
+    width: 10%;
+}
+
+#Shipper-ProductCol{
+    width: 25%;
+}
+
+#Shipper-AddressCol{
+    width: 28%;
+}
+
+#Shipper-ControlCol{
+    width: 7%;
+}
+
+.pageMainShipper button.btnAccept{
+    border: none;
+    font-size: 15px;
+    font-weight: 500;
+    background-color: transparent;
+    color: red;
+}

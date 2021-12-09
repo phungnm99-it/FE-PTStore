@@ -627,6 +627,14 @@ html:not([dir=rtl]) .header-nav {
     z-index: 2;
 }
 
+.pageShipper nav ul li a{
+  cursor: pointer;
+}
+
+.pageShipper .shipperLogout{
+  cursor: pointer;
+}
+
 
 
   

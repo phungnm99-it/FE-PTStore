@@ -1,0 +1,186 @@
+
+.deliveryHistory .counterSection{
+    display: block;
+    margin-bottom: 30px;
+    box-shadow: 0 5px 20px rgb(0 0 0 / 5%);
+    border: 0px solid #e7e7e7;
+    padding: 30px 35px;
+    background: #fff;
+    border-radius: 5px;
+    min-height: 125px;
+    margin-left: 20px;
+}
+
+.deliveryHistory .col-lg-3{
+    width: 24% !important;
+}
+
+.deliveryHistory .full{
+    width: 100%;
+    float: left;
+}
+
+.deliveryHistory .counterIcon{
+    display: block;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    float: left;
+    margin: 8px 0 8px;
+}
+
+.deliveryHistory .counterIcon i{
+    font-size: 50px;
+    line-height: normal;
+    width: 100%;
+    float: left;
+    text-align: center;
+}
+
+.deliveryHistory .counterNo{
+    padding: 0 12px;
+    align-content: center;
+    align-items: center;
+    float: right;
+    width: 100%;
+}
+
+
+
+.deliveryHistory .counterNo p.totalNo{
+    margin: 0;
+    font-size: 45px;
+    float: left;
+    width: 100%;
+    line-height: normal;
+    font-weight: 600;
+    color: #455a64;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.deliveryHistory .counterNo p.headCounter{
+    float: left;
+    width: 100%;
+    color: #99abb4;
+    font-weight: 300;
+    margin: 0px 0 0 0;
+    font-size: 20px;
+    text-align: center;
+    line-height: 21px;
+}
+
+.deliveryHistory .mT-10 {
+    margin-top: 10px !important;
+}
+
+.deliveryHistory .mB-30 {
+    margin-bottom: 20px !important;
+}
+
+.deliveryHistory .c-grey-900, .deliveryHistory .cH-grey-900:hover {
+    color: #313435 !important;
+}
+
+.deliveryHistory .row {
+    --bs-gutter-x: 1.5rem;
+    --bs-gutter-y: 0;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: calc(var(--bs-gutter-y) * -1);
+    margin-right: calc(var(--bs-gutter-x) * -.5);
+    margin-left: calc(var(--bs-gutter-x) * -.5);
+}
+
+.deliveryHistory h4 {
+    font-size: 26px;
+    margin-left: 20px;
+}
+
+.deliveryHistory .row > * {
+    flex-shrink: 0;
+    width: 100%;
+    max-width: 100%;
+    padding-right: calc(var(--bs-gutter-x) * .5);
+    padding-left: calc(var(--bs-gutter-x) * .5);
+    margin-top: var(--bs-gutter-y);
+}
+
+.deliveryHistory .col-md-12 {
+    flex: 0 0 auto;
+    width: 100%;
+}
+
+.deliveryHistory .mB-20 {
+    margin-bottom: 20px !important;
+}
+
+.deliveryHistory .p-20 {
+    padding: 20px !important;
+}
+
+.deliveryHistory .bd {
+    border: 1px solid rgba(0, 0, 0, 0.0625) !important;
+}
+
+.deliveryHistory .bdrs-3 {
+    border-radius: 3px !important;
+}
+
+.deliveryHistory .bgc-white, .bgcH-white:hover {
+    background-color: #ffffff !important;
+}
+
+.deliveryHistory .dataTables_wrapper {
+    position: relative;
+    clear: both;
+    zoom: 1;
+}
+
+.deliveryHistory .dataTables_wrapper {
+    overflow: hidden;
+    padding-bottom: 5px;
+}
+
+.deliveryHistory .table{
+    table-layout: fixed;
+    width: 100%;
+}
+
+#Shipper-IDCol{
+    width: 10%;
+}
+
+#Shipper-UserNameCol{
+    width: 20%;
+}
+
+#Shipper-PhoneCol{
+    width: 10%;
+}
+
+#Shipper-AddressCol{
+    width: 30%;
+}
+
+#Shipper-TimeCol{
+    width: 10%;
+}
+
+#Shipper-StatusCol{
+    width: 13%;
+}
+
+#Shipper-ControlCol{
+    width: 7%;
+}
+
+.deliveryHistory button.btnAccept{
+    border: none;
+    font-size: 15px;
+    font-weight: 500;
+    background-color: transparent;
+    color: green;
+}
