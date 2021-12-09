@@ -21,6 +21,7 @@ const Auth = {
     localStorage.removeItem("access_token");
     localStorage.removeItem("user");
     localStorage.removeItem("isSocial");
+    localStorage.clear();
   },
 
   isValidateToken: function () {

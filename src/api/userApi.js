@@ -6,9 +6,9 @@ const userApi = {
     return axiosClient.post(url, formData);
   },
 
-  loginWithGoogle: (tokenId) => {
+  loginWithGoogle: (formData) => {
     const url = "/user/loginWithGoogle";
-    return axiosClient.post(url, tokenId);
+    return axiosClient.post(url, formData);
   },
 
   getInfo: () => {

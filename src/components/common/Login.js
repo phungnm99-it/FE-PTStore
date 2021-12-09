@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { AuthContext } from "../../AuthContext";
 import { useContext } from "react";
@@ -10,6 +10,7 @@ import Auth from "../../config/auth";
 function Login() {
   const clientId =
     "891104203595-l6kv2m9v9elvinm2ke60cprj5dlul3l1.apps.googleusercontent.com";
+  let flag = false;
   const history = useHistory();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -33,12 +34,37 @@ function Login() {
     }
   };
 
+  useEffect(() => {
+    flag = true;
+  }, []);
+
   const onSuccess = (res) => {
-    console.log(res.tokenId);
+    if (flag) {
+      let formData = new FormData();
+      formData.append("tokenId", res.tokenId.toString());
+      userApi.loginWithGoogle(formData).then((result) => {
+        if (result.code === "401") {
+          alert("Google đang bị lỗi, vui lòng thử lại sau!");
+        } else {
+          Auth.setAccessToken(result.token);
+          authContext.login();
+          document.cookie.split(";").forEach(function (c) {
+            document.cookie = c
+              .replace(/^ +/, "")
+              .replace(
+                /=.*/,
+                "=;expires=" + new Date().toUTCString() + ";path=/"
+              );
+          });
+          history.push("/");
+        }
+      });
+    }
   };
 
   const onFailure = (res) => {
-    console.log(res);
+    alert("Lỗi!");
+    history.push("/login");
   };
 
   return (
@@ -54,9 +80,8 @@ function Login() {
                   buttonText="Đăng nhập với Google"
                   onSuccess={onSuccess}
                   onFailure={onFailure}
-                  cookiePolicy={"single_host_origin"}
                   className="loginGoogleButton"
-                  isSignedIn={true}
+                  isSignedIn={false}
                 />
               </div>
 
