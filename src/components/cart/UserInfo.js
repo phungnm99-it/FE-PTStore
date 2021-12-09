@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from "react";
 import "../../css/cart/UserInfo.css";
-import { getProvinces } from "../../service/provinces-service";
+// import { getProvinces } from "../../service/provinces-service";
 import { useContext } from "react";
 import { AuthContext } from "../../AuthContext";
 import { useHistory } from "react-router-dom";
 import { priceFormat } from "../../utils/priceFormat";
 import axios from "axios";
+import userApi from "../../api/userApi";
 
 function UserInfo() {
   // state tinh, state quan
-  const [provinces, setProvinces] = useState([]);
-  const [districts, setDistrict] = useState([]);
+  // const [provinces, setProvinces] = useState([]);
+  // const [districts, setDistrict] = useState([]);
   const context = useContext(AuthContext);
   const history = useHistory();
 
@@ -23,17 +24,28 @@ function UserInfo() {
   };
 
   useEffect(() => {
+    if (context.user != null) {
+      userApi.getInfo().then((response) => {
+        console.log(response);
+        document.getElementById("address").value = response.data.address;
+        document.getElementById("fullName").value = response.data.fullName;
+        document.getElementById("phoneNumber").value =
+          response.data.phoneNumber;
+        document.getElementById("email").value = response.data.email;
+      });
+    }
+
     // lay tinh tu api
-    getProvinces().then((res) => {
-      setProvinces(res.data);
-      setDistrict(res.data[0].districts);
-    });
+    // getProvinces().then((res) => {
+    //   setProvinces(res.data);
+    //   setDistrict(res.data[0].districts);
+    // });
   }, []);
   // lay quan tu ma tinh
-  const getDistrictFromCode = (code) => {
-    let filter = provinces.filter((x) => x.code.toString() === code);
-    filter.length > 0 ? setDistrict(filter[0].districts) : setDistrict([]);
-  };
+  // const getDistrictFromCode = (code) => {
+  //   let filter = provinces.filter((x) => x.code.toString() === code);
+  //   filter.length > 0 ? setDistrict(filter[0].districts) : setDistrict([]);
+  // };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -41,14 +53,15 @@ function UserInfo() {
       alert("Vui lòng đăng nhập!");
       history.push("/login");
     } else {
-      let province = document.getElementById("SystemCityID");
-      let district = document.getElementById("SystemDistrictID");
-      let address =
-        document.getElementById("address").value +
-        ", " +
-        district.options[district.selectedIndex].text +
-        ", " +
-        province.options[province.selectedIndex].text;
+      // let province = document.getElementById("SystemCityID");
+      // let district = document.getElementById("SystemDistrictID");
+      let address = document.getElementById("address").value;
+      // let address =
+      //   document.getElementById("address").value +
+      //   ", " +
+      //   district.options[district.selectedIndex].text +
+      //   ", " +
+      //   province.options[province.selectedIndex].text;
       let name = document.getElementById("fullName").value;
       let phoneNumber = document.getElementById("phoneNumber").value;
       let productList = context.cart;
@@ -134,10 +147,10 @@ function UserInfo() {
               />
             </div>
             <div className="fillmail">
-              <input placeholder="Email (bắt buộc)" type="text" />
+              <input placeholder="Email (bắt buộc)" id="email" type="text" />
             </div>
             <div className="chooseAddress">
-              <select
+              {/* <select
                 id="SystemCityID"
                 name="SystemCityID"
                 placeholder="Tỉnh/Thành phố"
@@ -146,25 +159,24 @@ function UserInfo() {
                   getDistrictFromCode(e.target.value);
                 }}
               >
-                <option value="">Tỉnh/Thành phố</option>
-                {/* maps tinh thanh option */}
-                {provinces.map((pro, idx) => {
+                <option value="">Tỉnh/Thành phố</option> */}
+              {/* {provinces.map((pro, idx) => {
                   return (
                     <option key={idx} value={pro.code} selected={idx === 0}>
                       {pro.name}
                     </option>
                   );
-                })}
-              </select>
+                })} */}
+              {/* </select> */}
             </div>
             <div className="chooseAddress district">
-              <select
+              {/* <select
                 id="SystemDistrictID"
                 name="SystemDistrictID"
                 placeholder="Quận/Huyện"
                 data-required="1"
-              >
-                {" "}
+              > */}
+              {/* {" "}
                 {districts?.map((dis, idx) => {
                   return (
                     <option
@@ -176,8 +188,8 @@ function UserInfo() {
                       {dis.name}
                     </option>
                   );
-                })}
-              </select>
+                })} */}
+              {/* </select> */}
             </div>
             <div className="filladdress">
               <input
@@ -207,11 +219,11 @@ function UserInfo() {
               <br />
               <b>(Thanh toán khi nhận hàng)</b>
             </button>
-            <button type="button" className="submitonlpay">
+            {/* <button type="button" className="submitonlpay">
               <b>THANH TOÁN ONLINE</b>
               <br />
               <b>(Qua ví PayPal)</b>
-            </button>
+            </button> */}
           </div>
         </div>
       </div>
