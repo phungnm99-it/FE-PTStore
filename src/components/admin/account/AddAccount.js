@@ -2,8 +2,11 @@ import React, { useState, useEffect } from "react";
 import "../../../css/admin/account/AddAccount.css";
 import { getProvinces } from "../../../service/provinces-service";
 import noAvt from "../../../images/no-avt.png";
-
+import { validate } from "../../../utils/validateInput"
 function AddAccount(props) {
+  const [checkPhone, setCheckPhone] = useState(true);
+  const [checkEmail, setCheckEmail] = useState(true);
+  const [checkPassword, setCheckPass] = useState(true);
   // state tinh, state quan
   const [provinces, setProvinces] = useState([]);
   const [districts, setDistrict] = useState([]);
@@ -40,18 +43,30 @@ function AddAccount(props) {
       district.options[district.selectedIndex].text +
       ", " +
       province.options[province.selectedIndex].text;
-    console.log(address);
-    console.log([birthday[1], birthday[2], birthday[0]].join("-"));
-    let formData = new FormData();
-    formData.append("username", username);
-    formData.append("phonenumber", phoneNumber);
-    formData.append("fullname", fullName);
-    formData.append("email", email);
-    formData.append("birthday", birthday);
-    formData.append("gender", gender);
-    formData.append("password", password);  
-    formData.append("address", address);
-    
+    if (
+      checkPhone === false ||
+      phoneNumber.length < 1 ||
+      username.length < 1 ||
+      fullName.length < 1 ||
+      checkEmail === false ||
+      email.length < 1 ||
+      birthday.length < 1 ||
+      password.length < 1 ||
+      document.getElementById("inputAddress").value 
+    ){alert("Vui lòng nhập đúng và đầy đủ thông tin");}
+    else {
+      console.log(address);
+      console.log([birthday[1], birthday[2], birthday[0]].join("-"));
+      let formData = new FormData();
+      formData.append("username", username);
+      formData.append("phonenumber", phoneNumber);
+      formData.append("fullname", fullName);
+      formData.append("email", email);
+      formData.append("birthday", birthday);
+      formData.append("gender", gender);
+      formData.append("password", password);  
+      formData.append("address", address);
+    } 
     
   };
   return (
@@ -83,7 +98,15 @@ function AddAccount(props) {
                     className="form-control"
                     id="inputPhone"
                     placeholder="Số điện thoại"
+                    onChange={(e) =>
+                      validate(0, e.target.value, setCheckPhone)
+                    }
                   />
+                  {checkPhone ? null : (
+                    <p className="messageError">
+                      Vui lòng nhập đúng số điện thoại
+                    </p>
+                  )}
                 </div>
               </div>
               <div className="mb-3">
@@ -106,7 +129,13 @@ function AddAccount(props) {
                   className="form-control"
                   id="inputEmail"
                   placeholder="Email"
+                  onChange={(e) =>
+                    validate(1, e.target.value, setCheckEmail)
+                  }
                 />
+                {checkEmail ? null : (
+                    <p className="messageError">Vui lòng nhập đúng Email</p>
+                )}
               </div>
               <div className="row">
                 <div className="mb-3 col-md-6">
@@ -184,6 +213,9 @@ function AddAccount(props) {
                     className="form-control"
                     id="inputPassword"
                     placeholder="Mật khẩu"
+                    onChange={(e) =>
+                      validate(2, e.target.value, setCheckPass)
+                    }
                   />
                 </div>
                 <div className="mb-3 col-md-6">
@@ -195,7 +227,15 @@ function AddAccount(props) {
                     className="form-control"
                     id="inputPasswordAgain"
                     placeholder="Nhập lại mật khẩu"
+                    onChange={(e) =>
+                      validate(2, e.target.value, setCheckPass)
+                    }
                   />
+                  {checkPassword ? null : (
+                      <p className="messageError">
+                        Nhập lại password không trùng khớp.
+                      </p>
+                  )}
                 </div>
               </div>
               <div className="row">

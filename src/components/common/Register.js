@@ -54,11 +54,12 @@ function Register() {
       checkEmail === false ||
       email.length < 1 ||
       birthday.length < 1 ||
-      address.length < 1 ||
+      document.getElementById("inputAddress").value ||
       password.length < 1
     ) {
       alert("Vui lòng nhập đúng và đầy đủ thông tin");
     } else {
+      console.log(address);
       console.log([birthday[1], birthday[2], birthday[0]].join("-"));
       let formData = new FormData();
       formData.append("username", username);

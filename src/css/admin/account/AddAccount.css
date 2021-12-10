@@ -146,3 +146,9 @@
     width: 120px;
     margin-left: 40px;
 }
+
+.addAccount .messageError{
+    color: red;
+    margin-top: 5px;
+    font-size: 13px;
+}
