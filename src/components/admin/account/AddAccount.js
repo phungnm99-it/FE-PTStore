@@ -67,7 +67,6 @@ function AddAccount(props) {
       formData.append("password", password);  
       formData.append("address", address);
     } 
-    
   };
   return (
     <div className="addAccount">

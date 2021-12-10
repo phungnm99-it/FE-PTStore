@@ -3,16 +3,21 @@ import '../../../css/admin/product/EditPrice.css'
 function EditPrice (){
     const handleSubmit = (e) => {
         e.preventDefault();
-
         let id = document.getElementById("inputIDProduct").value;
         let name = document.getElementById("inputNameProduct").value;
         let price = document.getElementById("inputPriceProduct").value;
         let currentPrice = document.getElementById("inputCurrentPriceProduct").value;
-        let formData = new FormData();
-        formData.append("Id", id);
-        formData.append("Name", name);
-        formData.append("Price", price);
-        formData.append("CurrentPrice", currentPrice);
+        if(
+            price.length < 1 ||
+            currentPrice.length < 1
+        ){alert("Vui lòng nhập đúng và đầy đủ thông tin");}
+        else{
+            let formData = new FormData();
+            formData.append("Id", id);
+            formData.append("Name", name);
+            formData.append("Price", price);
+            formData.append("CurrentPrice", currentPrice);
+        }      
     };
     return (
         <div>

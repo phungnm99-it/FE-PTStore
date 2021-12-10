@@ -9,12 +9,19 @@ function EditProductStatus () {
         let currentStock = document.getElementById("inputCurrentQuantity").value;
         let status = document.getElementById("inputStatusProduct").value;
         let featuredProduct = document.getElementById("checkbox-featuredProduct").value;
-        let formData = new FormData();
-        formData.append("Id", id);
-        formData.append("Name", name);
-        formData.append("Stock", currentStock);
-        formData.append ("Status", status);
-        formData.append("FeaturedProduct", featuredProduct);   
+
+        if(
+            currentStock.length < 1 ||
+            status.length < 1 
+        ){alert("Vui lòng nhập đúng và đầy đủ thông tin");}
+        else{
+            let formData = new FormData();
+            formData.append("Id", id);
+            formData.append("Name", name);
+            formData.append("Stock", currentStock);
+            formData.append ("Status", status);
+            formData.append("FeaturedProduct", featuredProduct);  
+        }    
     };
     return (
         <div>

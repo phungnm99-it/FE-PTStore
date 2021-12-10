@@ -13,17 +13,22 @@ function EditOrder () {
         let address = document.getElementById("inputAddress").value;
         let totalPrice = document.getElementById("inputTotalPrice").value;
         let paymentMethod = document.getElementById("inputPaymentMethod").value;
+        if(
+            status.length < 1 
+        ){alert("Vui lòng nhập đúng và đầy đủ thông tin");}
+        else{
+            let formData = new FormData();
+            formData.append("Id", id);
+            formData.append("DateOrder", dateOrder);
+            formData.append("Status", status);
+            formData.append("UserName", userName);
+            formData.append("PhoneNumber", phoneNumber);
+            formData.append("Email", email);
+            formData.append("Address", address);
+            formData.append("TotalPrice", totalPrice);
+            formData.append("PaymentMethod", paymentMethod);
+        }
         
-        let formData = new FormData();
-        formData.append("Id", id);
-        formData.append("DateOrder", dateOrder);
-        formData.append("Status", status);
-        formData.append("UserName", userName);
-        formData.append("PhoneNumber", phoneNumber);
-        formData.append("Email", email);
-        formData.append("Address", address);
-        formData.append("TotalPrice", totalPrice);
-        formData.append("PaymentMethod", paymentMethod);
     };
     return (
         <div>

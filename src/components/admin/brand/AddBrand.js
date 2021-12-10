@@ -14,10 +14,8 @@ function AddBrand(props) {
       // await
       props.switch(8);
     } else {
-      alert("cl");
+      alert("Vui lòng nhập đầy đủ thông tin");
     }
-
-    history.push("/admin");
   };
   return (
     <div>
