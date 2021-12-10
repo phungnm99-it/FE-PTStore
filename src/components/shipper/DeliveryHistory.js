@@ -1,6 +1,6 @@
 import React from 'react';
 import "../../css/shipper/DeliveryHistory.css"
-function DeliveryHistory () {
+function DeliveryHistory (props) {
     return (
         <div>
             <div className="deliveryHistory">
@@ -62,7 +62,7 @@ function DeliveryHistory () {
                                                 <td>
                                                 <button
                                                     className="btnAccept"
-                                                    
+                                                    onClick={() => props.switch(6)}
                                                 >Chi tiết
                                                 </button>
                                                 

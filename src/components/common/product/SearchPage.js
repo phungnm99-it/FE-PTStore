@@ -9,7 +9,8 @@ import ProductFrame from "../../common/ProductFrame";
 import productApi from "../../../api/productApi";
 import Pagination from "react-pagination-library";
 import "react-pagination-library/build/css/index.css";
-
+import "../../../css/common/SearchPage.css"
+import "../../../css/common/RecommendProduct.css"
 function SearchPage() {
   window.scrollTo(0, 0);
   const { filter } = useParams();
@@ -74,7 +75,9 @@ function SearchPage() {
         </div>
       </section>
       <section>
-        <div>Tìm được {count} điện thoại</div>
+        <div>
+          <p className="countProduct">Tìm được {count} điện thoại</p>
+        </div>
       </section>
       <div className="products">
         <div className="container">
