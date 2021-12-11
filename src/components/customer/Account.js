@@ -133,10 +133,10 @@ function Account(props) {
                   </a>
                 </li>
                 <li>
-                  <Link to="/home/logout">
-                    <i class="fas fa-sign-out-alt"></i>
+                  <a>
+                    <i className="fas fa-sign-out-alt"></i>
                     <span>Đăng xuất</span>
-                  </Link>
+                  </a>
                 </li>
               </ul>
             </nav>

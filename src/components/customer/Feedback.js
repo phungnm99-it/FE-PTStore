@@ -68,7 +68,7 @@ function Feedback() {
                                 id="main-contact-form"
                                 className="contact-form row"
                               >
-                                <div class="form-group col-md-6">
+                                <div class="form-group col-md-12">
                                   <input
                                     id="fullName"
                                     type="text"

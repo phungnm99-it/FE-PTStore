@@ -6,11 +6,15 @@ import Pagination from "react-pagination-library";
 import "react-pagination-library/build/css/index.css";
 
 import { priceFormat } from "../../../utils/priceFormat";
+import DeleteProduct from "./DeleteProduct";
+import Modal from "react-modal/lib/components/Modal";
+import { customStyles } from "../../../utils/cssUtils";
 
 function Product(props) {
   const [products, setProducts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPage, setTotalPage] = useState(1);
+  const [modal, setModal] = useState(false);
   useEffect(() => {
     productApi.getAll().then((res) => {
       if (currentPage * 5 - 1 > res.data.length) {
@@ -134,7 +138,7 @@ function Product(props) {
                                     <i class="fas fa-list"></i>
                                   </button>
                                   <button
-                                    onClick={() => props.switch(33)}
+                                    onClick={() => setModal(true)}
                                     className="iconDelete"
                                   >
                                     <i className="fas fa-backspace"></i>
@@ -164,6 +168,9 @@ function Product(props) {
           </div>
         </div>
       </section>
+      <Modal isOpen={modal} style={customStyles}>
+        <DeleteProduct onCLose={() => setModal(false)} />
+      </Modal>
     </div>
   );
 }

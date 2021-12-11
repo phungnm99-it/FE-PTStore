@@ -1,11 +1,20 @@
 import React from "react";
 import "../../../css/admin/account/DeleteAccount.css";
-
-function DeleteAccount() {
+import iconClose from "../../../images/iconClose.png"
+function DeleteAccount(props) {
   return (
     <div>
       <div className="deleteAccount">
-          <div className="form">
+        <div className="jquery-modal blocker current">
+          <div className="container modal modal-deleteAccount">
+            <div className="deleteAccount-form">
+              <img
+                alt="iconClose"
+                className="icon-close"
+                src={iconClose}
+                onClick={() => props.onCLose()}
+              />
+              <div className="form">
               <p>Xác nhận KHÓA tài khoản có mã NH5ISDO?</p>
               <h6>
                 Sau khi thực hiện thao tác Khóa, tài khoản sẽ bị khóa và chuyển
@@ -24,7 +33,10 @@ function DeleteAccount() {
                   </button>
                 </div>
               </div>
+              </div>
+            </div>
           </div>
+        </div>          
       </div>
     </div>
   );

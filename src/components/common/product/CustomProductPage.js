@@ -101,7 +101,7 @@ function CustomProductPage() {
                 onClick={() => history.push("/dienthoai")}
                 data-index="0"
                 className={
-                  "box-quicklink__item bd-radius quicklink-logo" +
+                  "box-quicklink__item bd-radius quicklink-logo textAllProduct" +
                   (currentBrand === "all" && " active-brand")
                 }
               >

@@ -4,12 +4,15 @@ import brandApi from "../../../api/brandApi";
 import Pagination from "react-pagination-library";
 import "react-pagination-library/build/css/index.css";
 import "../../../css/admin/paging.css"
+import DeleteBrand from "./DeleteBrand";
+import { customStyles } from "../../../utils/cssUtils";
+import Modal from "react-modal/lib/components/Modal";
 function Brand(props) {
   window.scrollTo(0, 0);
   const [brands, setBrands] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPage, setTotalPage] = useState(1);
-
+  const [modal, setModal] = useState(false);
   useEffect(() => {
     brandApi.getAll().then((res) => {
       if (currentPage * 5 - 1 > res.data.length) {
@@ -108,7 +111,7 @@ function Brand(props) {
                                     <i className="fas fa-list"></i>
                                   </button>
                                   <button
-                                    onClick={() => props.switch(32)}
+                                    onClick={() => setModal(true)}
                                     className="iconDelete"
                                   >
                                     <i className="fas fa-backspace"></i>
@@ -154,6 +157,9 @@ function Brand(props) {
           </div>
         </div>
       </section>
+      <Modal isOpen={modal} style={customStyles}>
+        <DeleteBrand onCLose={() => setModal(false)} />
+      </Modal>
     </div>
   );
 }

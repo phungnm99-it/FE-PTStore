@@ -60,7 +60,7 @@ function Contact() {
                       asp-action="LienHe"
                       method="post"
                     >
-                      <div className="form-group col-md-6">
+                      <div className="form-group col-md-12">
                         <input
                           type="text"
                           name="phone"

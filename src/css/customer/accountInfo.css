@@ -187,6 +187,10 @@ section.account .body-content h1 {
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
+.account .accountInfo .form-controls .controls .inputBirthday{
+  width: 40% !important;
+}
+
 .account .accountInfo .form-controls .controls select {
   display: block;
   width: 100%;

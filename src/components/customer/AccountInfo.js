@@ -152,7 +152,7 @@ function AccountInfo() {
                         <div className="form-controls">
                           <label>Ngày tháng năm sinh:</label>
                           <div className="controls">
-                            <input type="date" id="UserBirthDate" />
+                            <input className="form-input inputBirthday" type="date" id="UserBirthDate" />
                           </div>
                         </div>
                         <div className="form-controls">
