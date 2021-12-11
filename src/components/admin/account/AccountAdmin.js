@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "../../../css/admin/account/Account.css";
 import Pagination from "react-pagination-library";
 import userApi from "../../../api/userApi";
+import { timeFormat } from "../../../utils/dateUtils";
 function AccountAdmin(props) {
   const [admins, setAdmins] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -102,7 +103,7 @@ function AccountAdmin(props) {
                                 <td>{item.fullName}</td>
                                 <td>{item.email}</td>
                                 <td>{item.phoneNumber}</td>
-                                <td>{item.birthday.split("T")[0]}</td>
+                                <td>{timeFormat(item.birthday)}</td>
                                 <td>{item.gender}</td>
                                 <td>{item.address}</td>
                                 <td>

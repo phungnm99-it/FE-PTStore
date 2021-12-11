@@ -14,10 +14,7 @@ function OrderReceived () {
             <h4>ĐƠN HÀNG ĐANG THEO DÕI</h4>
                 <OrderItem/>
                 <OrderItem/>
-            </div>
-            <Modal isOpen={model} style={customStyles}>
-                <OrderDetail onCLose={() => setModel(false)} />
-            </Modal>
+            </div>            
         </div>
     );
 }

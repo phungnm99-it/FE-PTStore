@@ -1,13 +1,64 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
+import userApi from '../../../api/userApi';
+import { AuthContext } from '../../../AuthContext';
+import Auth from '../../../config/auth';
 import "../../../css/admin/adminInfo/ChangePass.css"
 function ChangePass () {
     const [checkPassword, setCheckPass] = useState(true);
+    const history = useHistory();
+    const context = useContext(AuthContext);
 
     const validate = () => {
       let password = document.getElementById("NewPassword")?.value || '';
       let rePass = document.getElementById("inputConfirmPass")?.value || '';
       setCheckPass(password === rePass);
     };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+    
+        let oldPassword = document.getElementById("OldPassword").value;
+        if (oldPassword === "") alert("Vui lòng nhập mật khẩu cũ !");
+        else {
+          let newPassword = document.getElementById("NewPassword").value;
+          if (newPassword === "") {
+            alert("Vui lòng nhập mật khẩu mới!");
+          } else {
+            let newPasswordAgain =
+              document.getElementById("NewPasswordAgain").value;
+            if (newPasswordAgain === "") {
+              alert("Vui lòng nhập nhập lại mật khẩu!");
+            } else {
+              if (newPassword !== newPasswordAgain) {
+                alert("Mật khẩu mới và nhập lại mật khẩu phải giống nhau!");
+              } else {
+                let regex =
+                  /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/;
+                if (regex.test(newPassword) === false) {
+                  alert(
+                    "Mật khẩu mới không hợp lệ! Mật khẩu phải có 8 kí tự trở lên, có ít nhất 1 kí tự thường, 1 kí tự in hoa, 1 ký tự đặc biệt và 1 kí tự số!"
+                  );
+                } else {
+                  let formData = new FormData();
+                  formData.append("OldPassword", oldPassword);
+                  formData.append("NewPassword", newPassword);
+                  userApi.changePassword(formData).then((res) => {
+                    if (res.code === "401") {
+                      alert("Mật khẩu cũ không chính xác!");
+                    } else {
+                      alert("Đổi mật khẩu thành công! Vui lòng đăng nhập lại!");
+                      context.logout();
+                      Auth.logout();
+                      history.push("/login");
+                    }
+                  });
+                }
+              }
+            }
+          }
+        }
+      };
     return (
         <div>
             <div className="changePassAdmin">
@@ -25,9 +76,8 @@ function ChangePass () {
                             <input
                             type="password"
                             className="form-control"
-                            id="inputCurrentPass"
-                            placeholder="Nhập mật khẩu cũ"
-                            
+                            id="OldPassword"
+                            placeholder="Nhập mật khẩu cũ" 
                             />
                         </div>
                         <div className="mb-3">
@@ -37,7 +87,7 @@ function ChangePass () {
                             <input
                             type="password"
                             className="form-control"
-                            id="inputNewPass"
+                            id="NewPassword"
                             placeholder="Nhập mật khẩu mới"
                             onChange={(e) => validate()}
                             />
@@ -49,7 +99,7 @@ function ChangePass () {
                             <input
                             type="password"
                             className="form-control"
-                            id="inputConfirmPass"
+                            id="NewPasswordAgain"
                             placeholder="Nhập lại mật khẩu mới"
                             onChange={(e) => validate()}
                             />
@@ -57,7 +107,7 @@ function ChangePass () {
                         {checkPassword ? null : <p className="messageError">Nhập lại password không trùng khớp.</p>}
 
                         <div className="mb-3">
-                            <button type="submit" className="btn btn-primary btn-color">
+                            <button type="submit" className="btn btn-primary btn-color" onClick={(e) => handleSubmit(e)}>
                             Đổi mật khẩu
                             </button>
                         </div>

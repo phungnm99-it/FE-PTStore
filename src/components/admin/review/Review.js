@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import reviewApi from "../../../api/reviewApi";
 import "../../../css/admin/review/Review.css";
 import Pagination from "react-pagination-library";
+import { timeFormat } from "../../../utils/dateUtils";
 function Review(props) {
   const [reviews, setReviews] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -92,7 +93,7 @@ function Review(props) {
                                 <td>{item.productName}</td>
                                 <td>{item.content}</td>
                                 <td>
-                                  {new Date(item.reviewTime).toDateString()}
+                                  {timeFormat(item.reviewTime)}
                                 </td>
                                 <td>
                                   <button

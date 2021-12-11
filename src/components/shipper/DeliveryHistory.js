@@ -1,6 +1,11 @@
-import React from 'react';
+import React,{useState} from 'react';
+import Modal from 'react-modal/lib/components/Modal';
 import "../../css/shipper/DeliveryHistory.css"
+import { customStyles } from '../../utils/cssUtils';
+import OrderHistoryDetail from './OrderHistoryDetail';
+
 function DeliveryHistory (props) {
+    const [model, setModel] = useState(false);
     return (
         <div>
             <div className="deliveryHistory">
@@ -62,7 +67,7 @@ function DeliveryHistory (props) {
                                                 <td>
                                                 <button
                                                     className="btnAccept"
-                                                    onClick={() => props.switch(6)}
+                                                    onClick={() => setModel(true)}
                                                 >Chi tiết
                                                 </button>
                                                 
@@ -78,6 +83,10 @@ function DeliveryHistory (props) {
                     </div>
                 </div>
             </div>
+
+            <Modal isOpen={model} style={customStyles}>
+                <OrderHistoryDetail  onCLose={() => setModel(false)} />
+            </Modal>
         </div>
     );
 }

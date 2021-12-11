@@ -1,7 +1,18 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
+import userApi from '../../api/userApi';
 import "../../css/shipper/ShipperInfo.css"
 import noAvt from "../../images/no-avt.png"
+import { timeFormat } from '../../utils/dateUtils';
+
 function InfoShipper (props) {
+    const [info, setInfo] = useState({});
+    useEffect (() => {
+        userApi.getInfo().then((response) => {
+            console.log(response.data);
+            // debugger
+            setInfo(response.data);
+        });
+    },[]);
     return (
         <div>
             <div className="accountInfo">
@@ -17,7 +28,7 @@ function InfoShipper (props) {
                                 <div className="list-left">
                                 <ul className="nav">
                                     <li>Mã tài khoản:</li>
-                                    <li>Ngày tạo tài khoản:</li>
+                                    {/* <li>Ngày tạo tài khoản:</li> */}
                                     <li>Tên đăng nhập:</li>
                                     <li>Họ và tên:</li>
                                     <li>Email:</li>
@@ -32,16 +43,15 @@ function InfoShipper (props) {
                             <div className="col-sm-7">
                                 <div className="list-right">
                                 <ul className="nav">
-                                    <li>HIDSF890e30</li>
-                                    <li>29/11/2021</li>
-                                    <li>tienphan</li>
-                                    <li>Phan Nguyễn Thủy Tiên</li>
-                                    <li>thuytienpn106@gmail.com</li>
-                                    <li>0858679912</li>
-                                    <li>06/10/1999</li>
-                                    <li>Nữ</li>
-                                    <li>264 đường Linh Trung, TP.Thủ Đức, TPHCM</li>
-                                    
+                                    <li>{info.id}</li>
+                                   {/*  <li>29/11/2021</li> */}
+                                    <li>{info.username}</li>
+                                    <li>{info.fullName}</li>
+                                    <li>{info.email}</li>
+                                    <li>{info.phoneNumber}</li>
+                                    <li>{timeFormat(info.birthday)}</li>
+                                    <li>{info.gender}</li>
+                                    <li>{info.address}</li> 
                                 </ul>
                                 </div>
                             </div>
@@ -50,7 +60,7 @@ function InfoShipper (props) {
                         <div className="col-sm-3">
                             <img
                             className="align-self-center img-fluid"
-                            src={noAvt}
+                            src={info.imageUrl || noAvt}
                             ></img>
                         </div>
                         </div>

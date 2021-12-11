@@ -59,11 +59,9 @@ function MenuShipper () {
           case 3:
               return <EditInfo/>;
           case 4: 
-              return <OrderReceived />;
+              return <OrderReceived switch={(e) => setForm(e)}/>;
           case 5:
               return <DeliveryHistory switch={(e) => setForm(e)}/>;
-          case 6:
-              return <OrderDetail/>
           default:
             return null;
         }

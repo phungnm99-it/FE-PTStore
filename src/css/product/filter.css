@@ -51,3 +51,7 @@
   color: black;
   font-weight: 400;
 }
+
+.filter .facet{
+  width: 120px;
+}

@@ -1,6 +1,10 @@
-import React from 'react';
+import React, {useState} from 'react';
+import Modal from 'react-modal/lib/components/Modal';
 import "../../css/shipper/OderItem.css"
+import { customStyles } from '../../utils/cssUtils';
+import OrderDetail from './OrderDetail';
 function OrderItem () {
+    const [model, setModel] = useState(false);
     return (
         <div>
             <div className= "orderItem">
@@ -8,7 +12,7 @@ function OrderItem () {
                     <div className="row">
                         <div className="col-sm-8">
                             <div className="left-OrderItem">
-                            <p className="textIDOrder">
+                            <p className="textIDOrder" onClick={() => setModel(true)}>
                              HRHNDI99474
                             </p>
                             <p className="labelOrder">Ngày đặt:
@@ -36,6 +40,9 @@ function OrderItem () {
                     </div>
                 </div>
             </div>
+            <Modal isOpen={model} style={customStyles}>
+                <OrderDetail  onCLose={() => setModel(false)} />
+            </Modal>
         </div>
     );
 }
