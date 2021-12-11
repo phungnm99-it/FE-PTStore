@@ -1,4 +1,10 @@
-import React, { useState, useRef, useEffect, useContext, useParams } from "react";
+import React, {
+  useState,
+  useRef,
+  useEffect,
+  useContext,
+  useParams,
+} from "react";
 import "../../css/admin/Menu.css";
 import "../../css/admin/Header.css";
 import DropDown from "./common/DropDown";
@@ -48,7 +54,6 @@ import { useHistory } from "react-router-dom";
 import userApi from "../../api/userApi";
 
 function Admin(props) {
-  
   const context = useContext(AdminContext);
   const history = useHistory();
   const [form, setForm] = useState(props.form || 0);
@@ -79,7 +84,7 @@ function Admin(props) {
   const getImg = async (event) => {
     const file = event.target.files[0];
     const base64 = await convertBase64(file);
-    
+
     let formData = new FormData();
     formData.append("image", file);
     userApi.updateAvatar(formData).then((res) => {
@@ -137,7 +142,7 @@ function Admin(props) {
       case 14:
         return <ProductStatus switch={(e) => setForm(e)} />;
       case 15:
-        return <AddProduct />;
+        return <AddProduct switch={(e) => setForm(e)} />;
       case 16:
         return <EditProduct />;
       case 17:

@@ -56,6 +56,11 @@ const productApi = {
     const url = "/product/name=" + name;
     return axiosClient.get(url);
   },
+
+  create: (formData) => {
+    const url = "/product/create";
+    return axiosClient.post(url, formData);
+  },
 };
 
 export default productApi;
