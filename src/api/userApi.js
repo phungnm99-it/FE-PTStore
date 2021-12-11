@@ -60,6 +60,11 @@ const userApi = {
     const url = "/user/getAll";
     return axiosClient.get(url);
   },
+
+  updateInfo: (formData) => {
+    const url = "/user/update";
+    return axiosClient.post(url, formData);
+  },
 };
 
 export default userApi;

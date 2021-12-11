@@ -6,6 +6,7 @@ import userApi from "../../api/userApi";
 import Modal from "react-modal";
 import { customStyles } from "../../utils/cssUtils";
 import Auth from "../../config/auth";
+import { timeFormatInputUser } from "../../utils/dateUtils";
 
 function AccountInfo() {
   const [modalIsOpen, setIsOpen] = useState(false);
@@ -13,7 +14,6 @@ function AccountInfo() {
   // const [provinces, setProvinces] = useState([]);
   // const [districts, setDistrict] = useState([]);
   const [info, setInfo] = useState({});
-  const [name, setName] = useState("");
   useEffect(() => {
     // lay tinh tu api
     // getProvinces().then((res) => {
@@ -22,9 +22,10 @@ function AccountInfo() {
     // });
 
     userApi.getInfo().then((response) => {
-      console.log(response.data);
-      document.getElementById("UserBirthDate").value =
-        response.data.birthday.split("T")[0];
+      console.log(timeFormatInputUser(response.data.birthday));
+      document.getElementById("UserBirthDate").value = timeFormatInputUser(
+        response.data.birthday
+      );
       setInfo(response.data);
 
       if (response.data.gender === "Nam") {
@@ -32,6 +33,9 @@ function AccountInfo() {
       } else {
         document.getElementById("Female").checked = true;
       }
+
+      document.getElementById("Address").value = response.data.address;
+      document.getElementById("FullName").value = response.data.fullName;
     });
   }, []);
   // lay quan tu ma tinh
@@ -39,6 +43,37 @@ function AccountInfo() {
   //   let filter = provinces.filter((x) => x.code.toString() === code);
   //   filter.length > 0 ? setDistrict(filter[0].districts) : setDistrict([]);
   // };
+
+  const handleChangeInfo = (e) => {
+    e.preventDefault();
+
+    let fullName = document.getElementById("FullName").value;
+    let gender = document.querySelector('input[name="sex"]:checked').value;
+    let birthday = document.getElementById("UserBirthDate").value;
+    let address = document.getElementById("Address").value;
+
+    if (fullName === "") {
+      alert("Họ và tên không được để trống!");
+    } else {
+      if (address === "") {
+        alert("Địa chỉ không được để trống!");
+      } else {
+        let formData = new FormData();
+        formData.append("FullName", fullName);
+        formData.append("Gender", gender);
+        formData.append("Birthday", birthday);
+        formData.append("Address", address);
+
+        userApi.updateInfo(formData).then((res) => {
+          if (res.code === "401") {
+            alert("Đổi thông tin không thành công!");
+          } else {
+            alert("Đổi thông tin thành công!");
+          }
+        });
+      }
+    }
+  };
 
   return (
     <div>
@@ -76,8 +111,6 @@ function AccountInfo() {
                             <input
                               className="form-input"
                               type="text"
-                              value={info.fullName}
-                              onChange={(e) => setName(e.target.value)}
                               name="FullName"
                               id="FullName"
                               placeholder="Họ và tên"
@@ -142,7 +175,7 @@ function AccountInfo() {
                               type="radio"
                               id="Female"
                               name="sex"
-                              value="Nu"
+                              value="Nữ"
                             />
                              {" "}
                             <label className="textFemale" for="css">
@@ -212,7 +245,6 @@ function AccountInfo() {
                             <input
                               className="form-input"
                               type="text"
-                              value={info.address}
                               name="Address"
                               id="Address"
                               placeholder="Địa chỉ *"
@@ -224,7 +256,10 @@ function AccountInfo() {
                         <div className="form-controls">
                           <div className="controls submit-controls">
                             <div className="col-md-10">
-                              <button className="btn-editInfo" type="submit">
+                              <button
+                                className="btn-editInfo"
+                                onClick={(e) => handleChangeInfo(e)}
+                              >
                                 CẬP NHẬT
                               </button>
                             </div>
