@@ -1,7 +1,17 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import "../../../css/admin/adminInfo/AdminInfo.css"
 import noAvt from "../../../images/no-avt.png"
+import userApi from "../../../api/userApi"
+import { timeFormat } from '../../../utils/dateUtils';
 function AdminInfo (props) {
+    const [info, setInfo] = useState({});
+    useEffect (() => {
+        userApi.getInfo().then((response) => {
+            console.log(response.data);
+            // debugger
+            setInfo(response.data);
+        });
+    },[]);
     return (
         <div>
             <div className="accountInfo">
@@ -24,26 +34,25 @@ function AdminInfo (props) {
                                     <li>Số điện thoại:</li>
                                     <li>Ngày sinh:</li>
                                     <li>Giới tính</li>
-                                    <li>Địa chỉ:</li>
-                                    
+                                    <li>Địa chỉ:</li>     
                                 </ul>
                                 </div>
                             </div>
                             <div className="col-sm-7">
-                                <div className="list-right">
-                                <ul className="nav">
-                                    <li>HIDSF890e30</li>
-                                    <li>29/11/2021</li>
-                                    <li>tienphan</li>
-                                    <li>Phan Nguyễn Thủy Tiên</li>
-                                    <li>thuytienpn106@gmail.com</li>
-                                    <li>0858679912</li>
-                                    <li>06/10/1999</li>
-                                    <li>Nữ</li>
-                                    <li>264 đường Linh Trung, TP.Thủ Đức, TPHCM</li>
-                                    
-                                </ul>
-                                </div>
+                            
+                            <div className="list-right">
+                                        <ul className="nav">
+                                            <li>{info.id}</li>
+                                            <li>29/11/2021</li>
+                                            <li>{info.username}</li>
+                                            <li>{info.fullName}</li>
+                                            <li>{info.email}</li>
+                                            <li>{info.phoneNumber}</li>
+                                            <li>{timeFormat(info.birthday)}</li>
+                                            <li>{info.gender}</li>
+                                            <li>{info.address}</li>   
+                                        </ul>
+                                    </div>  
                             </div>
                             </div>
                         </div>
