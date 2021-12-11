@@ -32,11 +32,11 @@ function EndHeader() {
           </div>
           <div className="mainmenu pull-left">
             <div className="navbarmenu">
-              <DropDownItem key="dropdown" title="Điện thoại" link={brand} />
-              {/* <DropDownItem title="Tìm theo hãng" link={[{name: 'link 1', url: ''},{name: 'link 3', url: ''}]}/> */}
-              <Link to="/hot" className="buttontinh">
-                Sản phẩm HOT
+              <Link to="/dienthoai" className="buttontinh">
+                Tất cả điện thoại
               </Link>
+              <DropDownItem key="dropdown" title="Thương hiệu" link={brand} />
+              {/* <DropDownItem title="Tìm theo hãng" link={[{name: 'link 1', url: ''},{name: 'link 3', url: ''}]}/> */}
               <Link to="/sale" className="buttontinh">
                 CT Khuyến mãi
               </Link>
@@ -102,7 +102,7 @@ class DropDownItem extends Component {
           ref={this.dropRef}
         >
           {this.props.link.map((item, index) => {
-            let lk = "/brand/" + item.name;
+            let lk = "/dienthoai/brand=" + item.name;
             return (
               <li style={{ listStyle: "none" }} key={index}>
                 <Link to={lk}>{item.name}</Link>
