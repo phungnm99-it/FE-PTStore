@@ -3,11 +3,14 @@ import "../../../css/admin/account/Account.css";
 import Pagination from "react-pagination-library";
 import userApi from "../../../api/userApi";
 import { timeFormat } from "../../../utils/dateUtils";
+import Modal from "react-modal/lib/components/Modal";
+import { customStyles } from "../../../utils/cssUtils";
+import DeleteAccount from "./DeleteAccount";
 function AccountAdmin(props) {
   const [admins, setAdmins] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPage, setTotalPage] = useState(1);
-  
+  const [modal, setModal] = useState(false);
 
   useEffect(() => {
     userApi.getAllUsers().then((res) => {let filterData = res.data.filter((ac) => ac.roleName === "Admin")
@@ -120,7 +123,7 @@ function AccountAdmin(props) {
                                     <i class="fas fa-list"></i>
                                   </button>
                                   <button
-                                    onClick={() => props.switch(31)}
+                                    onClick={() => setModal(true)}
                                     className="iconDelete"
                                   >
                                     <i className="fas fa-backspace"></i>
@@ -150,6 +153,9 @@ function AccountAdmin(props) {
           </div>
         </div>
       </div>
+      <Modal isOpen={modal} style={customStyles}>
+        <DeleteAccount onCLose={() => setModal(false)} />
+      </Modal>
     </div>
   );
 }

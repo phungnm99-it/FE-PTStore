@@ -21,10 +21,14 @@
   border: 1px solid #ced4da;
   padding: 5px 10px;
   border-radius: 12px;
-  width: auto;
+  width: 80px;
   height: auto;
   margin-right: 5px;
   margin-top: 10px;
+}
+
+.filter .right label{
+  width: 100px !important;
 }
 
 .filter .filter-total ul {

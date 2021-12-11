@@ -3,11 +3,14 @@ import '../../../css/admin/account/Account.css'
 import userApi from "../../../api/userApi";
 import Pagination from "react-pagination-library";
 import { timeFormat } from '../../../utils/dateUtils';
+import Modal from 'react-modal/lib/components/Modal';
+import { customStyles } from '../../../utils/cssUtils';
+import DeleteAccount from './DeleteAccount';
 function AccountUser (props) {
     const [admins, setAdmins] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPage, setTotalPage] = useState(1);
-    
+    const [modal, setModal] = useState(false);
 
     useEffect(() => {
         userApi.getAllUsers().then((res) => {let filterData = res.data.filter((ac) => ac.roleName === "User")
@@ -25,7 +28,7 @@ function AccountUser (props) {
     };
     return (
         <div>
-                <div className="pageAdmin">
+            <div className="pageAdmin">
                     <div className="account">
                     <div className="account-management">
                         <div className="container-fluid">
@@ -116,7 +119,7 @@ function AccountUser (props) {
                                                 <i class="fas fa-list"></i>
                                             </button>
                                             <button
-                                                onClick={() => props.switch(31)}
+                                                onClick={() => setModal(true)}
                                                 className="iconDelete"
                                             >
                                                 <i className="fas fa-backspace"></i>
@@ -146,7 +149,10 @@ function AccountUser (props) {
                         </div>
                     </div>
                     </div>
-                </div>
+            </div>
+            <Modal isOpen={modal} style={customStyles}>
+                <DeleteAccount onCLose={() => setModal(false)} />
+            </Modal>
         </div>
     );
 }

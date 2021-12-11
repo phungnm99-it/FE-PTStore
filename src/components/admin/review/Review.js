@@ -3,10 +3,14 @@ import reviewApi from "../../../api/reviewApi";
 import "../../../css/admin/review/Review.css";
 import Pagination from "react-pagination-library";
 import { timeFormat } from "../../../utils/dateUtils";
+import DeleteReview from "./DeleteReview";
+import Modal from "react-modal/lib/components/Modal";
+import { customStyles } from "../../../utils/cssUtils";
 function Review(props) {
   const [reviews, setReviews] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPage, setTotalPage] = useState(1);
+  const [modal, setModal] = useState(false);
   useEffect(() => {
     reviewApi.getAll().then((res) => {
       if (currentPage * 5 - 1 > res.data.length) {
@@ -102,7 +106,9 @@ function Review(props) {
                                   >
                                     <i className="fas fa-list"></i>
                                   </button>
-                                  <button className="iconDelete">
+                                  <button
+                                    onClick={() => setModal(true)}
+                                   className="iconDelete">
                                     <i className="fas fa-backspace"></i>
                                   </button>
                                 </td>
@@ -130,6 +136,9 @@ function Review(props) {
           </div>
         </div>
       </section>
+      <Modal isOpen={modal} style={customStyles}>
+        <DeleteReview onCLose={() => setModal(false)} />
+      </Modal>
     </div>
   );
 }

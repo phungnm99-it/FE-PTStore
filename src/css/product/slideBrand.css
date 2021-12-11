@@ -57,3 +57,8 @@
 .active-brand {
   border: 1px solid #288ad6 !important;
 }
+
+.slideBrands .textAllProduct{
+  font-size: 16px;
+  font-weight: 500;
+}

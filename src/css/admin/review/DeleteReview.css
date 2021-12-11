@@ -1,4 +1,4 @@
-.deleteProduct .jquery-modal .modal {
+.deleteReview .jquery-modal .modal {
     max-width: 550px;
     min-width: 550px;
     background-color: #fff;
@@ -8,7 +8,7 @@
     overflow: hidden;
 }
   
-  .deleteProduct .modal {
+  .deleteReview .modal {
     vertical-align: middle;
     z-index: 2;
     box-sizing: border-box;
@@ -20,7 +20,7 @@
     display: inline-block;
   }
   
-  .deleteProduct .blocker {
+  .deleteReview .blocker {
     position: fixed;
     top: 0;
     right: 0;
@@ -34,13 +34,13 @@
     text-align: center;
   }
   
-  .deleteProduct .icon-close{
+  .deleteReview .icon-close{
     position: absolute;
     right: 5px;
     top: 7px;
     cursor: pointer;
   }
-.deleteProduct p{
+.deleteReview p{
     font-size: 17px;
     margin-top: 40px;
     margin-left: 10px;
@@ -49,7 +49,7 @@
     font-weight: bold;
 }
 
-.deleteProduct h6{
+.deleteReview h6{
     font-size: 14px;
     margin-top: 20px;
     margin-left: 10px;
@@ -60,23 +60,23 @@
 
 
 
-.deleteProduct .row{
+.deleteReview .row{
     margin-left: 30px;
     margin-right: 10px;
     margin-bottom: 20px;
 }
 
-.deleteProduct .btn-color {
+.deleteReview .btn-color {
     color: #fff;
 }
 
-.deleteProduct .btn-primary {
+.deleteReview .btn-primary {
     color: #000;
     background-color: #3c4b64;
     border-color: #3c4b64;
 }
 
-.deleteProduct .btn {
+.deleteReview .btn {
     display: inline-block;
     font-size: 16px;
     font-weight: 400;
@@ -102,7 +102,7 @@
     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
 }
 
-.deleteProduct .btn-Cancel{
+.deleteReview .btn-Cancel{
     background: none;
     border: none;
     color: #3c4b64;

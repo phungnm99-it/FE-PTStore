@@ -4,8 +4,10 @@ import userApi from "../../api/userApi";
 import noReview from "../../images/noReview.png"
 import "../../css/customer/noOrder.css"
 import { timeFormat } from "../../utils/dateUtils";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 function ReviewManagement() {
   const [review, setReview] = useState([]);
+  const history = useHistory();
   useEffect(() => {
     getReview();
   }, []);
@@ -32,9 +34,9 @@ function ReviewManagement() {
                     </a>
                     <p>Bạn chưa có đánh giá nào</p>
                     <span>Hãy mua hàng và cho cửa hàng cảm nhận về trải nghiệm của bạn nhé.</span>
-                    <a className="button_direct" href="/">
+                    <button className="button_direct" onClick={() => history.push("/")}>
                       Về trang chủ
-                    </a>
+                    </button>
                   </div>
                 </div>
               </div>

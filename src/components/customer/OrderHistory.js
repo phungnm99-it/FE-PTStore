@@ -8,12 +8,13 @@ import { customStyles } from "../../utils/cssUtils";
 import noOrder from "../../images/noOder.png";
 import Modal from "react-modal";
 import { timeFormat } from "../../utils/dateUtils";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 function OrderHistory() {
   const [model, setModel] = useState(false);
   const [orders, setOrders] = useState([]);
   const [noOder, setNoOrder] = useState([]);
   const [details, setDetails] = useState({});
-
+  const history = useHistory();
   useEffect(() => {
     getAllOwnsOrder();
   }, []);
@@ -46,9 +47,9 @@ function OrderHistory() {
                       <img src={noOrder} alt="not-found-list" />
                     </a>
                     <p>Bạn chưa có đơn hàng nào</p>
-                    <a className="button_direct" href="/">
+                    <button className="button_direct" onClick={() => history.push("/")}>
                       Về trang chủ
-                    </a>
+                    </button>
                   </div>
                 </div>
               </div>
