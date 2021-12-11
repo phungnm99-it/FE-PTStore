@@ -53,6 +53,7 @@ function FeaturedProducts() {
                   key={idx + 1}
                   id={item.id}
                   name={item.name}
+                  currentPrice={item.currentPrice}
                   price={item.price}
                   imageUrl={item.imageUrl}
                 />

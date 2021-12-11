@@ -53,6 +53,7 @@ function SimilarProduct() {
             <div className="row-recommend">
               {product.map((item, idx) => (
                 <ProductFrame
+                  currentPrice={item.currentPrice}
                   key={idx + 1}
                   id={item.id}
                   name={item.name}

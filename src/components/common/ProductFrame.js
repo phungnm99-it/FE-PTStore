@@ -27,8 +27,10 @@ function ProductFrame(props) {
             {props.name}
           </Link>
           <span className="priceProduct">
-            <strong>{priceFormat(props?.price)}</strong>
-            <strike>{priceFormat(props?.price)}</strike>
+            <strong>{priceFormat(props?.currentPrice)}</strong>
+            {props?.price !== props?.currentPrice ? (
+              <strike>{priceFormat(props?.price)}</strike>
+            ) : null}
           </span>
         </div>
       </div>

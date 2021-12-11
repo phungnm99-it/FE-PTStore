@@ -9,8 +9,8 @@ import ProductFrame from "../../common/ProductFrame";
 import productApi from "../../../api/productApi";
 import Pagination from "react-pagination-library";
 import "react-pagination-library/build/css/index.css";
-import "../../../css/common/SearchPage.css"
-import "../../../css/common/RecommendProduct.css"
+import "../../../css/common/SearchPage.css";
+import "../../../css/common/RecommendProduct.css";
 function SearchPage() {
   window.scrollTo(0, 0);
   const { filter } = useParams();
@@ -86,6 +86,7 @@ function SearchPage() {
               <div className="row-recommend">
                 {products.map((item, idx) => (
                   <ProductFrame
+                    currentPrice={item.currentPrice}
                     key={idx + 1}
                     id={item.id}
                     name={item.name}

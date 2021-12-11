@@ -21,6 +21,7 @@ import Contact from "./components/common/Contact";
 import BrandPage from "./components/common/product/BrandPage";
 import CustomProductPage from "./components/common/product/CustomProductPage";
 import SearchPage from "./components/common/product/SearchPage";
+import SaleProductPage from "./components/common/product/SaleProductPage";
 
 function App() {
   return (
@@ -90,6 +91,14 @@ function App() {
 
           <Route path="/dienthoai/:filter">
             <CustomProductPage />
+          </Route>
+
+          <Route path="/sale/:filter">
+            <SaleProductPage />
+          </Route>
+
+          <Route path="/sale">
+            <SaleProductPage />
           </Route>
 
           <Route path="/dienthoai">

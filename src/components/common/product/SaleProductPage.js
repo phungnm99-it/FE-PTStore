@@ -10,7 +10,7 @@ import productApi from "../../../api/productApi";
 import Pagination from "react-pagination-library";
 import "react-pagination-library/build/css/index.css";
 
-function CustomProductPage() {
+function SaleProductPage() {
   const { filter } = useParams();
   const history = useHistory();
 
@@ -41,6 +41,7 @@ function CustomProductPage() {
   const [currentPage, setCurrentPage] = useState(getCurrentPage());
   const [currentBrand, setCurrentBrand] = useState(getCurrentBrand());
   const [totalPage, setTotalPage] = useState(1);
+  const [sortType, setSortType] = useState("");
 
   useEffect(async () => {
     getActiveBrand();
@@ -55,7 +56,7 @@ function CustomProductPage() {
   };
 
   const getProduct = async () => {
-    productApi.getByFilter(filter).then((response) => {
+    productApi.getSaleByFilter(filter).then((response) => {
       setProduct(response.data);
       setTotalPage(Math.floor(response.count / 12));
     });
@@ -64,12 +65,12 @@ function CustomProductPage() {
   const changeCurrentPage = (numPage) => {
     setCurrentPage(numPage);
     window.scrollTo(0, 300);
-    let link = "/dienthoai/brand=all&page=" + numPage;
+    let link = "/sale/brand=all&page=" + numPage;
     history.push(link);
   };
 
   const handleClickBrand = (name) => {
-    let lk = "/dienthoai/brand=" + name;
+    let lk = "/sale/brand=" + name;
     history.push(lk);
   };
 
@@ -98,7 +99,7 @@ function CustomProductPage() {
             <div className="lst-quickfilter q-manu">
               <div
                 style={{ cursor: "pointer" }}
-                onClick={() => history.push("/dienthoai")}
+                onClick={() => history.push("/sale")}
                 data-index="0"
                 className={
                   "box-quicklink__item bd-radius quicklink-logo textAllProduct" +
@@ -139,8 +140,8 @@ function CustomProductPage() {
                     key={idx + 1}
                     id={item.id}
                     name={item.name}
-                    currentPrice={item.currentPrice}
                     price={item.price}
+                    currentPrice={item.currentPrice}
                     imageUrl={item.imageUrl}
                   />
                 ))}
@@ -165,4 +166,4 @@ function CustomProductPage() {
   );
 }
 
-export default CustomProductPage;
+export default SaleProductPage;
