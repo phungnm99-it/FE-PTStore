@@ -7,10 +7,12 @@ import { priceFormat } from "../../utils/priceFormat";
 import { customStyles } from "../../utils/cssUtils";
 import noOrder from "../../images/noOder.png";
 import Modal from "react-modal";
+import { timeFormat } from "../../utils/dateUtils";
 function OrderHistory() {
   const [model, setModel] = useState(false);
   const [orders, setOrders] = useState([]);
   const [noOder, setNoOrder] = useState([]);
+  const [details, setDetails] = useState({});
 
   useEffect(() => {
     getAllOwnsOrder();
@@ -91,7 +93,7 @@ function OrderHistory() {
                           return (
                             <tr key={item.id} role="row" className="ood">
                               <td>{item.orderCode}</td>
-                              <td>{new Date(item.orderTime).toDateString()}</td>
+                              <td>{timeFormat(item.orderTime)}</td>
                               <td>
                                 {item.products.map((index) => {
                                   return (
@@ -104,7 +106,7 @@ function OrderHistory() {
                               <td>{priceFormat(item?.totalCost)}</td>
                               <td>{item.status}</td>
                               <td>
-                                <button onClick={() => setModel(true)}>
+                                <button onClick={() => {setDetails(item);setModel(true)}}>
                                   <i className="fas fa-list iconDetail"></i>
                                 </button>
                               </td>
@@ -123,7 +125,7 @@ function OrderHistory() {
       {/* kiểm tra state nào để mở modal - trong trường hợp này là model */}
       {/* oke t off */}
       <Modal isOpen={model} style={customStyles}>
-        <OrderDetail onCLose={() => setModel(false)} />
+        <OrderDetail bill={details} onCLose={() => setModel(false)} />
       </Modal>
     </div>
   );

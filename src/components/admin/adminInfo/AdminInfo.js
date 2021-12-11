@@ -27,7 +27,7 @@ function AdminInfo (props) {
                                 <div className="list-left">
                                 <ul className="nav">
                                     <li>Mã tài khoản:</li>
-                                    <li>Ngày tạo tài khoản:</li>
+                                    {/* <li>Ngày tạo tài khoản:</li> */}
                                     <li>Tên đăng nhập:</li>
                                     <li>Họ và tên:</li>
                                     <li>Email:</li>
@@ -38,12 +38,11 @@ function AdminInfo (props) {
                                 </ul>
                                 </div>
                             </div>
-                            <div className="col-sm-7">
-                            
+                            <div className="col-sm-7">                         
                             <div className="list-right">
                                         <ul className="nav">
                                             <li>{info.id}</li>
-                                            <li>29/11/2021</li>
+                                            {/* <li>29/11/2021</li> */}
                                             <li>{info.username}</li>
                                             <li>{info.fullName}</li>
                                             <li>{info.email}</li>
@@ -59,7 +58,7 @@ function AdminInfo (props) {
                         <div className="col-sm-3">
                             <img
                             className="align-self-center img-fluid"
-                            src={noAvt}
+                            src={info.imageUrl || noAvt}
                             ></img>
                         </div>
                         </div>

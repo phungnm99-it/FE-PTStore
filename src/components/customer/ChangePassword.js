@@ -31,7 +31,7 @@ function ChangePasswordForm(props) {
         let newPasswordAgain =
           document.getElementById("NewPasswordAgain").value;
         if (newPasswordAgain === "") {
-          alert("Vui lòng nhập nhật lại mật khẩu!");
+          alert("Vui lòng nhập nhập lại mật khẩu!");
         } else {
           if (newPassword !== newPasswordAgain) {
             alert("Mật khẩu mới và nhập lại mật khẩu phải giống nhau!");
@@ -40,7 +40,7 @@ function ChangePasswordForm(props) {
               /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/;
             if (regex.test(newPassword) === false) {
               alert(
-                "Mật khẩu mới không hợp lệ! Mật khẩu phải có 8 kí tự trở lên, có ít nhất 1 kí tự thường, 1 kí tự in hoa và 1 kí tự số!"
+                "Mật khẩu mới không hợp lệ! Mật khẩu phải có 8 kí tự trở lên, có ít nhất 1 kí tự thường, 1 kí tự in hoa, 1 ký tự đặc biệt và 1 kí tự số!"
               );
             } else {
               let formData = new FormData();
@@ -48,7 +48,7 @@ function ChangePasswordForm(props) {
               formData.append("NewPassword", newPassword);
               userApi.changePassword(formData).then((res) => {
                 if (res.code === "401") {
-                  alert("Mật khẩu không chính xác!");
+                  alert("Mật khẩu cũ không chính xác!");
                 } else {
                   alert("Đổi mật khẩu thành công! Vui lòng đăng nhập lại!");
                   context.logout();

@@ -23,6 +23,7 @@
     font-size: 23px;
     font-weight: 500;
     color: #3c4b64;
+    cursor: pointer;
 }
 
 .orderItem .left-OrderItem .labelOrder{

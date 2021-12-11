@@ -3,6 +3,7 @@ import "../../css/customer/reviewManagement.css";
 import userApi from "../../api/userApi";
 import noReview from "../../images/noReview.png"
 import "../../css/customer/noOrder.css"
+import { timeFormat } from "../../utils/dateUtils";
 function ReviewManagement() {
   const [review, setReview] = useState([]);
   useEffect(() => {
@@ -71,7 +72,7 @@ function ReviewManagement() {
                             <tr key={item.id}>
                               <td>{item.productName}</td>
                               <td>
-                                {new Date(item.reviewTime).toDateString()}
+                                {timeFormat(item.reviewTime)}
                               </td>
                               <td>{item.content}</td>
                             </tr>

@@ -1,21 +1,21 @@
 import React from "react";
 
-function StatusOD() {
+function StatusOD(props) {
   return (
     <div className="status-orderDetail">
       <div className="row px-3">
         <div className="col">
           <ul id="progressbar">
-            <li class="step0 active " id="step1">
+            <li className={"step0" + (props.status >= 1 ? ' active' : '' )} id="step1">
               Chờ xác nhận
             </li>
-            <li class="step0 active text-center" id="step2">
+            <li className={"step0 text-center" + (props.status >= 2 ? ' active' : '' )} id="step2">
               Đã xác nhận
             </li>
-            <li class="step0 active text-center" id="step3">
+            <li className={"step0 text-center" + (props.status >= 3 ? ' active' : '' )} id="step3">
               Đang giao hàng
             </li>
-            <li class="step0 text-muted text-right" id="step4">
+            <li className={"step0 text-muted text-right" + (props.status >= 4 ? ' active' : '' )} id="step4">
               Giao thành công
             </li>
           </ul>
