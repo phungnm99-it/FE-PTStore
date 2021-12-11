@@ -40,17 +40,28 @@ function EditAccount() {
       district.options[district.selectedIndex].text +
       ", " +
       province.options[province.selectedIndex].text;
-    console.log(address);
-    console.log([birthday[1], birthday[2], birthday[0]].join("-"));
-    let formData = new FormData();
-    formData.append("username", username);
-    formData.append("phonenumber", phoneNumber);
-    formData.append("fullname", fullName);
-    formData.append("email", email);
-    formData.append("birthday", birthday);
-    formData.append("gender", gender);
-    formData.append("password", password);  
-    formData.append("address", address);
+
+    if(
+      fullName.length < 1 ||
+      birthday.length < 1 ||
+      gender.length < 1 || 
+      province.length < 1 ||
+      district.length < 1 ||
+      address.length < 1 
+    ){alert("Vui lòng nhập đúng và đầy đủ thông tin");}
+    else{
+      console.log(address);
+      console.log([birthday[1], birthday[2], birthday[0]].join("-")); 
+      let formData = new FormData();
+      formData.append("username", username);
+      formData.append("phonenumber", phoneNumber);
+      formData.append("fullname", fullName);
+      formData.append("email", email);
+      formData.append("birthday", birthday);
+      formData.append("gender", gender);
+      formData.append("password", password);  
+      formData.append("address", address);
+    }
     
   };
 

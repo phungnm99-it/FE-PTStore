@@ -26,26 +26,47 @@ function EditProduct() {
     let wifi = document.getElementById ("inputWifi").value; 
     let gps = document.getElementById ("inputGPS").value;
     let battery = document.getElementById ("inputBattery").value;
-    console.log(battery);
-    let formData = new FormData();
-    formData.append ("Id", id);
-    formData.append("Name", name);
-    formData.append("BrandName", brandName);
-    formData.append ("Color", color);
-    formData.append("ScreenResolution", screenResolution);
-    formData.append("ScreenSize", screenSize);
-    formData.append("ScreenTech", screenTech);
-    formData.append("Os", os);
-    formData.append("Cpu", cpu);
-    formData.append("Gpu",gpu);
-    formData.append("FrontCamera", frontCamera);
-    formData.append("BackCamera", backCamera);
-    formData.append("Ram", ram);
-    formData.append("Rom", rom);
-    formData.append("Sim", sim);
-    formData.append("Wifi",wifi);
-    formData.append("Gps", gps);
-    formData.append("Battery", battery);  
+    if (
+      name.length < 1 ||
+      brandName.length < 1 ||
+      color.length < 1 ||
+      screenResolution.length < 1 ||
+      screenSize.length < 1||
+      screenTech.length < 1 ||
+      os.length < 1 ||
+      cpu.length < 1 ||
+      gpu.length < 1 ||
+      frontCamera.length < 1 ||
+      backCamera.length < 1 ||
+      ram.length < 1 ||
+      rom.length < 1 ||
+      sim.length < 1 ||
+      wifi.length < 1 ||
+      gps.length < 1 ||
+      battery.length < 1
+    ){alert("Vui lòng nhập đúng và đầy đủ thông tin");}
+    else{
+      let formData = new FormData();
+      formData.append ("Id", id);
+      formData.append("Name", name);
+      formData.append("BrandName", brandName);
+      formData.append ("Color", color);
+      formData.append("ScreenResolution", screenResolution);
+      formData.append("ScreenSize", screenSize);
+      formData.append("ScreenTech", screenTech);
+      formData.append("Os", os);
+      formData.append("Cpu", cpu);
+      formData.append("Gpu",gpu);
+      formData.append("FrontCamera", frontCamera);
+      formData.append("BackCamera", backCamera);
+      formData.append("Ram", ram);
+      formData.append("Rom", rom);
+      formData.append("Sim", sim);
+      formData.append("Wifi",wifi);
+      formData.append("Gps", gps);
+      formData.append("Battery", battery);  
+    }
+    
   };
   return (
     <div>

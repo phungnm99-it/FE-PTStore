@@ -6,7 +6,7 @@ import ChangePass from './ChangePass';
 import EditInfo from './EditInfo';
 import OrderReceived from './OrderReceived';
 import DeliveryHistory from './DeliveryHistory';
-
+import OrderDetail from "../customer/orderDetail/OrderDetail"
 function MenuShipper () {
     const [form, setForm] = useState();
     const [avt, setAvt] = useState(
@@ -53,7 +53,9 @@ function MenuShipper () {
           case 4: 
               return <OrderReceived />;
           case 5:
-              return <DeliveryHistory/>
+              return <DeliveryHistory switch={(e) => setForm(e)}/>;
+          case 6:
+              return <OrderDetail/>
           default:
             return null;
         }
