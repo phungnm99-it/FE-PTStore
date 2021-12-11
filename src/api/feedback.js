@@ -13,6 +13,11 @@ const feedbackApi = {
     const url = "/feedback/getFeedbackNoReply";
     return axiosClient.get(url);
   },
+
+  create: (formData) => {
+    const url = "/feedback/create";
+    return axiosClient.post(url, formData);
+  },
 };
 
 export default feedbackApi;
