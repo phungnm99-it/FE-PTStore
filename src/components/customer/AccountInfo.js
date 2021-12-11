@@ -10,16 +10,16 @@ import Auth from "../../config/auth";
 function AccountInfo() {
   const [modalIsOpen, setIsOpen] = useState(false);
   // state tinh, state quan
-  const [provinces, setProvinces] = useState([]);
-  const [districts, setDistrict] = useState([]);
+  // const [provinces, setProvinces] = useState([]);
+  // const [districts, setDistrict] = useState([]);
   const [info, setInfo] = useState({});
   const [name, setName] = useState("");
   useEffect(() => {
     // lay tinh tu api
-    getProvinces().then((res) => {
-      setProvinces(res.data);
-      setDistrict(res.data[0].districts);
-    });
+    // getProvinces().then((res) => {
+    //   setProvinces(res.data);
+    //   setDistrict(res.data[0].districts);
+    // });
 
     userApi.getInfo().then((response) => {
       console.log(response.data);
@@ -35,10 +35,10 @@ function AccountInfo() {
     });
   }, []);
   // lay quan tu ma tinh
-  const getDistrictFromCode = (code) => {
-    let filter = provinces.filter((x) => x.code.toString() === code);
-    filter.length > 0 ? setDistrict(filter[0].districts) : setDistrict([]);
-  };
+  // const getDistrictFromCode = (code) => {
+  //   let filter = provinces.filter((x) => x.code.toString() === code);
+  //   filter.length > 0 ? setDistrict(filter[0].districts) : setDistrict([]);
+  // };
 
   return (
     <div>
@@ -152,19 +152,19 @@ function AccountInfo() {
                           <br />
                         </div>
 
-                        <div className="form-controls">
+                        {/* <div className="form-controls">
                           <label>Tỉnh/Thành phố:</label>
-                          <div className="controls">
-                            <select
+                          <div className="controls"> */}
+                        {/* <select
                               name="SystemCityID"
                               id="SystemCityID"
                               placeholder="Tỉnh/Thành phố"
                               onChange={(e) => {
                                 getDistrictFromCode(e.target.value);
                               }}
-                            >
-                              <option>Chọn tỉnh/thành phố</option>
-                              {/* maps tinh thanh option */}
+                            > */}
+                        {/* <option>Chọn tỉnh/thành phố</option> */}
+                        {/* maps tinh thanh option
                               {provinces.map((pro, idx) => {
                                 return (
                                   <option
@@ -175,12 +175,12 @@ function AccountInfo() {
                                     {pro.name}
                                   </option>
                                 );
-                              })}
-                            </select>
-                          </div>
-                        </div>
+                              })} */}
+                        {/* </select> */}
+                        {/* </div>
+                        </div> */}
 
-                        <div className="form-controls">
+                        {/* <div className="form-controls">
                           <label>Quận/Huyện:</label>
                           <div class="controls">
                             <select
@@ -188,9 +188,9 @@ function AccountInfo() {
                               name="SystemDistrictID"
                               placeholder="Quận/Huyện *"
                               data-required="1"
-                            >
-                              {" "}
-                              {districts?.map((dis, idx) => {
+                            > */}
+                        {/* {" "} */}
+                        {/* {districts?.map((dis, idx) => {
                                 return (
                                   <option
                                     key={idx}
@@ -201,10 +201,10 @@ function AccountInfo() {
                                     {dis.name}
                                   </option>
                                 );
-                              })}
-                            </select>
+                              })} */}
+                        {/* </select>
                           </div>
-                        </div>
+                        </div> */}
 
                         <div className="form-controls">
                           <label>Địa chỉ:</label>

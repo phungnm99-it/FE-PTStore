@@ -12,6 +12,20 @@ function ChangePasswordForm(props) {
     setCheckPass(password === rePass);
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    let oldPassword = document.getElementById("OldPassword").value;
+    if(oldPassword === "")
+    alert("Vui lòng nhập mật khẩu cũ !!!");
+    else {
+      let newPassword = document.getElementById("NewPassword").value;
+      if(newPassword === "" || newPassword.length < 8) {
+        alert("Mật khẩu mới phải hợp lệ!");
+      }
+    }
+  }
+
   return (
     <div>
       <div className="changePassword">
@@ -67,7 +81,7 @@ function ChangePasswordForm(props) {
                       {checkPassword ? null : <p className="messageError">Nhập lại password không trùng khớp.</p>}
                     </div>
                     <div className="row">
-                      <button type="submit">
+                      <button onClick={(e) => handleSubmit(e)}>
                         <i class="si si-envelope-open pull-right"></i>Đổi mật
                         khẩu
                       </button>
