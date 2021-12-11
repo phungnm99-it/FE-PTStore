@@ -7,6 +7,7 @@ import EditInfo from './EditInfo';
 import OrderReceived from './OrderReceived';
 import DeliveryHistory from './DeliveryHistory';
 import OrderDetail from "../customer/orderDetail/OrderDetail"
+import userApi from '../../api/userApi';
 function MenuShipper () {
     const [form, setForm] = useState();
     const [avt, setAvt] = useState(
@@ -23,10 +24,17 @@ function MenuShipper () {
     const getImg = async (event) => {
         const file = event.target.files[0];
         const base64 = await convertBase64(file);
-        // api
-        setAvt(base64);
-        console.log(base64);
-      };
+        
+        let formData = new FormData();
+        formData.append("image", file);
+        userApi.updateAvatar(formData).then((res) => {
+          if (res.code === "200") {
+            setAvt(base64);
+          } else {
+            alert("Lỗi!");
+          }
+        });
+    };
 
     const convertBase64 = (file) => {
         return new Promise((resolve, reject) => {
