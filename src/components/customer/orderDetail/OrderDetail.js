@@ -6,9 +6,9 @@ import BodyOD from "./BodyOD";
 import StatusOD from "./StatusOD";
 
 function OrderDetail(props) {
-  useEffect(()=>{
-    console.log(props.bill)
-  },[props])
+  useEffect(() => {
+    console.log(props.bill);
+  }, [props]);
   return (
     <div>
       <div className="orderDetail">
@@ -23,19 +23,17 @@ function OrderDetail(props) {
               />
               <div className="form">
                 <HeadOD />
-                <StatusOD status={parseInt("3")} />
-                {
-                  props?.bill?.products ? props.bill.products.map((item, idx)=>{
-                    return <BodyOD product={item} />
-                  }) : null
-                }
-
+                <StatusOD status={parseInt(props.bill.status)} />
+                {props?.bill?.products
+                  ? props.bill.products.map((item, idx) => {
+                      return <BodyOD product={item} />;
+                    })
+                  : null}
               </div>
             </div>
           </div>
         </div>
       </div>
-      
     </div>
   );
 }

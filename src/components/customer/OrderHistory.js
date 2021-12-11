@@ -36,26 +36,29 @@ function OrderHistory() {
 
   return noOder.length === 0 ? (
     <section className="orderHistory">
-        <div className="body-content">
-          <h1>Đơn hàng của bạn</h1>
-          <div className="account-layout">
-            <div className="row equaHeight" data-obj=".col .box-bg-white">
-              <div className="col col-lg">
-                <div className="box-bg-white">
-                  <div className="not-found-list">
-                    <a>
-                      <img src={noOrder} alt="not-found-list" />
-                    </a>
-                    <p>Bạn chưa có đơn hàng nào</p>
-                    <button className="button_direct" onClick={() => history.push("/")}>
-                      Về trang chủ
-                    </button>
-                  </div>
+      <div className="body-content">
+        <h1>Đơn hàng của bạn</h1>
+        <div className="account-layout">
+          <div className="row equaHeight" data-obj=".col .box-bg-white">
+            <div className="col col-lg">
+              <div className="box-bg-white">
+                <div className="not-found-list">
+                  <a>
+                    <img src={noOrder} alt="not-found-list" />
+                  </a>
+                  <p>Bạn chưa có đơn hàng nào</p>
+                  <button
+                    className="button_direct"
+                    onClick={() => history.push("/")}
+                  >
+                    Về trang chủ
+                  </button>
                 </div>
               </div>
             </div>
           </div>
         </div>
+      </div>
     </section>
   ) : (
     <div>
@@ -66,7 +69,7 @@ function OrderHistory() {
             <div className="row equaHeight" data-obj=".col .box-bg-white">
               <div className="col col-lg">
                 <div className="box-bg-white">
-                  <FilterOrderTab />
+                  {/* <FilterOrderTab /> */}
                   <div className="box-order">
                     <table className="table table-striped table-bordered dataTable">
                       <thead>
@@ -105,9 +108,22 @@ function OrderHistory() {
                                 })}
                               </td>
                               <td>{priceFormat(item?.totalCost)}</td>
-                              <td>{item.status}</td>
                               <td>
-                                <button onClick={() => {setDetails(item);setModel(true)}}>
+                                {item.status === "1"
+                                  ? "Đặt hàng thành công"
+                                  : item.status === "2"
+                                  ? "Đã xác nhận"
+                                  : item.status === "3"
+                                  ? "Đang chờ giao hàng"
+                                  : "Giao hàng thành công"}
+                              </td>
+                              <td>
+                                <button
+                                  onClick={() => {
+                                    setDetails(item);
+                                    setModel(true);
+                                  }}
+                                >
                                   <i className="fas fa-list iconDetail"></i>
                                 </button>
                               </td>

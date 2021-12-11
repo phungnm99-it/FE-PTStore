@@ -132,12 +132,12 @@ function Account(props) {
                     <span>Phản hồi, đánh giá</span>
                   </a>
                 </li>
-                <li>
+                {/* <li>
                   <a>
                     <i className="fas fa-sign-out-alt"></i>
                     <span>Đăng xuất</span>
                   </a>
-                </li>
+                </li> */}
               </ul>
             </nav>
           </div>
