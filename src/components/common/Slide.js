@@ -5,7 +5,9 @@ import "react-multi-carousel/lib/styles.css";
 import slide1 from "../../images/slide1.jpg";
 import slide2 from "../../images/slide2.png";
 import slide3 from "../../images/slide3.png";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 function Slide() {
+  const history = useHistory();
   const responsive = {
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
@@ -30,7 +32,7 @@ function Slide() {
                         Đến với PTStore bạn sẽ có được sản phẩm chất lượng, giá
                         cả hợp lý và dịch vụ bảo hành trọn gói
                       </p>
-                      <button type="button" className="btn btn-default get">
+                      <button type="button" className="btn btn-default get" onClick={() => history.push("/")}>
                         Mua ngay
                       </button>
                     </div>

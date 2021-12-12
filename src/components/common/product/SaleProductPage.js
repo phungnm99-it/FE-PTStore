@@ -9,6 +9,7 @@ import ProductFrame from "../../common/ProductFrame";
 import productApi from "../../../api/productApi";
 import Pagination from "react-pagination-library";
 import "react-pagination-library/build/css/index.css";
+import "../../../css/common/Filter.css"
 
 function SaleProductPage() {
   const { filter } = useParams();
@@ -207,20 +208,20 @@ function SaleProductPage() {
         </div>
       </section>
       <section>
-        <select id="mySelect" onChange={() => handleClickSortType()}>
-          <option value="">Sắp xếp</option>
-          <option value="ascending">Giá thấp đến cao</option>
-          <option value="descending">Giá cao đến thấp</option>
-        </select>
-      </section>
-      <section>
-        <select id="mySelectPrice" onChange={() => handleClickFilterPrice()}>
-          <option value="">Giá</option>
-          <option value="duoi5trieu">Dưới 5 triệu</option>
-          <option value="5trieutoi10trieu">5 triệu tới 10 triệu</option>
-          <option value="10trieutoi20trieu">10 triệu tới 20 triệu</option>
-          <option value="tren20trieu">Trên 20 triệu</option>
-        </select>
+        <div className="row">
+          <select  id="mySelect" onChange={() => handleClickSortType()}>
+            <option value="">Sắp xếp</option>
+            <option value="ascending">Giá thấp đến cao</option>
+            <option value="descending">Giá cao đến thấp</option>
+          </select>
+          <select  id="mySelectPrice" onChange={() => handleClickFilterPrice()}>
+            <option value="">Giá</option>
+            <option value="duoi5trieu">Dưới 5 triệu</option>
+            <option value="5trieutoi10trieu">5 triệu tới 10 triệu</option>
+            <option value="10trieutoi20trieu">10 triệu tới 20 triệu</option>
+            <option value="tren20trieu">Trên 20 triệu</option>
+          </select>
+        </div>
       </section>
       <div className="products">
         <div className="container">

@@ -1,0 +1,13 @@
+#mySelect, #mySelectPrice{
+    width: 140px;
+    background-color: #fff;
+    height: 37px;
+    border: none;
+    border-radius: 20px;
+    margin-left: 100px;
+    border: 1px solid #e0e0e0;
+    color: #333;
+}
+#mySelectPrice{
+    margin-left: 20px !important;
+}
