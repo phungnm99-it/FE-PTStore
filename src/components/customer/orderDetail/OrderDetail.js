@@ -22,7 +22,7 @@ function OrderDetail(props) {
                 onClick={() => props.onCLose()}
               />
               <div className="form">
-                <HeadOD />
+                <HeadOD status = {props.bill}/>
                 <StatusOD status={parseInt(props.bill.status)} />
                 {props?.bill?.products
                   ? props.bill.products.map((item, idx) => {

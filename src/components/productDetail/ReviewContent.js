@@ -1,6 +1,7 @@
 import React from "react";
 //import noAvt from "../../images/no-avt.png";
 import "../../css/productDetail/ReviewContent.css";
+import { timeFormatDetail } from "../../utils/dateUtils";
 
 function ReviewContent(item) {
   if (!item) {
@@ -25,7 +26,7 @@ function ReviewContent(item) {
               </p>
               <p>
                 <label>
-                  <i>{new Date(item.reviewTime).toDateString()}</i>
+                  <i>{timeFormatDetail(item.reviewTime ?? 0)}</i>
                 </label>
               </p>
               <div className="content">
