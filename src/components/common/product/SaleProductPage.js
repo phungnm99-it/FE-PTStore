@@ -24,6 +24,30 @@ function SaleProductPage() {
     }
   };
 
+  const getSortType = () => {
+    if (filter !== undefined) {
+      let arr = filter.split("sortType=");
+      if (arr === undefined || arr.length === 1) {
+        return "";
+      } else {
+        return arr[1].split("&")[0];
+      }
+    }
+    return "";
+  };
+
+  const getFilterPrice = () => {
+    if (filter !== undefined) {
+      let arr = filter.split("priceFilter=");
+      if (arr === undefined || arr.length === 1) {
+        return "";
+      } else {
+        return arr[1].split("&")[0];
+      }
+    }
+    return "";
+  };
+
   const getCurrentBrand = () => {
     if (filter !== undefined) {
       let arr = filter.split("brand=");
@@ -41,12 +65,17 @@ function SaleProductPage() {
   const [currentPage, setCurrentPage] = useState(getCurrentPage());
   const [currentBrand, setCurrentBrand] = useState(getCurrentBrand());
   const [totalPage, setTotalPage] = useState(1);
+
   const [sortType, setSortType] = useState("");
+
+  const [filterPrice, setFilterPrice] = useState("");
 
   useEffect(async () => {
     getActiveBrand();
     getProduct();
     await setCurrentBrand(getCurrentBrand());
+    document.getElementById("mySelect").value = getSortType();
+    document.getElementById("mySelectPrice").value = getFilterPrice();
   }, [filter]);
 
   const getActiveBrand = async () => {
@@ -56,7 +85,7 @@ function SaleProductPage() {
   };
 
   const getProduct = async () => {
-    productApi.getSaleByFilter(filter).then((response) => {
+    productApi.getByFilter(filter).then((response) => {
       setProduct(response.data);
       setTotalPage(Math.floor(response.count / 12));
     });
@@ -65,13 +94,61 @@ function SaleProductPage() {
   const changeCurrentPage = (numPage) => {
     setCurrentPage(numPage);
     window.scrollTo(0, 300);
-    let link = "/sale/brand=all&page=" + numPage;
-    history.push(link);
+    if (sortType !== "") {
+      let link =
+        "/sale/brand=" +
+        currentBrand +
+        "&sortType=" +
+        sortType +
+        "&page=" +
+        numPage;
+      history.push(link);
+    } else {
+      let link2 = "/sale/brand=" + currentBrand + "&page=" + numPage;
+      history.push(link2);
+    }
   };
 
   const handleClickBrand = (name) => {
     let lk = "/sale/brand=" + name;
     history.push(lk);
+  };
+
+  const handleClickSortType = () => {
+    let st = document.getElementById("mySelect").value;
+    if (st !== "") {
+      let lk =
+        "/sale/brand=" +
+        currentBrand +
+        "&sortType=" +
+        st +
+        "&priceFilter=" +
+        document.getElementById("mySelectPrice").value +
+        "&page=1";
+      setCurrentPage(1);
+      setSortType(st);
+      //document.getElementById("mySelect").value = "";
+      history.push(lk);
+    }
+  };
+
+  const handleClickFilterPrice = () => {
+    let st = document.getElementById("mySelectPrice").value;
+    if (st !== "") {
+      let lk =
+        "/sale/brand=" +
+        currentBrand +
+        "&sortType=" +
+        document.getElementById("mySelect").value +
+        "&priceFilter=" +
+        st +
+        "&page=1";
+      setCurrentPage(1);
+      //setSortType(getSortType());
+      setFilterPrice(st);
+      //document.getElementById("mySelectPrice").value = getFilterPrice();
+      history.push(lk);
+    }
   };
 
   return (
@@ -129,6 +206,22 @@ function SaleProductPage() {
           </div>
         </div>
       </section>
+      <section>
+        <select id="mySelect" onChange={() => handleClickSortType()}>
+          <option value="">Sắp xếp</option>
+          <option value="ascending">Giá thấp đến cao</option>
+          <option value="descending">Giá cao đến thấp</option>
+        </select>
+      </section>
+      <section>
+        <select id="mySelectPrice" onChange={() => handleClickFilterPrice()}>
+          <option value="">Giá</option>
+          <option value="duoi5trieu">Dưới 5 triệu</option>
+          <option value="5trieutoi10trieu">5 triệu tới 10 triệu</option>
+          <option value="10trieutoi20trieu">10 triệu tới 20 triệu</option>
+          <option value="tren20trieu">Trên 20 triệu</option>
+        </select>
+      </section>
       <div className="products">
         <div className="container">
           <div className="list-product">
@@ -140,8 +233,8 @@ function SaleProductPage() {
                     key={idx + 1}
                     id={item.id}
                     name={item.name}
-                    price={item.price}
                     currentPrice={item.currentPrice}
+                    price={item.price}
                     imageUrl={item.imageUrl}
                   />
                 ))}
