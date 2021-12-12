@@ -2,12 +2,12 @@ import React, { useState, useContext } from "react";
 import "../../css/cart/ProductItem.css";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../AuthContext";
-import {priceFormat} from "../../utils/priceFormat"
+import { priceFormat } from "../../utils/priceFormat";
 
 function ProductItem(props) {
   const [quantities, setQuantities] = useState(props.quantity || 1);
   let price = props.currentPrice;
-  let link = "/phone/" + props.id;
+  let link = "/chitiet/" + props.id;
   let href = "localhost:3000" + link;
   const context = useContext(AuthContext);
   const handleAdd = () => {
@@ -40,17 +40,15 @@ function ProductItem(props) {
       <div className="infosp">
         <div className="name-price">
           <div className="name-container">
-            <a href={href} className="product-item__name">
+            <Link to={link} className="product-item__name">
               {" "}
               {props.name}{" "}
-            </a>
+            </Link>
           </div>
           <span>
             {" "}
             {priceFormat(price * quantities)}
-            <strike>
-              {priceFormat(props.price * quantities)}
-            </strike>
+            <strike>{priceFormat(props.price * quantities)}</strike>
           </span>
         </div>
         <hr />

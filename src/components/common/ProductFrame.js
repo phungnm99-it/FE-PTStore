@@ -7,20 +7,13 @@ function ProductFrame(props) {
     <div className="productFrame">
       <div className="item">
         <div className="img">
-          <Link
-            to={`/phone/${props.id}`}
-            title="Apple iPhone 12 mini - Chính hãng VN/A"
-          >
-            <img
-              src={props.imageUrl}
-              alt="Apple iPhone 12 mini - Chính hãng VN/A"
-              title="Apple iPhone 12 mini - Chính hãng VN/A"
-            />
+          <Link to={`/chitiet/${props.id}`} title={props.name}>
+            <img src={props.imageUrl} alt={props.name} title={props.name} />
           </Link>
         </div>
         <div className="info">
           <Link
-            to={`/phone/${props.id}`}
+            to={`/chitiet/${props.id}`}
             className="nameProduct"
             title={props.name}
           >
