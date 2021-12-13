@@ -1,5 +1,4 @@
 import React, { useState, useContext } from "react";
-import iconClose from "../../images/iconClose.png";
 import "../../css/customer/changePassword.css";
 import userApi from "../../api/userApi";
 import { AuthContext } from "../../AuthContext";
@@ -72,7 +71,7 @@ function ChangePasswordForm(props) {
               <img
                 alt="icon-close"
                 className="icon-close"
-                src={iconClose}
+                src="http://res.cloudinary.com/dobsh4rbw/image/upload/v1639402353/commom/iconClose121321083143.png"
                 onClick={() => props.onCLose()}
               />
               <div className="changePassword">

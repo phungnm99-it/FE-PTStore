@@ -1,6 +1,5 @@
 import React from "react";
 import "../../css/productDetail/SpecDetail.css";
-import iconClose from "../../images/iconClose.png";
 import { useParams } from "react-router";
 import productApi from "../../api/productApi";
 import { useEffect, useState } from "react";
@@ -19,7 +18,7 @@ function SpecDetail(props) {
           <div className="modal" id="popup-modal">
             <img
               className="icon-close"
-              src={iconClose}
+              src="http://res.cloudinary.com/dobsh4rbw/image/upload/v1639402353/commom/iconClose121321083143.png"
               alt="iconClose"
               onClick={() => props.onCLose()}
             />

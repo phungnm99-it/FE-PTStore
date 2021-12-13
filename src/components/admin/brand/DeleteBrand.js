@@ -1,6 +1,5 @@
 import React from "react";
 import "../../../css/admin/brand/DeleteBrand.css";
-import iconClose from "../../../images/iconClose.png";
 
 function DeleteBrand(props) {
   return (
@@ -12,7 +11,7 @@ function DeleteBrand(props) {
               <img
                 alt="iconClose"
                 className="icon-close"
-                src={iconClose}
+                src="http://res.cloudinary.com/dobsh4rbw/image/upload/v1639402353/commom/iconClose121321083143.png"
                 onClick={() => props.onCLose()}
               />
               <div className="form">
@@ -37,8 +36,7 @@ function DeleteBrand(props) {
               </div>
             </div>
           </div>
-        </div>    
-        
+        </div>
       </div>
     </div>
   );
