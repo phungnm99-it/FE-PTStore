@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
 import "../../../css/admin/account/EditAccount.css";
-import noAvt from "../../../images/no-avt.png";
-import userApi from "../../../api/userApi"
 import { getProvinces } from "../../../service/provinces-service";
 
 function EditAccount() {
@@ -153,7 +151,7 @@ function EditAccount() {
                       </label>
                       <img
                         className="UploadImg"
-                        src={noAvt}
+                        src="http://res.cloudinary.com/dobsh4rbw/image/upload/v1639403956/commom/no-avt121321085832.png"
                         alt="UploadImg"
                       ></img>
                     </div>

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import "../../../css/admin/product/AddProduct.css";
-import noAvt from "../../../images/no-avt.png";
 import brandApi from "../../../api/brandApi";
 import productApi from "../../../api/productApi";
 
@@ -166,7 +165,7 @@ function AddProduct(props) {
                   <label className="form-label" for="chooseImg">
                     Hiển thị ảnh
                   </label>
-                  <img className="UploadImg" src={noAvt} alt="UploadImg"></img>
+                  <img className="UploadImg" src="http://res.cloudinary.com/dobsh4rbw/image/upload/v1639403956/commom/no-avt121321085832.png" alt="UploadImg"></img>
                 </div>
               </div>
               <div className="mb-3">

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router";
 import "../../../css/admin/brand/AddBrand.css";
-import noAvt from "../../../images/no-avt.png";
 
 function AddBrand(props) {
   const history = useHistory();
@@ -54,7 +53,7 @@ function AddBrand(props) {
                   <label className="form-label" for="chooseImg">
                     Hiển thị ảnh
                   </label>
-                  <img className="UploadImg" src={noAvt} alt="UploadImg"></img>
+                  <img className="UploadImg" src="http://res.cloudinary.com/dobsh4rbw/image/upload/v1639403956/commom/no-avt121321085832.png" alt="UploadImg"></img>
                 </div>
               </div>
 

@@ -1,8 +1,6 @@
 import React from "react";
 import "../../../css/admin/product/EditProduct.css";
 
-import noAvt from "../../../images/no-avt.png";
-
 function EditProduct() {
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -155,7 +153,7 @@ function EditProduct() {
                       </label>
                       <img
                         className="UploadImg"
-                        src={noAvt}
+                        src="http://res.cloudinary.com/dobsh4rbw/image/upload/v1639403956/commom/no-avt121321085832.png"
                         alt="UploadImg"
                       ></img>
                     </div>

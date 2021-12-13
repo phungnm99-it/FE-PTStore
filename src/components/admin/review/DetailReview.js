@@ -1,6 +1,5 @@
 import React from 'react';
 import '../../../css/admin/review/DetailReview.css'
-import noAvt from "../../../images/no-avt.png";
 function DetailReview () {
     return (
         <div className="detailReview">
@@ -43,22 +42,6 @@ function DetailReview () {
                         </div>
                         </div>
                     </div>
-                    {/* <div className="col-sm-3">
-                        <img
-                        className="align-self-center img-fluid"
-                        src={noAvt}
-                        ></img>
-                    </div> */}
-                    </div>
-                </div>
-                {/* <div className="btn-detailAccount">
-                    <button
-                    
-                    className="btnEdit-detailAccount"
-                    >
-                    Chỉnh sửa
-                    </button>
-                </div> */}
             </div>
         </div>
     );
