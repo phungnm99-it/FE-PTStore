@@ -1,6 +1,5 @@
 import React, { useState, useContext } from "react";
 import "../../css/admin/loginAdmin.css";
-import loginAdmin from "../../images/loginAdmin.jpg";
 import { useHistory } from "react-router-dom";
 import { AdminContext } from "../../AdminContext";
 import loginApi from "../../api/admin/loginApi";
@@ -34,7 +33,10 @@ function AdminLogin() {
         <div className="container modal modal-signin-admin">
           <div className="wrap-loginAdmin">
             <div className="loginAdmin-pic js-tilt" data-tilt="">
-              <img src={loginAdmin} alt="imgLoginAdmin" />
+              <img
+                src="http://res.cloudinary.com/dobsh4rbw/image/upload/v1639403877/commom/loginAdmin121321085704.jpg"
+                alt="imgLoginAdmin"
+              />
             </div>
 
             <form className="loginAdmin-form validate-form">

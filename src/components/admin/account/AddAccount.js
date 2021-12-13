@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "../../../css/admin/account/AddAccount.css";
 import { getProvinces } from "../../../service/provinces-service";
-import noAvt from "../../../images/no-avt.png";
 import { validate } from "../../../utils/validateInput"
 function AddAccount(props) {
   const [checkPhone, setCheckPhone] = useState(true);
@@ -154,7 +153,7 @@ function AddAccount(props) {
                   </label>
                   <img
                     className="UploadImg"
-                    src={noAvt}
+                    src="http://res.cloudinary.com/dobsh4rbw/image/upload/v1639403956/commom/no-avt121321085832.png"
                     alt="UploadImg"
                   ></img>
                 </div>

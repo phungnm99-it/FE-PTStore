@@ -1,5 +1,4 @@
 import React from "react";
-//import noAvt from "../../images/no-avt.png";
 import "../../css/productDetail/ReviewContent.css";
 import { timeFormatDetail } from "../../utils/dateUtils";
 
@@ -12,7 +11,13 @@ function ReviewContent(item) {
         <div className="review-content" id="reviewContent">
           <div className="item">
             <div className="avt">
-              <img src={item.imageUrl} alt="noAvt" />
+              <img
+                src={
+                  item.imageUrl ||
+                  "http://res.cloudinary.com/dobsh4rbw/image/upload/v1639403956/commom/no-avt121321085832.png"
+                }
+                alt="noAvt"
+              />
             </div>
             <div className="info">
               <p

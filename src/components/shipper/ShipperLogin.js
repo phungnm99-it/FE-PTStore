@@ -1,6 +1,5 @@
 import React, {useContext, useState} from "react";
 import "../../css/shipper/ShipperLogin.css";
-import shipperImg from "../../images/shipper.png";
 import Auth from "../../config/auth";
 import { useHistory } from "react-router-dom";
 import { ShipperContext } from "../../ShipperContext";
@@ -34,7 +33,10 @@ function ShipperLogin() {
         <div className="loginForm">
           <div className="wrap-loginAdmin">
             <div className="loginAdmin-pic js-tilt" data-tilt="">
-              <img src={shipperImg} alt="imgShipperLogin" />
+              <img
+                src="http://res.cloudinary.com/dobsh4rbw/image/upload/v1639404603/commom/shipper121321090918.png"
+                alt="imgShipperLogin"
+              />
             </div>
 
             <form className="loginAdmin-form validate-form">

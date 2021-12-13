@@ -1,6 +1,5 @@
 import React from "react";
 import "../../css/customer/filterOrderTab.css";
-import iconSearch from "../../images/iconSearch.png";
 
 function FilterOrderTab() {
   return (
@@ -15,7 +14,10 @@ function FilterOrderTab() {
                 className="cps-input"
               />
               <div className="btnSearch" id="search-cate">
-                <img alt="icon-search" src={iconSearch} />
+                <img
+                  alt="icon-search"
+                  src="http://res.cloudinary.com/dobsh4rbw/image/upload/v1639403249/commom/iconSearch121321084641.png"
+                />
               </div>
             </div>
           </form>

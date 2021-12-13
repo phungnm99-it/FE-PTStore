@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import "../../../css/common/orderDetail.css";
-import iconClose from "../../../images/iconClose.png";
 import HeadOD from "./HeadOD";
 import BodyOD from "./BodyOD";
 import StatusOD from "./StatusOD";
@@ -18,11 +17,11 @@ function OrderDetail(props) {
               <img
                 alt="iconClose"
                 className="icon-close"
-                src={iconClose}
+                src="http://res.cloudinary.com/dobsh4rbw/image/upload/v1639402353/commom/iconClose121321083143.png"
                 onClick={() => props.onCLose()}
               />
               <div className="form">
-                <HeadOD status = {props.bill}/>
+                <HeadOD status={props.bill} />
                 <StatusOD status={parseInt(props.bill.status)} />
                 {props?.bill?.products
                   ? props.bill.products.map((item, idx) => {

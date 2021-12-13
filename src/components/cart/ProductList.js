@@ -4,7 +4,6 @@ import UserInfo from "./UserInfo";
 import ProductItem from "./ProductItem";
 import { useContext } from "react";
 import { AuthContext } from "../../AuthContext";
-import noOrder from "../../images/noOder.png";
 import { useHistory } from "react-router-dom";
 function ProductList() {
   const context = useContext(AuthContext);
@@ -37,7 +36,10 @@ function ProductList() {
       <div className="midCart">
         <div className="not-found-list">
           <a>
-            <img src={noOrder} alt="not-found-list" />
+            <img
+              src="http://res.cloudinary.com/dobsh4rbw/image/upload/v1639404278/commom/noOder121321090323.png"
+              alt="not-found-list"
+            />
           </a>
           <p>Bạn chưa có sản phẩm nào trong giỏ hàng</p>
           <button className="button_direct" onClick={() => history.push("/")}>

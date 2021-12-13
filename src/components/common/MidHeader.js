@@ -2,9 +2,7 @@ import "../../css/common/MidHeader.css";
 //import Login from "./Login";
 import { AuthContext } from "../../AuthContext";
 import { useContext } from "react";
-import logo from "../../images/logo-ptstore.png";
 import { Link, useHistory } from "react-router-dom";
-import iconSearch from "../../images/iconSearch.png";
 import Auth from "../../config/auth";
 //import Logout from "./Logout";
 
@@ -19,7 +17,11 @@ function HeaderMid() {
             <div className="col-md-2">
               <div className="logo pull-left">
                 <Link to="/">
-                  <img src={logo} alt="PT Store logo" width="162" />
+                  <img
+                    src="http://res.cloudinary.com/dobsh4rbw/image/upload/v1639402941/commom/logo-ptstore121321084131.png"
+                    alt="PT Store logo"
+                    width="162"
+                  />
                 </Link>
               </div>
             </div>
@@ -52,7 +54,10 @@ function HeaderMid() {
                         }
                       }}
                     >
-                      <img src={iconSearch} alt="icon search" />
+                      <img
+                        src="http://res.cloudinary.com/dobsh4rbw/image/upload/v1639403249/commom/iconSearch121321084641.png"
+                        alt="icon search"
+                      />
                     </div>
                   </div>
                 </div>
