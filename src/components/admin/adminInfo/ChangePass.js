@@ -65,8 +65,7 @@ function ChangePass () {
                 <div className="title-addAccount">
                     <h2>Đổi mật khẩu</h2>
                 </div>
-                <div className="form">
-                    
+                <div className="form">             
                     <div className="input-addAccount">
                         <form>
                         <div className="mb-3">

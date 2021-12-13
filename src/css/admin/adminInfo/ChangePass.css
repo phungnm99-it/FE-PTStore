@@ -10,7 +10,6 @@
 
 .changePassAdmin .title-addAccount{
     margin-bottom: 30px;
-    margin-left: 20px;
     text-align: center;
 }
 .changePassAdmin .form{
@@ -21,7 +20,7 @@
     padding: 10px 0;
     height: auto;
     border: 1px solid #ccc;
-    margin-left: 250px;
+    margin-left: 22%;
     margin-right: 100px;
     margin-bottom: 30px;
     width: 600px;
