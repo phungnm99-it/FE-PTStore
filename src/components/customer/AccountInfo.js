@@ -24,7 +24,7 @@ function AccountInfo() {
     userApi.getInfo().then((response) => {
       console.log(timeFormatInputUser(response.data.birthday));
       document.getElementById("UserBirthDate").value = timeFormatInputUser(
-        response.data.birthday
+        response.data.birthday || Date.now()
       );
       setInfo(response.data);
 
@@ -34,8 +34,8 @@ function AccountInfo() {
         document.getElementById("Female").checked = true;
       }
 
-      document.getElementById("Address").value = response.data.address;
-      document.getElementById("FullName").value = response.data.fullName;
+      document.getElementById("Address").value = response.data.address || "";
+      document.getElementById("FullName").value = response.data.fullName || "";
     });
   }, []);
   // lay quan tu ma tinh
@@ -124,7 +124,7 @@ function AccountInfo() {
                             <input
                               className="form-input"
                               type="tel"
-                              value={info.phoneNumber}
+                              value={info.phoneNumber || ""}
                               id="PhoneNumber"
                               placeholder="Điện thoại *"
                               data-required="1"
