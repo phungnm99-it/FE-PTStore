@@ -3,7 +3,6 @@ import "../../css/common/MidHeader.css";
 import { AuthContext } from "../../AuthContext";
 import { useContext } from "react";
 import { Link, useHistory } from "react-router-dom";
-import iconSearch from "../../images/iconSearch.png";
 import Auth from "../../config/auth";
 //import Logout from "./Logout";
 
@@ -55,7 +54,10 @@ function HeaderMid() {
                         }
                       }}
                     >
-                      <img src={iconSearch} alt="icon search" />
+                      <img
+                        src="http://res.cloudinary.com/dobsh4rbw/image/upload/v1639403249/commom/iconSearch121321084641.png"
+                        alt="icon search"
+                      />
                     </div>
                   </div>
                 </div>
