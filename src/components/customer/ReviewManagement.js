@@ -4,6 +4,7 @@ import userApi from "../../api/userApi";
 import "../../css/customer/noOrder.css";
 import { timeFormat } from "../../utils/dateUtils";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { Link } from "react-router-dom";
 function ReviewManagement() {
   const [review, setReview] = useState([]);
   const history = useHistory();
@@ -80,7 +81,9 @@ function ReviewManagement() {
                         {review.map((item) => {
                           return (
                             <tr key={item.id}>
-                              <td>{item.productName}</td>
+                              <td className="text-productName">
+                                <Link to={`/chitiet/${item.productId}`}>{item.productName}</Link>
+                              </td>
                               <td>{timeFormat(item.reviewTime)}</td>
                               <td>{item.content}</td>
                             </tr>

@@ -87,4 +87,14 @@
     border: none;
     background-color: #f9f9f9;
   }
-  
+
+.reviewHistory .text-productName a{
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 500;
+  color: black;
+}
+
+.reviewHistory .text-productName a:hover{
+  color: #7774e7;
+}

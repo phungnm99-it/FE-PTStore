@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useContext } from 'react';
 import "../../css/shipper/MenuShipper.css"
 import Dashboard from './Dashboard';
 import InfoShipper from './InfoShipper';
@@ -8,13 +8,30 @@ import OrderReceived from './OrderReceived';
 import DeliveryHistory from './DeliveryHistory';
 import OrderDetail from "../customer/orderDetail/OrderDetail"
 import userApi from '../../api/userApi';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
+import Auth from '../../config/auth';
+import {ShipperContext} from "../../ShipperContext"
 function MenuShipper () {
+    const context = useContext(ShipperContext);
     const [form, setForm] = useState();
+    const history = useHistory();
     const [avt, setAvt] = useState(
         "https://huyhoanhotel.com/wp-content/uploads/2016/05/765-default-avatar.png"
       );
+    const [name, setName] = useState("");
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
     const inputFile = useRef(null);
-    useEffect(()=>{window.scrollTo(0, 0)},[])
+    useEffect(() => {
+        window.scrollTo(0, 0);
+        userApi.getInfo().then((response) => {
+          if (response.data.imageUrl !== "") {
+            setAvt(response.data.imageUrl);
+          }
+          setName(response.data.fullName);
+        });
+      }, []);
 
     const selectFile = () => {
         // debugger
@@ -80,7 +97,7 @@ function MenuShipper () {
                             </div>
                             <div className="summer">
                                 <p onClick={() => setForm(1)}>
-                                <strong>Tien Phan Nguyen Thụy</strong>
+                                <strong>{name}</strong>
                                 </p>
                                 <p className="change-avatar" onClick={() => selectFile()}>
                                 <i className="icon-change-avatar"></i> Thay đổi ảnh đại diện
@@ -139,7 +156,12 @@ function MenuShipper () {
                                 Trang chủ
                             </a>
                             </div>
-                            <div className="shipperLogout">
+                            <div className="shipperLogout"
+                            onClick={() => {
+                            context.logout();
+                            Auth.logout();
+                            history.push("/shipper/login");
+                            }}>
                                 <i className="fas fa-sign-out-alt nav-icon"></i>
                                 <span> Đăng xuất</span>
                             </div>
