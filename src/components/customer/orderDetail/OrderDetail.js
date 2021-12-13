@@ -3,6 +3,7 @@ import "../../../css/common/orderDetail.css";
 import HeadOD from "./HeadOD";
 import BodyOD from "./BodyOD";
 import StatusOD from "./StatusOD";
+import CancelOD from "./CancelOD";
 
 function OrderDetail(props) {
   useEffect(() => {
@@ -28,6 +29,7 @@ function OrderDetail(props) {
                       return <BodyOD product={item} />;
                     })
                   : null}
+                <CancelOD/>
               </div>
             </div>
           </div>

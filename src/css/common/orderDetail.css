@@ -84,12 +84,17 @@
 
 .orderDetail .bodyOrderDetail h5 {
   font-size: 20px;
+  cursor: pointer;
+}
+
+.orderDetail .bodyOrderDetail h5:hover{
+  color: #288ad6;;
 }
 
 .orderDetail .bodyOrderDetail img {
-  height: 180px;
-  width: 260px;
-  margin-left: -80px;
+  height: 220px;
+  width: 250px;
+  margin-left: -90px;
   margin-right: 0px;
 }
 
@@ -205,4 +210,16 @@
 
 .orderDetail .status-orderDetail{
   margin-bottom: 20px;
+}
+
+.cancel-orderDetail .btnCancel{
+  border: 1px solid orange;
+  background-color: white;
+  height: 40px;
+  width: 350px;
+  margin-top: 50px;
+  border-radius: 12px;
+  font-size: 16px;
+  margin-left: 18%;
+  font-weight: 400;
 }

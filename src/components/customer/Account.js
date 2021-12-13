@@ -121,13 +121,13 @@ function Account(props) {
                   </a>
                 </li>
                 <li onClick={() => setForm(3)}>
-                  <a>
+                  <a className={form === 3 && "activeTab"}>
                     <i className="fas fa-thumbs-up"></i>
                     <span>Quản lý đánh giá</span>
                   </a>
                 </li>
                 <li onClick={() => setForm(4)}>
-                  <a>
+                  <a className={form === 4 && "activeTab"}>
                     <i className="fas fa-comments-dollar"></i>
                     <span>Phản hồi, đánh giá</span>
                   </a>
