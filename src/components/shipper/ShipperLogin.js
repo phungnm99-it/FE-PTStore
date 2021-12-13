@@ -1,14 +1,33 @@
-import React, {useState} from "react";
+import React, {useContext, useState} from "react";
 import "../../css/shipper/ShipperLogin.css";
 import shipperImg from "../../images/shipper.png";
 import Auth from "../../config/auth";
 import { useHistory } from "react-router-dom";
 import { ShipperContext } from "../../ShipperContext";
-import shipperApi from "../../api/shipperApi"
+import shipperApi from "../../api/shipperApi";
 
 function ShipperLogin() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const context = useContext(ShipperContext);
+  const history = useHistory();
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    let formData = new FormData();
+    if (username === "" && password === "") alert("Enter!!!");
+    else {
+      formData.append("Username", username);
+      formData.append("Password", password);
+      let result = await shipperApi.login(formData);
+      if (result.code === "401") {
+        alert("Username or password wrong");
+      } else {
+        Auth.setAccessToken(result.token);
+        context.login();
+        history.push("/shipper");
+      }
+    }
+  };
   return (
     <div className="shipperLogin">
       <div className="container">
@@ -27,6 +46,7 @@ function ShipperLogin() {
                 <input
                   className="inputLoginAdmin"
                   type="text"
+                  onChange={(e) => setUsername(e.target.value)}
                   placeholder="Tài khoản shipper"
                   name="userNameShipper"
                   id="userNameShipper"
@@ -41,6 +61,7 @@ function ShipperLogin() {
                   autoComplete="off"
                   className="inputLoginAdmin"
                   type="password"
+                  onChange={(e) => setPassword(e.target.value)}
                   placeholder="Mật khẩu"
                   name="passwordShipper"
                   id="passwordShipper"
@@ -57,6 +78,7 @@ function ShipperLogin() {
 
               <div className="container-login100-form-btn">
                 <button
+                  onClick={(e) => handleLogin(e)}
                   type="button"
                   className="btn-LoginAdmin"
                   value="Đăng nhập"
