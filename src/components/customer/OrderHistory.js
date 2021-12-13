@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from "react";
-import FilterOrderTab from "./FilterOrderTab";
 import "../../css/customer/orderHistory.css";
 import OrderDetail from "./orderDetail/OrderDetail";
 import userApi from "../../api/userApi";
 import { priceFormat } from "../../utils/priceFormat";
 import { customStyles } from "../../utils/cssUtils";
-import noOrder from "../../images/noOder.png";
 import Modal from "react-modal";
 import { timeFormat } from "../../utils/dateUtils";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
@@ -44,7 +42,10 @@ function OrderHistory() {
               <div className="box-bg-white">
                 <div className="not-found-list">
                   <a>
-                    <img src={noOrder} alt="not-found-list" />
+                    <img
+                      src="http://res.cloudinary.com/dobsh4rbw/image/upload/v1639404278/commom/noOder121321090323.png"
+                      alt="not-found-list"
+                    />
                   </a>
                   <p>Bạn chưa có đơn hàng nào</p>
                   <button

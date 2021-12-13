@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import "../../css/shipper/OrderReceived.css"
-import Modal from "react-modal";
-import OrderDetail from '../customer/orderDetail/OrderDetail';
-import {customStyles} from "../../utils/cssUtils"
 import OrderItem from './OrderItem';
 function OrderReceived () {
     const [model, setModel] = useState(false);

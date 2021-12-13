@@ -1,5 +1,4 @@
 import React from "react";
-import noOrder from "../../images/noOder.png";
 import "../../css/customer/noOrder.css";
 import { useHistory } from "react-router-dom";
 
@@ -16,7 +15,10 @@ function NoOrder() {
                 <div className="box-bg-white">
                   <div className="not-found-list">
                     <a>
-                      <img src={noOrder} alt="not-found-list" />
+                      <img
+                        src="http://res.cloudinary.com/dobsh4rbw/image/upload/v1639404278/commom/noOder121321090323.png"
+                        alt="not-found-list"
+                      />
                     </a>
                     <p>Bạn chưa có đơn hàng nào</p>
                     <button
