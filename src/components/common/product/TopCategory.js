@@ -1,6 +1,5 @@
 import React from "react";
 import "../../../css/product/topCategory.css";
-import poster from "../../../images/iphone-13-series-pre-23423423.jpg";
 
 function TopCategory() {
   return (
@@ -13,7 +12,7 @@ function TopCategory() {
                 <a href="#" target="_top">
                   <img
                     alt="image"
-                    src={poster}
+                    src="http://res.cloudinary.com/dobsh4rbw/image/upload/v1639403472/commom/banner121321085025.jpg"
                     className="img-responsive img-border-radius"
                   />
                 </a>
