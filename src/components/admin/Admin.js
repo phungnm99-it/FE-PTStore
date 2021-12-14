@@ -182,7 +182,7 @@ function Admin(props) {
       case 34:
         return <AdminInfo switch={(e) => setForm(e)} />;
       case 35:
-        return <EditInfo />;
+        return <EditInfo switch={(e) => setForm(e)} />;
       case 36:
         return <ChangePass />;
       case 37:

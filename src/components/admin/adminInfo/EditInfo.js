@@ -3,11 +3,13 @@ import { getProvinces } from '../../../service/provinces-service';
 import "../../../css/admin/adminInfo/EditInfo.css"
 import userApi from '../../../api/userApi';
 import { timeFormatInputUser } from '../../../utils/dateUtils';
-function EditInfo () {
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
+function EditInfo (props) {
     // state tinh, state quan
   const [provinces, setProvinces] = useState([]);
   const [districts, setDistrict] = useState([]);
   const [info, setInfo] = useState({});
+  const history = useHistory();
   useEffect(() => {
     userApi.getInfo().then((response) => {
         console.log(timeFormatInputUser(response.data.birthday));
@@ -64,6 +66,7 @@ function EditInfo () {
             alert("Đổi thông tin không thành công!");
           } else {
             alert("Đổi thông tin thành công!");
+            props.switch(34);
           }
         });
       }
@@ -113,7 +116,7 @@ function EditInfo () {
                                 </label>
                                 <input
                                 type="text"
-                                value={info.fullName || ""}
+                                
                                 className="form-control"
                                 name="FullName"
                                 id="FullName"
@@ -251,7 +254,7 @@ function EditInfo () {
                                 </label>
                                 <input
                                 type="text"
-                                value={info.address || ""}
+                                
                                 className="form-control"
                                 name="Address"
                                 id="Address"
