@@ -10,7 +10,7 @@ import { useHistory } from "react-router-dom";
 
 function OrderItem(props) {
   const history = useHistory();
-  console.log(props.detail);
+  const [details, setDetails] = useState({});
   const [model, setModel] = useState(false);
 
   const handleDeliverSubmit = (e) => {
@@ -20,7 +20,7 @@ function OrderItem(props) {
       orderApi.deliverOrderByShipper(props.detail.id).then((res) => {
         if (res.code === 200) {
           alert("Nhận đơn hàng thành công!");
-          history.push("/shipper");
+          props.switchPage(4);
         } else {
         }
       });
@@ -34,7 +34,7 @@ function OrderItem(props) {
       orderApi.completeOrderByShipper(props.detail.id).then((res) => {
         if (res.code === 200) {
           alert("Xác nhận thành công!");
-          history.push("/shipper");
+          props.switchPage(5);
         } else {
         }
       });
@@ -48,7 +48,13 @@ function OrderItem(props) {
           <div className="row">
             <div className="col-sm-8">
               <div className="left-OrderItem">
-                <p className="textIDOrder" onClick={() => setModel(true)}>
+                <p
+                  className="textIDOrder"
+                  onClick={() => {
+                    setDetails(props.detail);
+                    setModel(true);
+                  }}
+                >
                   {props.detail.orderCode}
                 </p>
                 <p className="labelOrder">
@@ -97,7 +103,11 @@ function OrderItem(props) {
         </div>
       </div>
       <Modal isOpen={model} style={customStyles}>
-        <OrderDetail onCLose={() => setModel(false)} />
+        <OrderDetail
+          switchPage={props.switchPage}
+          bill={details}
+          onCLose={() => setModel(false)}
+        />
       </Modal>
     </div>
   );

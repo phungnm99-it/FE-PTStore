@@ -1,12 +1,31 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { priceFormat } from "../../utils/priceFormat";
 import "../../css/shipper/OrderDetail.css";
+import { timeFormatDetail } from "../../utils/dateUtils";
+import orderApi from "../../api/orderApi";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 function OrderDetail(props) {
-  const [status, setStatus] = useState(props.status || 2);
+  const history = useHistory();
+  const [status, setStatus] = useState(props.bill.status || 2);
   const changeStatus = (status, index) => {
     let newStatus = status + index;
     setStatus(newStatus > 1 && newStatus <= 4 ? newStatus : status);
   };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (window.confirm("Bạn chắc chắn muốn huỷ đơn?")) {
+      orderApi.cancelByShipper(props.bill.id).then((res) => {
+        if (res.code === 200) {
+          alert("Huỷ đơn hàng thành công!");
+          props.switchPage(0);
+        } else {
+          alert("Huỷ đơn không thành công!");
+        }
+      });
+    }
+  };
+  useEffect(() => {}, [props]);
 
   return (
     <div>
@@ -26,14 +45,14 @@ function OrderDetail(props) {
                     {" "}
                     Mã đơn hàng{" "}
                     <span className="font-weight-bold text-dark">
-                      1222528743
+                      {props.bill?.orderCode}
                     </span>
                   </p>
                   <p className="text-muted">
                     {" "}
                     Ngày đặt{" "}
                     <span className="font-weight-bold text-dark">
-                      12,March 2019
+                      {timeFormatDetail(props.bill.orderTime ?? 0)}
                     </span>{" "}
                   </p>
                 </div>
@@ -50,7 +69,7 @@ function OrderDetail(props) {
                           className={"step0" + (status >= 1 ? " active" : "")}
                           id="step1"
                         >
-                          Chờ xác nhận
+                          Đặt thành công
                         </li>
                         <li
                           className={
@@ -86,29 +105,44 @@ function OrderDetail(props) {
                   </div>
                 </div>
 
-                <div className="bodyOrderDetailShipper">
-                  <div className="row">
-                    <div className="col-sm-8 ">
-                      <h5 className="bold">{props.product?.productName}</h5>
-                      <p className="text-muted">
-                        {" "}
-                        Số lượng: {props.product?.quantity}
-                      </p>
-                      <h4 className="mt-3 mb-4 bold">
-                        <strong>
-                          {priceFormat(props.product?.price || 0)}
-                        </strong>
-                      </h4>
-                    </div>
-                    <div className="col-sm-4">
-                      <img
-                        alt="product"
-                        className="align-self-center img-fluid"
-                        src="https://cdn.tgdd.vn/Products/Images/42/223602/iphone-13-black-2.jpg"
-                      />{" "}
-                    </div>
+                {props?.bill?.products
+                  ? props.bill.products.map((item, idx) => {
+                      return (
+                        <div className="bodyOrderDetailShipper">
+                          <div className="row">
+                            <div className="col-sm-8 ">
+                              <h5 className="bold">{item.productName}</h5>
+                              <p className="text-muted">
+                                {" "}
+                                Số lượng: {item.quantity}
+                              </p>
+                              <h4 className="mt-3 mb-4 bold">
+                                <strong>{priceFormat(item.price || 0)}</strong>
+                              </h4>
+                            </div>
+                            <div className="col-sm-4">
+                              <img
+                                alt="product"
+                                className="align-self-center img-fluid"
+                                src={item.imageUrl}
+                              />{" "}
+                            </div>
+                          </div>
+                        </div>
+                      );
+                    })
+                  : null}
+
+                {props.bill.status === "3" ? (
+                  <div className="cancel-orderDetail">
+                    <button
+                      onClick={(e) => handleSubmit(e)}
+                      className="btnCancel"
+                    >
+                      Hủy đơn hàng
+                    </button>
                   </div>
-                </div>
+                ) : null}
               </div>
             </div>
           </div>

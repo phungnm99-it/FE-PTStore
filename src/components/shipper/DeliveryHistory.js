@@ -5,10 +5,11 @@ import { customStyles } from "../../utils/cssUtils";
 import OrderHistoryDetail from "./OrderHistoryDetail";
 
 import orderApi from "../../api/orderApi";
+import { timeFormatDetail } from "../../utils/dateUtils";
 
 function DeliveryHistory(props) {
   const [model, setModel] = useState(false);
-
+  const [details, setDetails] = useState({});
   const [orders, setOrders] = useState([]);
   useEffect(() => {
     orderApi.getOrderDeliveredByShipper().then((res) => {
@@ -27,7 +28,7 @@ function DeliveryHistory(props) {
                   <div className="bgc-white bd bdrs-3 p-20 mB-20">
                     <h4 className="c-grey-900 mB-20">Danh sách</h4>
                     <div className="dataTables_wrapper">
-                      <div id="dataTable_filter" className="dataTables_filter">
+                      {/* <div id="dataTable_filter" className="dataTables_filter">
                         <input
                           type="search"
                           className="inputSearch"
@@ -35,7 +36,7 @@ function DeliveryHistory(props) {
                           aria-controls="dataTable"
                         />
                         <button className="btn-Search">Tìm kiếm</button>
-                      </div>
+                      </div> */}
                       <table className="table table-striped table-bordered dataTable">
                         <thead>
                           <tr role="row">
@@ -70,13 +71,16 @@ function DeliveryHistory(props) {
                                 <td>{item.orderCode}</td>
                                 <td>{item.name}</td>
                                 <td>{item.phoneNumber}</td>
-                                <td>Võ Văn Ngân, TP Thủ Đức, TPHCM</td>
-                                <td>09/12/2021</td>
+                                <td>{item.address}</td>
+                                <td>{timeFormatDetail(item.deliverTime)}</td>
                                 <td>Giao thành công</td>
                                 <td>
                                   <button
                                     className="btnAccept"
-                                    onClick={() => setModel(true)}
+                                    onClick={() => {
+                                      setDetails(item);
+                                      setModel(true);
+                                    }}
                                   >
                                     Chi tiết
                                   </button>
