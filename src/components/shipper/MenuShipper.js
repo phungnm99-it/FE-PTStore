@@ -74,7 +74,7 @@ function MenuShipper () {
           case 2:
               return <ChangePass />;
           case 3:
-              return <EditInfo/>;
+              return <EditInfo switch={(e) => setForm(e)}/>;
           case 4: 
               return <OrderReceived switch={(e) => setForm(e)}/>;
           case 5:

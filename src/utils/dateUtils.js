@@ -4,7 +4,7 @@ export const timeFormat = (dateStr) => {
 };
 
 export const timeFormatInputUser = (dateStr) => {
-  return moment(dateStr).format("Y-M-DD").toString();
+  return moment(dateStr).format("YYYY-MM-DD").toString();
 };
 
 export const timeFormatDetail = (dateStr) => {
