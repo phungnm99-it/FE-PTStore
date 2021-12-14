@@ -124,12 +124,6 @@ function CompletedOrder(props) {
                                 <td>{item.status}</td>
                                 <td>
                                   <button
-                                    onClick={() => props.switch(22)}
-                                    className="iconEdit"
-                                  >
-                                    <i className="fas fa-edit"></i>
-                                  </button>
-                                  <button
                                     onClick={() => props.switch(30)}
                                     className="iconDetail"
                                   >

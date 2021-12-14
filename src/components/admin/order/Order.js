@@ -23,6 +23,21 @@ function Order(props) {
     setCurrentPage(numPage);
   };
 
+  const handleVerifyOrder = (e) => {
+    e.preventDefault();
+
+    if (window.confirm("Bạn muốn xác nhận đơn hàng " + e.target.id)) {
+      orderApi.verifyOrderByAdmin(e.target.id).then((res) => {
+        if (res.code === 200) {
+          alert("Xác nhận đơn hàng thành công!");
+          props.switch(38);
+        } else {
+          alert("Xác nhận đơn hàng thất bạn!");
+        }
+      });
+    }
+  };
+
   return (
     <div>
       <section className="pageAdmin">
@@ -119,12 +134,18 @@ function Order(props) {
                                 <td>{item.paymentMethod}</td>
                                 <td>{item.status}</td>
                                 <td>
-                                  <button
-                                    onClick={() => props.switch(22)}
-                                    className="iconEdit"
-                                  >
-                                    <i className="fas fa-edit"></i>
-                                  </button>
+                                  {item.status === "Đặt hàng thành công" ? (
+                                    <button
+                                      onClick={(e) => handleVerifyOrder(e)}
+                                      className="iconEdit"
+                                      id={item.id}
+                                    >
+                                      <i
+                                        id={item.id}
+                                        className="fas fa-edit"
+                                      ></i>
+                                    </button>
+                                  ) : null}
                                   <button
                                     onClick={() => props.switch(30)}
                                     className="iconDetail"

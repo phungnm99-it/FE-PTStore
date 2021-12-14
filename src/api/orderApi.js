@@ -40,6 +40,11 @@ const orderApi = {
     const url = "/order/complete/" + id;
     return axiosClient.get(url);
   },
+
+  verifyOrderByAdmin: (id) => {
+    const url = "/order/verify/" + id;
+    return axiosClient.get(url);
+  },
 };
 
 export default orderApi;

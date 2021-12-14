@@ -87,7 +87,7 @@ function Dashboard(props) {
             </h4>
           </div>
           <div className="col-md-12">
-            {orders.map((item, index) => {
+            {orders?.map((item, index) => {
               return (
                 <OrderItem
                   switchPage={props.switch}
