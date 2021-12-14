@@ -10,6 +10,7 @@ import { useHistory } from "react-router-dom";
 
 function OrderItem(props) {
   const history = useHistory();
+  const [details, setDetails] = useState({});
   console.log(props.detail);
   const [model, setModel] = useState(false);
 
@@ -48,7 +49,9 @@ function OrderItem(props) {
           <div className="row">
             <div className="col-sm-8">
               <div className="left-OrderItem">
-                <p className="textIDOrder" onClick={() => setModel(true)}>
+                <p className="textIDOrder" onClick={() => {
+                                    setDetails(props.details);
+                                    setModel(true);}}>
                   {props.detail.orderCode}
                 </p>
                 <p className="labelOrder">
@@ -97,7 +100,7 @@ function OrderItem(props) {
         </div>
       </div>
       <Modal isOpen={model} style={customStyles}>
-        <OrderDetail onCLose={() => setModel(false)} />
+        <OrderDetail bill={details} onCLose={() => setModel(false)} />
       </Modal>
     </div>
   );
