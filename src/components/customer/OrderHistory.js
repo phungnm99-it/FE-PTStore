@@ -116,7 +116,9 @@ function OrderHistory() {
                                   ? "Đã xác nhận"
                                   : item.status === "3"
                                   ? "Đang chờ giao hàng"
-                                  : "Giao hàng thành công"}
+                                  : item.status === "4"
+                                  ? "Giao hàng thành công"
+                                  : "Đã huỷ"}
                               </td>
                               <td>
                                 <button

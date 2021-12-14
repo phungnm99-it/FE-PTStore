@@ -6,9 +6,7 @@ import StatusOD from "./StatusOD";
 import CancelOD from "./CancelOD";
 
 function OrderDetail(props) {
-  useEffect(() => {
-    console.log(props.bill);
-  }, [props]);
+  useEffect(() => {}, [props]);
   return (
     <div>
       <div className="orderDetail">
@@ -29,7 +27,7 @@ function OrderDetail(props) {
                       return <BodyOD product={item} />;
                     })
                   : null}
-                <CancelOD/>
+                {props.bill.status === "2" || props.bill.status === "1" ? <CancelOD id={props.bill.id} /> : null}
               </div>
             </div>
           </div>
