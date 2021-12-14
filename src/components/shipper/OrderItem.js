@@ -50,7 +50,7 @@ function OrderItem(props) {
             <div className="col-sm-8">
               <div className="left-OrderItem">
                 <p className="textIDOrder" onClick={() => {
-                                    setDetails(props.details);
+                                    setDetails(props.detail);
                                     setModel(true);}}>
                   {props.detail.orderCode}
                 </p>

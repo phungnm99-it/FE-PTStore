@@ -3,8 +3,8 @@ import { priceFormat } from "../../utils/priceFormat";
 import "../../css/shipper/OrderDetail.css";
 import { timeFormatDetail } from "../../utils/dateUtils";
 function OrderDetail(props) {
-  console.log(props.status);
-  const [status, setStatus] = useState(props.status || 2);
+  console.log(props.bill);
+  const [status, setStatus] = useState(props.bill.status || 2);
   const changeStatus = (status, index) => {
     let newStatus = status + index;
     setStatus(newStatus > 1 && newStatus <= 4 ? newStatus : status);
@@ -24,19 +24,22 @@ function OrderDetail(props) {
                 onClick={() => props.onCLose()}
               />
               <div className="form">
-                <div className="headerOrderDetailShipper" status={props.bill}>
+                <div
+                  className="headerOrderDetailShipper"
+                  status={props.bill.status}
+                >
                   <p className="text-muted">
                     {" "}
                     Mã đơn hàng{" "}
                     <span className="font-weight-bold text-dark">
-                      {props.status?.orderCode}
+                      {props.bill?.orderCode}
                     </span>
                   </p>
                   <p className="text-muted">
                     {" "}
                     Ngày đặt{" "}
                     <span className="font-weight-bold text-dark">
-                      {timeFormatDetail(props.status?.orderTime ?? 0)}
+                      {timeFormatDetail(props.bill.orderTime ?? 0)}
                     </span>{" "}
                   </p>
                 </div>
