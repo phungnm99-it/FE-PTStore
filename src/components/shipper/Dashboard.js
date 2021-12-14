@@ -2,12 +2,22 @@ import React, { useState, useEffect } from "react";
 import "../../css/shipper/Dashboard.css";
 import OrderItem from "./OrderItem";
 import orderApi from "../../api/orderApi";
-function Dashboard() {
+import userApi from "../../api/userApi";
+function Dashboard(props) {
   const [orders, setOrders] = useState([]);
 
   useEffect(() => {
     orderApi.getOrderCanDeliverByShipper().then((res) => {
       setOrders(res.data);
+    });
+
+    userApi.getCommonShipperInfo().then((res) => {
+      document.getElementById("workingDate").innerText = res.data.workingDate;
+      document.getElementById("deliveredOrder").innerText =
+        res.data.deliveredOrder;
+      document.getElementById("deliveringOrder").innerText =
+        res.data.deliveringOrder;
+      document.getElementById("totalOrder").innerText = res.data.totalOrder;
     });
   }, []);
   return (
@@ -21,7 +31,9 @@ function Dashboard() {
                   <i className="far fa-calendar-check yellow_color"></i>
                 </div>
                 <div className="counterNo">
-                  <p className="totalNo">100</p>
+                  <p id="workingDate" className="totalNo">
+                    0
+                  </p>
                   <p className="headCounter">Ngày làm việc</p>
                 </div>
               </div>
@@ -33,7 +45,9 @@ function Dashboard() {
                   <i className="fas fa-check green_color"></i>
                 </div>
                 <div className="counterNo">
-                  <p className="totalNo">10</p>
+                  <p id="deliveredOrder" className="totalNo">
+                    0
+                  </p>
                   <p className="headCounter">Đơn đã giao</p>
                 </div>
               </div>
@@ -45,8 +59,10 @@ function Dashboard() {
                   <i className="fas fa-box-open red_color"></i>
                 </div>
                 <div className="counterNo">
-                  <p className="totalNo">10</p>
-                  <p className="headCounter">Đơn hôm nay</p>
+                  <p id="deliveringOrder" className="totalNo">
+                    0
+                  </p>
+                  <p className="headCounter">Đơn đang giao</p>
                 </div>
               </div>
             </div>
@@ -57,8 +73,10 @@ function Dashboard() {
                   <i className="fas fa-bell blue_color"></i>
                 </div>
                 <div className="counterNo">
-                  <p className="totalNo">10</p>
-                  <p className="headCounter">Theo dõi</p>
+                  <p id="totalOrder" className="totalNo">
+                    10
+                  </p>
+                  <p className="headCounter">Đơn sẵn sàng</p>
                 </div>
               </div>
             </div>
@@ -70,7 +88,13 @@ function Dashboard() {
           </div>
           <div className="col-md-12">
             {orders.map((item, index) => {
-              return <OrderItem key={index} detail={item} />;
+              return (
+                <OrderItem
+                  switchPage={props.switch}
+                  key={index}
+                  detail={item}
+                />
+              );
             })}
           </div>
         </div>

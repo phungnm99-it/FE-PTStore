@@ -65,6 +65,11 @@ const userApi = {
     const url = "/user/update";
     return axiosClient.post(url, formData);
   },
+
+  getCommonShipperInfo: () => {
+    const url = "/user/getCommonShipperInfo";
+    return axiosClient.get(url);
+  },
 };
 
 export default userApi;

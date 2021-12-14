@@ -5,7 +5,6 @@ import { timeFormatDetail } from "../../utils/dateUtils";
 import orderApi from "../../api/orderApi";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 function OrderDetail(props) {
-  console.log(props.bill);
   const history = useHistory();
   const [status, setStatus] = useState(props.bill.status || 2);
   const changeStatus = (status, index) => {
@@ -16,10 +15,10 @@ function OrderDetail(props) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (window.confirm("Bạn chắc chắn muốn huỷ đơn?")) {
-      orderApi.cancelByUser(props.id).then((res) => {
+      orderApi.cancelByShipper(props.bill.id).then((res) => {
         if (res.code === 200) {
           alert("Huỷ đơn hàng thành công!");
-          history.push("/");
+          props.switchPage(0);
         } else {
           alert("Huỷ đơn không thành công!");
         }
@@ -41,10 +40,7 @@ function OrderDetail(props) {
                 onClick={() => props.onCLose()}
               />
               <div className="form">
-                <div
-                  className="headerOrderDetailShipper"
-                  
-                >
+                <div className="headerOrderDetailShipper">
                   <p className="text-muted">
                     {" "}
                     Mã đơn hàng{" "}
@@ -121,9 +117,7 @@ function OrderDetail(props) {
                                 Số lượng: {item.quantity}
                               </p>
                               <h4 className="mt-3 mb-4 bold">
-                                <strong>
-                                  {priceFormat(item.price || 0)}
-                                </strong>
+                                <strong>{priceFormat(item.price || 0)}</strong>
                               </h4>
                             </div>
                             <div className="col-sm-4">
@@ -135,19 +129,20 @@ function OrderDetail(props) {
                             </div>
                           </div>
                         </div>
-                      )
+                      );
                     })
                   : null}
 
-                {props.bill.status === "3" ? <div className="cancel-orderDetail">
-                    <button onClick={(e) => handleSubmit(e)} className="btnCancel">
+                {props.bill.status === "3" ? (
+                  <div className="cancel-orderDetail">
+                    <button
+                      onClick={(e) => handleSubmit(e)}
+                      className="btnCancel"
+                    >
                       Hủy đơn hàng
                     </button>
-                </div> : null}
-                
-                  
-
-                
+                  </div>
+                ) : null}
               </div>
             </div>
           </div>
