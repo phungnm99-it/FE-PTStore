@@ -12,7 +12,7 @@ function Shipper() {
           <ShipperLogin />;
         </Route>
         <PrivateRoute exact path="/shipper">
-          <MenuShipper />
+          <MenuShipper/>
         </PrivateRoute>
       </Switch>
     </ShipperProvider>

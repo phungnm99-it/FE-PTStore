@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../../css/shipper/OrderHistoryDetail.css";
 import { priceFormat } from "../../utils/priceFormat";
 function OrderHistoryDetail(props) {
+  console.log(props.bill);
+  useEffect(() => {}, [props]);
   return (
     <div>
       <div className="orderHistoryDetail">
@@ -20,14 +22,14 @@ function OrderHistoryDetail(props) {
                     {" "}
                     Mã đơn hàng{" "}
                     <span className="font-weight-bold text-dark">
-                      1222528743
+                      {props.bill?.orderCode}
                     </span>
                   </p>
                   <p className="text-muted">
                     {" "}
                     Ngày đặt{" "}
                     <span className="font-weight-bold text-dark">
-                      12,March 2019
+                      {props.bill?.orderCode}
                     </span>{" "}
                   </p>
                 </div>

@@ -68,7 +68,7 @@ function MenuShipper () {
     const switchRender = () => {
         switch (form) {
           case 0:
-            return <Dashboard/> ;
+            return <Dashboard switch={(e) => setForm(e)}/> ;
           case 1:
             return <InfoShipper switch={(e) => setForm(e)}/>;
           case 2:

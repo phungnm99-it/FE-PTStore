@@ -12,7 +12,7 @@ function StatusOD(props) {
                 className={"step0" + (props.status >= 1 ? " active" : "")}
                 id="step1"
               >
-                Chờ xác nhận
+                Đặt thành công
               </li>
               <li
                 className={

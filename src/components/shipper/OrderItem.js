@@ -21,7 +21,7 @@ function OrderItem(props) {
       orderApi.deliverOrderByShipper(props.detail.id).then((res) => {
         if (res.code === 200) {
           alert("Nhận đơn hàng thành công!");
-          history.push("/shipper");
+          
         } else {
         }
       });

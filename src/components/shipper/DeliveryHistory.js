@@ -8,7 +8,7 @@ import orderApi from "../../api/orderApi";
 
 function DeliveryHistory(props) {
   const [model, setModel] = useState(false);
-
+  const [details, setDetails] = useState({});
   const [orders, setOrders] = useState([]);
   useEffect(() => {
     orderApi.getOrderDeliveredByShipper().then((res) => {
@@ -76,7 +76,10 @@ function DeliveryHistory(props) {
                                 <td>
                                   <button
                                     className="btnAccept"
-                                    onClick={() => setModel(true)}
+                                    onClick={() => {
+                                    setDetails(item);
+                                    setModel(true);
+                                  }}
                                   >
                                     Chi tiết
                                   </button>

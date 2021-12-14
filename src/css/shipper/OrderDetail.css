@@ -82,13 +82,17 @@
     flex-direction: row !important;
   }
   
-  .orderDetailShipper .bodyOrderDetail h5 {
+  .orderDetailShipper .bodyOrderDetailShipper h5 {
     font-size: 20px;
   }
+
+  .orderDetailShipper .bodyOrderDetailShipper{
+    margin-bottom: 40px;
+  }
   
-  .orderDetailShipper .bodyOrderDetail img {
-    height: 180px;
-    width: 260px;
+  .orderDetailShipper .bodyOrderDetailShipper img {
+    height: 210px;
+    width: 250px;
     margin-left: -80px;
     margin-right: 0px;
   }
@@ -224,4 +228,8 @@
 
 .orderDetailShipper .status-orderDetailShipper .right{
     margin-left: 10px;
+}
+
+.orderDetailShipper .cancel-orderDetail button{
+  margin-top: 0px;
 }
