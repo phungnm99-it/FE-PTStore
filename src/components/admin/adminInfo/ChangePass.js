@@ -1,17 +1,17 @@
 import React, {useContext, useState} from 'react';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import userApi from '../../../api/userApi';
-import { AuthContext } from '../../../AuthContext';
 import Auth from '../../../config/auth';
 import "../../../css/admin/adminInfo/ChangePass.css"
+import {AdminContext} from "../../../AdminContext"
 function ChangePass () {
     const [checkPassword, setCheckPass] = useState(true);
     const history = useHistory();
-    const context = useContext(AuthContext);
+    const context = useContext(AdminContext);
 
     const validate = () => {
       let password = document.getElementById("NewPassword")?.value || '';
-      let rePass = document.getElementById("inputConfirmPass")?.value || '';
+      let rePass = document.getElementById("NewPasswordAgain")?.value || '';
       setCheckPass(password === rePass);
     };
 
@@ -50,7 +50,7 @@ function ChangePass () {
                       alert("Đổi mật khẩu thành công! Vui lòng đăng nhập lại!");
                       context.logout();
                       Auth.logout();
-                      history.push("/login");
+                      history.push("/admin/login");
                     }
                   });
                 }

@@ -82,11 +82,11 @@
     flex-direction: row !important;
   }
   
-  .orderHistoryDetail .bodyOrderDetail h5 {
+  .orderHistoryDetail .bodyOrderHistoryDetail h5 {
     font-size: 20px;
   }
   
-  .orderHistoryDetail .bodyOrderDetail img {
+  .orderHistoryDetail .bodyOrderHistoryDetail img {
     height: 180px;
     width: 260px;
     margin-left: -80px;
