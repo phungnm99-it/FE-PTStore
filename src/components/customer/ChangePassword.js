@@ -1,10 +1,9 @@
 import React, { useState, useContext } from "react";
 import "../../css/customer/changePassword.css";
 import userApi from "../../api/userApi";
-import { AuthContext } from "../../AuthContext";
 import { useHistory } from "react-router-dom";
 import Auth from "../../config/auth";
-
+import {AuthContext} from "../../AuthContext"
 function ChangePasswordForm(props) {
   //const [isLogin, setIsLogin] = useState(true);
   const [checkPassword, setCheckPass] = useState(true);

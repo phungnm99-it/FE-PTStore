@@ -100,7 +100,7 @@ function DeliveryHistory(props) {
       </div>
 
       <Modal isOpen={model} style={customStyles}>
-        <OrderHistoryDetail onCLose={() => setModel(false)} />
+        <OrderHistoryDetail bill={details} onCLose={() => setModel(false)} />
       </Modal>
     </div>
   );

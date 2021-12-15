@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import "../../css/shipper/OrderHistoryDetail.css";
+import { timeFormatDetail } from "../../utils/dateUtils";
 import { priceFormat } from "../../utils/priceFormat";
 function OrderHistoryDetail(props) {
   console.log(props.bill);
@@ -29,7 +30,7 @@ function OrderHistoryDetail(props) {
                     {" "}
                     Ngày đặt{" "}
                     <span className="font-weight-bold text-dark">
-                      {props.bill?.orderCode}
+                      {timeFormatDetail(props.bill.orderTime ?? 0)}
                     </span>{" "}
                   </p>
                 </div>
@@ -58,29 +59,38 @@ function OrderHistoryDetail(props) {
                   </div>
                 </div>
 
-                <div className="bodyOrderHistoryDetail">
-                  <div className="row">
-                    <div className="col-sm-8 ">
-                      <h5 className="bold">{props.product?.productName}</h5>
-                      <p className="text-muted">
-                        {" "}
-                        Số lượng: {props.product?.quantity}
-                      </p>
-                      <h4 className="mt-3 mb-4 bold">
-                        <strong>
-                          {priceFormat(props.product?.price || 0)}
-                        </strong>
-                      </h4>
-                    </div>
-                    <div className="col-sm-4">
-                      <img
-                        alt="product"
-                        className="align-self-center img-fluid"
-                        src="https://cdn.tgdd.vn/Products/Images/42/223602/iphone-13-black-2.jpg"
-                      />{" "}
-                    </div>
-                  </div>
-                </div>
+                {props?.bill?.products
+                  ? props.bill.products.map((item, idx) => {
+                      return (
+                        <div className="bodyOrderHistoryDetail">
+                          <div className="row">
+                            <div className="col-sm-8 ">
+                              <h5 className="bold">{item.productName}</h5>
+                              <p className="text-muted">
+                                {" "}
+                                Số lượng: {item.quantity}
+                              </p>
+                              <h4 className="mt-3 mb-4 bold">
+                                <strong>
+                                  {priceFormat(item.price || 0)}
+                                </strong>
+                              </h4>
+                            </div>
+                            <div className="col-sm-4">
+                              <img
+                                alt="product"
+                                className="align-self-center img-fluid"
+                                src={item.imageUrl}
+                              />{" "}
+                            </div>
+                          </div>
+                        </div>
+                      )
+                  }
+                )
+              : null}
+
+                
               </div>
             </div>
           </div>
