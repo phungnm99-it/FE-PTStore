@@ -1,12 +1,6 @@
 import axiosClient from "../config/axios";
 
 const brandApi = {
-  getAll: (id = null) => {
-    let idString = id ? `/${id}` : "";
-    const url = "/brand" + idString;
-    return axiosClient.get(url);
-  },
-
   getActive: () => {
     const url = "/brand/active";
     return axiosClient.get(url);
@@ -26,6 +20,11 @@ const brandApi = {
     const url = "/brand/search?name=" + name;
     return axiosClient.post(url);
   },
+
+  getBrandById: (id) => {
+    const url = "/brand/" + id;
+    return axiosClient.get(url);
+  }
 };
 
 export default brandApi;

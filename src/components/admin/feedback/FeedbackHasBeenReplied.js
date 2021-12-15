@@ -1,6 +1,21 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import feedbackApi from '../../../api/feedback';
 import "../../../css/admin/feedback/Feedback.css"
+import { timeFormat } from '../../../utils/dateUtils';
 function FeedbackHasBeenReplied (props) {
+    const [feedbacks, setFeedbacks] = useState([]);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [totalPage, setTotalPage] = useState(1);
+    useEffect(() => {
+        feedbackApi.getAll().then((res) => { let filterData = res.data.filter((ac) => ac.isReplied === "False")
+          if (currentPage * 5 - 1 > filterData.length) {
+            setFeedbacks(filterData.slice((currentPage - 1) * 5));
+          } else {
+            setFeedbacks(filterData.slice((currentPage - 1) * 5, currentPage * 5));
+          }
+          setTotalPage(Math.round(filterData.length / 5) + 1);
+        });
+      }, [currentPage]);
     return (
         <div>
             <section className="pageAdmin">
@@ -66,32 +81,30 @@ function FeedbackHasBeenReplied (props) {
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr role="row" className="ood">
-                                        <td>LSFL8990</td>
-                                        <td>Phan Nguyen Thuy Tien</td>
-                                        <td>thuytienpn106@gmail.com</td>
-                                        <td>Góp ý</td>
-                                        <td>
-                                        Sản phẩm mượt, giao hàng nhanh, phục vụ nhiệt tình
-                                        </td>
-                                        <td>19/11/2021</td>
-                                        <td>
-                                        {/* <button
-                                            onClick={() => props.switch(25)}
-                                            className="iconReply"
-                                            
-                                        >
-                                            <i className="fas fa-reply"></i>
-                                        </button> */}
-                                        <button
-                                            onClick={() => props.switch(26)}
-                                            className="iconDetail"
-                                            
-                                        >
-                                            <i className="fas fa-list"></i>
-                                        </button>
-                                        </td>
-                                    </tr>
+                                        {feedbacks.map((item) => {
+                                            return(
+                                            <tr role="row" className="ood">
+                                                <td>{item.id}</td>
+                                                <td>{item.fullName}</td>
+                                                <td>{item.email}</td>
+                                                <td>{item.topic}</td>
+                                                <td>
+                                                {item.content}
+                                                </td>
+                                                <td>{timeFormat(item.feedbackTime)}</td>
+                                                <td>
+                                                
+                                                <button
+                                                    onClick={() => props.switch(26)}
+                                                    className="iconDetail"
+                                                    
+                                                >
+                                                    <i className="fas fa-list"></i>
+                                                </button>
+                                                </td>
+                                            </tr>
+                                            )
+                                        })}
                                     </tbody>
                                 </table>
                                 <div

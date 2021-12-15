@@ -1,6 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import '../../../css/admin/product/EditPrice.css'
-function EditPrice (){
+function EditPrice (props){
+    useEffect(() => {
+        console.log(props.product)
+        if(props.product){
+          setValue();
+        }
+    
+      }, []);
+    const setValue = () => {
+        document.getElementById("inputNameProduct").value = props.product.name|| "";
+        document.getElementById("inputPriceProduct").value = props.product.price|| "";
+        document.getElementById("inputCurrentPriceProduct").value = props.product.currentPrice|| "";
+      }
     const handleSubmit = (e) => {
         e.preventDefault();
         let id = document.getElementById("inputIDProduct").value;
@@ -35,6 +47,7 @@ function EditPrice (){
                             <input
                             type="text"
                             className="form-control"
+                            value={props.product.id || ""}
                             id="inputIDProduct"
                             placeholder="Mã sản phẩm"
                             readOnly

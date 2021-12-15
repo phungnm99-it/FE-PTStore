@@ -126,7 +126,8 @@ function Product(props) {
                                 <td>{item.status}</td>
                                 <td>
                                   <button
-                                    onClick={() => props.switch(16)}
+                                    onClick={() => {props.setProduct(item);
+                                                props.switch(16)}}
                                     className="iconEdit"
                                   >
                                     <i className="fas fa-edit"></i>

@@ -108,7 +108,8 @@ function AccountUser (props) {
                                             <td>
                                             <button
                                                 className="iconEdit"
-                                                onClick={() => props.switch(6)}
+                                                onClick={() => {props.setAccount(item);
+                                                props.switch(6)}}
                                             >
                                                 <i className="fas fa-edit"></i>
                                             </button>

@@ -1,7 +1,21 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "../../../css/admin/brand/EditBrand.css";
+import brandApi from "../../../api/brandApi"
+function EditBrand(props) {
+  const [brands, setBrands] = useState({});
+  useEffect(() => {
+    brandApi.getBrandById(props.brand.id).then((response) => {        
+        console.log(response.data);
+        setBrands(response.data);     
+      });
+      if(brands){
+        setValue();
+      }
 
-function EditBrand() {
+  }, [props.brand]);
+  const setValue = () => {
+    document.getElementById("inputNameBrand").value = brands.name || "";
+  }
   const handleSubmit = (e) => {
     e.preventDefault();
     //chưa let hình
@@ -28,6 +42,7 @@ function EditBrand() {
                     </label>
                     <input
                       type="text"
+                      value={brands.id || ""}
                       className="form-control"
                       id="inputIDBrand"
                       placeholder="Mã thương hiệu"
@@ -63,7 +78,7 @@ function EditBrand() {
                       </label>
                       <img
                         className="UploadImg"
-                        src="http://res.cloudinary.com/dobsh4rbw/image/upload/v1639403956/commom/no-avt121321085832.png"
+                        src={brands.imageUrl || "http://res.cloudinary.com/dobsh4rbw/image/upload/v1639403956/commom/no-avt121321085832.png"}
                         alt="UploadImg"
                       ></img>
                     </div>

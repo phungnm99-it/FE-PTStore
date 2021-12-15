@@ -1,7 +1,35 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "../../../css/admin/product/EditProduct.css";
 
-function EditProduct() {
+function EditProduct(props) {
+  const [product, setProduct] = useState({});
+  useEffect(() => {
+    console.log(props.product)
+    if(props.product){
+      setValue();
+    }
+
+  }, []);
+
+  const setValue = () => {
+    document.getElementById("inputNameProduct").value = props.product.name|| "";
+    document.getElementById("inputColor").value = props.product.color|| "";
+    document.getElementById("SystemBrandID").value = props.product.brandName ||"";
+    document.getElementById("inputScreenResolution").value = props.product.screenResolution ||"";
+    document.getElementById("inputScreenSize").value = props.product.screenSize ||"";
+    document.getElementById("inputScreenTech").value = props.product.screenTech ||"";
+    document.getElementById("inputOS").value = props.product.os||"";
+    document.getElementById("inputCPU").value = props.product.cpu ||"";
+    document.getElementById("inputGPU").value = props.product.gpu ||"";
+    document.getElementById("inputFrontCamera").value = props.product.frontCamera ||"";
+    document.getElementById("inputBackCamera").value = props.product.backCamera ||"";
+    document.getElementById("inputRAM").value = props.product.ram ||"";
+    document.getElementById("inputROM").value = props.product.rom ||"";
+    document.getElementById("inputSIM").value = props.product.sim ||"";
+    document.getElementById("inputWifi").value = props.product.wifi ||"";
+    document.getElementById("inputGPS").value = props.product.gps ||"";
+    document.getElementById("inputPin").value = props.product.battery ||"";
+  }
   const handleSubmit = (e) => {
     e.preventDefault();
     
@@ -82,6 +110,7 @@ function EditProduct() {
                     </label>
                     <input
                       type="text"
+                      value={props.product.id || ""}
                       className="form-control"
                       id="inputIDProduct"
                       placeholder="Mã sản phẩm"
@@ -129,7 +158,7 @@ function EditProduct() {
                       <input
                         type="text"
                         className="form-control"
-                        id="inputUserName"
+                        id="inputColor"
                         placeholder="Màu sắc"
                         required
                       />
@@ -153,7 +182,7 @@ function EditProduct() {
                       </label>
                       <img
                         className="UploadImg"
-                        src="http://res.cloudinary.com/dobsh4rbw/image/upload/v1639403956/commom/no-avt121321085832.png"
+                        src={props.product.imageUrl || "http://res.cloudinary.com/dobsh4rbw/image/upload/v1639403956/commom/no-avt121321085832.png"}
                         alt="UploadImg"
                       ></img>
                     </div>
