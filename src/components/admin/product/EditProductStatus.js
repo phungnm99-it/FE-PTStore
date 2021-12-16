@@ -1,6 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import "../../../css/admin/product/EditProductStatus.css"
-function EditProductStatus () {
+function EditProductStatus (props) {
+    useEffect(() => {
+        console.log(props.product)
+        if(props.product){
+          setValue();
+        }
+    
+      }, []);
+    const setValue = () => {
+        document.getElementById("inputNameProduct").value = props.product.name|| "";
+        document.getElementById("inputCurrentQuantity").value = props.product.stock || "";
+        document.getElementById("inputStatusProduct").value = props.product.status || "";
+      }
     const handleSubmit = (e) => {
         e.preventDefault();
 
@@ -38,6 +50,7 @@ function EditProductStatus () {
                             </label>
                             <input
                             type="text"
+                            value={props.product.id || ""}
                             className="form-control"
                             id="inputIDProduct"
                             placeholder="Mã sản phẩm"

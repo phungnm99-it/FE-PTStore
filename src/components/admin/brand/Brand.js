@@ -3,7 +3,7 @@ import "../../../css/admin/brand/Brands.css";
 import brandApi from "../../../api/brandApi";
 import Pagination from "react-pagination-library";
 import "react-pagination-library/build/css/index.css";
-import "../../../css/admin/paging.css"
+import "../../../css/admin/paging.css";
 import DeleteBrand from "./DeleteBrand";
 import { customStyles } from "../../../utils/cssUtils";
 import Modal from "react-modal/lib/components/Modal";
@@ -13,6 +13,7 @@ function Brand(props) {
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPage, setTotalPage] = useState(1);
   const [modal, setModal] = useState(false);
+  const [edit, setEdit] = useState({});
   useEffect(() => {
     brandApi.getAll().then((res) => {
       if (currentPage * 5 - 1 > res.data.length) {
@@ -61,13 +62,12 @@ function Brand(props) {
                         </label>
                       </div>
                       <div id="dataTable_filter" className="dataTables_filter">
-                        
-                          <input
-                            type="search"
-                            className="inputSearch"
-                            placeholder="Bạn cần tìm..."
-                            aria-controls="dataTable"
-                          />
+                        <input
+                          type="search"
+                          className="inputSearch"
+                          placeholder="Bạn cần tìm..."
+                          aria-controls="dataTable"
+                        />
                         <button className="btn-Search">Tìm kiếm</button>
                       </div>
                       <table className="table table-striped table-bordered dataTable">
@@ -99,7 +99,10 @@ function Brand(props) {
                                 </td>
                                 <td>
                                   <button
-                                    onClick={() => props.switch(10)}
+                                    onClick={() => {
+                                      props.setBrand(item);
+                                      props.switch(10);
+                                    }}
                                     className="iconEdit"
                                   >
                                     <i className="fas fa-edit"></i>

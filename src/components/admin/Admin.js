@@ -62,6 +62,8 @@ function Admin(props) {
   );
   const inputFile = useRef(null);
   const [name, setName] = useState("");
+  // chua item
+  const [item, setItem] = useState({});
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -114,37 +116,37 @@ function Admin(props) {
       case 0:
         return <PageMainAdmin />;
       case 1:
-        return <AccountAdmin switch={(e) => setForm(e)} />;
+        return <AccountAdmin switch={(e) => setForm(e)} setAccount={(e)=>setItem(e)}/>;
       case 2:
-        return <AccountUser switch={(e) => setForm(e)} />;
+        return <AccountUser switch={(e) => setForm(e)} setAccount={(e)=>setItem(e)} />;
       case 3:
-        return <AccountShipper switch={(e) => setForm(e)} />;
+        return <AccountShipper switch={(e) => setForm(e)} setAccount={(e)=>setItem(e)} />;
       case 4:
         return <LockedAccount switch={(e) => setForm(e)} />;
       case 5:
         return <AddAccount />;
       case 6:
-        return <EditAccount />;
+        return <EditAccount account={item} />;
       case 7:
         return <DetailAccount switch={(e) => setForm(e)} />;
       case 8:
-        return <Brand switch={(e) => setForm(e)} />;
+        return <Brand switch={(e) => setForm(e)} setBrand={(e)=>setItem(e)}/>;
       case 9:
         return <AddBrand switch={(e) => setForm(e)} />;
       case 10:
-        return <EditBrand />;
+        return <EditBrand brand={item}/>;
       case 11:
         return <DetailBrand switch={(e) => setForm(e)} />;
       case 12:
-        return <Product switch={(e) => setForm(e)} />;
+        return <Product switch={(e) => setForm(e)} setProduct={(e)=>setItem(e)} />;
       case 13:
-        return <ProductPrice switch={(e) => setForm(e)} />;
+        return <ProductPrice switch={(e) => setForm(e)} setProduct={(e)=>setItem(e)}  />;
       case 14:
-        return <ProductStatus switch={(e) => setForm(e)} />;
+        return <ProductStatus switch={(e) => setForm(e)} setProduct={(e)=>setItem(e)} />;
       case 15:
         return <AddProduct switch={(e) => setForm(e)} />;
       case 16:
-        return <EditProduct />;
+        return <EditProduct product={item}/>;
       case 17:
         return <DetailProduct switch={(e) => setForm(e)} />;
       case 18:
@@ -152,7 +154,7 @@ function Admin(props) {
       case 19:
         return <DetailReview switch={(e) => setForm(e)} />;
       case 20:
-        return <EditPrice />;
+        return <EditPrice product={item} />;
       case 21:
         return <Order switch={(e) => setForm(e)} />;
       case 22:
@@ -160,9 +162,9 @@ function Admin(props) {
       case 23:
         return <CompletedOrder switch={(e) => setForm(e)} />;
       case 24:
-        return <Feedback switch={(e) => setForm(e)} />;
+        return <Feedback switch={(e) => setForm(e)} setFeedback={(e)=>setItem(e)} />;
       case 25:
-        return <ReplyFeedback />;
+        return <ReplyFeedback feedback={item} />;
       case 26:
         return <DetailFeedback switch={(e) => setForm(e)} />;
       case 27:
@@ -170,7 +172,7 @@ function Admin(props) {
       case 28:
         return <FeedbackHasBeenReplied switch={(e) => setForm(e)} />;
       case 29:
-        return <EditProductStatus />;
+        return <EditProductStatus product={item} />;
       case 30:
         return <DetailOrder />;
       case 31:

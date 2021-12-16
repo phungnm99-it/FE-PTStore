@@ -2,18 +2,19 @@ import React, { useState, useEffect } from "react";
 import feedbackApi from "../../../api/feedback";
 import "../../../css/admin/feedback/Feedback.css"
 import Pagination from "react-pagination-library";
+import { timeFormat } from "../../../utils/dateUtils";
 function Feedback(props) {
   const [feedbacks, setFeedbacks] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPage, setTotalPage] = useState(1);
   useEffect(() => {
-    feedbackApi.getAll().then((res) => {
-      if (currentPage * 5 - 1 > res.data.length) {
-        setFeedbacks(res.data.slice((currentPage - 1) * 5));
+    feedbackApi.getAll().then((res) => { let filterData = res.data.filter((x) => x.isReplied === "False")
+      if (currentPage * 5 - 1 > filterData.length) {
+        setFeedbacks(filterData.slice((currentPage - 1) * 5));
       } else {
-        setFeedbacks(res.data.slice((currentPage - 1) * 5, currentPage * 5));
+        setFeedbacks(filterData.slice((currentPage - 1) * 5, currentPage * 5));
       }
-      setTotalPage(Math.round(res.data.length / 5) + 1);
+      setTotalPage(Math.round(filterData.length / 5) + 1);
     });
   }, [currentPage]);
 
@@ -91,16 +92,17 @@ function Feedback(props) {
                             return(
                               <tr role="row" className="ood">
                                 <td>{item.id}</td>
-                                <td>{item.name}</td>
-                                <td>thuytienpn106@gmail.com</td>
-                                <td>Góp ý</td>
+                                <td>{item.fullName}</td>
+                                <td>{item.email}</td>
+                                <td>{item.topic}</td>
                                 <td>
-                                  Sản phẩm mượt, giao hàng nhanh, phục vụ nhiệt tình
+                                  {item.content}
                                 </td>
-                                <td>19/11/2021</td>
+                                <td>{timeFormat(item.feedbackTime)}</td>
                                 <td>
                                   <button
-                                    onClick={() => props.switch(25)}
+                                    onClick={() => {props.setFeedback(item);
+                                    props.switch(25)}}
                                     className="iconReply"
                                     
                                   >

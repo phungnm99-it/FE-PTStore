@@ -1,24 +1,60 @@
 import React, { useState, useEffect } from "react";
 import "../../../css/admin/account/EditAccount.css";
 import { getProvinces } from "../../../service/provinces-service";
+import { timeFormatInputUser } from "../../../utils/dateUtils";
 
-function EditAccount() {
+function EditAccount(props) {
   // state tinh, state quan
+  const [account, setAccount] = useState({});
   const [provinces, setProvinces] = useState([]);
+  const [selectedProvince, setSProvince] = useState(0);
   const [districts, setDistrict] = useState([]);
+  const [selectedDistrict, setSDistrict] = useState(0);
   useEffect(() => {
     // lay tinh tu api
-    getProvinces().then((res) => {
-      console.log(res.data);
-      setProvinces(res.data);
-      setDistrict(res.data[0].districts)
-    });
+    console.log(props.account)
+    /* setProvinces(res.data);
+    setDistrict(res.data[0].districts); */
+    /* getProvinces().then((res) => {
+      console.log(res.data); */
+      // if(props.account){
+      //   let getProvinces = res.data.findIndex(x => props.account.address.includes(x));
+      //   if(getProvinces < 0){
+      //     let getDistrict = res.data.findIndex(x => x.);
+      //   } else {
+      //     setSProvince(getProvinces);
+      //   }
+
+      // } 
+
+    /* }); */
+    if(props.account){
+      setValue();
+    }
+
   }, []);
+  const setValue = () => {
+    document.getElementById("inputName").value = props.account.fullName || "";
+    
+    console.log(timeFormatInputUser(props.account.birthday));
+      document.getElementById("inputBirthday").value = timeFormatInputUser(
+        props.account.birthday || Date.now()
+      );
+    if (props.account.gender === "Nam") {
+      document.getElementById("Male").checked = true;
+    } else {
+      document.getElementById("Female").checked = true;
+    }
+
+    document.getElementById("inputAddress").value = props.account.address || "";
+  }
   // lay quan tu ma tinh
   const getDistrictFromCode = (code) => {
     let filter = provinces.filter((x) => x.code.toString() === code);
     filter.length > 0 ? setDistrict(filter[0].districts) : setDistrict([]);
   };
+  // 
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -78,6 +114,7 @@ function EditAccount() {
                     </label>
                     <input
                       type="text"
+                      value={props.account.id || ""}
                       className="form-control"
                       id="inputIDAccount"
                       placeholder="Mã tài khoản"
@@ -91,6 +128,7 @@ function EditAccount() {
                       </label>
                       <input
                         type="text"
+                        value={props.account.username || ""}
                         className="form-control"
                         id="inputUserName"
                         placeholder="Tên đăng nhập"
@@ -103,6 +141,7 @@ function EditAccount() {
                       </label>
                       <input
                         type="tel"
+                        value={props.account.phoneNumber || ""}
                         className="form-control"
                         id="inputPhone"
                         placeholder="Số điện thoại"
@@ -127,6 +166,7 @@ function EditAccount() {
                     </label>
                     <input
                       type="email"
+                      value={props.account.email || ""}
                       className="form-control"
                       id="inputEmail"
                       placeholder="Email"
@@ -151,7 +191,7 @@ function EditAccount() {
                       </label>
                       <img
                         className="UploadImg"
-                        src="http://res.cloudinary.com/dobsh4rbw/image/upload/v1639403956/commom/no-avt121321085832.png"
+                        src={props.account.imageUrl || "http://res.cloudinary.com/dobsh4rbw/image/upload/v1639403956/commom/no-avt121321085832.png"}
                         alt="UploadImg"
                       ></img>
                     </div>
@@ -168,7 +208,7 @@ function EditAccount() {
                         placeholder="Ngày sinh"
                       />
                     </div>
-                    <div className="mb-3 col-md-6">
+                    {/* <div className="mb-3 col-md-6">
                       <label className="form-label" for="inputCreatedDate">
                         Ngày tạo tài khoản
                       </label>
@@ -179,7 +219,7 @@ function EditAccount() {
                         placeholder="Ngày tạo tài khoản"
                         readOnly
                       />
-                    </div>
+                    </div> */}
                   </div>
                   <div className="mb-3">
                     <label className="form-label" for="inputSex">
@@ -212,7 +252,7 @@ function EditAccount() {
                     </div>
                   </div>
 
-                  <div className="row">
+                  {/* <div className="row">
                     <div className="mb-3 col-md-6">
                       <label className="form-label" for="selectCity">
                         Tỉnh/Thành Phố
@@ -229,7 +269,7 @@ function EditAccount() {
                           <option className="textSelectCity" value="">
                             Tỉnh/Thành Phố
                           </option>
-                          {/* maps tinh thanh option */}
+                          {/* maps tinh thanh option }
                           {provinces.map((pro, idx) => {
                             return (
                               <option key={idx} value={pro.code} selected={(idx === 0)}>
@@ -267,7 +307,7 @@ function EditAccount() {
                         </select>
                       </div>
                     </div>
-                  </div>
+                  </div> */}
                   <div className="mb-3">
                     <label className="form-label" for="inputAddress">
                       Địa chỉ

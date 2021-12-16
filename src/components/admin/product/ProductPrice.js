@@ -103,7 +103,8 @@ function ProductPrice (props) {
                                                         <td>{item.status}</td>
                                                         <td>
                                                         <button
-                                                            onClick={() => props.switch(20)}
+                                                            onClick={() => {props.setProduct(item);
+                                                                            props.switch(20)}}
                                                             className="iconEdit"
                                                             
                                                         >

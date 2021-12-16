@@ -1,6 +1,21 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import "../../../css/admin/feedback/ReplyFeedback.css"
-function ReplyFeedback () {
+import { timeFormat } from '../../../utils/dateUtils';
+function ReplyFeedback (props) {
+    useEffect(() => {
+        // lay tinh tu api
+        console.log(props.feedback)
+        
+    
+        
+        if(props.feedback){
+          setValue();
+        }
+    
+      }, []);
+      const setValue = () => {
+        document.getElementById("inputName").value = props.feedback.fullName || "";
+      }
     const handleSubmit = (e) => {
         e.preventDefault();
         let id = document.getElementById("inputIDFeedback").value;
@@ -35,6 +50,7 @@ function ReplyFeedback () {
                         </label>
                         <input
                         type="text"
+                        value={props.feedback.id || ""}
                         className="form-control"
                         id="inputIDFeedback"
                         placeholder="Mã góp ý"
@@ -48,6 +64,7 @@ function ReplyFeedback () {
                         </label>
                         <input
                             type="text"
+                            value={props.feedback.fullName || ""}
                             className="form-control"
                             id="inputName"
                             placeholder="Tên người gửi"
@@ -60,6 +77,7 @@ function ReplyFeedback () {
                         </label>
                         <input
                             type="text"
+                            value={props.feedback.email || ""}
                             className="form-control"
                             id="inputEmail"
                             placeholder="Email"
@@ -74,6 +92,7 @@ function ReplyFeedback () {
                             </label>
                             <input
                             type="text"
+                            value={props.feedback.topic || ""}
                             className="form-control"
                             id="inputTopic"
                             placeholder="Chủ đề"
@@ -86,6 +105,7 @@ function ReplyFeedback () {
                             </label>
                             <input
                             type="text"
+                            value={timeFormat(props.feedback.feedbackTime)}
                             className="form-control"
                             id="inputFeedbackTime"
                             placeholder="Thời gian gửi đánh giá"
@@ -99,6 +119,7 @@ function ReplyFeedback () {
                         </label>
                         <textarea
                         type="text"
+                        value={props.feedback.content || ""}
                         className="form-control"
                         id="inputContent"
                         placeholder="Nội dung"
