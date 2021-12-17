@@ -46,7 +46,6 @@
 .brands-management .row > * {
     -ms-flex-negative: 0;
     flex-shrink: 0;
-    width: 100%;
     max-width: 100%;
     padding-right: calc(var(--bs-gutter-x) * .5);
     padding-left: calc(var(--bs-gutter-x) * .5);
@@ -109,8 +108,9 @@
 
 .brands-management .dataTables_wrapper .dataTables_filter {
     color: #313435;
-    float: right;
-    margin-top: 8px;
+    right: 0;
+    position: absolute;
+    margin-top: 10px;
 }
 
 .brands-management .dataTables_wrapper .dataTables_filter input {
@@ -137,7 +137,7 @@
     width: 100%;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 60px;
+    margin-top: 30px;
     margin-bottom: 20px;
     clear: both;
     border-collapse: separate;
@@ -232,6 +232,7 @@ table.dataTable tbody tr {
     width: 150px;
     margin-right: 20px;
     margin-bottom: 10px;
+    margin-top: 10px;
     color: white;
     font-size: 15px;
     background: #3c4b64;
@@ -369,7 +370,9 @@ table.dataTable tbody tr {
     background: #3c4b64;
     color: white;
     border: none;
-    border-radius: 3px;
-    
+    border-radius: 3px;  
+}
+.brands-management .add{
+    display: flex;
 }
 

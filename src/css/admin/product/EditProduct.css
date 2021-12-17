@@ -1,5 +1,5 @@
 .editProductInfo .title-addAccount h2{
-    margin-top: 40px;
+    margin-top: 20px;
     font-weight: bold;
 }
 
@@ -112,7 +112,8 @@
 
 .editProductInfo .btn {
     display: inline-block;
-    font-size: 16px;
+    font-size: 15px;
+    margin-bottom: 10px;
     font-weight: 400;
     line-height: 1.5;
     color: white;
@@ -155,4 +156,12 @@
 .editProductInfo .form-title{
     margin-bottom: 0px;
     margin-top: 20px;
+}
+
+.editProductInfo .btn-comeback{
+    width: 250px;
+    margin-left: 15px;
+    color: #3c4b64;
+    background-color: #f0f0e9;
+    font-size: 15px;
 }

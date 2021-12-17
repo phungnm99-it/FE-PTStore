@@ -130,7 +130,7 @@ function AccountShipper (props) {
                                                 onClick={() => setModal(true)}
                                                 className="iconDelete"
                                             >
-                                                <i className="fas fa-backspace"></i>
+                                                <i className="fas fa-lock"></i>
                                             </button>
                                             </td>
                                         </tr>

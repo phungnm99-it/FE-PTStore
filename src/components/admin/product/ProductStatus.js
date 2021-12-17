@@ -3,10 +3,14 @@ import "../../../css/admin/product/ProductStatus.css"
 import productApi from '../../../api/productApi';
 import Pagination from "react-pagination-library";
 import "react-pagination-library/build/css/index.css";
+import DeleteProduct from './DeleteProduct';
+import Modal from 'react-modal/lib/components/Modal';
+import { customStyles } from '../../../utils/cssUtils';
 function ProductStatus (props) {
     const [products, setProducts] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPage, setTotalPage] = useState(1);
+    const [modal, setModal] = useState(false);
     useEffect(() => {
         productApi.getAll().then((res) => {
             if (currentPage * 5 - 1 > res.data.length) {
@@ -32,33 +36,25 @@ function ProductStatus (props) {
                             <div className="row">
                                 <div className="col-md-12">
                                 <div className="bgc-white bd bdrs-3 p-20 mB-20">
-                                    <h4 className="c-grey-900 mB-20">Danh sách</h4>
-                                    <div className="dataTables_wrapper">
                                     
-                                    <div className="dataTables_length" id="dataTable_length">
-                                        <label>
-                                        Hiển thị:
-                                        <select
-                                            name="dataTable_length"
-                                            aria-controls="dataTable"
-                                            class=""
-                                        >
-                                            <option value="10">10</option>
-                                            <option value="25">25</option>
-                                            <option value="50">50</option>
-                                            <option value="100">100</option>
-                                        </select>
-                                        </label>
-                                    </div>
-                                    <div id="dataTable_filter" className="dataTables_filter">
-                                        
-                                        <input
-                                            type="search"
-                                            className="inputSearch"
-                                            placeholder="Bạn cần tìm..."
-                                            aria-controls="dataTable"
-                                        />
-                                        <button className="btn-Search">Tìm kiếm</button>
+                                    <div className="dataTables_wrapper">  
+                                    <div className="row">
+                                        <div className=" filterPriceProduct">
+                                            <select  id="mySelect">
+                                                <option value="">Tình trạng</option>
+                                                <option value="ascending">Đang kinh doanh</option>
+                                                <option value="descending">Ngưng kinh doanh</option>
+                                            </select>
+                                        </div>
+                                        <div id="dataTable_filter" className="dataTables_filter pull-right">
+                                            <input
+                                                type="search"
+                                                className="inputSearch"
+                                                placeholder="Bạn cần tìm..."
+                                                aria-controls="dataTable"
+                                            />
+                                            <button className="btn-Search">Tìm kiếm</button>
+                                        </div>
                                     </div>
                                     <table className="table table-striped table-bordered dataTable">
                                         <thead>
@@ -126,13 +122,12 @@ function ProductStatus (props) {
                                                         >
                                                             <i class="fas fa-list"></i>
                                                         </button>
-                                            {/* <button
-                                                
-                                                className="iconDelete"
-                                            
-                                            >
-                                                <i className="fas fa-backspace"></i>
-                                            </button> */}
+                                                        <button
+                                                            onClick={() => setModal(true)}
+                                                            className="iconDelete"
+                                                        >
+                                                            <i className="fas fa-backspace"></i>
+                                                        </button>
                                             </td>
                                         </tr>
                                                 )
@@ -159,6 +154,9 @@ function ProductStatus (props) {
                     </div>
                 </div>
             </section>
+            <Modal isOpen={modal} style={customStyles}>
+                <DeleteProduct onCLose={() => setModal(false)} />
+            </Modal>
         </div>
     );
 }

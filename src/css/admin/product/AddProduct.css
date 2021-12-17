@@ -1,5 +1,5 @@
 .addProduct .title-addAccount h2{
-    margin-top: 40px;
+    margin-top: 20px;
     font-weight: bold;
 }
 .addProduct{
@@ -113,10 +113,11 @@
     display: inline-block;
     font-size: 16px;
     font-weight: 400;
+    margin-bottom: 10px;
     line-height: 1.5;
     color: white;
     height: 35px;
-    width: 70px;
+    width: 80px;
     text-align: center;
     text-decoration: none;
     vertical-align: middle;
@@ -154,4 +155,12 @@
 .addProduct .form-title{
     margin-bottom: 0px;
     margin-top: 20px;
+}
+
+.addProduct .btn-comeback{
+    width: 250px;
+    margin-left: 15px;
+    color: #3c4b64;
+    background-color: #f0f0e9;
+    font-size: 15px;
 }

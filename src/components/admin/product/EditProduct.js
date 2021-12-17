@@ -98,7 +98,7 @@ function EditProduct(props) {
     <div>
       <div className="editProductInfo">
         <div className="title-addAccount">
-          <h2>Sửa thông tin sản phẩm</h2>
+          <h2>Cập nhật thông tin sản phẩm</h2>
         </div>
         <div className="form">
               
@@ -352,18 +352,7 @@ function EditProduct(props) {
                       required
                     />
                   </div>
-                  {/* <div className="mb-3 ">
-                    <label className="form-label" for="inputBluetooth">
-                      Bluetooth
-                    </label>
-                    <input
-                      type="text"
-                      className="form-control"
-                      id="inputBluetooth"
-                      placeholder="Bluetooth"
-                      required
-                    />
-                  </div> */}
+                  
                   <div className="mb-3 ">
                     <label className="form-label" for="inputGPS">
                       GPS
@@ -376,18 +365,7 @@ function EditProduct(props) {
                       required
                     />
                   </div>
-                  {/* <div className="mb-3 ">
-                    <label className="form-label" for="inputGPS">
-                      Cổng kết nối/ Sạc
-                    </label>
-                    <input
-                      type="text"
-                      className="form-control"
-                      id="inputGPS"
-                      placeholder="Cổng kết nối/ Sạc"
-                      required
-                    />
-                  </div> */}
+                  
                   <div className="mb-3">
                     <label className=" form-title">DUNG LƯỢNG PIN</label>
                   </div>
@@ -407,6 +385,13 @@ function EditProduct(props) {
                   <div className="mb-3">
                     <button type="submit" onClick={(e) => handleSubmit(e)} className="btn btn-primary btn-color">
                       Cập Nhật
+                    </button>
+                    <button
+                      type="submit"
+                      onClick={() => props.switch(12)}
+                      className="btn btn-primary btn-color btn-comeback"
+                    >
+                      Quay trở lại danh sách
                     </button>
                   </div>
                 </form>

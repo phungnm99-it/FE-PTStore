@@ -323,6 +323,13 @@ function EditAccount(props) {
                     <button type="submit" onClick={(e) => handleSubmit(e)} className="btn btn-primary btn-color">
                       Cập Nhật
                     </button>
+                    <button
+                      type="submit"
+                      onClick={() => props.switch(1)}
+                      className="btn btn-primary btn-color btn-comeback"
+                    >
+                      Quay trở lại danh sách
+                    </button>
                   </div>
                 </form>
               </div>

@@ -38,7 +38,7 @@ function AccountAdmin(props) {
               <div className="row">
                 <div className="col-md-12">
                   <div className="bgc-white bd bdrs-3 p-20 mB-20">
-                    <h4 className="c-grey-900 mB-20">Danh sách</h4>
+                    
                     <div className="dataTables_wrapper">
                       <div className="buttonControl">
                         <button className="Add" onClick={() => props.switch(5)}>
@@ -127,7 +127,7 @@ function AccountAdmin(props) {
                                     onClick={() => setModal(true)}
                                     className="iconDelete"
                                   >
-                                    <i className="fas fa-backspace"></i>
+                                    <i className="fas fa-lock"></i>
                                   </button>
                                 </td>
                               </tr>

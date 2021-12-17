@@ -40,7 +40,7 @@ function Product(props) {
               <div className="row">
                 <div className="col-md-12">
                   <div className="bgc-white bd bdrs-3 p-20 mB-20">
-                    <h4 className="c-grey-900 mB-20">Danh sách</h4>
+                    
                     <div className="dataTables_wrapper">
                       <div className="buttonControl">
                         <button

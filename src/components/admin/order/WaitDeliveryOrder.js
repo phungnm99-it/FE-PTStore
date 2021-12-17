@@ -30,21 +30,39 @@ function CompletedOrder(props) {
           <div className="order-management">
             <div className="container-fluid">
               <h4 className="c-grey-900 mT-10 mB-30">
-                QUẢN LÝ ĐƠN HÀNG CHỜ LẤY HÀNG
+                QUẢN LÝ ĐƠN HÀNG ĐÃ XÁC NHẬN
               </h4>
               <div className="row">
                 <div className="col-md-12">
                   <div className="bgc-white bd bdrs-3 p-20 mB-20">
-                    <h4 className="c-grey-900 mB-20">Danh sách</h4>
+                    
                     <div className="dataTables_wrapper">
-                      <div id="dataTable_filter" className="dataTables_filter">
-                        <input
-                          type="search"
-                          className="inputSearch"
-                          placeholder="Bạn cần tìm..."
-                          aria-controls="dataTable"
-                        />
-                        <button className="btn-Search">Tìm kiếm</button>
+                      <div className="row">
+                        <div className=" filterOrder">
+                          <p className="label-filterOrder">Từ ngày:</p>
+                          <input
+                            type="date"
+                            className="form-control start"
+                            id="startDay"
+                            placeholder="Ngày bắt đầu"
+                          />
+                          <p className="label-filterOrder">Đến ngày:</p>
+                          <input
+                            type="date"
+                            className="form-control end"
+                            id="endDay"
+                            placeholder="Ngày kết thúc"
+                          />
+                        </div>
+                        <div id="dataTable_filter" className=" dataTables_filter">
+                          <input
+                            type="search"
+                            className="inputSearch"
+                            placeholder="Bạn cần tìm..."
+                            aria-controls="dataTable"
+                          />
+                          <button className="btn-Search">Tìm kiếm</button>
+                        </div>
                       </div>
                       <table className="table table-striped table-bordered dataTable">
                         <thead>

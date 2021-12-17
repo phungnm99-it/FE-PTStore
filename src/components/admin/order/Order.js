@@ -48,7 +48,7 @@ function Order(props) {
               <div className="row">
                 <div className="col-md-12">
                   <div className="bgc-white bd bdrs-3 p-20 mB-20">
-                    <h4 className="c-grey-900 mB-20">Danh sách</h4>
+                    
                     <div className="dataTables_wrapper">
                       {/* <div className="buttonControl">
                                                 <button className="Add"><Link to = "/admin/home/addAccount">Thêm tài khoản</Link></button>
@@ -68,15 +68,34 @@ function Order(props) {
                           </select>
                         </label>
                       </div> */}
-                      <div id="dataTable_filter" className="dataTables_filter">
-                        <input
-                          type="search"
-                          className="inputSearch"
-                          placeholder="Bạn cần tìm..."
-                          aria-controls="dataTable"
-                        />
-                        <button className="btn-Search">Tìm kiếm</button>
+                      <div className="row">
+                        <div className=" filterOrder">
+                          <p className="label-filterOrder">Từ ngày:</p>
+                          <input
+                            type="date"
+                            className="form-control start"
+                            id="startDay"
+                            placeholder="Ngày bắt đầu"
+                          />
+                          <p className="label-filterOrder">Đến ngày:</p>
+                          <input
+                            type="date"
+                            className="form-control end"
+                            id="endDay"
+                            placeholder="Ngày kết thúc"
+                          />
+                        </div>
+                        <div id="dataTable_filter" className="dataTables_filter">
+                          <input
+                            type="search"
+                            className="inputSearch"
+                            placeholder="Bạn cần tìm..."
+                            aria-controls="dataTable"
+                          />
+                          <button className="btn-Search">Tìm kiếm</button>
+                        </div>
                       </div>
+                      
                       <table className="table table-striped table-bordered dataTable">
                         <thead>
                           <tr role="row">
@@ -137,12 +156,12 @@ function Order(props) {
                                   {item.status === "Đặt hàng thành công" ? (
                                     <button
                                       onClick={(e) => handleVerifyOrder(e)}
-                                      className="iconEdit"
+                                      className="iconConfirm"
                                       id={item.id}
                                     >
                                       <i
                                         id={item.id}
-                                        className="fas fa-edit"
+                                        className="fas fa-check"
                                       ></i>
                                     </button>
                                   ) : null}

@@ -78,7 +78,7 @@ function AddAccount(props) {
               <div className="row">
                 <div className="mb-3 col-md-6">
                   <label className="form-label" for="inputUserName">
-                    Tên đăng nhập
+                    Tên đăng nhập *
                   </label>
                   <input
                     type="text"
@@ -89,7 +89,7 @@ function AddAccount(props) {
                 </div>
                 <div className="mb-3 col-md-6">
                   <label className="form-label" for="inputPhone">
-                    Số điện thoại
+                    Số điện thoại *
                   </label>
                   <input
                     type="tel"
@@ -109,7 +109,7 @@ function AddAccount(props) {
               </div>
               <div className="mb-3">
                 <label className="form-label" for="inputName">
-                  Họ và tên
+                  Họ và tên *
                 </label>
                 <input
                   type="text"
@@ -120,7 +120,7 @@ function AddAccount(props) {
               </div>
               <div className="mb-3">
                 <label className="form-label" for="inputEmail">
-                  Email
+                  Email *
                 </label>
                 <input
                   type="email"
@@ -138,7 +138,7 @@ function AddAccount(props) {
               <div className="row">
                 <div className="mb-3 col-md-6">
                   <label className="form-label" for="chooseImg">
-                    Hình ảnh
+                    Hình ảnh *
                   </label>
                   <input
                     type="file"
@@ -161,7 +161,7 @@ function AddAccount(props) {
               <div className="row">
                 <div className="mb-3 col-md-6">
                   <label className="form-label" for="inputBirthday">
-                    Ngày sinh
+                    Ngày sinh *
                   </label>
                   <input
                     type="date"
@@ -173,7 +173,7 @@ function AddAccount(props) {
               </div>
               <div className="mb-3">
                 <label className="form-label" for="inputSex">
-                  Giới tính:
+                  Giới tính *
                 </label>
                 <div className="controls">
                   <input
@@ -204,7 +204,7 @@ function AddAccount(props) {
               <div className="row">
                 <div className="mb-3 col-md-6">
                   <label className="form-label" for="inputPassword">
-                    Mật khẩu
+                    Mật khẩu *
                   </label>
                   <input
                     type="password"
@@ -218,7 +218,7 @@ function AddAccount(props) {
                 </div>
                 <div className="mb-3 col-md-6">
                   <label className="form-label" for="inputPasswordAgain">
-                    Nhập lại mật khẩu
+                    Nhập lại mật khẩu *
                   </label>
                   <input
                     type="password"
@@ -239,7 +239,7 @@ function AddAccount(props) {
               <div className="row">
                 <div className="mb-3 col-md-6">
                   <label className="form-label" for="selectCity">
-                    Tỉnh/Thành Phố
+                    Tỉnh/Thành Phố *
                   </label>
                   <div className="controls">
                     <select
@@ -266,7 +266,7 @@ function AddAccount(props) {
                 </div>
                 <div className="mb-3 col-md-6">
                   <label className="form-label" for="selectDistrict">
-                    Quận/Huyện
+                    Quận/Huyện *
                   </label>
                   <div className="controls">
                     <select
@@ -294,7 +294,7 @@ function AddAccount(props) {
               </div>
               <div className="mb-3">
                 <label className="form-label" for="inputAddress">
-                  Địa chỉ
+                  Địa chỉ *
                 </label>
                 <input
                   type="text"
@@ -306,6 +306,13 @@ function AddAccount(props) {
               <div className="mb-3">
                 <button type="submit" onClick={(e) => handleSubmit(e)} className="btn btn-primary btn-color">
                   Thêm
+                </button>
+                <button
+                  type="submit"
+                  onClick={() => props.switch(1)}
+                  className="btn btn-primary btn-color btn-comeback"
+                >
+                  Quay trở lại danh sách
                 </button>
               </div>
             </form>
