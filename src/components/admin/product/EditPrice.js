@@ -35,7 +35,7 @@ function EditPrice (props){
         <div>
             <div className="editProductPrice">
                 <div className="title-addAccount">
-                <h2>Sửa giá sản phẩm</h2>
+                <h2>Cập nhật giá sản phẩm</h2>
                 </div>
                 <div className="form">
                     <div className="input-addAccount">
@@ -94,6 +94,13 @@ function EditPrice (props){
                         <div className="mb-3">
                             <button type="submit" onClick={(e) => handleSubmit(e)} className="btn btn-primary btn-color">
                             Cập Nhật
+                            </button>
+                            <button
+                                type="submit"
+                                onClick={() => props.switch(13)}
+                                className="btn btn-primary btn-color btn-comeback"
+                                >
+                                Quay trở lại danh sách
                             </button>
                         </div>
                         </form>

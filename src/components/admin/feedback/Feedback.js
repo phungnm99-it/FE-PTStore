@@ -8,7 +8,7 @@ function Feedback(props) {
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPage, setTotalPage] = useState(1);
   useEffect(() => {
-    feedbackApi.getAll().then((res) => { let filterData = res.data.filter((x) => x.isReplied === "False")
+    feedbackApi.getAll().then((res) => { let filterData = res.data.filter((x) => x.isReplied === false)
       if (currentPage * 5 - 1 > filterData.length) {
         setFeedbacks(filterData.slice((currentPage - 1) * 5));
       } else {
@@ -31,12 +31,10 @@ function Feedback(props) {
               <div className="row">
                 <div className="col-md-12">
                   <div className="bgc-white bd bdrs-3 p-20 mB-20">
-                    <h4 className="c-grey-900 mB-20">Danh sách</h4>
+                    
                     <div className="dataTables_wrapper">
-                      {/* <div className="buttonControl">
-                                                <button className="Add"><Link to = "/admin/home/addAccount">Thêm tài khoản</Link></button>
-                                            </div> */}
-                      <div className="dataTables_length" id="dataTable_length">
+                      
+                      {/* <div className="dataTables_length" id="dataTable_length">
                         <label>
                           Hiển thị:
                           <select
@@ -50,16 +48,33 @@ function Feedback(props) {
                             <option value="100">100</option>
                           </select>
                         </label>
-                      </div>
-                      <div id="dataTable_filter" className="dataTables_filter">
-                        
+                      </div> */}
+                      <div className="row">
+                        <div className=" filterOrder">
+                          <p className="label-filterOrder">Từ ngày:</p>
+                          <input
+                            type="date"
+                            className="form-control start"
+                            id="startDay"
+                            placeholder="Ngày bắt đầu"
+                          />
+                          <p className="label-filterOrder">Đến ngày:</p>
+                          <input
+                            type="date"
+                            className="form-control end"
+                            id="endDay"
+                            placeholder="Ngày kết thúc"
+                          />
+                        </div>
+                        <div id="dataTable_filter" className="dataTables_filter">
                           <input
                             type="search"
                             className="inputSearch"
                             placeholder="Bạn cần tìm..."
                             aria-controls="dataTable"
                           />
-                        <button className="btn-Search">Tìm kiếm</button>
+                          <button className="btn-Search">Tìm kiếm</button>
+                        </div>
                       </div>
                       <table className="table table-striped table-bordered dataTable">
                         <thead>

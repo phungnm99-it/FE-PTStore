@@ -47,7 +47,7 @@
 .order-management .row > * {
     -ms-flex-negative: 0;
     flex-shrink: 0;
-    width: 100%;
+    
     max-width: 100%;
     padding-right: calc(var(--bs-gutter-x) * .5);
     padding-left: calc(var(--bs-gutter-x) * .5);
@@ -110,8 +110,9 @@
 
 .order-management .dataTables_wrapper .dataTables_filter {
     color: #313435;
-    float: right;
-    margin-top: 8px;
+    float: right !important;
+    margin-top: 10px;
+    
 }
 
 .order-management .dataTables_wrapper .dataTables_filter input {
@@ -138,7 +139,7 @@
     width: 100%;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 60px;
+    margin-top: 30px;
     margin-bottom: 20px;
     clear: both;
     border-collapse: separate;
@@ -355,7 +356,13 @@ table.dataTable tbody tr {
     margin-right: 5px;
 }
 
-.order-management .iconEdit, .order-management .iconDetail{
+.order-management .iconConfirm{
+    font-size: 13px;
+    margin-right: 5px;
+    color: green;
+}
+
+.order-management .iconEdit, .order-management .iconDetail, .order-management .iconConfirm{
     border: none;
     background-color: #f9f9f9;
 }
@@ -380,7 +387,23 @@ table.dataTable tbody tr {
     background: #3c4b64;
     color: white;
     border: none;
-    border-radius: 3px;
-    
+    border-radius: 3px;  
 }
+
+.order-management .filterOrder{
+    display: flex;
+    margin-top: 10px;
+}
+.order-management p.label-filterOrder{
+    font-size: 15px;
+    margin-top: 5px;
+    font-weight: 400;
+}
+
+.order-management .start, .order-management .end{
+    width: 245px;
+    margin-left: 8px;
+    margin-right: 15px;
+}
+
 

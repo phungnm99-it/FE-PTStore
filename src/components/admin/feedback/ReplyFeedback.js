@@ -141,7 +141,14 @@ function ReplyFeedback (props) {
                     
                     <div className="mb-3">
                         <button type="submit" onClick={(e) => handleSubmit(e)} className="btn btn-primary btn-color">
-                        GỬI PHẢN HỒI
+                        Gửi phản hồi
+                        </button>
+                        <button
+                            type="submit"
+                            onClick={() => props.switch(24)}
+                            className="btn btn-primary btn-color btn-comeback"
+                            >
+                            Quay trở lại danh sách
                         </button>
                     </div>
                     </form>

@@ -3,10 +3,14 @@ import "../../../css/admin/order/Order.css";
 import { priceFormat } from "../../../utils/priceFormat";
 import orderApi from "../../../api/orderApi";
 import Pagination from "react-pagination-library";
+import ModalChangeStatus from "./ModalChangeStatus";
+import Modal from "react-modal/lib/components/Modal";
+import { customStyles } from "../../../utils/cssUtils";
 function CompletedOrder(props) {
   const [orders, setOrders] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPage, setTotalPage] = useState(1);
+  const [modal, setModal] = useState(false);
 
   useEffect(() => {
     orderApi.getAll().then((res) => {
@@ -25,6 +29,8 @@ function CompletedOrder(props) {
   const changeCurrentPage = (numPage) => {
     setCurrentPage(numPage);
   };
+
+  
   return (
     <div>
       <section className="pageAdmin">
@@ -37,34 +43,35 @@ function CompletedOrder(props) {
               <div className="row">
                 <div className="col-md-12">
                   <div className="bgc-white bd bdrs-3 p-20 mB-20">
-                    <h4 className="c-grey-900 mB-20">Danh sách</h4>
+                    
                     <div className="dataTables_wrapper">
-                      {/* <div className="buttonControl">
-                                                        <button className="Add"><Link to = "/admin/home/addAccount">Thêm tài khoản</Link></button>
-                                                    </div> */}
-                      {/* <div className="dataTables_length" id="dataTable_length">
-                                <label>
-                                Hiển thị:
-                                <select
-                                    name="dataTable_length"
-                                    aria-controls="dataTable"
-                                    class=""
-                                >
-                                    <option value="10">10</option>
-                                    <option value="25">25</option>
-                                    <option value="50">50</option>
-                                    <option value="100">100</option>
-                                </select>
-                                </label>
-                            </div> */}
-                      <div id="dataTable_filter" className="dataTables_filter">
-                        <input
-                          type="search"
-                          className="inputSearch"
-                          placeholder="Bạn cần tìm..."
-                          aria-controls="dataTable"
-                        />
-                        <button className="btn-Search">Tìm kiếm</button>
+                      
+                      <div className="row">
+                        <div className=" filterOrder">
+                          <p className="label-filterOrder">Từ ngày:</p>
+                          <input
+                            type="date"
+                            className="form-control start"
+                            id="startDay"
+                            placeholder="Ngày bắt đầu"
+                          />
+                          <p className="label-filterOrder">Đến ngày:</p>
+                          <input
+                            type="date"
+                            className="form-control end"
+                            id="endDay"
+                            placeholder="Ngày kết thúc"
+                          />
+                        </div>
+                        <div id="dataTable_filter" className=" dataTables_filter">
+                          <input
+                            type="search"
+                            className="inputSearch"
+                            placeholder="Bạn cần tìm..."
+                            aria-controls="dataTable"
+                          />
+                          <button className="btn-Search">Tìm kiếm</button>
+                        </div>
                       </div>
                       <table className="table table-striped table-bordered dataTable">
                         <thead>
@@ -124,10 +131,11 @@ function CompletedOrder(props) {
                                 <td>{item.status}</td>
                                 <td>
                                   <button
-                                    onClick={() => props.switch(22)}
-                                    className="iconEdit"
+                                    onClick={() => setModal(true)}
+                                    
+                                    className="iconConfirm"
                                   >
-                                    <i className="fas fa-edit"></i>
+                                    <i className="fas fa-check"></i>
                                   </button>
                                   <button
                                     onClick={() => props.switch(30)}
@@ -160,6 +168,9 @@ function CompletedOrder(props) {
           </div>
         </div>
       </section>
+      <Modal isOpen={modal} style={customStyles}>
+        <ModalChangeStatus onCLose={() => setModal(false)} />
+      </Modal>
     </div>
   );
 }

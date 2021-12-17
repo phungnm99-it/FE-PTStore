@@ -34,10 +34,10 @@ function ProductPrice (props) {
                             <div className="row">
                                 <div className="col-md-12">
                                 <div className="bgc-white bd bdrs-3 p-20 mB-20">
-                                    <h4 className="c-grey-900 mB-20">Danh sách</h4>
+                                    
                                     <div className="dataTables_wrapper">
                                     
-                                    <div className="dataTables_length" id="dataTable_length">
+                                    {/* <div className="dataTables_length" id="dataTable_length">
                                         <label>
                                         Hiển thị:
                                         <select
@@ -51,16 +51,31 @@ function ProductPrice (props) {
                                             <option value="100">100</option>
                                         </select>
                                         </label>
-                                    </div>
-                                    <div id="dataTable_filter" className="dataTables_filter">
-                                        
-                                        <input
-                                            type="search"
-                                            className="inputSearch"
-                                            placeholder="Bạn cần tìm..."
-                                            aria-controls="dataTable"
-                                        />
-                                        <button className="btn-Search">Tìm kiếm</button>
+                                    </div> */}
+                                    <div className="row">
+                                        <div className=" filterPriceProduct">
+                                            <select  id="mySelect">
+                                                <option value="">Sắp xếp</option>
+                                                <option value="ascending">Giá thấp đến cao</option>
+                                                <option value="descending">Giá cao đến thấp</option>
+                                            </select>
+                                            <select  id="mySelectPrice">
+                                                <option value="">Giá</option>
+                                                <option value="duoi5trieu">Dưới 5 triệu</option>
+                                                <option value="5trieutoi10trieu">5 triệu tới 10 triệu</option>
+                                                <option value="10trieutoi20trieu">10 triệu tới 20 triệu</option>
+                                                <option value="tren20trieu">Trên 20 triệu</option>
+                                            </select>
+                                        </div>
+                                        <div id="dataTable_filter" className="dataTables_filter pull-right">
+                                            <input
+                                                type="search"
+                                                className="inputSearch"
+                                                placeholder="Bạn cần tìm..."
+                                                aria-controls="dataTable"
+                                            />
+                                            <button className="btn-Search">Tìm kiếm</button>
+                                        </div>
                                     </div>
                                     <table className="table table-striped table-bordered dataTable">
                                         <thead>
@@ -83,9 +98,9 @@ function ProductPrice (props) {
                                             >
                                             Giá hiện tại
                                             </th>
-                                            <th className="sorting" id="ProductPrice-StatusCol">
+                                            {/* <th className="sorting" id="ProductPrice-StatusCol">
                                             Tình trạng
-                                            </th>
+                                            </th> */}
                                             <th className="sorting" id="ProductPrice-ControlCol">
                                             Tác vụ
                                             </th>
@@ -100,7 +115,7 @@ function ProductPrice (props) {
                                                         <td><img src={item.imageUrl} alt="imgProduct"/></td>
                                                         <td>{priceFormat(item.price ?? 0)}</td>
                                                         <td>{priceFormat(item.currentPrice ?? 0)}</td>
-                                                        <td>{item.status}</td>
+                                                        {/* <td>{item.status}</td> */}
                                                         <td>
                                                         <button
                                                             onClick={() => {props.setProduct(item);

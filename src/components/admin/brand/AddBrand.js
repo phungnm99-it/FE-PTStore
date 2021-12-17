@@ -27,7 +27,7 @@ function AddBrand(props) {
             <form>
               <div className="mb-3">
                 <label className="form-label" for="inputNameBrand">
-                  Tên thương hiệu
+                  Tên thương hiệu *
                 </label>
                 <input
                   type="text"
@@ -40,7 +40,7 @@ function AddBrand(props) {
               <div className="row">
                 <div className="mb-3 col-md-6">
                   <label className="form-label" for="chooseImg">
-                    Hình ảnh
+                    Hình ảnh *
                   </label>
                   <input
                     type="file"
@@ -64,6 +64,13 @@ function AddBrand(props) {
                   className="btn btn-primary btn-color"
                 >
                   Thêm
+                </button>
+                <button
+                  type="submit"
+                  onClick={() => props.switch(8)}
+                  className="btn btn-primary btn-color btn-comeback"
+                >
+                  Quay trở lại danh sách
                 </button>
               </div>
             </form>

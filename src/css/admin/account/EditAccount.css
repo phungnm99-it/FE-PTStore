@@ -107,6 +107,7 @@
     font-weight: 400;
     line-height: 1.5;
     color: white;
+    margin-bottom: 10px;
     height: 35px;
     width: 100px;
     text-align: center;
@@ -141,4 +142,12 @@
     height: 120px;
     width: 120px;
     margin-left: 40px;
+}
+
+.editAccount .btn-comeback{
+    width: 250px;
+    margin-left: 15px;
+    color: #3c4b64;
+    background-color: #f0f0e9;
+    font-size: 15px;
 }

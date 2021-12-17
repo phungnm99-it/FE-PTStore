@@ -1,9 +1,7 @@
 .addBrand .title-addAccount h2{
-    margin-top: 40px;
+    margin-top: 0px;
     font-weight: bold;
 }
-
-
 .addBrand{
     height: 100%;
     margin-top: 20px;
@@ -113,12 +111,12 @@
 
 .addBrand .btn {
     display: inline-block;
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 400;
     line-height: 1.5;
     color: white;
     height: 35px;
-    width: 70px;
+    width: 80px;
     text-align: center;
     text-decoration: none;
     vertical-align: middle;
@@ -151,4 +149,12 @@
     height: 120px;
     width: 120px;
     margin-left: 40px;
+}
+
+.addBrand .btn-comeback{
+    width: 250px;
+    margin-left: 15px;
+    color: #3c4b64;
+    background-color: #f0f0e9;
+    font-size: 15px;
 }

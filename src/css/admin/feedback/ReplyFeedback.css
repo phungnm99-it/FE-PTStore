@@ -1,5 +1,5 @@
 .replyFeedback .title-addAccount h2{
-    margin-top: 40px;
+    margin-top: 20px;
     font-weight: bold;
 }
 
@@ -114,12 +114,12 @@
 
 .replyFeedback .btn {
     display: inline-block;
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 400;
     line-height: 1.5;
     color: white;
-    height: 42px;
-    width: 150px;
+    height: 35px;
+    width: 130px;
     text-align: center;
     text-decoration: none;
     vertical-align: middle;
@@ -156,4 +156,12 @@
 
 .replyFeedback textarea{
     height: 150px;
+}
+
+.replyFeedback .btn-comeback{
+    width: 250px;
+    margin-left: 15px;
+    color: #3c4b64;
+    background-color: #f0f0e9;
+    font-size: 15px;
 }

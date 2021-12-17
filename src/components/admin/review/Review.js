@@ -35,12 +35,12 @@ function Review(props) {
               <div className="row">
                 <div className="col-md-12">
                   <div className="bgc-white bd bdrs-3 p-20 mB-20">
-                    <h4 className="c-grey-900 mB-20">Danh sách</h4>
+                    
                     <div className="dataTables_wrapper">
                       {/* <div className="buttonControl">
                                                 <button className="Add"><Link to = "/admin/home/addAccount">Thêm tài khoản</Link></button>
                                             </div> */}
-                      <div className="dataTables_length" id="dataTable_length">
+                      {/* <div className="dataTables_length" id="dataTable_length">
                         <label>
                           Hiển thị:
                           <select
@@ -54,7 +54,7 @@ function Review(props) {
                             <option value="100">100</option>
                           </select>
                         </label>
-                      </div>
+                      </div> */}
                       <div id="dataTable_filter" className="dataTables_filter">
                         
                           <input

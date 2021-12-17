@@ -39,7 +39,7 @@ function EditProductStatus (props) {
         <div>
             <div className="editProductStatus">
                 <div className="title-addAccount">
-                <h2>Sửa tình trạng sản phẩm</h2>
+                <h2>Cập nhật tình trạng sản phẩm</h2>
                 </div>
                 <div className="form">
                     <div className="input-addAccount">
@@ -125,6 +125,13 @@ function EditProductStatus (props) {
                         <div className="mb-3">
                             <button type="submit" onClick={(e) => handleSubmit(e)} className="btn btn-primary btn-color">
                             Cập Nhật
+                            </button>
+                            <button
+                                type="submit"
+                                onClick={() => props.switch(14)}
+                                className="btn btn-primary btn-color btn-comeback"
+                                >
+                                Quay trở lại danh sách
                             </button>
                         </div>
                         </form>

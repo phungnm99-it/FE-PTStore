@@ -99,7 +99,7 @@ function AddProduct(props) {
             <form>
               <div className="mb-3">
                 <label className="form-label" for="inputNameProduct">
-                  Tên sản phẩm
+                  Tên sản phẩm *
                 </label>
                 <input
                   type="text"
@@ -112,7 +112,7 @@ function AddProduct(props) {
               <div className="row">
                 <div className="mb-3 col-md-6">
                   <label className="form-label" for="inputBrandOfProduct">
-                    Thương hiệu
+                    Thương hiệu *
                   </label>
                   <div className="controls">
                     <select
@@ -136,7 +136,7 @@ function AddProduct(props) {
                 </div>
                 <div className="mb-3 col-md-6">
                   <label className="form-label" for="inputColor">
-                    Màu sắc
+                    Màu sắc *
                   </label>
                   <input
                     type="text"
@@ -151,7 +151,7 @@ function AddProduct(props) {
               <div className="row">
                 <div className="mb-3 col-md-6">
                   <label className="form-label" for="chooseImg">
-                    Hình ảnh
+                    Hình ảnh *
                   </label>
                   <input
                     type="file"
@@ -173,7 +173,7 @@ function AddProduct(props) {
               </div>
               <div className="mb-3">
                 <label className="form-label" for="inputScreenResolution">
-                  Độ phân giải
+                  Độ phân giải *
                 </label>
                 <input
                   type="text"
@@ -185,7 +185,7 @@ function AddProduct(props) {
               </div>
               <div className="mb-3">
                 <label className="form-label" for="inputScreenSize">
-                  Màn hình rộng
+                  Màn hình rộng *
                 </label>
                 <input
                   type="text"
@@ -197,7 +197,7 @@ function AddProduct(props) {
               </div>
               <div className="mb-3 ">
                 <label className="form-label" for="inputScreenTech">
-                  Công nghệ màn hình
+                  Công nghệ màn hình *
                 </label>
                 <input
                   type="text"
@@ -212,7 +212,7 @@ function AddProduct(props) {
               </div>
               <div className="mb-3 ">
                 <label className="form-label" for="inputOS">
-                  Hệ điều hành
+                  Hệ điều hành *
                 </label>
                 <input
                   type="text"
@@ -225,7 +225,7 @@ function AddProduct(props) {
               <div className="row">
                 <div className="mb-3 col-md-6">
                   <label className="form-label" for="inputCPU">
-                    Chip xử lý (CPU)
+                    Chip xử lý (CPU) *
                   </label>
                   <input
                     type="text"
@@ -237,7 +237,7 @@ function AddProduct(props) {
                 </div>
                 <div className="mb-3 col-md-6">
                   <label className="form-label" for="inputGPU">
-                    Chip đồ họa (GPU)
+                    Chip đồ họa (GPU) *
                   </label>
                   <input
                     type="text"
@@ -254,7 +254,7 @@ function AddProduct(props) {
               <div className="row">
                 <div className="mb-3 col-md-6">
                   <label className="form-label" for="inputFrontCamera">
-                    Camera trước
+                    Camera trước *
                   </label>
                   <input
                     type="text"
@@ -266,7 +266,7 @@ function AddProduct(props) {
                 </div>
                 <div className="mb-3 col-md-6">
                   <label className="form-label" for="inputBackCamera">
-                    Camera sau
+                    Camera sau *
                   </label>
                   <input
                     type="text"
@@ -283,7 +283,7 @@ function AddProduct(props) {
               <div className="row">
                 <div className="mb-3 col-md-6">
                   <label className="form-label" for="inputRAM">
-                    RAM
+                    RAM *
                   </label>
                   <input
                     type="text"
@@ -295,7 +295,7 @@ function AddProduct(props) {
                 </div>
                 <div className="mb-3 col-md-6">
                   <label className="form-label" for="inputROM">
-                    Bộ nhớ trong
+                    Bộ nhớ trong *
                   </label>
                   <input
                     type="text"
@@ -311,7 +311,7 @@ function AddProduct(props) {
               </div>
               <div className="mb-3 ">
                 <label className="form-label" for="inputSIM">
-                  Số khe SIM
+                  Số khe SIM *
                 </label>
                 <input
                   type="text"
@@ -323,7 +323,7 @@ function AddProduct(props) {
               </div>
               <div className="mb-3 ">
                 <label className="form-label" for="inputWifi">
-                  Wifi
+                  Wifi *
                 </label>
                 <input
                   type="text"
@@ -347,7 +347,7 @@ function AddProduct(props) {
                   </div> */}
               <div className="mb-3 ">
                 <label className="form-label" for="inputGPS">
-                  GPS
+                  GPS *
                 </label>
                 <input
                   type="text"
@@ -357,24 +357,13 @@ function AddProduct(props) {
                   required
                 />
               </div>
-              {/* <div className="mb-3 ">
-                    <label className="form-label" for="inputGPS">
-                      Cổng kết nối/ Sạc
-                    </label>
-                    <input
-                      type="text"
-                      className="form-control"
-                      id="inputGPS"
-                      placeholder="Cổng kết nối/ Sạc"
-                      required
-                    />
-                  </div> */}
+              
               <div className="mb-3">
                 <label className=" form-title">DUNG LƯỢNG PIN</label>
               </div>
               <div className="mb-3 ">
                 <label className="form-label" for="inputBattery">
-                  Dung lượng Pin
+                  Dung lượng Pin *
                 </label>
                 <input
                   type="text"
@@ -392,6 +381,13 @@ function AddProduct(props) {
                   className="btn btn-primary btn-color"
                 >
                   Thêm
+                </button>
+                <button
+                  type="submit"
+                  onClick={() => props.switch(12)}
+                  className="btn btn-primary btn-color btn-comeback"
+                >
+                  Quay trở lại danh sách
                 </button>
               </div>
             </form>

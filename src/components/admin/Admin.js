@@ -124,9 +124,9 @@ function Admin(props) {
       case 4:
         return <LockedAccount switch={(e) => setForm(e)} />;
       case 5:
-        return <AddAccount />;
+        return <AddAccount switch={(e) => setForm(e)} />;
       case 6:
-        return <EditAccount account={item} />;
+        return <EditAccount switch={(e) => setForm(e)} account={item} />;
       case 7:
         return <DetailAccount switch={(e) => setForm(e)} />;
       case 8:
@@ -134,7 +134,7 @@ function Admin(props) {
       case 9:
         return <AddBrand switch={(e) => setForm(e)} />;
       case 10:
-        return <EditBrand brand={item}/>;
+        return <EditBrand brand={item} switch={(e) => setForm(e)}/>;
       case 11:
         return <DetailBrand switch={(e) => setForm(e)} />;
       case 12:
@@ -146,7 +146,7 @@ function Admin(props) {
       case 15:
         return <AddProduct switch={(e) => setForm(e)} />;
       case 16:
-        return <EditProduct product={item}/>;
+        return <EditProduct product={item}  switch={(e) => setForm(e)}/>;
       case 17:
         return <DetailProduct switch={(e) => setForm(e)} />;
       case 18:
@@ -154,7 +154,7 @@ function Admin(props) {
       case 19:
         return <DetailReview switch={(e) => setForm(e)} />;
       case 20:
-        return <EditPrice product={item} />;
+        return <EditPrice product={item} switch={(e) => setForm(e)} />;
       case 21:
         return <Order switch={(e) => setForm(e)} />;
       case 22:
@@ -164,7 +164,7 @@ function Admin(props) {
       case 24:
         return <Feedback switch={(e) => setForm(e)} setFeedback={(e)=>setItem(e)} />;
       case 25:
-        return <ReplyFeedback feedback={item} />;
+        return <ReplyFeedback switch={(e) => setForm(e)} feedback={item} />;
       case 26:
         return <DetailFeedback switch={(e) => setForm(e)} />;
       case 27:
@@ -172,7 +172,7 @@ function Admin(props) {
       case 28:
         return <FeedbackHasBeenReplied switch={(e) => setForm(e)} />;
       case 29:
-        return <EditProductStatus product={item} />;
+        return <EditProductStatus switch={(e) => setForm(e)} product={item} />;
       case 30:
         return <DetailOrder />;
       case 31:
@@ -193,6 +193,7 @@ function Admin(props) {
         return <WaitDeliveryOrder switch={(e) => setForm(e)} />;
       case 39:
         return <WaitConfirmOrder switch={(e) => setForm(e)} />;
+      
       default:
         return null;
     }
@@ -324,7 +325,7 @@ function Admin(props) {
                         formChoose: () => setForm(39),
                       },
                       {
-                        name: "Đơn hàng chờ lấy hàng",
+                        name: "Đơn hàng đã xác nhận",
                         icon: "fas fa-box-open nav-icon",
                         link: "",
                         formChoose: () => setForm(38),

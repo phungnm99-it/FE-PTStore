@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import feedbackApi from '../../../api/feedback';
 import "../../../css/admin/feedback/Feedback.css"
+import Pagination from "react-pagination-library";
 import { timeFormat } from '../../../utils/dateUtils';
 function FeedbackHasBeenReplied (props) {
     const [feedbacks, setFeedbacks] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPage, setTotalPage] = useState(1);
     useEffect(() => {
-        feedbackApi.getAll().then((res) => { let filterData = res.data.filter((ac) => ac.isReplied === "False")
+        feedbackApi.getAll().then((res) => { let filterData = res.data.filter((ac) => ac.isReplied === true)
           if (currentPage * 5 - 1 > filterData.length) {
             setFeedbacks(filterData.slice((currentPage - 1) * 5));
           } else {
@@ -16,6 +17,9 @@ function FeedbackHasBeenReplied (props) {
           setTotalPage(Math.round(filterData.length / 5) + 1);
         });
       }, [currentPage]);
+    const changeCurrentPage = (numPage) => {
+        setCurrentPage(numPage);
+    };
     return (
         <div>
             <section className="pageAdmin">
@@ -26,10 +30,10 @@ function FeedbackHasBeenReplied (props) {
                         <div className="row">
                             <div className="col-md-12">
                             <div className="bgc-white bd bdrs-3 p-20 mB-20">
-                                <h4 className="c-grey-900 mB-20">Danh sách</h4>
+                                
                                 <div className="dataTables_wrapper">
                                 
-                                <div className="dataTables_length" id="dataTable_length">
+                                {/* <div className="dataTables_length" id="dataTable_length">
                                     <label>
                                     Hiển thị:
                                     <select
@@ -43,9 +47,25 @@ function FeedbackHasBeenReplied (props) {
                                         <option value="100">100</option>
                                     </select>
                                     </label>
-                                </div>
-                                <div id="dataTable_filter" className="dataTables_filter">
-                                    
+                                </div> */}
+                                <div className="row">
+                                    <div className=" filterOrder">
+                                    <p className="label-filterOrder">Từ ngày:</p>
+                                    <input
+                                        type="date"
+                                        className="form-control start"
+                                        id="startDay"
+                                        placeholder="Ngày bắt đầu"
+                                    />
+                                    <p className="label-filterOrder">Đến ngày:</p>
+                                    <input
+                                        type="date"
+                                        className="form-control end"
+                                        id="endDay"
+                                        placeholder="Ngày kết thúc"
+                                    />
+                                    </div>
+                                    <div id="dataTable_filter" className="dataTables_filter">
                                     <input
                                         type="search"
                                         className="inputSearch"
@@ -53,6 +73,7 @@ function FeedbackHasBeenReplied (props) {
                                         aria-controls="dataTable"
                                     />
                                     <button className="btn-Search">Tìm kiếm</button>
+                                    </div>
                                 </div>
                                 <table className="table table-striped table-bordered dataTable">
                                     <thead>
@@ -111,71 +132,12 @@ function FeedbackHasBeenReplied (props) {
                                     className="dataTables_paginate paging_simple_numbers"
                                     id="dataTable_paginate"
                                 >
-                                    <a
-                                    className="paginate_button previous disabled"
-                                    id="dataTable_previous"
-                                    >
-                                    Số trang
-                                    </a>
-                                    <span>
-                                    <a
-                                        className="paginate_button current"
-                                        aria-controls="dataTable"
-                                        data-dt-idx="1"
-                                        tabindex="0"
-                                    >
-                                        1
-                                    </a>
-                                    <a
-                                        className="paginate_button "
-                                        aria-controls="dataTable"
-                                        data-dt-idx="2"
-                                        tabindex="0"
-                                    >
-                                        2
-                                    </a>
-                                    <a
-                                        className="paginate_button "
-                                        aria-controls="dataTable"
-                                        data-dt-idx="3"
-                                        tabindex="0"
-                                    >
-                                        3
-                                    </a>
-                                    <a
-                                        className="paginate_button "
-                                        aria-controls="dataTable"
-                                        data-dt-idx="4"
-                                        tabindex="0"
-                                    >
-                                        4
-                                    </a>
-                                    <a
-                                        className="paginate_button "
-                                        aria-controls="dataTable"
-                                        data-dt-idx="5"
-                                        tabindex="0"
-                                    >
-                                        5
-                                    </a>
-                                    <a
-                                        className="paginate_button "
-                                        aria-controls="dataTable"
-                                        data-dt-idx="6"
-                                        tabindex="0"
-                                    >
-                                        6
-                                    </a>
-                                    </span>
-                                    <a
-                                    className="paginate_button next"
-                                    aria-controls="dataTable"
-                                    data-dt-idx="7"
-                                    tabindex="0"
-                                    id="dataTable_next"
-                                    >
-                                    <i className="fas fa-forward"></i>
-                                    </a>
+                                    <Pagination
+                                        currentPage={currentPage}
+                                        totalPages={totalPage}
+                                        changeCurrentPage={changeCurrentPage}
+                                        theme="square-i"
+                                    />
                                 </div>
                                 </div>
                             </div>

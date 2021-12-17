@@ -1,5 +1,5 @@
 .editBrand .title-addAccount h2{
-    margin-top: 40px;
+    margin-top: 20px;
     font-weight: bold;
 }
 
@@ -112,7 +112,7 @@
 
 .editBrand .btn {
     display: inline-block;
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 400;
     line-height: 1.5;
     color: white;
@@ -147,7 +147,15 @@
 
 .editBrand .UploadImg{
     display: block;
-    height: 120px;
-    width: 120px;
+    height: 100px;
+    width: 160px;
     margin-left: 40px;
+}
+
+.editBrand .btn-comeback{
+    width: 250px;
+    margin-left: 15px;
+    color: #3c4b64;
+    background-color: #f0f0e9;
+    font-size: 15px;
 }

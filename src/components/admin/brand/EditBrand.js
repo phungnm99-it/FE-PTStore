@@ -14,7 +14,7 @@ function EditBrand(props) {
 
   }, [props.brand]);
   const setValue = () => {
-    document.getElementById("inputNameBrand").value = brands.name || "";
+    document.getElementById("inputNameBrand").value = props.brand.name || "";
   }
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -30,7 +30,7 @@ function EditBrand(props) {
     <div>
       <div className="editBrand">
         <div className="title-addAccount">
-          <h2>Chỉnh sửa thương hiệu</h2>
+          <h2>Cập nhật thương hiệu</h2>
         </div>
         <div className="form">
               
@@ -42,7 +42,7 @@ function EditBrand(props) {
                     </label>
                     <input
                       type="text"
-                      value={brands.id || ""}
+                      value={props.brand.id || ""}
                       className="form-control"
                       id="inputIDBrand"
                       placeholder="Mã thương hiệu"
@@ -78,7 +78,7 @@ function EditBrand(props) {
                       </label>
                       <img
                         className="UploadImg"
-                        src={brands.imageUrl || "http://res.cloudinary.com/dobsh4rbw/image/upload/v1639403956/commom/no-avt121321085832.png"}
+                        src={props.brand.imageUrl || "http://res.cloudinary.com/dobsh4rbw/image/upload/v1639403956/commom/no-avt121321085832.png"}
                         alt="UploadImg"
                       ></img>
                     </div>
@@ -87,6 +87,13 @@ function EditBrand(props) {
                   <div className="mb-3">
                     <button type="submit" onClick={(e) => handleSubmit(e)} className="btn btn-primary btn-color">
                       Cập Nhật
+                    </button>
+                    <button
+                      type="submit"
+                      onClick={() => props.switch(8)}
+                      className="btn btn-primary btn-color btn-comeback"
+                    >
+                      Quay trở lại danh sách
                     </button>
                   </div>
                 </form>

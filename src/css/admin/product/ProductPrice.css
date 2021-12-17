@@ -47,7 +47,7 @@
 .productPrice-management .row > * {
     -ms-flex-negative: 0;
     flex-shrink: 0;
-    width: 100%;
+    
     max-width: 100%;
     padding-right: calc(var(--bs-gutter-x) * .5);
     padding-left: calc(var(--bs-gutter-x) * .5);
@@ -110,8 +110,10 @@
 
 .productPrice-management .dataTables_wrapper .dataTables_filter {
     color: #313435;
-    float: right;
-    margin-top: 8px;
+    right: 0;
+    position: absolute;
+    margin-top: 10px;
+    
 }
 
 .productPrice-management .dataTables_wrapper .dataTables_filter input {
@@ -138,7 +140,7 @@
     width: 100%;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 60px;
+    margin-top: 30px;
     margin-bottom: 20px;
     clear: both;
     border-collapse: separate;
@@ -204,16 +206,14 @@ table.dataTable, table.dataTable th, table.dataTable td {
     width: 25%;
 }
 #ProductPrice-PriceCol{
-    width: 12%;
+    width: 17%;
 }
 #ProductPrice-CurrentPriceCol{
-    width: 12%;
+    width: 17%;
 }
-#ProductPrice-StatusCol{
-    width: 11%;
-}
+
 #ProductPrice-ControlCol{
-    width: 5%;
+    width: 6%;
 }
 
 .productPrice-management .table{
@@ -381,6 +381,23 @@ table.dataTable tbody tr {
     background: #3c4b64;
     color: white;
     border: none;
-    border-radius: 3px;
-    
+    border-radius: 3px; 
 }
+
+.productPrice-management .filterPriceOrder{
+    display: flex;
+    margin-top: 10px;
+}
+
+.productPrice-management #mySelect, #mySelectPrice {
+    width: 140px;
+    background-color: #fff;
+    height: 37px;
+    border: none;
+    border-radius: 20px;
+    margin-left: 10px !important;
+    border: 1px solid #e0e0e0;
+    color: #333;
+    margin-top: 10px;
+}
+

@@ -48,7 +48,7 @@
 .feedback-management .row > * {
   -ms-flex-negative: 0;
   flex-shrink: 0;
-  width: 100%;
+  
   max-width: 100%;
   padding-right: calc(var(--bs-gutter-x) * 0.5);
   padding-left: calc(var(--bs-gutter-x) * 0.5);
@@ -140,7 +140,7 @@
   width: 100%;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 60px;
+  margin-top: 30px;
   margin-bottom: 20px;
   clear: both;
   border-collapse: separate;
@@ -206,13 +206,13 @@ table.dataTable td {
 }
 
 #Feedback-IDCol {
-  width: 10%;
+  width: 5%;
 }
 #Feedback-UserCol {
   width: 18%;
 }
 #Feedback-EmailCol {
-  width: 20%;
+  width: 25%;
 }
 #Feedback-TopicCol {
   width: 8%;
@@ -384,5 +384,20 @@ table.dataTable tbody tr {
   color: white;
   border: none;
   border-radius: 3px;
-  
+}
+
+.feedback-management .filterOrder{
+  display: flex;
+  margin-top: 10px;
+}
+.feedback-management p.label-filterOrder{
+  font-size: 15px;
+  margin-top: 5px;
+  font-weight: 400;
+}
+
+.feedback-management .start, .feedback-management .end{
+  width: 245px;
+  margin-left: 8px;
+  margin-right: 15px;
 }
