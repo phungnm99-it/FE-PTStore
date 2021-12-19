@@ -70,6 +70,11 @@ const userApi = {
     const url = "/user/getCommonShipperInfo";
     return axiosClient.get(url);
   },
+
+  getCommonRate: () => {
+    const url = "/common/currencyRate";
+    return axiosClient.get(url);
+  },
 };
 
 export default userApi;

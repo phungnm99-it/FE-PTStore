@@ -1,11 +1,8 @@
 import React from "react";
-import {
-  Switch,
-  Route
-} from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import Manager from "./Manager";
 import Shipper from "./Shipper";
-import Store from "./Store"
+import Store from "./Store";
 
 function App() {
   return (
@@ -14,7 +11,7 @@ function App() {
         <Manager />
       </Route>
       <Route path="/shipper">
-        <Shipper/>
+        <Shipper />
       </Route>
       <Route path="/">
         <Store />

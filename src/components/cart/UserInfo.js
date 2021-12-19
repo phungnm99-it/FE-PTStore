@@ -1,19 +1,17 @@
 import React, { useEffect, useState } from "react";
 import "../../css/cart/UserInfo.css";
-// import { getProvinces } from "../../service/provinces-service";
 import { useContext } from "react";
 import { AuthContext } from "../../AuthContext";
 import { useHistory } from "react-router-dom";
 import { priceFormat } from "../../utils/priceFormat";
 import axios from "axios";
 import userApi from "../../api/userApi";
+import { PayPalButton } from "react-paypal-button-v2";
 
 function UserInfo() {
-  // state tinh, state quan
-  // const [provinces, setProvinces] = useState([]);
-  // const [districts, setDistrict] = useState([]);
   const context = useContext(AuthContext);
   const history = useHistory();
+  const [paypal, setPaypal] = useState(false);
 
   const calculateTotalCost = (arrays) => {
     let result = 0;
@@ -22,6 +20,51 @@ function UserInfo() {
     });
     return result;
   };
+
+  const axiosClient = axios.create({
+    baseURL: process.env.REACT_APP_API_URL,
+    // withCredentials: true,
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      "Content-type": "application/json",
+    },
+    //paramsSerializer: (params) => queryString.stringify(params),
+  });
+
+  axiosClient.interceptors.request.use(
+    async (config) => {
+      const token = localStorage.getItem("access_token");
+      if (token) {
+        config.headers["Authorization"] = `Bearer ${token}`;
+      }
+      //config.headers["Content-Type"] = "application/json";
+      return config;
+    },
+    (error) => {
+      Promise.reject(error);
+    }
+  );
+
+  useEffect(() => {
+    if (paypal) {
+      let urlPaypal = "/order/createPaypal";
+      let address = document.getElementById("address").value;
+      let name = document.getElementById("fullName").value;
+      let phoneNumber = document.getElementById("phoneNumber").value;
+      let productList = context.cart;
+      let data = { name, phoneNumber, address, productList };
+
+      axiosClient.post(urlPaypal, JSON.stringify(data)).then((res) => {
+        if (res.data.code == 200) {
+          context.resetCart();
+          alert("Đặt hàng thành công!");
+          history.push("/account/2");
+        } else {
+          alert("Lỗi!");
+        }
+      });
+    }
+  }, [paypal]);
 
   useEffect(() => {
     if (context.user != null) {
@@ -34,18 +77,7 @@ function UserInfo() {
         document.getElementById("email").value = response.data.email;
       });
     }
-
-    // lay tinh tu api
-    // getProvinces().then((res) => {
-    //   setProvinces(res.data);
-    //   setDistrict(res.data[0].districts);
-    // });
   }, []);
-  // lay quan tu ma tinh
-  // const getDistrictFromCode = (code) => {
-  //   let filter = provinces.filter((x) => x.code.toString() === code);
-  //   filter.length > 0 ? setDistrict(filter[0].districts) : setDistrict([]);
-  // };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -53,43 +85,11 @@ function UserInfo() {
       alert("Vui lòng đăng nhập!");
       history.push("/login");
     } else {
-      // let province = document.getElementById("SystemCityID");
-      // let district = document.getElementById("SystemDistrictID");
       let address = document.getElementById("address").value;
-      // let address =
-      //   document.getElementById("address").value +
-      //   ", " +
-      //   district.options[district.selectedIndex].text +
-      //   ", " +
-      //   province.options[province.selectedIndex].text;
       let name = document.getElementById("fullName").value;
       let phoneNumber = document.getElementById("phoneNumber").value;
       let productList = context.cart;
       let data = { name, phoneNumber, address, productList };
-
-      const axiosClient = axios.create({
-        baseURL: process.env.REACT_APP_API_URL,
-        // withCredentials: true,
-        headers: {
-          "Access-Control-Allow-Origin": "*",
-          "Content-type": "application/json",
-        },
-        //paramsSerializer: (params) => queryString.stringify(params),
-      });
-
-      axiosClient.interceptors.request.use(
-        async (config) => {
-          const token = localStorage.getItem("access_token");
-          if (token) {
-            config.headers["Authorization"] = `Bearer ${token}`;
-          }
-          //config.headers["Content-Type"] = "application/json";
-          return config;
-        },
-        (error) => {
-          Promise.reject(error);
-        }
-      );
 
       const url = "/order/create";
       axiosClient.post(url, JSON.stringify(data)).then((res) => {
@@ -103,23 +103,6 @@ function UserInfo() {
       });
     }
   };
-
-  // function simpleStringify(object) {
-  //   var simpleObject = {};
-  //   for (var prop in object) {
-  //     if (!object.hasOwnProperty(prop)) {
-  //       continue;
-  //     }
-  //     if (typeof object[prop] == "object") {
-  //       continue;
-  //     }
-  //     if (typeof object[prop] == "function") {
-  //       continue;
-  //     }
-  //     simpleObject[prop] = object[prop];
-  //   }
-  //   return JSON.stringify(simpleObject); // returns cleaned up JSON
-  // }
 
   return (
     <div>
@@ -149,48 +132,8 @@ function UserInfo() {
             <div className="fillmail">
               <input placeholder="Email (bắt buộc)" id="email" type="text" />
             </div>
-            <div className="chooseAddress">
-              {/* <select
-                id="SystemCityID"
-                name="SystemCityID"
-                placeholder="Tỉnh/Thành phố"
-                data-required="1"
-                onChange={(e) => {
-                  getDistrictFromCode(e.target.value);
-                }}
-              >
-                <option value="">Tỉnh/Thành phố</option> */}
-              {/* {provinces.map((pro, idx) => {
-                  return (
-                    <option key={idx} value={pro.code} selected={idx === 0}>
-                      {pro.name}
-                    </option>
-                  );
-                })} */}
-              {/* </select> */}
-            </div>
-            <div className="chooseAddress district">
-              {/* <select
-                id="SystemDistrictID"
-                name="SystemDistrictID"
-                placeholder="Quận/Huyện"
-                data-required="1"
-              > */}
-              {/* {" "}
-                {districts?.map((dis, idx) => {
-                  return (
-                    <option
-                      key={idx}
-                      value={dis.code}
-                      selected={idx === 0}
-                      //   onClick={}
-                    >
-                      {dis.name}
-                    </option>
-                  );
-                })} */}
-              {/* </select> */}
-            </div>
+            <div className="chooseAddress"></div>
+            <div className="chooseAddress district"></div>
             <div className="filladdress">
               <input
                 placeholder="Địa chỉ giao hàng (bắt buộc) "
@@ -219,11 +162,19 @@ function UserInfo() {
               <br />
               <b>(Thanh toán khi nhận hàng)</b>
             </button>
-            {/* <button type="button" className="submitonlpay">
-              <b>THANH TOÁN ONLINE</b>
-              <br />
-              <b>(Qua ví PayPal)</b>
-            </button> */}
+            {context.user === null ? null : (
+              <PayPalButton
+                amount={Math.floor(calculateTotalCost(context.cart) / 23000)}
+                // shippingPreference="NO_SHIPPING" // default is "GET_FROM_FILE"
+                onSuccess={(details, data) => {
+                  return setPaypal(true);
+                }}
+                options={{
+                  clientId:
+                    "AQLb3TrxPDPbXSQNJqXCD8UiPOQwfAwLSyTPzc05onCxgUYRLTgXxYkZoUx99HY0VXX-Wp-Yf7OD2bQi",
+                }}
+              />
+            )}
           </div>
         </div>
       </div>
