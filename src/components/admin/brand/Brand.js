@@ -14,16 +14,21 @@ function Brand(props) {
   const [totalPage, setTotalPage] = useState(1);
   const [modal, setModal] = useState(false);
   const [edit, setEdit] = useState({});
+  const [search, setSearch] = useState("");
+
   useEffect(() => {
     brandApi.getAll().then((res) => {
-      if (currentPage * 5 - 1 > res.data.length) {
-        setBrands(res.data.slice((currentPage - 1) * 5));
+      let rs = res.data.filter((x) =>
+        x.name.toLowerCase().includes(search.toLowerCase())
+      );
+      if (currentPage * 5 - 1 > rs.length) {
+        setBrands(rs.slice((currentPage - 1) * 5));
       } else {
-        setBrands(res.data.slice((currentPage - 1) * 5, currentPage * 5));
+        setBrands(rs.slice((currentPage - 1) * 5, currentPage * 5));
       }
-      setTotalPage(Math.round(res.data.length / 5) + 1);
+      setTotalPage(Math.round(rs.length / 5) + 1);
     });
-  }, [currentPage]);
+  }, [currentPage, search]);
 
   const changeCurrentPage = (numPage) => {
     setCurrentPage(numPage);
@@ -39,23 +44,29 @@ function Brand(props) {
               <div className="row">
                 <div className="col-md-12">
                   <div className="bgc-white bd bdrs-3 p-20 mB-20">
-                    
                     <div className="dataTables_wrapper">
                       <div className="row">
                         <div className="buttonControl">
-                          <button className="Add" onClick={() => props.switch(9)}>
+                          <button
+                            className="Add"
+                            onClick={() => props.switch(9)}
+                          >
                             Thêm thương hiệu
                           </button>
                         </div>
-                        
-                        <div id="dataTable_filter" className="dataTables_filter">
+
+                        <div
+                          id="dataTable_filter"
+                          className="dataTables_filter"
+                        >
                           <input
                             type="search"
+                            onChange={(e) => setSearch(e.target.value)}
                             className="inputSearch"
                             placeholder="Bạn cần tìm..."
                             aria-controls="dataTable"
                           />
-                          <button className="btn-Search">Tìm kiếm</button>
+                          {/* <button className="btn-Search">Tìm kiếm</button> */}
                         </div>
                       </div>
                       <table className="table table-striped table-bordered dataTable">
@@ -101,12 +112,12 @@ function Brand(props) {
                                   >
                                     <i className="fas fa-list"></i>
                                   </button>
-                                  <button
+                                  {/* <button
                                     onClick={() => setModal(true)}
                                     className="iconDelete"
                                   >
                                     <i className="fas fa-backspace"></i>
-                                  </button>
+                                  </button> */}
                                 </td>
                               </tr>
                             );
