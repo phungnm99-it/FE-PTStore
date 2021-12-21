@@ -52,10 +52,13 @@ import { AdminContext } from "../../AdminContext";
 import Auth from "../../config/auth";
 import { useHistory } from "react-router-dom";
 import userApi from "../../api/userApi";
+import AddAdminAccount from "./account/AddAdminAccount";
+import AddShipperAccount from "./account/AddShipperAccount";
 
 function Admin(props) {
   const context = useContext(AdminContext);
   const history = useHistory();
+  const [role, setRole] = useState(Auth.getCurrentUser().role);
   const [form, setForm] = useState(props.form || 0);
   const [avt, setAvt] = useState(
     "https://huyhoanhotel.com/wp-content/uploads/2016/05/765-default-avatar.png"
@@ -116,11 +119,26 @@ function Admin(props) {
       case 0:
         return <PageMainAdmin />;
       case 1:
-        return <AccountAdmin switch={(e) => setForm(e)} setAccount={(e)=>setItem(e)}/>;
+        return (
+          <AccountAdmin
+            switch={(e) => setForm(e)}
+            setAccount={(e) => setItem(e)}
+          />
+        );
       case 2:
-        return <AccountUser switch={(e) => setForm(e)} setAccount={(e)=>setItem(e)} />;
+        return (
+          <AccountUser
+            switch={(e) => setForm(e)}
+            setAccount={(e) => setItem(e)}
+          />
+        );
       case 3:
-        return <AccountShipper switch={(e) => setForm(e)} setAccount={(e)=>setItem(e)} />;
+        return (
+          <AccountShipper
+            switch={(e) => setForm(e)}
+            setAccount={(e) => setItem(e)}
+          />
+        );
       case 4:
         return <LockedAccount switch={(e) => setForm(e)} />;
       case 5:
@@ -130,23 +148,37 @@ function Admin(props) {
       case 7:
         return <DetailAccount switch={(e) => setForm(e)} />;
       case 8:
-        return <Brand switch={(e) => setForm(e)} setBrand={(e)=>setItem(e)}/>;
+        return (
+          <Brand switch={(e) => setForm(e)} setBrand={(e) => setItem(e)} />
+        );
       case 9:
         return <AddBrand switch={(e) => setForm(e)} />;
       case 10:
-        return <EditBrand brand={item} switch={(e) => setForm(e)}/>;
+        return <EditBrand brand={item} switch={(e) => setForm(e)} />;
       case 11:
         return <DetailBrand switch={(e) => setForm(e)} />;
       case 12:
-        return <Product switch={(e) => setForm(e)} setProduct={(e)=>setItem(e)} />;
+        return (
+          <Product switch={(e) => setForm(e)} setProduct={(e) => setItem(e)} />
+        );
       case 13:
-        return <ProductPrice switch={(e) => setForm(e)} setProduct={(e)=>setItem(e)}  />;
+        return (
+          <ProductPrice
+            switch={(e) => setForm(e)}
+            setProduct={(e) => setItem(e)}
+          />
+        );
       case 14:
-        return <ProductStatus switch={(e) => setForm(e)} setProduct={(e)=>setItem(e)} />;
+        return (
+          <ProductStatus
+            switch={(e) => setForm(e)}
+            setProduct={(e) => setItem(e)}
+          />
+        );
       case 15:
         return <AddProduct switch={(e) => setForm(e)} />;
       case 16:
-        return <EditProduct product={item}  switch={(e) => setForm(e)}/>;
+        return <EditProduct product={item} switch={(e) => setForm(e)} />;
       case 17:
         return <DetailProduct switch={(e) => setForm(e)} />;
       case 18:
@@ -162,7 +194,12 @@ function Admin(props) {
       case 23:
         return <CompletedOrder switch={(e) => setForm(e)} />;
       case 24:
-        return <Feedback switch={(e) => setForm(e)} setFeedback={(e)=>setItem(e)} />;
+        return (
+          <Feedback
+            switch={(e) => setForm(e)}
+            setFeedback={(e) => setItem(e)}
+          />
+        );
       case 25:
         return <ReplyFeedback switch={(e) => setForm(e)} feedback={item} />;
       case 26:
@@ -193,7 +230,11 @@ function Admin(props) {
         return <WaitDeliveryOrder switch={(e) => setForm(e)} />;
       case 39:
         return <WaitConfirmOrder switch={(e) => setForm(e)} />;
-      
+      case 40:
+        return <AddAdminAccount switch={(e) => setForm(e)} />;
+      case 41:
+        return <AddShipperAccount switch={(e) => setForm(e)} />;
+
       default:
         return null;
     }
@@ -248,36 +289,57 @@ function Admin(props) {
                   </li>
                   <li className="nav-title">Theme</li>
 
-                  <DropDown
-                    name="Quản lý Tài khoản"
-                    icon="fas fa-user-cog nav-icon"
-                    subNav={[
-                      {
-                        name: "Tài khoản Admin",
-                        icon: "fas fa-user-circle nav-icon",
-                        link: "",
-                        formChoose: () => setForm(1),
-                      },
-                      {
-                        name: "Tài khoản User",
-                        icon: "fas fa-user-circle nav-icon",
-                        link: "",
-                        formChoose: () => setForm(2),
-                      },
-                      {
-                        name: "Tài khoản Shipper",
-                        icon: "fas fa-user-circle nav-icon",
-                        link: "",
-                        formChoose: () => setForm(3),
-                      },
-                      {
-                        name: "Tài khoản đã khóa",
-                        icon: "fas fa-user-circle nav-icon",
-                        link: "",
-                        formChoose: () => setForm(4),
-                      },
-                    ]}
-                  />
+                  {role === "SuperAdmin" ? (
+                    <DropDown
+                      name="Quản lý Tài khoản"
+                      icon="fas fa-user-cog nav-icon"
+                      subNav={[
+                        {
+                          name: "Tài khoản Admin",
+                          icon: "fas fa-user-circle nav-icon",
+                          link: "",
+                          formChoose: () => setForm(1),
+                        },
+                        {
+                          name: "Tài khoản User",
+                          icon: "fas fa-user-circle nav-icon",
+                          link: "",
+                          formChoose: () => setForm(2),
+                        },
+                        {
+                          name: "Tài khoản Shipper",
+                          icon: "fas fa-user-circle nav-icon",
+                          link: "",
+                          formChoose: () => setForm(3),
+                        },
+                        {
+                          name: "Tài khoản đã khóa",
+                          icon: "fas fa-user-circle nav-icon",
+                          link: "",
+                          formChoose: () => setForm(4),
+                        },
+                      ]}
+                    />
+                  ) : (
+                    <DropDown
+                      name="Quản lý Tài khoản"
+                      icon="fas fa-user-cog nav-icon"
+                      subNav={[
+                        {
+                          name: "Tài khoản User",
+                          icon: "fas fa-user-circle nav-icon",
+                          link: "",
+                          formChoose: () => setForm(2),
+                        },
+                        {
+                          name: "Tài khoản đã khóa",
+                          icon: "fas fa-user-circle nav-icon",
+                          link: "",
+                          formChoose: () => setForm(4),
+                        },
+                      ]}
+                    />
+                  )}
                   <li className="nav-item" onClick={() => setForm(8)}>
                     <a className="nav-link active btn-focus">
                       <i className="fas fa-tachometer-alt nav-icon"></i>

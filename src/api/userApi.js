@@ -75,6 +75,16 @@ const userApi = {
     const url = "/common/currencyRate";
     return axiosClient.get(url);
   },
+
+  addAdminAccount: (data) => {
+    const url = "/user/createAdminAccount";
+    return axiosClient.post(url, data);
+  },
+
+  addShipperAccount: (data) => {
+    const url = "/user/createShipperAccount";
+    return axiosClient.post(url, data);
+  },
 };
 
 export default userApi;

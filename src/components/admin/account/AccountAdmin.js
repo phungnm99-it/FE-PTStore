@@ -13,7 +13,8 @@ function AccountAdmin(props) {
   const [modal, setModal] = useState(false);
 
   useEffect(() => {
-    userApi.getAllUsers().then((res) => {let filterData = res.data.filter((ac) => ac.roleName === "Admin")
+    userApi.getAllUsers().then((res) => {
+      let filterData = res.data.filter((ac) => ac.roleName === "Admin");
       if (currentPage * 5 - 1 > filterData.length) {
         setAdmins(filterData.slice((currentPage - 1) * 5));
       } else {
@@ -38,10 +39,12 @@ function AccountAdmin(props) {
               <div className="row">
                 <div className="col-md-12">
                   <div className="bgc-white bd bdrs-3 p-20 mB-20">
-                    
                     <div className="dataTables_wrapper">
                       <div className="buttonControl">
-                        <button className="Add" onClick={() => props.switch(5)}>
+                        <button
+                          className="Add"
+                          onClick={() => props.switch(40)}
+                        >
                           Thêm tài khoản
                         </button>
                       </div>
@@ -76,7 +79,7 @@ function AccountAdmin(props) {
                               Mã tài khoản
                             </th>
                             <th className="sorting" id="Account-UserNameCol">
-                              Tài khoản
+                              Họ tên
                             </th>
                             <th className="sorting" id="Account-EmailCol">
                               Email
@@ -107,16 +110,18 @@ function AccountAdmin(props) {
                                 <td>{item.email}</td>
                                 <td>{item.phoneNumber}</td>
                                 <td>{timeFormat(item.birthday)}</td>
-                                <td>{item.gender}</td>
+                                <td>{item.gender === "Nam" ? "Nam" : "Nữ"}</td>
                                 <td>{item.address}</td>
                                 <td>
-                                  <button
+                                  {/* <button
                                     className="iconEdit"
-                                    onClick={() => {props.setAccount(item);
-                                    props.switch(6)}}
+                                    onClick={() => {
+                                      props.setAccount(item);
+                                      props.switch(6);
+                                    }}
                                   >
                                     <i className="fas fa-edit"></i>
-                                  </button>
+                                  </button> */}
                                   <button
                                     onClick={() => props.switch(7)}
                                     className="iconDetail"
