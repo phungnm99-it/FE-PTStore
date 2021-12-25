@@ -85,6 +85,36 @@ const userApi = {
     const url = "/user/createShipperAccount";
     return axiosClient.post(url, data);
   },
+
+  lockUser: (userId) => {
+    const url = "/user/lockUser/" + userId;
+    return axiosClient.get(url);
+  },
+
+  lockAdmin: (userId) => {
+    const url = "/user/lockAdmin/" + userId;
+    return axiosClient.get(url);
+  },
+
+  lockShipper: (userId) => {
+    const url = "/user/lockShipper/" + userId;
+    return axiosClient.get(url);
+  },
+
+  unlockUser: (userId) => {
+    const url = "/user/unlockUser/" + userId;
+    return axiosClient.get(url);
+  },
+
+  unlockAdmin: (userId) => {
+    const url = "/user/unlockAdmin/" + userId;
+    return axiosClient.get(url);
+  },
+
+  unlockShipper: (userId) => {
+    const url = "/user/unlockShipper/" + userId;
+    return axiosClient.get(url);
+  },
 };
 
 export default userApi;

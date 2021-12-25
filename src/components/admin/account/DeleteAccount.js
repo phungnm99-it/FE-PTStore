@@ -1,7 +1,19 @@
 import React from "react";
+import userApi from "../../../api/userApi";
 import "../../../css/admin/account/DeleteAccount.css";
 
 function DeleteAccount(props) {
+  const handleLock = () => {
+    userApi.lockUser(props.id).then((res) => {
+      if (res.code === 401) {
+        props.onCLose();
+        alert("Khoá user không thành công. Vui lòng thử lại!");
+      } else {
+        props.onCLose();
+        alert("Khoá user thành công!");
+      }
+    });
+  };
   return (
     <div>
       <div className="deleteAccount">
@@ -15,17 +27,25 @@ function DeleteAccount(props) {
                 onClick={() => props.onCLose()}
               />
               <div className="form">
-                <p>Xác nhận KHÓA tài khoản có mã NH5ISDO?</p>
+                <p>Xác nhận KHÓA tài khoản có mã {props.id} ?</p>
                 <h6>
                   Sau khi thực hiện thao tác Khóa, tài khoản sẽ bị khóa và
                   chuyển vào mục tài khoản đã khóa.
                 </h6>
                 <div className="row">
                   <div className="mb-3 pull-right btn-group-Delete">
-                    <button className="btn btn-primary btn-color btn-Cancel">
+                    <button
+                      onClick={() => props.onCLose()}
+                      className="btn btn-primary btn-color btn-Cancel"
+                    >
                       Hủy
                     </button>
-                    <button className="btn btn-primary btn-color">Khóa</button>
+                    <button
+                      onClick={() => handleLock()}
+                      className="btn btn-primary btn-color"
+                    >
+                      Khóa
+                    </button>
                   </div>
                 </div>
               </div>

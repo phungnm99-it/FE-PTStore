@@ -11,18 +11,30 @@ function AccountAdmin(props) {
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPage, setTotalPage] = useState(1);
   const [modal, setModal] = useState(false);
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     userApi.getAllUsers().then((res) => {
       let filterData = res.data.filter((ac) => ac.roleName === "Admin");
+      filterData = filterData.filter(
+        (f) =>
+          String(f.id).includes(String(search).toLowerCase()) ||
+          String(f.name).toLowerCase().includes(String(search).toLowerCase()) ||
+          String(f.email)
+            .toLowerCase()
+            .includes(String(search).toLowerCase()) ||
+          String(f.phoneNumber)
+            .toLowerCase()
+            .includes(String(search).toLowerCase())
+      );
       if (currentPage * 5 - 1 > filterData.length) {
         setAdmins(filterData.slice((currentPage - 1) * 5));
       } else {
         setAdmins(filterData.slice((currentPage - 1) * 5, currentPage * 5));
       }
-      setTotalPage(Math.round(filterData.length / 5) + 1);
+      setTotalPage(Math.round(filterData.length / 5));
     });
-  }, [currentPage]);
+  }, [currentPage, search]);
 
   const changeCurrentPage = (numPage) => {
     setCurrentPage(numPage);
@@ -67,10 +79,10 @@ function AccountAdmin(props) {
                         <input
                           type="search"
                           className="inputSearch"
+                          onChange={(e) => setSearch(e.target.value)}
                           placeholder="Bạn cần tìm..."
                           aria-controls="dataTable"
                         />
-                        <button className="btn-Search">Tìm kiếm</button>
                       </div>
                       <table className="table table-striped table-bordered dataTable">
                         <thead>
@@ -122,12 +134,12 @@ function AccountAdmin(props) {
                                   >
                                     <i className="fas fa-edit"></i>
                                   </button> */}
-                                  <button
+                                  {/* <button
                                     onClick={() => props.switch(7)}
                                     className="iconDetail"
                                   >
                                     <i class="fas fa-list"></i>
-                                  </button>
+                                  </button> */}
                                   <button
                                     onClick={() => setModal(true)}
                                     className="iconDelete"

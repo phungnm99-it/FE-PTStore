@@ -11,10 +11,23 @@ function AccountUser(props) {
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPage, setTotalPage] = useState(1);
   const [modal, setModal] = useState(false);
+  const [search, setSearch] = useState("");
+  const [lock, setLock] = useState(0);
 
   useEffect(() => {
     userApi.getAllUsers().then((res) => {
       let filterData = res.data.filter((ac) => ac.roleName === "User");
+      filterData = filterData.filter(
+        (f) =>
+          String(f.id).includes(String(search).toLowerCase()) ||
+          String(f.name).toLowerCase().includes(String(search).toLowerCase()) ||
+          String(f.email)
+            .toLowerCase()
+            .includes(String(search).toLowerCase()) ||
+          String(f.phoneNumber)
+            .toLowerCase()
+            .includes(String(search).toLowerCase())
+      );
       if (currentPage * 5 - 1 > filterData.length) {
         setAdmins(filterData.slice((currentPage - 1) * 5));
       } else {
@@ -22,7 +35,7 @@ function AccountUser(props) {
       }
       setTotalPage(Math.round(filterData.length / 5) + 1);
     });
-  }, [currentPage]);
+  }, [currentPage, search]);
 
   const changeCurrentPage = (numPage) => {
     setCurrentPage(numPage);
@@ -39,7 +52,7 @@ function AccountUser(props) {
                   <div className="bgc-white bd bdrs-3 p-20 mB-20">
                     <h4 className="c-grey-900 mB-20">Danh sách</h4>
                     <div className="dataTables_wrapper">
-                      <div className="dataTables_length" id="dataTable_length">
+                      {/* <div className="dataTables_length" id="dataTable_length">
                         <label>
                           Hiển thị:
                           <select
@@ -53,16 +66,15 @@ function AccountUser(props) {
                             <option value="100">100</option>
                           </select>
                         </label>
-                      </div>
+                      </div> */}
                       <div id="dataTable_filter" className="dataTables_filter">
                         <input
                           type="search"
                           className="inputSearch"
+                          onChange={(e) => setSearch(e.target.value)}
                           placeholder="Bạn cần tìm..."
                           aria-controls="dataTable"
                         />
-
-                        <button className="btn-Search">Tìm kiếm</button>
                       </div>
                       <table className="table table-striped table-bordered dataTable">
                         <thead>
@@ -105,7 +117,7 @@ function AccountUser(props) {
                                 <td>{item.gender === "Nam" ? "Nam" : "Nữ"}</td>
                                 <td>{item.address}</td>
                                 <td>
-                                  <button
+                                  {/* <button
                                     className="iconEdit"
                                     onClick={() => {
                                       props.setAccount(item);
@@ -119,9 +131,12 @@ function AccountUser(props) {
                                     className="iconDetail"
                                   >
                                     <i class="fas fa-list"></i>
-                                  </button>
+                                  </button> */}
                                   <button
-                                    onClick={() => setModal(true)}
+                                    onClick={() => {
+                                      setLock(item.id);
+                                      setModal(true);
+                                    }}
                                     className="iconDelete"
                                   >
                                     <i className="fas fa-lock"></i>
@@ -152,7 +167,7 @@ function AccountUser(props) {
         </div>
       </div>
       <Modal isOpen={modal} style={customStyles}>
-        <DeleteAccount onCLose={() => setModal(false)} />
+        <DeleteAccount id={lock} onCLose={() => setModal(false)} />
       </Modal>
     </div>
   );

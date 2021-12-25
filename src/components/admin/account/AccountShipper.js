@@ -11,10 +11,22 @@ function AccountShipper(props) {
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPage, setTotalPage] = useState(1);
   const [modal, setModal] = useState(false);
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     userApi.getAllUsers().then((res) => {
       let filterData = res.data.filter((ac) => ac.roleName === "Shipper");
+      filterData = filterData.filter(
+        (f) =>
+          String(f.id).includes(String(search).toLowerCase()) ||
+          String(f.name).toLowerCase().includes(String(search).toLowerCase()) ||
+          String(f.email)
+            .toLowerCase()
+            .includes(String(search).toLowerCase()) ||
+          String(f.phoneNumber)
+            .toLowerCase()
+            .includes(String(search).toLowerCase())
+      );
       if (currentPage * 5 - 1 > filterData.length) {
         setAdmins(filterData.slice((currentPage - 1) * 5));
       } else {
@@ -22,7 +34,7 @@ function AccountShipper(props) {
       }
       setTotalPage(Math.round(filterData.length / 5) + 1);
     });
-  }, [currentPage]);
+  }, [currentPage, search]);
 
   const changeCurrentPage = (numPage) => {
     setCurrentPage(numPage);
@@ -50,7 +62,7 @@ function AccountShipper(props) {
                         </button>
                       </div>
                       <div className="dataTables_length" id="dataTable_length">
-                        <label>
+                        {/* <label>
                           Hiển thị:
                           <select
                             name="dataTable_length"
@@ -62,16 +74,16 @@ function AccountShipper(props) {
                             <option value="50">50</option>
                             <option value="100">100</option>
                           </select>
-                        </label>
+                        </label> */}
                       </div>
                       <div id="dataTable_filter" className="dataTables_filter">
                         <input
                           type="search"
                           className="inputSearch"
                           placeholder="Bạn cần tìm..."
+                          onChange={(e) => setSearch(e.target.value)}
                           aria-controls="dataTable"
                         />
-                        <button className="btn-Search">Tìm kiếm</button>
                       </div>
                       <table className="table table-striped table-bordered dataTable">
                         <thead>
@@ -123,12 +135,12 @@ function AccountShipper(props) {
                                   >
                                     <i className="fas fa-edit"></i>
                                   </button> */}
-                                  <button
+                                  {/* <button
                                     onClick={() => props.switch(7)}
                                     className="iconDetail"
                                   >
                                     <i class="fas fa-list"></i>
-                                  </button>
+                                  </button> */}
                                   <button
                                     onClick={() => setModal(true)}
                                     className="iconDelete"
