@@ -15,17 +15,22 @@ function Product(props) {
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPage, setTotalPage] = useState(1);
   const [modal, setModal] = useState(false);
+  const [search, setSearch] = useState("");
+
   useEffect(() => {
     productApi.getAll().then((res) => {
-      if (currentPage * 5 - 1 > res.data.length) {
-        setProducts(res.data.slice((currentPage - 1) * 5));
+      let rs = res.data.filter((x) =>
+        x.name.toLowerCase().includes(search.toLowerCase())
+      );
+      if (currentPage * 5 - 1 > rs.length) {
+        setProducts(rs.slice((currentPage - 1) * 5));
         console.log(1);
       } else {
-        setProducts(res.data.slice((currentPage - 1) * 5, currentPage * 5));
+        setProducts(rs.slice((currentPage - 1) * 5, currentPage * 5));
       }
-      setTotalPage(Math.round(res.data.length / 5) + 1);
+      setTotalPage(Math.round(rs.length / 5) + 1);
     });
-  }, [currentPage]);
+  }, [currentPage, search]);
 
   const changeCurrentPage = (numPage) => {
     setCurrentPage(numPage);
@@ -40,7 +45,6 @@ function Product(props) {
               <div className="row">
                 <div className="col-md-12">
                   <div className="bgc-white bd bdrs-3 p-20 mB-20">
-                    
                     <div className="dataTables_wrapper">
                       <div className="buttonControl">
                         <button
@@ -66,14 +70,13 @@ function Product(props) {
                         </label>
                       </div> */}
                       <div id="dataTable_filter" className="dataTables_filter">
-                        
-                          <input
-                            type="search"
-                            className="inputSearch"
-                            placeholder="Bạn cần tìm..."
-                            aria-controls="dataTable"
-                          />
-                        <button className="btn-Search">Tìm kiếm</button>
+                        <input
+                          type="search"
+                          className="inputSearch"
+                          placeholder="Bạn cần tìm..."
+                          onChange={(e) => setSearch(e.target.value)}
+                          aria-controls="dataTable"
+                        />
                       </div>
                       <table className="table table-striped table-bordered dataTable">
                         <thead>
@@ -126,8 +129,10 @@ function Product(props) {
                                 <td>{item.status}</td>
                                 <td>
                                   <button
-                                    onClick={() => {props.setProduct(item);
-                                                props.switch(16)}}
+                                    onClick={() => {
+                                      props.setProduct(item);
+                                      props.switch(16);
+                                    }}
                                     className="iconEdit"
                                   >
                                     <i className="fas fa-edit"></i>
@@ -138,12 +143,12 @@ function Product(props) {
                                   >
                                     <i class="fas fa-list"></i>
                                   </button>
-                                  <button
+                                  {/* <button
                                     onClick={() => setModal(true)}
                                     className="iconDelete"
                                   >
                                     <i className="fas fa-backspace"></i>
-                                  </button>
+                                  </button> */}
                                 </td>
                               </tr>
                             );

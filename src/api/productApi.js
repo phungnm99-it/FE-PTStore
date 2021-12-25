@@ -66,6 +66,11 @@ const productApi = {
     const url = "/product/sale/filter?" + filter;
     return axiosClient.post(url);
   },
+
+  update: (formData) => {
+    const url = "/product/update";
+    return axiosClient.put(url, formData);
+  },
 };
 
 export default productApi;

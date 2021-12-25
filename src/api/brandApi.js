@@ -24,7 +24,12 @@ const brandApi = {
   getBrandById: (id) => {
     const url = "/brand/" + id;
     return axiosClient.get(url);
-  }
+  },
+
+  update: (data) => {
+    const url = "/brand/update";
+    return axiosClient.put(url, data);
+  },
 };
 
 export default brandApi;
