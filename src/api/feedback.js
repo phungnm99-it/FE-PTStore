@@ -18,6 +18,11 @@ const feedbackApi = {
     const url = "/feedback/create";
     return axiosClient.post(url, formData);
   },
+
+  reply: (formData) => {
+    const url = "/feedback/reply";
+    return axiosClient.post(url, formData);
+  },
 };
 
 export default feedbackApi;
