@@ -14,7 +14,7 @@ function AccountAdmin(props) {
   const [search, setSearch] = useState("");
 
   useEffect(() => {
-    userApi.getAllUsers().then((res) => {
+    userApi.getAllAdmin().then((res) => {
       let filterData = res.data.filter((ac) => ac.roleName === "Admin");
       filterData = filterData.filter(
         (f) =>

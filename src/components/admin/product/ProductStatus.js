@@ -12,11 +12,20 @@ function ProductStatus(props) {
   const [totalPage, setTotalPage] = useState(1);
   const [modal, setModal] = useState(false);
   const [search, setSearch] = useState("");
+
+  const [selectOption, setSelectOption] = useState("");
   useEffect(() => {
-    productApi.getAll().then((res) => {
+    productApi.getAllManager().then((res) => {
       let rs = res.data.filter((x) =>
         x.name.toLowerCase().includes(search.toLowerCase())
       );
+
+      if (document.getElementById("mySelect").value !== "") {
+        rs = rs.filter(
+          (x) => x.status === document.getElementById("mySelect").value
+        );
+      }
+
       if (currentPage * 5 - 1 > rs.length) {
         setProducts(rs.slice((currentPage - 1) * 5));
         console.log(1);
@@ -25,10 +34,14 @@ function ProductStatus(props) {
       }
       setTotalPage(Math.round(rs.length / 5) + 1);
     });
-  }, [currentPage, search]);
+  }, [currentPage, search, selectOption]);
 
   const changeCurrentPage = (numPage) => {
     setCurrentPage(numPage);
+  };
+
+  const handleSearch = (value) => {
+    setSelectOption(value);
   };
   return (
     <div>
@@ -45,10 +58,17 @@ function ProductStatus(props) {
                     <div className="dataTables_wrapper">
                       <div className="row">
                         <div className=" filterPriceProduct">
-                          <select id="mySelect">
+                          <select
+                            id="mySelect"
+                            onChange={(e) => handleSearch(e.target.value)}
+                          >
                             <option value="">Tình trạng</option>
-                            <option value="ascending">Đang kinh doanh</option>
-                            <option value="descending">Ngưng kinh doanh</option>
+                            <option value="Đang kinh doanh">
+                              Đang kinh doanh
+                            </option>
+                            <option value="Ngừng kinh doanh">
+                              Ngừng kinh doanh
+                            </option>
                           </select>
                         </div>
                         <div
@@ -126,6 +146,7 @@ function ProductStatus(props) {
                                     type="checkbox"
                                     id="checkboxInput"
                                     name=""
+                                    checked={item.isFeatured}
                                   />
                                 </td>
                                 <td>
@@ -144,12 +165,12 @@ function ProductStatus(props) {
                                   >
                                     <i class="fas fa-list"></i>
                                   </button>
-                                  <button
+                                  {/* <button
                                     onClick={() => setModal(true)}
                                     className="iconDelete"
                                   >
                                     <i className="fas fa-backspace"></i>
-                                  </button>
+                                  </button> */}
                                 </td>
                               </tr>
                             );

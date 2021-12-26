@@ -91,28 +91,23 @@ const userApi = {
     return axiosClient.get(url);
   },
 
-  lockAdmin: (userId) => {
-    const url = "/user/lockAdmin/" + userId;
-    return axiosClient.get(url);
-  },
-
-  lockShipper: (userId) => {
-    const url = "/user/lockShipper/" + userId;
-    return axiosClient.get(url);
-  },
-
   unlockUser: (userId) => {
     const url = "/user/unlockUser/" + userId;
     return axiosClient.get(url);
   },
 
-  unlockAdmin: (userId) => {
-    const url = "/user/unlockAdmin/" + userId;
+  getAllAdmin: () => {
+    const url = "/user/getAllAdmin";
     return axiosClient.get(url);
   },
 
-  unlockShipper: (userId) => {
-    const url = "/user/unlockShipper/" + userId;
+  getAllShipper: () => {
+    const url = "/user/getAllShipper";
+    return axiosClient.get(url);
+  },
+
+  getLockedAccount: () => {
+    const url = "/user/getLockedAccount";
     return axiosClient.get(url);
   },
 };

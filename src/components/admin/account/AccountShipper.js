@@ -14,7 +14,7 @@ function AccountShipper(props) {
   const [search, setSearch] = useState("");
 
   useEffect(() => {
-    userApi.getAllUsers().then((res) => {
+    userApi.getAllShipper().then((res) => {
       let filterData = res.data.filter((ac) => ac.roleName === "Shipper");
       filterData = filterData.filter(
         (f) =>

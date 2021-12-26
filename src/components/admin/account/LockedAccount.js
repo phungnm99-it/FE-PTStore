@@ -24,7 +24,7 @@ function LockedAccount(props) {
   };
 
   useEffect(() => {
-    userApi.getAllUsers().then((res) => {
+    userApi.getLockedAccount().then((res) => {
       let filterData = res.data.filter((ac) => ac.isDisable === true);
       filterData = filterData.filter(
         (f) =>

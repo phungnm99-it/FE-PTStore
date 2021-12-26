@@ -7,6 +7,11 @@ const productApi = {
     return axiosClient.get(url);
   },
 
+  getAllManager: () => {
+    const url = "/product/all";
+    return axiosClient.get(url);
+  },
+
   getFeature: () => {
     const url = "/product/featureProduct";
     return axiosClient.get(url);
@@ -69,6 +74,16 @@ const productApi = {
 
   update: (formData) => {
     const url = "/product/update";
+    return axiosClient.put(url, formData);
+  },
+
+  updateStock: (formData) => {
+    const url = "/product/productstock/update";
+    return axiosClient.put(url, formData);
+  },
+
+  updatePrice: (formData) => {
+    const url = "/product/productprice/update";
     return axiosClient.put(url, formData);
   },
 };

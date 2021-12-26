@@ -35,7 +35,6 @@ function Review(props) {
               <div className="row">
                 <div className="col-md-12">
                   <div className="bgc-white bd bdrs-3 p-20 mB-20">
-                    
                     <div className="dataTables_wrapper">
                       {/* <div className="buttonControl">
                                                 <button className="Add"><Link to = "/admin/home/addAccount">Thêm tài khoản</Link></button>
@@ -56,13 +55,12 @@ function Review(props) {
                         </label>
                       </div> */}
                       <div id="dataTable_filter" className="dataTables_filter">
-                        
-                          <input
-                            type="search"
-                            className="inputSearch"
-                            placeholder="Bạn cần tìm..."
-                            aria-controls="dataTable"
-                          />
+                        <input
+                          type="search"
+                          className="inputSearch"
+                          placeholder="Bạn cần tìm..."
+                          aria-controls="dataTable"
+                        />
                         <button className="btn-Search">Tìm kiếm</button>
                       </div>
                       <table className="table table-striped table-bordered dataTable">
@@ -72,7 +70,7 @@ function Review(props) {
                               Mã đánh giá
                             </th>
                             <th className="sorting" id="Review-UserCol">
-                              Tài khoản đánh giá
+                              Tên người dùng
                             </th>
                             <th className="sorting" id="Review-ProductCol">
                               Sản phẩm đánh giá
@@ -96,9 +94,7 @@ function Review(props) {
                                 <td>{item.userName}</td>
                                 <td>{item.productName}</td>
                                 <td>{item.content}</td>
-                                <td>
-                                  {timeFormat(item.reviewTime)}
-                                </td>
+                                <td>{timeFormat(item.reviewTime)}</td>
                                 <td>
                                   <button
                                     onClick={() => props.switch(19)}
@@ -106,11 +102,11 @@ function Review(props) {
                                   >
                                     <i className="fas fa-list"></i>
                                   </button>
-                                  <button
+                                  {/* <button
                                     onClick={() => setModal(true)}
                                    className="iconDelete">
                                     <i className="fas fa-backspace"></i>
-                                  </button>
+                                  </button> */}
                                 </td>
                               </tr>
                             );

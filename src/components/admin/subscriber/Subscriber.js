@@ -6,16 +6,22 @@ function Subscriber(props) {
   const [subscribers, setSubscribers] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPage, setTotalPage] = useState(1);
+
+  const [search, setSearch] = useState("");
+
   useEffect(() => {
     subscriberApi.getAll().then((res) => {
-      if (currentPage * 5 - 1 > res.data.length) {
-        setSubscribers(res.data.slice((currentPage - 1) * 5));
+      let rs = res.data.filter((x) =>
+        x.email.toLowerCase().includes(search.toLowerCase())
+      );
+      if (currentPage * 5 - 1 > rs.length) {
+        setSubscribers(rs.slice((currentPage - 1) * 5));
       } else {
-        setSubscribers(res.data.slice((currentPage - 1) * 5, currentPage * 5));
+        setSubscribers(rs.slice((currentPage - 1) * 5, currentPage * 5));
       }
-      setTotalPage(Math.round(res.data.length / 5) + 1);
+      setTotalPage(Math.round(rs.length / 5));
     });
-  }, [currentPage]);
+  }, [currentPage, search]);
 
   const changeCurrentPage = (numPage) => {
     setCurrentPage(numPage);
@@ -30,7 +36,6 @@ function Subscriber(props) {
               <div className="row">
                 <div className="col-md-12">
                   <div className="bgc-white bd bdrs-3 p-20 mB-20">
-                    
                     <div className="dataTables_wrapper">
                       {/* <div className="dataTables_length" id="dataTable_length">
                                             <label>
@@ -48,14 +53,13 @@ function Subscriber(props) {
                                             </label>
                                         </div> */}
                       <div id="dataTable_filter" className="dataTables_filter">
-                        
-                          <input
-                            type="search"
-                            className="inputSearch"
-                            placeholder="Bạn cần tìm..."
-                            aria-controls="dataTable"
-                          />
-                        <button className="btn-Search">Tìm kiếm</button>
+                        <input
+                          type="search"
+                          className="inputSearch"
+                          placeholder="Bạn cần tìm..."
+                          aria-controls="dataTable"
+                          onChange={(e) => setSearch(e.target.value)}
+                        />
                       </div>
                       <table className="table table-striped table-bordered dataTable">
                         <thead>

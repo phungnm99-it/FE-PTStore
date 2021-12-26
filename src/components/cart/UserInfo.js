@@ -60,7 +60,7 @@ function UserInfo() {
           alert("Đặt hàng thành công!");
           history.push("/account/2");
         } else {
-          alert("Lỗi!");
+          alert("Lỗi! Sản phẩm không đủ hàng, vui lòng liên hệ admin");
         }
       });
     }

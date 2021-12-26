@@ -18,7 +18,7 @@ function Product(props) {
   const [search, setSearch] = useState("");
 
   useEffect(() => {
-    productApi.getAll().then((res) => {
+    productApi.getAllManager().then((res) => {
       let rs = res.data.filter((x) =>
         x.name.toLowerCase().includes(search.toLowerCase())
       );

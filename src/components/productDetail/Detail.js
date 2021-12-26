@@ -114,15 +114,25 @@ function Detail() {
                   </div>
                 </div>
                 <div className="product-action">
-                  <button
-                    onClick={handleBuy}
-                    title="Mua ngay"
-                    data-sku="XM11LH"
-                    className="btn-red btnQuickOrder btnbuy"
-                  >
-                    <strong>MUA NGAY</strong>
-                    <span> Giao hàng tận nhà (COD) miễn phí vận chuyển</span>
-                  </button>
+                  {info?.status === "Ngừng kinh doanh" ? (
+                    <p className="freeship">
+                      <span>Sản phẩm ngừng kinh doanh</span>
+                    </p>
+                  ) : info?.stock === 0 ? (
+                    <p className="freeship">
+                      <span>Sản phẩm tạm hết hàng</span>
+                    </p>
+                  ) : (
+                    <button
+                      onClick={handleBuy}
+                      title="Mua ngay"
+                      data-sku="XM11LH"
+                      className="btn-red btnQuickOrder btnbuy"
+                    >
+                      <strong>MUA NGAY</strong>
+                      <span> Giao hàng tận nhà (COD) miễn phí vận chuyển</span>
+                    </button>
+                  )}
                 </div>
               </div>
             </div>
