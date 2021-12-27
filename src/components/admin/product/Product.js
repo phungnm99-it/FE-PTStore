@@ -6,15 +6,15 @@ import Pagination from "react-pagination-library";
 import "react-pagination-library/build/css/index.css";
 
 import { priceFormat } from "../../../utils/priceFormat";
-import DeleteProduct from "./DeleteProduct";
-import Modal from "react-modal/lib/components/Modal";
-import { customStyles } from "../../../utils/cssUtils";
+// import DeleteProduct from "./DeleteProduct";
+// import Modal from "react-modal/lib/components/Modal";
+// import { customStyles } from "../../../utils/cssUtils";
 
 function Product(props) {
   const [products, setProducts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPage, setTotalPage] = useState(1);
-  const [modal, setModal] = useState(false);
+  // const [modal, setModal] = useState(false);
   const [search, setSearch] = useState("");
 
   useEffect(() => {
@@ -138,7 +138,10 @@ function Product(props) {
                                     <i className="fas fa-edit"></i>
                                   </button>
                                   <button
-                                    onClick={() => props.switch(17)}
+                                    onClick={() => {
+                                      props.setProduct(item);
+                                      props.switch(17);
+                                    }}
                                     className="iconDetail"
                                   >
                                     <i class="fas fa-list"></i>
@@ -174,9 +177,9 @@ function Product(props) {
           </div>
         </div>
       </section>
-      <Modal isOpen={modal} style={customStyles}>
+      {/* <Modal isOpen={modal} style={customStyles}>
         <DeleteProduct onCLose={() => setModal(false)} />
-      </Modal>
+      </Modal> */}
     </div>
   );
 }

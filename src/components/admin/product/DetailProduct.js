@@ -1,5 +1,6 @@
 import React from "react";
 import "../../../css/admin/product/DetailProduct.css";
+import { priceFormat } from "../../../utils/priceFormat";
 
 function DetailProduct(props) {
   return (
@@ -13,7 +14,7 @@ function DetailProduct(props) {
             <div className="row">
               <img
                 className="imgProduct"
-                src="http://res.cloudinary.com/dobsh4rbw/image/upload/v1639403956/commom/no-avt121321085832.png"
+                src={props.product.imageUrl}
                 alt="img-product"
               ></img>
             </div>
@@ -29,7 +30,6 @@ function DetailProduct(props) {
                       <li>Giá niêm yết:</li>
                       <li>Giá hiện tại:</li>
                       <li>Số lượng hiện tại:</li>
-                      <li>Số lượng đã bán:</li>
                       <li>Tình trạng:</li>
                     </ul>
                   </div>
@@ -37,15 +37,14 @@ function DetailProduct(props) {
                 <div className="col-sm-7">
                   <div className="list-right">
                     <ul className="nav">
-                      <li>HIDSF890e30</li>
-                      <li>Iphone 13 ProMax 512GB</li>
-                      <li>Iphone</li>
-                      <li>Xanh dương</li>
-                      <li>39.000.000đ</li>
-                      <li>39.000.000đ</li>
-                      <li>50</li>
-                      <li>20</li>
-                      <li>Còn hàng</li>
+                      <li>{props.product.id}</li>
+                      <li>{props.product.name}</li>
+                      <li>{props.product.brandName}</li>
+                      <li>{props.product.color}</li>
+                      <li>{priceFormat(props.product.price)}</li>
+                      <li>{priceFormat(props.product.currentPrice)}</li>
+                      <li>{props.product.stock}</li>
+                      <li>{props.product.status}</li>
                     </ul>
                   </div>
                 </div>
@@ -81,12 +80,20 @@ function DetailProduct(props) {
                 <div className="col-sm-7">
                   <div className="list-right">
                     <ul className="nav">
-                      <li>HIDSF890e30</li>
-                      <li>Iphone 13 ProMax 512GB</li>
-                      <li>Iphone</li>
-                      <li>Xanh dương</li>
-                      <li>39.000.000đ</li>
-                      <li>39.000.000đ</li>
+                      <li>{props.product.screenResolution}</li>
+                      <li>{props.product.screenSize}</li>
+                      <li>{props.product.screenTech}</li>
+                      <li>{props.product.os}</li>
+                      <li>{props.product.cpu}</li>
+                      <li>{props.product.gpu}</li>
+                      <li>{props.product.frontCamera}</li>
+                      <li>{props.product.backCamera}</li>
+                      <li>{props.product.ram}</li>
+                      <li>{props.product.rom}</li>
+                      <li>{props.product.sim}</li>
+                      <li>{props.product.wifi}</li>
+                      <li>{props.product.gps}</li>
+                      <li>{props.product.battery}</li>
                     </ul>
                   </div>
                 </div>
@@ -99,6 +106,13 @@ function DetailProduct(props) {
               className="btnEdit-detailProduct"
             >
               Chỉnh sửa
+            </button>
+            <button
+              type="submit"
+              onClick={() => props.switch(12)}
+              className="btn btn-primary btn-color btn-comeback"
+            >
+              Quay trở lại danh sách
             </button>
           </div>
         </div>

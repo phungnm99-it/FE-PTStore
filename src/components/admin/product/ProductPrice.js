@@ -9,17 +9,65 @@ function ProductPrice(props) {
 
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPage, setTotalPage] = useState(1);
+  const [filter, setFilter] = useState("");
+  const [priceFilter, setPriceFilter] = useState("");
+  const [search, setSearch] = useState("");
+
   useEffect(() => {
     productApi.getAllManager().then((res) => {
-      if (currentPage * 5 - 1 > res.data.length) {
-        setProducts(res.data.slice((currentPage - 1) * 5));
+      let filterData = res.data.filter((x) =>
+        x.name.toLowerCase().includes(search.toLowerCase())
+      );
+
+      let ft = document.getElementById("mySelect").value;
+      if (ft !== "") {
+        if (ft === "ascending") {
+          filterData = filterData.sort(function (a, b) {
+            if (a.price >= b.price) {
+              return 1;
+            } else {
+              return -1;
+            }
+          });
+        } else {
+          filterData = filterData.sort(function (a, b) {
+            if (a.price <= b.price) {
+              return 1;
+            } else {
+              return -1;
+            }
+          });
+        }
+      }
+
+      let ftPrice = document.getElementById("mySelectPrice").value;
+      if (ftPrice !== "") {
+        if (ftPrice === "duoi5trieu") {
+          filterData = filterData.filter((x) => x.price <= 5000000);
+        } else if (ftPrice === "5trieutoi10trieu") {
+          filterData = filterData.filter(
+            (x) => x.price >= 5000000 && x.price <= 10000000
+          );
+        } else if (ftPrice === "10trieutoi20trieu") {
+          filterData = filterData.filter(
+            (x) => x.price >= 10000000 && x.price <= 20000000
+          );
+        } else {
+          filterData = filterData.filter((x) => x.price >= 20000000);
+        }
+      }
+
+      if (currentPage * 5 - 1 > filterData.length) {
+        setProducts(filterData.slice((currentPage - 1) * 5));
         console.log(1);
       } else {
-        setProducts(res.data.slice((currentPage - 1) * 5, currentPage * 5));
+        setProducts(filterData.slice((currentPage - 1) * 5, currentPage * 5));
       }
-      setTotalPage(Math.round(res.data.length / 5) + 1);
+      if (filterData.length % 5 === 0) {
+        setTotalPage(filterData.length / 5);
+      } else setTotalPage(Math.round(filterData.length / 5) + 1);
     });
-  }, [currentPage]);
+  }, [currentPage, filter, priceFilter, search]);
 
   const changeCurrentPage = (numPage) => {
     setCurrentPage(numPage);
@@ -35,29 +83,20 @@ function ProductPrice(props) {
                 <div className="col-md-12">
                   <div className="bgc-white bd bdrs-3 p-20 mB-20">
                     <div className="dataTables_wrapper">
-                      {/* <div className="dataTables_length" id="dataTable_length">
-                                        <label>
-                                        Hiển thị:
-                                        <select
-                                            name="dataTable_length"
-                                            aria-controls="dataTable"
-                                            class=""
-                                        >
-                                            <option value="10">10</option>
-                                            <option value="25">25</option>
-                                            <option value="50">50</option>
-                                            <option value="100">100</option>
-                                        </select>
-                                        </label>
-                                    </div> */}
                       <div className="row">
                         <div className=" filterPriceProduct">
-                          <select id="mySelect">
+                          <select
+                            id="mySelect"
+                            onChange={(e) => setFilter(e.target.value)}
+                          >
                             <option value="">Sắp xếp</option>
                             <option value="ascending">Giá thấp đến cao</option>
                             <option value="descending">Giá cao đến thấp</option>
                           </select>
-                          <select id="mySelectPrice">
+                          <select
+                            id="mySelectPrice"
+                            onChange={(e) => setPriceFilter(e.target.value)}
+                          >
                             <option value="">Giá</option>
                             <option value="duoi5trieu">Dưới 5 triệu</option>
                             <option value="5trieutoi10trieu">
@@ -76,10 +115,10 @@ function ProductPrice(props) {
                           <input
                             type="search"
                             className="inputSearch"
+                            onChange={(e) => setSearch(e.target.value)}
                             placeholder="Bạn cần tìm..."
                             aria-controls="dataTable"
                           />
-                          <button className="btn-Search">Tìm kiếm</button>
                         </div>
                       </div>
                       <table className="table table-striped table-bordered dataTable">
