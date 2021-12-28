@@ -107,7 +107,10 @@ function Brand(props) {
                                     <i className="fas fa-edit"></i>
                                   </button>
                                   <button
-                                    onClick={() => props.switch(11)}
+                                    onClick={() => {
+                                      props.setBrand(item);
+                                      props.switch(11);
+                                    }}
                                     className="iconDetail"
                                   >
                                     <i className="fas fa-list"></i>
