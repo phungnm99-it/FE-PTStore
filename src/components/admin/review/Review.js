@@ -11,16 +11,22 @@ function Review(props) {
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPage, setTotalPage] = useState(1);
   const [modal, setModal] = useState(false);
+  const [search, setSearch] = useState("");
   useEffect(() => {
     reviewApi.getAll().then((res) => {
-      if (currentPage * 5 - 1 > res.data.length) {
-        setReviews(res.data.slice((currentPage - 1) * 5));
+      let ft = res.data.filter(
+        (x) =>
+          x.userName.toLowerCase().includes(search.toLowerCase()) ||
+          x.productName.toLowerCase().includes(search.toLowerCase())
+      );
+      if (currentPage * 5 - 1 > ft.length) {
+        setReviews(ft.slice((currentPage - 1) * 5));
       } else {
-        setReviews(res.data.slice((currentPage - 1) * 5, currentPage * 5));
+        setReviews(ft.slice((currentPage - 1) * 5, currentPage * 5));
       }
-      setTotalPage(Math.round(res.data.length / 5) + 1);
+      setTotalPage(Math.round(ft.length / 5) + 1);
     });
-  }, [currentPage]);
+  }, [currentPage, search]);
 
   const changeCurrentPage = (numPage) => {
     setCurrentPage(numPage);
@@ -59,9 +65,9 @@ function Review(props) {
                           type="search"
                           className="inputSearch"
                           placeholder="Bạn cần tìm..."
+                          onChange={(e) => setSearch(e.target.value)}
                           aria-controls="dataTable"
                         />
-                        <button className="btn-Search">Tìm kiếm</button>
                       </div>
                       <table className="table table-striped table-bordered dataTable">
                         <thead>

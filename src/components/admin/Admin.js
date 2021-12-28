@@ -203,11 +203,16 @@ function Admin(props) {
       case 25:
         return <ReplyFeedback switch={(e) => setForm(e)} feedback={item} />;
       case 26:
-        return <DetailFeedback switch={(e) => setForm(e)} />;
+        return <DetailFeedback switch={(e) => setForm(e)} feedback={item} />;
       case 27:
         return <Subscriber />;
       case 28:
-        return <FeedbackHasBeenReplied switch={(e) => setForm(e)} />;
+        return (
+          <FeedbackHasBeenReplied
+            switch={(e) => setForm(e)}
+            setFeedback={(e) => setItem(e)}
+          />
+        );
       case 29:
         return <EditProductStatus switch={(e) => setForm(e)} product={item} />;
       case 30:

@@ -9,11 +9,16 @@ function Feedback(props) {
   const [totalPage, setTotalPage] = useState(1);
   const [startDate, setStartDate] = useState(new Date("2000-01-01"));
   const [endDate, setEndDate] = useState(new Date("2099-01-01"));
+  const [select, setSelect] = useState("");
 
   const [search, setSearch] = useState("");
   useEffect(() => {
     feedbackApi.getAll().then((res) => {
       let filterData = res.data.filter((x) => x.isReplied === false);
+      let sl = document.getElementById("select").value;
+      if (sl != "") {
+        filterData = filterData.filter((x) => x.topic === sl);
+      }
       filterData = filterData.filter((x) =>
         x.email.toLowerCase().includes(search.toLowerCase())
       );
@@ -29,7 +34,7 @@ function Feedback(props) {
       }
       setTotalPage(Math.round(filterData.length / 5) + 1);
     });
-  }, [currentPage, search, startDate, endDate]);
+  }, [currentPage, search, startDate, endDate, select]);
 
   const changeCurrentPage = (numPage) => {
     setCurrentPage(numPage);
@@ -40,26 +45,33 @@ function Feedback(props) {
         <div className="account">
           <div className="feedback-management">
             <div className="container-fluid">
-              <h4 className="c-grey-900 mT-10 mB-30">QUẢN LÝ GÓP Ý</h4>
+              <h4 className="c-grey-900 mT-10 mB-30">GÓP Ý CHƯA TRẢ LỜI</h4>
               <div className="row">
                 <div className="col-md-12">
                   <div className="bgc-white bd bdrs-3 p-20 mB-20">
                     <div className="dataTables_wrapper">
-                      {/* <div className="dataTables_length" id="dataTable_length">
+                      <div id="dataTable_length">
                         <label>
-                          Hiển thị:
+                          Chủ đề
                           <select
                             name="dataTable_length"
                             aria-controls="dataTable"
                             class=""
+                            id="select"
+                            onChange={(e) => setSelect(e.target.value)}
                           >
-                            <option value="10">10</option>
-                            <option value="25">25</option>
-                            <option value="50">50</option>
-                            <option value="100">100</option>
+                            <option value="">Tất cả</option>
+                            <option value="Tư vấn">Tư vấn</option>
+                            <option value="Khiếu nại - phản ánh">
+                              Khiếu nại - phản ánh
+                            </option>
+                            <option value="Hợp tác">Hợp tác</option>
+                            <option value="Góp ý cải tiến">
+                              Góp ý cải tiến
+                            </option>
                           </select>
                         </label>
-                      </div> */}
+                      </div>
                       <div className="row">
                         <div className=" filterOrder">
                           <p className="label-filterOrder">Từ ngày:</p>
@@ -149,7 +161,10 @@ function Feedback(props) {
                                     <i className="fas fa-reply"></i>
                                   </button>
                                   <button
-                                    onClick={() => props.switch(26)}
+                                    onClick={() => {
+                                      props.setFeedback(item);
+                                      props.switch(26);
+                                    }}
                                     className="iconDetail"
                                   >
                                     <i className="fas fa-list"></i>

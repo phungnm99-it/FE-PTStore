@@ -108,7 +108,6 @@ function EditBrand(props) {
                   Cập Nhật
                 </button>
                 <button
-                  type="submit"
                   onClick={() => props.switch(8)}
                   className="btn btn-primary btn-color btn-comeback"
                 >
