@@ -12,6 +12,7 @@ function EditProduct(props) {
     }
     brandApi.getAll().then((res) => {
       setBrands(res.data);
+      document.getElementById("brandName").value = props.product.brandName;
     });
     document.getElementById("brandName").value = props.product.brandName;
   }, []);

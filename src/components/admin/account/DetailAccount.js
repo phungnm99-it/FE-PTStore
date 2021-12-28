@@ -2,6 +2,7 @@ import React from "react";
 import "../../../css/admin/account/DetailAccount.css";
 
 function DetailAccount(props) {
+  
   return (
     <div>
       <div className="detailAccount">
