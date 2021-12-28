@@ -176,7 +176,10 @@ function ProductPrice(props) {
                                     <i className="fas fa-edit"></i>
                                   </button>
                                   <button
-                                    onClick={() => props.switch(17)}
+                                    onClick={() => {
+                                      props.setProduct(item);
+                                      props.switch(17);
+                                    }}
                                     className="iconDetail"
                                   >
                                     <i class="fas fa-list"></i>
