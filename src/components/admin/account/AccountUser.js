@@ -50,20 +50,8 @@ function AccountUser(props) {
               <div className="row">
                 <div className="col-md-12">
                   <div className="bgc-white bd bdrs-3 p-20 mB-20">
-                   
+                    <h4 className="c-grey-900 mB-20">Danh sách</h4>
                     <div className="dataTables_wrapper">
-                      <div className="row">
-                        
-                        <div id="dataTable_filter" className="dataTables_filter">
-                          <input
-                            type="search"
-                            className="inputSearch"
-                            onChange={(e) => setSearch(e.target.value)}
-                            placeholder="Bạn cần tìm..."
-                            aria-controls="dataTable"
-                          />
-                        </div>
-                      </div>
                       {/* <div className="dataTables_length" id="dataTable_length">
                         <label>
                           Hiển thị:
@@ -79,7 +67,15 @@ function AccountUser(props) {
                           </select>
                         </label>
                       </div> */}
-                      
+                      <div id="dataTable_filter" className="dataTables_filter">
+                        <input
+                          type="search"
+                          className="inputSearch"
+                          onChange={(e) => setSearch(e.target.value)}
+                          placeholder="Bạn cần tìm..."
+                          aria-controls="dataTable"
+                        />
+                      </div>
                       <table className="table table-striped table-bordered dataTable">
                         <thead>
                           <tr role="row">
