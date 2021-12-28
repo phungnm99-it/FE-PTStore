@@ -134,12 +134,15 @@ function AccountAdmin(props) {
                                   >
                                     <i className="fas fa-edit"></i>
                                   </button> */}
-                                  {/* <button
-                                    onClick={() => props.switch(7)}
+                                  <button
+                                    onClick={() => {
+                                      props.setAccount(item);
+                                      props.switch(7);
+                                    }}
                                     className="iconDetail"
                                   >
                                     <i class="fas fa-list"></i>
-                                  </button> */}
+                                  </button>
                                   <button
                                     onClick={() => setModal(true)}
                                     className="iconDelete"

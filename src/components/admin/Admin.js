@@ -140,13 +140,18 @@ function Admin(props) {
           />
         );
       case 4:
-        return <LockedAccount switch={(e) => setForm(e)} />;
+        return (
+          <LockedAccount
+            switch={(e) => setForm(e)}
+            setAccount={(e) => setItem(e)}
+          />
+        );
       case 5:
         return <AddAccount switch={(e) => setForm(e)} />;
       case 6:
         return <EditAccount switch={(e) => setForm(e)} account={item} />;
       case 7:
-        return <DetailAccount switch={(e) => setForm(e)} />;
+        return <DetailAccount account={item} switch={(e) => setForm(e)} />;
       case 8:
         return (
           <Brand switch={(e) => setForm(e)} setBrand={(e) => setItem(e)} />
@@ -156,7 +161,7 @@ function Admin(props) {
       case 10:
         return <EditBrand brand={item} switch={(e) => setForm(e)} />;
       case 11:
-        return <DetailBrand switch={(e) => setForm(e)} />;
+        return <DetailBrand brand={item} switch={(e) => setForm(e)} />;
       case 12:
         return (
           <Product switch={(e) => setForm(e)} setProduct={(e) => setItem(e)} />

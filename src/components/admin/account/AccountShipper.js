@@ -126,21 +126,15 @@ function AccountShipper(props) {
                                 <td>{item.gender === "Nam" ? "Nam" : "Nữ"}</td>
                                 <td>{item.address}</td>
                                 <td>
-                                  {/* <button
-                                    className="iconEdit"
+                                  <button
                                     onClick={() => {
                                       props.setAccount(item);
-                                      props.switch(6);
+                                      props.switch(7);
                                     }}
-                                  >
-                                    <i className="fas fa-edit"></i>
-                                  </button> */}
-                                  {/* <button
-                                    onClick={() => props.switch(7)}
                                     className="iconDetail"
                                   >
                                     <i class="fas fa-list"></i>
-                                  </button> */}
+                                  </button>
                                   <button
                                     onClick={() => setModal(true)}
                                     className="iconDelete"

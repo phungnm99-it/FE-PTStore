@@ -127,10 +127,13 @@ function LockedAccount(props) {
                                 <td>{item.address}</td>
                                 <td>
                                   <button
-                                    onClick={() => props.switch(7)}
+                                    onClick={() => {
+                                      props.setAccount(item);
+                                      props.switch(7);
+                                    }}
                                     className="iconDetail"
                                   >
-                                    <i className="fas fa-list"></i>
+                                    <i class="fas fa-list"></i>
                                   </button>
                                   <button
                                     className="iconUnlock"
