@@ -67,17 +67,17 @@ function AdminInfo(props) {
           </div>
           <div className="btn-accountInfo">
             <button
-              onClick={() => props.switch(35)}
+              onClick={() => props.switch(36)}
               className="btnEdit-accountInfo"
             >
-              Chỉnh sửa
+              Đổi mật khẩu
             </button>
-            <button
+            {/* <button
               onClick={() => props.switch(36)}
               className="btnChangePass-accountInfo"
             >
               Đổi mật khẩu
-            </button>
+            </button> */}
           </div>
         </div>
       </div>

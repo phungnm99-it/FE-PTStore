@@ -51,18 +51,29 @@ function AccountShipper(props) {
               <div className="row">
                 <div className="col-md-12">
                   <div className="bgc-white bd bdrs-3 p-20 mB-20">
-                    <h4 className="c-grey-900 mB-20">Danh sách</h4>
                     <div className="dataTables_wrapper">
-                      <div className="buttonControl">
-                        <button
-                          className="Add"
-                          onClick={() => props.switch(41)}
-                        >
-                          Thêm tài khoản
-                        </button>
+                      <div className="row">
+                        <div className="buttonControl">
+                          <button
+                            className="Add"
+                            onClick={() => props.switch(41)}
+                          >
+                            Thêm tài khoản
+                          </button>
+                        </div>
+                        <div id="dataTable_filter" className="dataTables_filter">
+                        <input
+                          type="search"
+                          className="inputSearch"
+                          placeholder="Bạn cần tìm..."
+                          onChange={(e) => setSearch(e.target.value)}
+                          aria-controls="dataTable"
+                        />
+                        </div>
                       </div>
-                      <div className="dataTables_length" id="dataTable_length">
-                        {/* <label>
+                      
+                      {/* <div className="dataTables_length" id="dataTable_length">
+                         <label>
                           Hiển thị:
                           <select
                             name="dataTable_length"
@@ -74,17 +85,9 @@ function AccountShipper(props) {
                             <option value="50">50</option>
                             <option value="100">100</option>
                           </select>
-                        </label> */}
-                      </div>
-                      <div id="dataTable_filter" className="dataTables_filter">
-                        <input
-                          type="search"
-                          className="inputSearch"
-                          placeholder="Bạn cần tìm..."
-                          onChange={(e) => setSearch(e.target.value)}
-                          aria-controls="dataTable"
-                        />
-                      </div>
+                        </label> 
+                      </div> */}
+                      
                       <table className="table table-striped table-bordered dataTable">
                         <thead>
                           <tr role="row">
