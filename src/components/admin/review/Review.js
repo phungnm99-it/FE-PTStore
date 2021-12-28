@@ -103,7 +103,10 @@ function Review(props) {
                                 <td>{timeFormat(item.reviewTime)}</td>
                                 <td>
                                   <button
-                                    onClick={() => props.switch(19)}
+                                    onClick={() => {
+                                      props.setReview(item);
+                                      props.switch(19);
+                                    }}
                                     className="iconDetail"
                                   >
                                     <i className="fas fa-list"></i>

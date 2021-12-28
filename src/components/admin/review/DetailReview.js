@@ -1,6 +1,7 @@
 import React from "react";
 import "../../../css/admin/review/DetailReview.css";
-function DetailReview() {
+import { timeFormat } from "../../../utils/dateUtils";
+function DetailReview(props) {
   return (
     <div className="detailReview">
       <div className="title-addAccount">
@@ -18,8 +19,6 @@ function DetailReview() {
                       <li>Tên sản phẩm:</li>
                       <li>Mã tài khoản:</li>
                       <li>Họ và tên:</li>
-                      <li>Email:</li>
-                      <li>Số điện thoại:</li>
 
                       <li>Thời gian đánh giá:</li>
                       <li>Nội dung đánh giá:</li>
@@ -29,17 +28,21 @@ function DetailReview() {
                 <div className="col-sm-7">
                   <div className="list-right">
                     <ul className="nav">
-                      <li>HIDSF890e30</li>
-                      <li>tienphan</li>
-                      <li>Phan Nguyễn Thủy Tiên</li>
-                      <li>thuytienpn106@gmail.com</li>
-                      <li>0858679912</li>
-                      <li>06/10/1999</li>
-                      <li>Nữ</li>
-                      <li>264 đường Linh Trung, TP.Thủ Đức, TPHCM</li>
+                      <li>{props.review.id}</li>
+                      <li>{props.review.productName}</li>
+                      <li>{props.review.userId}</li>
+                      <li>{props.review.userName}</li>
+                      <li>{timeFormat(props.review.reviewTime)}</li>
+                      <li>{props.review.content}</li>
                     </ul>
                   </div>
                 </div>
+                <button
+                  onClick={() => props.switch(18)}
+                  className="btn btn-primary btn-color btn-comeback"
+                >
+                  Quay trở lại danh sách
+                </button>
               </div>
             </div>
           </div>

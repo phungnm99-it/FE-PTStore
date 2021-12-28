@@ -187,9 +187,11 @@ function Admin(props) {
       case 17:
         return <DetailProduct product={item} switch={(e) => setForm(e)} />;
       case 18:
-        return <Review switch={(e) => setForm(e)} />;
+        return (
+          <Review setReview={(e) => setItem(e)} switch={(e) => setForm(e)} />
+        );
       case 19:
-        return <DetailReview switch={(e) => setForm(e)} />;
+        return <DetailReview review={item} switch={(e) => setForm(e)} />;
       case 20:
         return <EditPrice product={item} switch={(e) => setForm(e)} />;
       case 21:
