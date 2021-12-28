@@ -47,6 +47,7 @@
 .account-management .row > * {
     -ms-flex-negative: 0;
     flex-shrink: 0;
+    width: 100%;
     max-width: 100%;
     padding-right: calc(var(--bs-gutter-x) * .5);
     padding-left: calc(var(--bs-gutter-x) * .5);
@@ -109,8 +110,7 @@
 
 .account-management .dataTables_wrapper .dataTables_filter {
     color: #313435;
-    right: 0;
-    position: absolute;
+    float: right;
     margin-top: 8px;
 }
 
@@ -127,7 +127,6 @@
     -webkit-transition: all 0.2s ease-in;
     -o-transition: all 0.2s ease-in;
     transition: all 0.2s ease-in;
-    
 }
 
 [type="search"] {
@@ -139,7 +138,7 @@
     width: 100%;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 30px;
+    margin-top: 60px;
     margin-bottom: 20px;
     clear: both;
     border-collapse: separate;
