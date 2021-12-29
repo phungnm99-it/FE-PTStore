@@ -7,7 +7,7 @@ function AddProduct(props) {
   const [brand, setBrand] = useState([]);
 
   useEffect(() => {
-    productApi.getAll().then((res) => {
+    brandApi.getAll().then((res) => {
       setBrand(res.data);
     });
   }, []);

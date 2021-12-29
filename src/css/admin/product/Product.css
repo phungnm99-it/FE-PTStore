@@ -47,7 +47,7 @@
 .product-management .row > * {
     -ms-flex-negative: 0;
     flex-shrink: 0;
-    width: 100%;
+    
     max-width: 100%;
     padding-right: calc(var(--bs-gutter-x) * .5);
     padding-left: calc(var(--bs-gutter-x) * .5);
@@ -110,7 +110,8 @@
 
 .product-management .dataTables_wrapper .dataTables_filter {
     color: #313435;
-    float: right;
+    right: 0;
+    position: absolute;
     margin-top: 8px;
 }
 
@@ -138,7 +139,7 @@
     width: 100%;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 60px;
+    margin-top: 30px;
     margin-bottom: 20px;
     clear: both;
     border-collapse: separate;

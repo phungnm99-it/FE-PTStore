@@ -46,14 +46,26 @@ function Product(props) {
                 <div className="col-md-12">
                   <div className="bgc-white bd bdrs-3 p-20 mB-20">
                     <div className="dataTables_wrapper">
-                      <div className="buttonControl">
-                        <button
-                          className="Add"
-                          onClick={() => props.switch(15)}
-                        >
-                          Thêm sản phẩm
-                        </button>
+                      <div className="row">
+                        <div className="buttonControl">
+                          <button
+                            className="Add"
+                            onClick={() => props.switch(15)}
+                          >
+                            Thêm sản phẩm
+                          </button>
+                        </div>
+                        <div id="dataTable_filter" className="dataTables_filter">
+                        <input
+                          type="search"
+                          className="inputSearch"
+                          placeholder="Bạn cần tìm..."
+                          onChange={(e) => setSearch(e.target.value)}
+                          aria-controls="dataTable"
+                        />
+                        </div>
                       </div>
+                      
                       {/* <div className="dataTables_length" id="dataTable_length">
                         <label>
                           Hiển thị:
@@ -69,15 +81,7 @@ function Product(props) {
                           </select>
                         </label>
                       </div> */}
-                      <div id="dataTable_filter" className="dataTables_filter">
-                        <input
-                          type="search"
-                          className="inputSearch"
-                          placeholder="Bạn cần tìm..."
-                          onChange={(e) => setSearch(e.target.value)}
-                          aria-controls="dataTable"
-                        />
-                      </div>
+                      
                       <table className="table table-striped table-bordered dataTable">
                         <thead>
                           <tr role="row">

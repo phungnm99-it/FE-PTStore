@@ -56,7 +56,7 @@ function Feedback(props) {
                           <select
                             name="dataTable_length"
                             aria-controls="dataTable"
-                            class=""
+                            className="form-control"
                             id="select"
                             onChange={(e) => setSelect(e.target.value)}
                           >

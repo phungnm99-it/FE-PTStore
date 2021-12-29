@@ -112,7 +112,8 @@
 
 .feedback-management .dataTables_wrapper .dataTables_filter {
   color: #313435;
-  float: right;
+  right: 0;
+  position: absolute;
   margin-top: 8px;
 }
 

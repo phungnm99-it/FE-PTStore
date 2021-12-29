@@ -63,7 +63,7 @@ function CompletedOrder(props) {
                                   placeholder="Bạn cần tìm..."
                                   aria-controls="dataTable"
                                 />
-                                <button className="btn-Search">Tìm kiếm</button>
+                                
                         </div>
                       </div>
                       <table className="table table-striped table-bordered dataTable">

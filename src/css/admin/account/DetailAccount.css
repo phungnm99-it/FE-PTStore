@@ -87,3 +87,12 @@
     padding-right: 20px;
     
 }
+
+.detailAccount .btn-comeback{
+    width: 250px;
+    margin-left: 25px;
+    color: #3c4b64;
+    background-color: #f0f0e9;
+    font-size: 15px;
+    margin-bottom: 10px;
+}
