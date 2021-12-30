@@ -18,6 +18,7 @@ function ReviewInput() {
           alert("Review thất bại, vui lòng thử lại sau");
         } else {
           alert("Review thành công!");
+          window.location.reload();
         }
       });
     }
