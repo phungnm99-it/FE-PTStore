@@ -65,12 +65,21 @@ function DetailFeedback(props) {
                   <div></div>
                 )}
               </div>
-              <button
-                onClick={() => props.switch(24)}
-                className="btn btn-primary btn-color btn-comeback"
-              >
-                Quay trở lại danh sách
-              </button>
+              {props.feedback.isReplied === true ? (
+                <button
+                  onClick={() => props.switch(28)}
+                  className="btn btn-primary btn-color btn-comeback"
+                >
+                  Quay trở lại danh sách
+                </button>
+              ) : (
+                <button
+                  onClick={() => props.switch(24)}
+                  className="btn btn-primary btn-color btn-comeback"
+                >
+                  Quay trở lại danh sách
+                </button>
+              )}
             </div>
           </div>
         </div>
