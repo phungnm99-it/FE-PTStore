@@ -4,10 +4,14 @@ import "../../../css/admin/order/Order.css";
 import { priceFormat } from "../../../utils/priceFormat";
 
 import Pagination from "react-pagination-library";
+import { customStyles } from "../../../utils/cssUtils";
+import CancelOrder from "./CancelOrder";
+import Modal from "react-modal/lib/components/Modal";
 function Order(props) {
   const [orders, setOrders] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPage, setTotalPage] = useState(1);
+  const [modal, setModal] = useState(false);
   useEffect(() => {
     orderApi.getAll().then((res) => {
       if (currentPage * 5 - 1 > res.data.length) {
@@ -92,7 +96,7 @@ function Order(props) {
                             placeholder="Bạn cần tìm..."
                             aria-controls="dataTable"
                           />
-                          <button className="btn-Search">Tìm kiếm</button>
+                          
                         </div>
                       </div>
                       
@@ -171,6 +175,12 @@ function Order(props) {
                                   >
                                     <i className="fas fa-list"></i>
                                   </button>
+                                  <button
+                                    onClick={() => setModal(true)}
+                                    className="iconCancel"
+                                  >
+                                    <i className="fas fa-window-close"></i>
+                                  </button>
                                 </td>
                               </tr>
                             );
@@ -196,6 +206,9 @@ function Order(props) {
           </div>
         </div>
       </section>
+      <Modal isOpen={modal} style={customStyles}>
+        <CancelOrder onCLose={() => setModal(false)} />
+      </Modal>
     </div>
   );
 }

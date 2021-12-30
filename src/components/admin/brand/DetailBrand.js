@@ -43,7 +43,7 @@ function DetailBrand(props) {
               </div>
             </div>
           </div>
-          <div className="btn-detailBrand">
+          <div className="mb-3">
             <button
               onClick={() => props.switch(10)}
               className="btnEdit-detailBrand"

@@ -32,7 +32,7 @@ function Subscriber(props) {
         <div className="account">
           <div className="subscriber-management">
             <div className="container-fluid">
-              <h4 className="c-grey-900 mT-10 mB-30">QUẢN LÝ SUBSCRIBER</h4>
+              <h4 className="c-grey-900 mT-10 mB-30">QUẢN LÝ ĐĂNG KÝ THEO DÕI</h4>
               <div className="row">
                 <div className="col-md-12">
                   <div className="bgc-white bd bdrs-3 p-20 mB-20">

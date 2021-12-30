@@ -12,44 +12,47 @@ function DetailProduct(props) {
         <div className="form">
           <div className="body-detailProduct">
             <div className="row">
-              <img
-                className="imgProduct"
-                src={props.product.imageUrl}
-                alt="img-product"
-              ></img>
-            </div>
-            <div className="row">
-              <div className="media-body">
-                <div className="col-sm-5">
-                  <div className="list-left">
-                    <ul className="nav">
-                      <li>Mã sản phẩm:</li>
-                      <li>Tên sản phẩm:</li>
-                      <li>Thương hiệu:</li>
-                      <li>Màu sắc:</li>
-                      <li>Giá niêm yết:</li>
-                      <li>Giá hiện tại:</li>
-                      <li>Số lượng hiện tại:</li>
-                      <li>Tình trạng:</li>
-                    </ul>
+              <div className="col-sm-8">
+                <div className="media-body">
+                  <div className="col-sm-5">
+                    <div className="list-left">
+                      <ul className="nav">
+                        <li>Mã sản phẩm:</li>
+                        <li>Tên sản phẩm:</li>
+                        <li>Thương hiệu:</li>
+                        <li>Màu sắc:</li>
+                        <li>Giá niêm yết:</li>
+                        <li>Giá hiện tại:</li>
+                        <li>Số lượng hiện tại:</li>
+                        <li>Tình trạng:</li>
+                      </ul>
+                    </div>
                   </div>
-                </div>
-                <div className="col-sm-7">
-                  <div className="list-right">
-                    <ul className="nav">
-                      <li>{props.product.id}</li>
-                      <li>{props.product.name}</li>
-                      <li>{props.product.brandName}</li>
-                      <li>{props.product.color}</li>
-                      <li>{priceFormat(props.product.price)}</li>
-                      <li>{priceFormat(props.product.currentPrice)}</li>
-                      <li>{props.product.stock}</li>
-                      <li>{props.product.status}</li>
-                    </ul>
+                  <div className="col-sm-7">
+                    <div className="list-right">
+                      <ul className="nav">
+                        <li>{props.product.id}</li>
+                        <li>{props.product.name}</li>
+                        <li>{props.product.brandName}</li>
+                        <li>{props.product.color}</li>
+                        <li>{priceFormat(props.product.price)}</li>
+                        <li>{priceFormat(props.product.currentPrice)}</li>
+                        <li>{props.product.stock}</li>
+                        <li>{props.product.status}</li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
               </div>
+              <div className="col-sm-4">
+                <img
+                  className="imgProduct"
+                  src={props.product.imageUrl}
+                  alt="img-product"
+                ></img>
+              </div>
             </div>
+            
             <div className="row">
               <h3>Thông số kỹ thuật</h3>
             </div>

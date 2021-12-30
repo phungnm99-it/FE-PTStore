@@ -54,6 +54,7 @@ import { useHistory } from "react-router-dom";
 import userApi from "../../api/userApi";
 import AddAdminAccount from "./account/AddAdminAccount";
 import AddShipperAccount from "./account/AddShipperAccount";
+import CancelOrder from "./order/CancelOrder";
 
 function Admin(props) {
   const context = useContext(AdminContext);
@@ -195,7 +196,7 @@ function Admin(props) {
       case 20:
         return <EditPrice product={item} switch={(e) => setForm(e)} />;
       case 21:
-        return <Order switch={(e) => setForm(e)} />;
+        return <Order switch={(e) => setForm(e)} orders={item} />;
       case 22:
         return <EditOrder />;
       case 23:
@@ -223,7 +224,7 @@ function Admin(props) {
       case 29:
         return <EditProductStatus switch={(e) => setForm(e)} product={item} />;
       case 30:
-        return <DetailOrder />;
+        return <DetailOrder switch={(e) => setForm(e)}  />;
       case 31:
         return <DeleteAccount switch={(e) => setForm(e)} />;
       case 32:
@@ -246,7 +247,8 @@ function Admin(props) {
         return <AddAdminAccount switch={(e) => setForm(e)} />;
       case 41:
         return <AddShipperAccount switch={(e) => setForm(e)} />;
-
+      case 42:
+        return <CancelOrder switch={(e) => setForm(e)}/>
       default:
         return null;
     }
