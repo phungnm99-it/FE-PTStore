@@ -356,7 +356,7 @@ function Admin(props) {
                   )}
                   <li className="nav-item" onClick={() => setForm(8)}>
                     <a className="nav-link active btn-focus">
-                      <i className="fas fa-tachometer-alt nav-icon"></i>
+                      <i className="fas fa-trademark nav-icon"></i>
                       Quản lý Thương hiệu
                     </a>
                   </li>

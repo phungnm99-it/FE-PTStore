@@ -126,3 +126,7 @@
 .info-user .final-total .btn-buy {
   margin-bottom: 20px;
 }
+
+.paypal-button .paypal-button-color-gold{
+  background: #288ad6 !important;
+}

@@ -68,17 +68,17 @@ function InfoShipper(props) {
           </div>
           <div className="btn-accountInfo">
             <button
-              onClick={() => props.switch(3)}
+              onClick={() => props.switch(2)}
               className="btnEdit-accountInfo"
             >
-              Chỉnh sửa
+              Đổi mật khẩu
             </button>
-            <button
+            {/* <button
               onClick={() => props.switch(2)}
               className="btnChangePass-accountInfo"
             >
               Đổi mật khẩu
-            </button>
+            </button> */}
           </div>
         </div>
       </div>
