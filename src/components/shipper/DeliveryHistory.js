@@ -11,6 +11,7 @@ function DeliveryHistory(props) {
   const [model, setModel] = useState(false);
   const [details, setDetails] = useState({});
   const [orders, setOrders] = useState([]);
+  const [search, setSearch] = useState("");
   useEffect(() => {
     orderApi.getOrderDeliveredByShipper().then((res) => {
       setOrders(res.data);
@@ -26,7 +27,7 @@ function DeliveryHistory(props) {
               <div className="row">
                 <div className="col-md-12">
                   <div className="bgc-white bd bdrs-3 p-20 mB-20">
-                    <h4 className="c-grey-900 mB-20">Danh sách</h4>
+                    
                     <div className="dataTables_wrapper">
                       {/* <div id="dataTable_filter" className="dataTables_filter">
                         <input
@@ -37,6 +38,34 @@ function DeliveryHistory(props) {
                         />
                         <button className="btn-Search">Tìm kiếm</button>
                       </div> */}
+                      <div className="row">
+                        <div className=" filterOrder">
+                          <p className="label-filterOrder">Từ ngày:</p>
+                          <input
+                            type="date"
+                            className="form-control start"
+                            id="startDay"
+                            placeholder="Ngày bắt đầu"
+                          />
+                          <p className="label-filterOrder">Đến ngày:</p>
+                          <input
+                            type="date"
+                            className="form-control end"
+                            id="endDay"
+                            placeholder="Ngày kết thúc"
+                          />
+                        </div>
+                        <div id="dataTable_filter" className="dataTables_filter">
+                          <input
+                            type="search"
+                            className="inputSearch"
+                            placeholder="Bạn cần tìm..."
+                            onChange={(e) => setSearch(e.target.value)}
+                            aria-controls="dataTable"
+                          />
+                          
+                        </div>
+                      </div>
                       <table className="table table-striped table-bordered dataTable">
                         <thead>
                           <tr role="row">

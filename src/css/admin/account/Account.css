@@ -113,6 +113,7 @@
     right: 0;
     position: absolute;
     margin-top: 8px;
+    margin-bottom: 60px;
 }
 
 .account-management .dataTables_wrapper .dataTables_filter input {
@@ -139,7 +140,7 @@
     width: 100%;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 30px;
+    margin-top: 50px;
     margin-bottom: 20px;
     clear: both;
     border-collapse: separate;
