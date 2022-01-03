@@ -85,3 +85,24 @@
     text-align: center;
     line-height: 21px;
 }
+
+.pageMainAdmin .ChartSale, .pageMainAdmin .ChartStatusOrder{
+    margin: 20px;
+}
+
+.pageMainAdmin .ChartStatusOrder{
+    margin-top: 40px;
+}
+
+.pageMainAdmin .ChartSale p, .pageMainAdmin .ChartStatusOrder p{
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.pageMainAdmin .ChartSale .chartSale{
+    margin-left: 8%;
+}
+
+.pageMainAdmin .ChartStatusOrder .chartStatusOrder{
+    margin-left: 35%;
+}

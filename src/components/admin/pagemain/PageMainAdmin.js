@@ -73,67 +73,74 @@ function PageMainAdmin() {
         </div>
       </div>
 
-      <div> Thống kê doanh thu</div>
-      <div className="row">
-        <div id="lineChart" className="col-md-10">
-          <CChart
-            type="line"
-            data={{
-              labels: [
-                "Tháng 1",
-                "Tháng 2",
-                "Tháng 3",
-                "Tháng 4",
-                "Tháng 5",
-                "Tháng 6",
-                "Tháng 7",
-                "Tháng 8",
-                "Tháng 9",
-                "Tháng 10",
-                "Tháng 11",
-                "Tháng 12",
-              ],
-              datasets: [
-                {
-                  label: "Doanh thu (triệu đồng)",
-                  backgroundColor: "rgba(220, 220, 220, 0.2)",
-                  borderColor: "rgba(220, 220, 220, 1)",
-                  pointBackgroundColor: "rgba(220, 220, 220, 1)",
-                  pointBorderColor: "#fff",
-                  data: [40, 20, 12, 39, 10, 40, 39, 80, 40, 40, 50, 60],
-                },
-              ],
-            }}
-          />
+      <div className="ChartSale">
+        <p className="title-chart">Thống kê doanh thu</p>
+        <div className="row">
+          <div id="lineChart" className="col-md-10 chartSale">
+            <CChart
+              type="line"
+              data={{
+                labels: [
+                  "Tháng 1",
+                  "Tháng 2",
+                  "Tháng 3",
+                  "Tháng 4",
+                  "Tháng 5",
+                  "Tháng 6",
+                  "Tháng 7",
+                  "Tháng 8",
+                  "Tháng 9",
+                  "Tháng 10",
+                  "Tháng 11",
+                  "Tháng 12",
+                ],
+                datasets: [
+                  {
+                    label: "Doanh thu (triệu đồng)",
+                    backgroundColor: "blue",
+                    borderColor: "blue",
+                    pointBackgroundColor: "blue",
+                    pointBorderColor: "blue",
+                    data: [40, 20, 12, 39, 10, 40, 39, 80, 40, 40, 50, 60],
+                  },
+                ],
+              }}
+            />
+          </div>
         </div>
       </div>
+
+      <div className="ChartStatusOrder">
+        <p>Thống kê trạng thái đơn hàng</p>
+        <div className="row chartStatusOrder">
+          <div
+            id="donutChart"
+            style={{ height: "380px", width: "380px" }}
+            className="col-md-10"
+          >
+            <CChart
+              type="doughnut"
+              data={{
+                labels: [
+                  "Đặt hàng thành công",
+                  "Đã xác nhận",
+                  "Đang giao hàng",
+                  "Giao hàng thành công",
+                ],
+                datasets: [
+                  {
+                    backgroundColor: ["#41B883", "#E46651", "#00D8FF", "#DD1B16"],
+                    data: [40, 20, 80, 10],
+                  },
+                ],
+              }}
+            />
+          </div>
+        </div>
+      </div>
+      
       <br />
-      <div className="row">
-        <div>Thống kê trạng thái đơn hàng</div>
-        <div
-          id="donutChart"
-          style={{ height: "500px", width: "500px" }}
-          className="col-md-10"
-        >
-          <CChart
-            type="doughnut"
-            data={{
-              labels: [
-                "Đặt hàng thành công",
-                "Đã xác nhận",
-                "Đang giao hàng",
-                "Giao hàng thành công",
-              ],
-              datasets: [
-                {
-                  backgroundColor: ["#41B883", "#E46651", "#00D8FF", "#DD1B16"],
-                  data: [40, 20, 80, 10],
-                },
-              ],
-            }}
-          />
-        </div>
-      </div>
+      
     </div>
   );
 }
