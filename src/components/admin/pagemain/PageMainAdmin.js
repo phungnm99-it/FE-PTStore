@@ -10,13 +10,11 @@ function PageMainAdmin() {
     orderApi.getOrderCanDeliverByShipper().then((res) => {
       setOrders(res.data);
     });
-    userApi.getCommonShipperInfo().then((res) => {
-      document.getElementById("workingDate").innerText = res.data.workingDate;
-      document.getElementById("deliveredOrder").innerText =
-        res.data.deliveredOrder;
-      document.getElementById("deliveringOrder").innerText =
-        res.data.deliveringOrder;
+    userApi.getCommonAdminInfo().then((res) => {
+      document.getElementById("totalBrand").innerText = res.data.totalBrand;
       document.getElementById("totalOrder").innerText = res.data.totalOrder;
+      document.getElementById("totalProduct").innerText = res.data.totalProduct;
+      document.getElementById("totalAccount").innerText = res.data.totalAccount;
     });
   }, []);
   return (
@@ -28,7 +26,9 @@ function PageMainAdmin() {
               <i className="fa fa-user yellow_color"></i>
             </div>
             <div className="counterNo">
-              <p className="totalNo">100</p>
+              <p id="totalAccount" className="totalNo">
+                100
+              </p>
               <p className="headCounter">Tài khoản</p>
             </div>
           </div>
@@ -40,7 +40,9 @@ function PageMainAdmin() {
               <i className="fas fa-box-open green_color"></i>
             </div>
             <div className="counterNo">
-              <p className="totalNo">10</p>
+              <p id="totalOrder" className="totalNo">
+                10
+              </p>
               <p className="headCounter">Đơn hàng</p>
             </div>
           </div>
@@ -52,7 +54,7 @@ function PageMainAdmin() {
               <i className="fas fa-trademark red_color"></i>
             </div>
             <div className="counterNo">
-              <p id="workingDate" className="totalNo">
+              <p id="totalBrand" className="totalNo">
                 0
               </p>
               <p className="headCounter">Thương hiệu</p>
@@ -66,7 +68,9 @@ function PageMainAdmin() {
               <i className="fas fa-mobile blue_color"></i>
             </div>
             <div className="counterNo">
-              <p className="totalNo">10</p>
+              <p id="totalProduct" className="totalNo">
+                10
+              </p>
               <p className="headCounter">Sản phẩm</p>
             </div>
           </div>
@@ -129,7 +133,12 @@ function PageMainAdmin() {
                 ],
                 datasets: [
                   {
-                    backgroundColor: ["#41B883", "#E46651", "#00D8FF", "#DD1B16"],
+                    backgroundColor: [
+                      "#41B883",
+                      "#E46651",
+                      "#00D8FF",
+                      "#DD1B16",
+                    ],
                     data: [40, 20, 80, 10],
                   },
                 ],
@@ -138,9 +147,8 @@ function PageMainAdmin() {
           </div>
         </div>
       </div>
-      
+
       <br />
-      
     </div>
   );
 }

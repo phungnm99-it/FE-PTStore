@@ -8,14 +8,16 @@ function LockedAccount(props) {
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPage, setTotalPage] = useState(1);
   const [search, setSearch] = useState("");
+  const [change, setChange] = useState("");
 
   const handleUnlock = (e) => {
     e.preventDefault();
-    console.log(e);
+    console.log(admins.find((x) => x.id == e.target.id));
     if (window.confirm("Bạn muốn mở khoá tài khoản id là " + e.target.id)) {
       userApi.unlockUser(e.target.id).then((res) => {
         if (res.code === 200) {
           alert("Mở khoá user thành công!");
+          setChange(e.target.id.toString());
         } else {
           alert("Mở khoá user thất bại!");
         }
@@ -44,7 +46,7 @@ function LockedAccount(props) {
       }
       setTotalPage(Math.round(filterData.length / 5) + 1);
     });
-  }, [currentPage, search]);
+  }, [currentPage, search, change]);
 
   const changeCurrentPage = (numPage) => {
     setCurrentPage(numPage);
@@ -59,7 +61,6 @@ function LockedAccount(props) {
               <div className="row">
                 <div className="col-md-12">
                   <div className="bgc-white bd bdrs-3 p-20 mB-20">
-                    
                     <div className="dataTables_wrapper">
                       <div className="dataTables_length" id="dataTable_length">
                         {/* <label>

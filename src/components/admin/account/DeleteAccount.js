@@ -11,6 +11,7 @@ function DeleteAccount(props) {
       } else {
         props.onCLose();
         alert("Khoá user thành công!");
+        props.switch(4);
       }
     });
   };

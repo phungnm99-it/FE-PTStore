@@ -16,7 +16,7 @@ function AccountUser(props) {
 
   useEffect(() => {
     userApi.getAllUsers().then((res) => {
-      let filterData = res.data.filter((ac) => ac.roleName === "User");
+      let filterData = res.data.filter((ac) => ac.isDisable === false);
       filterData = filterData.filter(
         (f) =>
           String(f.id).includes(String(search).toLowerCase()) ||
@@ -50,7 +50,6 @@ function AccountUser(props) {
               <div className="row">
                 <div className="col-md-12">
                   <div className="bgc-white bd bdrs-3 p-20 mB-20">
-                    
                     <div className="dataTables_wrapper">
                       {/* <div className="dataTables_length" id="dataTable_length">
                         <label>
@@ -161,7 +160,11 @@ function AccountUser(props) {
         </div>
       </div>
       <Modal isOpen={modal} style={customStyles}>
-        <DeleteAccount id={lock} onCLose={() => setModal(false)} />
+        <DeleteAccount
+          id={lock}
+          switch={(e) => props.switch(e)}
+          onCLose={() => setModal(false)}
+        />
       </Modal>
     </div>
   );

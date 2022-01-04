@@ -71,6 +71,11 @@ const userApi = {
     return axiosClient.get(url);
   },
 
+  getCommonAdminInfo: () => {
+    const url = "/user/getCommonAdminInfo";
+    return axiosClient.get(url);
+  },
+
   getCommonRate: () => {
     const url = "/common/currencyRate";
     return axiosClient.get(url);

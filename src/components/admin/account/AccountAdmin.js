@@ -13,9 +13,11 @@ function AccountAdmin(props) {
   const [modal, setModal] = useState(false);
   const [search, setSearch] = useState("");
 
+  const [lock, setLock] = useState(0);
+
   useEffect(() => {
     userApi.getAllAdmin().then((res) => {
-      let filterData = res.data.filter((ac) => ac.roleName === "Admin");
+      let filterData = res.data.filter((ac) => ac.isDisable === false);
       filterData = filterData.filter(
         (f) =>
           String(f.id).includes(String(search).toLowerCase()) ||
@@ -61,17 +63,20 @@ function AccountAdmin(props) {
                             Thêm tài khoản
                           </button>
                         </div>
-                        <div id="dataTable_filter" className="dataTables_filter">
-                        <input
-                          type="search"
-                          className="inputSearch"
-                          onChange={(e) => setSearch(e.target.value)}
-                          placeholder="Bạn cần tìm..."
-                          aria-controls="dataTable"
-                        />
+                        <div
+                          id="dataTable_filter"
+                          className="dataTables_filter"
+                        >
+                          <input
+                            type="search"
+                            className="inputSearch"
+                            onChange={(e) => setSearch(e.target.value)}
+                            placeholder="Bạn cần tìm..."
+                            aria-controls="dataTable"
+                          />
                         </div>
                       </div>
-                      
+
                       {/* <div className="dataTables_length" id="dataTable_length">
                         <label>
                           Hiển thị:
@@ -87,7 +92,7 @@ function AccountAdmin(props) {
                           </select>
                         </label>
                       </div> */}
-                      
+
                       <table className="table table-striped table-bordered dataTable">
                         <thead>
                           <tr role="row">
@@ -148,7 +153,10 @@ function AccountAdmin(props) {
                                     <i class="fas fa-list"></i>
                                   </button>
                                   <button
-                                    onClick={() => setModal(true)}
+                                    onClick={() => {
+                                      setLock(item.id);
+                                      setModal(true);
+                                    }}
                                     className="iconDelete"
                                   >
                                     <i className="fas fa-lock"></i>
@@ -179,7 +187,11 @@ function AccountAdmin(props) {
         </div>
       </div>
       <Modal isOpen={modal} style={customStyles}>
-        <DeleteAccount onCLose={() => setModal(false)} />
+        <DeleteAccount
+          id={lock}
+          switch={(e) => props.switch(e)}
+          onCLose={() => setModal(false)}
+        />
       </Modal>
     </div>
   );

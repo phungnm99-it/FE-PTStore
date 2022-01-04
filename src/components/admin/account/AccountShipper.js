@@ -12,10 +12,11 @@ function AccountShipper(props) {
   const [totalPage, setTotalPage] = useState(1);
   const [modal, setModal] = useState(false);
   const [search, setSearch] = useState("");
+  const [lock, setLock] = useState(0);
 
   useEffect(() => {
     userApi.getAllShipper().then((res) => {
-      let filterData = res.data.filter((ac) => ac.roleName === "Shipper");
+      let filterData = res.data.filter((ac) => ac.isDisable === false);
       filterData = filterData.filter(
         (f) =>
           String(f.id).includes(String(search).toLowerCase()) ||
@@ -51,7 +52,6 @@ function AccountShipper(props) {
               <div className="row">
                 <div className="col-md-12">
                   <div className="bgc-white bd bdrs-3 p-20 mB-20">
-                    
                     <div className="dataTables_wrapper">
                       <div className="row">
                         <div className="buttonControl">
@@ -62,17 +62,20 @@ function AccountShipper(props) {
                             Thêm tài khoản
                           </button>
                         </div>
-                        <div id="dataTable_filter" className="dataTables_filter">
-                        <input
-                          type="search"
-                          className="inputSearch"
-                          placeholder="Bạn cần tìm..."
-                          onChange={(e) => setSearch(e.target.value)}
-                          aria-controls="dataTable"
-                        />
+                        <div
+                          id="dataTable_filter"
+                          className="dataTables_filter"
+                        >
+                          <input
+                            type="search"
+                            className="inputSearch"
+                            placeholder="Bạn cần tìm..."
+                            onChange={(e) => setSearch(e.target.value)}
+                            aria-controls="dataTable"
+                          />
                         </div>
                       </div>
-                      
+
                       {/* <div className="dataTables_length" id="dataTable_length">
                         {/* <label>
                           Hiển thị:
@@ -88,7 +91,7 @@ function AccountShipper(props) {
                           </select>
                         </label> 
                       </div> */}
-                      
+
                       <table className="table table-striped table-bordered dataTable">
                         <thead>
                           <tr role="row">
@@ -140,7 +143,10 @@ function AccountShipper(props) {
                                     <i class="fas fa-list"></i>
                                   </button>
                                   <button
-                                    onClick={() => setModal(true)}
+                                    onClick={() => {
+                                      setLock(item.id);
+                                      setModal(true);
+                                    }}
                                     className="iconDelete"
                                   >
                                     <i className="fas fa-lock"></i>
@@ -171,7 +177,11 @@ function AccountShipper(props) {
         </div>
       </div>
       <Modal isOpen={modal} style={customStyles}>
-        <DeleteAccount onCLose={() => setModal(false)} />
+        <DeleteAccount
+          id={lock}
+          switch={(e) => props.switch(e)}
+          onCLose={() => setModal(false)}
+        />
       </Modal>
     </div>
   );
