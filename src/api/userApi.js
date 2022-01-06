@@ -115,6 +115,16 @@ const userApi = {
     const url = "/user/getLockedAccount";
     return axiosClient.get(url);
   },
+
+  getCommonTotal: () => {
+    const url = "/common/caculateTotal";
+    return axiosClient.get(url);
+  },
+
+  getCommonOrder: () => {
+    const url = "/common/caculateOrder";
+    return axiosClient.get(url);
+  },
 };
 
 export default userApi;
