@@ -15,6 +15,16 @@ function EditBrand(props) {
   const setValue = () => {
     document.getElementById("inputNameBrand").value = props.brand.name || "";
   };
+
+  const handleChange = () => {
+    const [file] = document.getElementById("chooseImg").files;
+    if (file) {
+      let url = URL.createObjectURL(file);
+      let show = document.getElementById("imgShow");
+      show.src = url;
+    }
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     //chưa let hình
@@ -81,6 +91,7 @@ function EditBrand(props) {
                     type="file"
                     className="form-control"
                     id="chooseImg"
+                    onChange={() => handleChange()}
                     placeholder="Chọn hình ảnh"
                   />
                 </div>
@@ -94,6 +105,7 @@ function EditBrand(props) {
                       props.brand.imageUrl ||
                       "http://res.cloudinary.com/dobsh4rbw/image/upload/v1639403956/commom/no-avt121321085832.png"
                     }
+                    id="imgShow"
                     alt="UploadImg"
                   ></img>
                 </div>

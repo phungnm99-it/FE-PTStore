@@ -17,6 +17,15 @@ function EditProduct(props) {
     document.getElementById("brandName").value = props.product.brandName;
   }, []);
 
+  const handleChange = () => {
+    const [file] = document.getElementById("chooseImg").files;
+    if (file) {
+      let url = URL.createObjectURL(file);
+      let show = document.getElementById("imgShow");
+      show.src = url;
+    }
+  };
+
   const setValue = () => {
     document.getElementById("inputNameProduct").value =
       props.product.name || "";
@@ -201,6 +210,7 @@ function EditProduct(props) {
                     type="file"
                     className="form-control"
                     id="chooseImg"
+                    onChange={() => handleChange()}
                     placeholder="Chọn hình ảnh"
                   />
                 </div>
@@ -214,6 +224,7 @@ function EditProduct(props) {
                       props.product.imageUrl ||
                       "http://res.cloudinary.com/dobsh4rbw/image/upload/v1639403956/commom/no-avt121321085832.png"
                     }
+                    id="imgShow"
                     alt="UploadImg"
                   ></img>
                 </div>
