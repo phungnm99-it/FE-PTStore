@@ -4,14 +4,16 @@ import "../../../css/admin/dropdown.css";
 function DropDown(props) {
   const [openSub, setOpen] = useState(false);
   return (
-    <li className="nav-item">
-      <a
-        href="#"
-        className="nav-link active btn-focus"
-        onClick={() => {
-          setOpen(!openSub);
-        }}
-      >
+    <li
+      className="nav-item"
+      onMouseEnter={() => {
+        setOpen(true);
+      }}
+      onMouseLeave={() => {
+        setOpen(false);
+      }}
+    >
+      <a href="#" className="nav-link active btn-focus">
         <i className={props.icon}></i>
         {/* fas fa-user-circle nav-icon */}
         {props.name}
