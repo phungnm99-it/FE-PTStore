@@ -16,6 +16,11 @@ const orderApi = {
     return axiosClient.get(url);
   },
 
+  cancelByAdmin: (id) => {
+    const url = "/order/adminCancel/" + id;
+    return axiosClient.get(url);
+  },
+
   getOrderDeliveringByShipper: () => {
     const url = "/order/delivering";
     return axiosClient.get(url);

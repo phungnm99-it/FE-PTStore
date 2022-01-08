@@ -196,7 +196,9 @@ function Admin(props) {
       case 20:
         return <EditPrice product={item} switch={(e) => setForm(e)} />;
       case 21:
-        return <Order switch={(e) => setForm(e)} orders={item} />;
+        return (
+          <Order switch={(e) => setForm(e)} setOrder={(e) => setItem(e)} />
+        );
       case 22:
         return <EditOrder />;
       case 23:
@@ -224,7 +226,7 @@ function Admin(props) {
       case 29:
         return <EditProductStatus switch={(e) => setForm(e)} product={item} />;
       case 30:
-        return <DetailOrder switch={(e) => setForm(e)}  />;
+        return <DetailOrder switch={(e) => setForm(e)} order={item} />;
       case 31:
         return <DeleteAccount switch={(e) => setForm(e)} />;
       case 32:
@@ -248,7 +250,7 @@ function Admin(props) {
       case 41:
         return <AddShipperAccount switch={(e) => setForm(e)} />;
       case 42:
-        return <CancelOrder switch={(e) => setForm(e)}/>
+        return <CancelOrder switch={(e) => setForm(e)} />;
       default:
         return null;
     }

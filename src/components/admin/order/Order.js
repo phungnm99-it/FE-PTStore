@@ -12,16 +12,35 @@ function Order(props) {
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPage, setTotalPage] = useState(1);
   const [modal, setModal] = useState(false);
+
+  const [startDate, setStartDate] = useState(new Date("2000-01-01"));
+  const [endDate, setEndDate] = useState(new Date("2099-01-01"));
+  const [search, setSearch] = useState("");
+
   useEffect(() => {
     orderApi.getAll().then((res) => {
+      let filterData = res.data.filter(
+        (x) =>
+          new Date(x.orderTime.split("T")[0]) >= startDate &&
+          new Date(x.orderTime.split("T")[0]) <= endDate
+      );
+      filterData = filterData.filter(
+        (x) =>
+          x.name.toLowerCase().includes(search.toLowerCase()) ||
+          x.id.toString().includes(search)
+      );
       if (currentPage * 5 - 1 > res.data.length) {
-        setOrders(res.data.slice((currentPage - 1) * 5));
+        setOrders(filterData.slice((currentPage - 1) * 5));
       } else {
-        setOrders(res.data.slice((currentPage - 1) * 5, currentPage * 5));
+        setOrders(filterData.slice((currentPage - 1) * 5, currentPage * 5));
       }
-      setTotalPage(Math.round(res.data.length / 5));
+      if (filterData.length % 5 === 0) {
+        setTotalPage(filterData.length / 5);
+      } else {
+        setTotalPage(Math.floor(filterData.length / 5) + 1);
+      }
     });
-  }, [currentPage]);
+  }, [currentPage, search, startDate, endDate]);
 
   const changeCurrentPage = (numPage) => {
     setCurrentPage(numPage);
@@ -36,7 +55,21 @@ function Order(props) {
           alert("Xác nhận đơn hàng thành công!");
           props.switch(38);
         } else {
-          alert("Xác nhận đơn hàng thất bạn!");
+          alert("Xác nhận đơn hàng thất bại!");
+        }
+      });
+    }
+  };
+
+  const handleCancelOrder = (e) => {
+    e.preventDefault();
+
+    if (window.confirm("Bạn muốn huỷ đơn hàng " + e.target.id)) {
+      orderApi.cancelByAdmin(e.target.id).then((res) => {
+        if (res.code === 200) {
+          alert("Huỷ đơn hàng thành công!");
+        } else {
+          alert("Huỷ đơn hàng thất bại!");
         }
       });
     }
@@ -52,30 +85,14 @@ function Order(props) {
               <div className="row">
                 <div className="col-md-12">
                   <div className="bgc-white bd bdrs-3 p-20 mB-20">
-                    
                     <div className="dataTables_wrapper">
-                      {/* <div className="buttonControl">
-                                                <button className="Add"><Link to = "/admin/home/addAccount">Thêm tài khoản</Link></button>
-                                            </div> */}
-                      {/* <div className="dataTables_length" id="dataTable_length">
-                        <label>
-                          Hiển thị:
-                          <select
-                            name="dataTable_length"
-                            aria-controls="dataTable"
-                            class=""
-                          >
-                            <option value="10">10</option>
-                            <option value="25">25</option>
-                            <option value="50">50</option>
-                            <option value="100">100</option>
-                          </select>
-                        </label>
-                      </div> */}
                       <div className="row">
                         <div className=" filterOrder">
                           <p className="label-filterOrder">Từ ngày:</p>
                           <input
+                            onChange={(e) =>
+                              setStartDate(new Date(e.target.value))
+                            }
                             type="date"
                             className="form-control start"
                             id="startDay"
@@ -84,22 +101,28 @@ function Order(props) {
                           <p className="label-filterOrder">Đến ngày:</p>
                           <input
                             type="date"
+                            onChange={(e) =>
+                              setEndDate(new Date(e.target.value))
+                            }
                             className="form-control end"
                             id="endDay"
                             placeholder="Ngày kết thúc"
                           />
                         </div>
-                        <div id="dataTable_filter" className="dataTables_filter">
+                        <div
+                          id="dataTable_filter"
+                          className="dataTables_filter"
+                        >
                           <input
                             type="search"
+                            onChange={(e) => setSearch(e.target.value)}
                             className="inputSearch"
                             placeholder="Bạn cần tìm..."
                             aria-controls="dataTable"
                           />
-                          
                         </div>
                       </div>
-                      
+
                       <table className="table table-striped table-bordered dataTable">
                         <thead>
                           <tr role="row">
@@ -169,17 +192,27 @@ function Order(props) {
                                       ></i>
                                     </button>
                                   ) : null}
+                                  {item.status !== "Đã huỷ" &&
+                                  item.status !== "Giao hàng thành công" ? (
+                                    <button
+                                      onClick={(e) => handleCancelOrder(e)}
+                                      className="iconCancel"
+                                      id={item.id}
+                                    >
+                                      <i
+                                        id={item.id}
+                                        className="fas fa-window-close"
+                                      ></i>
+                                    </button>
+                                  ) : null}
                                   <button
-                                    onClick={() => props.switch(30)}
+                                    onClick={() => {
+                                      props.setOrder(item);
+                                      props.switch(30);
+                                    }}
                                     className="iconDetail"
                                   >
                                     <i className="fas fa-list"></i>
-                                  </button>
-                                  <button
-                                    onClick={() => setModal(true)}
-                                    className="iconCancel"
-                                  >
-                                    <i className="fas fa-window-close"></i>
                                   </button>
                                 </td>
                               </tr>
