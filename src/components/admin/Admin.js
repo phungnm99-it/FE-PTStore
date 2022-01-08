@@ -55,6 +55,7 @@ import userApi from "../../api/userApi";
 import AddAdminAccount from "./account/AddAdminAccount";
 import AddShipperAccount from "./account/AddShipperAccount";
 import CancelOrder from "./order/CancelOrder";
+import CanceledOrder from "./order/CanceledOrder";
 
 function Admin(props) {
   const context = useContext(AdminContext);
@@ -202,7 +203,12 @@ function Admin(props) {
       case 22:
         return <EditOrder />;
       case 23:
-        return <CompletedOrder switch={(e) => setForm(e)} />;
+        return (
+          <CompletedOrder
+            switch={(e) => setForm(e)}
+            setOrder={(e) => setItem(e)}
+          />
+        );
       case 24:
         return (
           <Feedback
@@ -240,17 +246,41 @@ function Admin(props) {
       case 36:
         return <ChangePass />;
       case 37:
-        return <DeliveredOrder switch={(e) => setForm(e)} />;
+        return (
+          <DeliveredOrder
+            switch={(e) => setForm(e)}
+            setOrder={(e) => setItem(e)}
+          />
+        );
       case 38:
-        return <WaitDeliveryOrder switch={(e) => setForm(e)} />;
+        return (
+          <WaitDeliveryOrder
+            switch={(e) => setForm(e)}
+            setOrder={(e) => setItem(e)}
+          />
+        );
       case 39:
-        return <WaitConfirmOrder switch={(e) => setForm(e)} />;
+        return (
+          <WaitConfirmOrder
+            switch={(e) => setForm(e)}
+            setOrder={(e) => setItem(e)}
+          />
+        );
       case 40:
         return <AddAdminAccount switch={(e) => setForm(e)} />;
       case 41:
         return <AddShipperAccount switch={(e) => setForm(e)} />;
       case 42:
         return <CancelOrder switch={(e) => setForm(e)} />;
+
+      case 43:
+        return (
+          <CanceledOrder
+            switch={(e) => setForm(e)}
+            order={item}
+            setOrder={(e) => setItem(e)}
+          />
+        );
       default:
         return null;
     }
@@ -419,6 +449,12 @@ function Admin(props) {
                         icon: "fas fa-box-open nav-icon",
                         link: "",
                         formChoose: () => setForm(23),
+                      },
+                      {
+                        name: "Đơn hàng đã huỷ",
+                        icon: "fas fa-box-open nav-icon",
+                        link: "",
+                        formChoose: () => setForm(43),
                       },
                     ]}
                   />

@@ -26,11 +26,40 @@ function CompletedOrder(props) {
     });
   }, [currentPage]);
 
+  const handleVerifyOrder = (e) => {
+    e.preventDefault();
+
+    if (window.confirm("Bạn muốn xác nhận đơn hàng " + e.target.id)) {
+      orderApi.verifyOrderByAdmin(e.target.id).then((res) => {
+        if (res.code === 200) {
+          alert("Xác nhận đơn hàng thành công!");
+          props.switch(38);
+        } else {
+          alert("Xác nhận đơn hàng thất bại!");
+        }
+      });
+    }
+  };
+
   const changeCurrentPage = (numPage) => {
     setCurrentPage(numPage);
   };
 
-  
+  const handleCancelOrder = (e) => {
+    e.preventDefault();
+
+    if (window.confirm("Bạn muốn huỷ đơn hàng " + e.target.id)) {
+      orderApi.cancelByAdmin(e.target.id).then((res) => {
+        if (res.code === 200) {
+          alert("Huỷ đơn hàng thành công!");
+          props.switch(43);
+        } else {
+          alert("Huỷ đơn hàng thất bại!");
+        }
+      });
+    }
+  };
+
   return (
     <div>
       <section className="pageAdmin">
@@ -43,9 +72,7 @@ function CompletedOrder(props) {
               <div className="row">
                 <div className="col-md-12">
                   <div className="bgc-white bd bdrs-3 p-20 mB-20">
-                    
                     <div className="dataTables_wrapper">
-                      
                       <div className="row">
                         <div className=" filterOrder">
                           <p className="label-filterOrder">Từ ngày:</p>
@@ -63,14 +90,16 @@ function CompletedOrder(props) {
                             placeholder="Ngày kết thúc"
                           />
                         </div>
-                        <div id="dataTable_filter" className=" dataTables_filter">
+                        <div
+                          id="dataTable_filter"
+                          className=" dataTables_filter"
+                        >
                           <input
                             type="search"
                             className="inputSearch"
                             placeholder="Bạn cần tìm..."
                             aria-controls="dataTable"
                           />
-                          
                         </div>
                       </div>
                       <table className="table table-striped table-bordered dataTable">
@@ -131,17 +160,30 @@ function CompletedOrder(props) {
                                 <td>{item.status}</td>
                                 <td>
                                   <button
-                                    onClick={() => setModal(true)}
-                                    
+                                    id={item.id}
+                                    onClick={(e) => handleVerifyOrder(e)}
                                     className="iconConfirm"
                                   >
-                                    <i className="fas fa-check"></i>
+                                    <i
+                                      className="fas fa-check"
+                                      id={item.id}
+                                    ></i>
                                   </button>
                                   <button
                                     onClick={() => props.switch(30)}
                                     className="iconDetail"
                                   >
                                     <i className="fas fa-list"></i>
+                                  </button>
+                                  <button
+                                    onClick={(e) => handleCancelOrder(e)}
+                                    className="iconCancel"
+                                    id={item.id}
+                                  >
+                                    <i
+                                      id={item.id}
+                                      className="fas fa-window-close"
+                                    ></i>
                                   </button>
                                 </td>
                               </tr>

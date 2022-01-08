@@ -68,6 +68,7 @@ function Order(props) {
       orderApi.cancelByAdmin(e.target.id).then((res) => {
         if (res.code === 200) {
           alert("Huỷ đơn hàng thành công!");
+          props.switch(43);
         } else {
           alert("Huỷ đơn hàng thất bại!");
         }

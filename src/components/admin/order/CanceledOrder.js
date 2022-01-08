@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from "react";
+import orderApi from "../../../api/orderApi";
 import "../../../css/admin/order/Order.css";
 import { priceFormat } from "../../../utils/priceFormat";
-import orderApi from "../../../api/orderApi";
+
 import Pagination from "react-pagination-library";
-function CompletedOrder(props) {
+import { customStyles } from "../../../utils/cssUtils";
+import CancelOrder from "./CancelOrder";
+import Modal from "react-modal/lib/components/Modal";
+function CanceledOrder(props) {
   const [orders, setOrders] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPage, setTotalPage] = useState(1);
@@ -13,24 +17,10 @@ function CompletedOrder(props) {
   const [endDate, setEndDate] = useState(new Date("2099-01-01"));
   const [search, setSearch] = useState("");
 
-  const handleCancelOrder = (e) => {
-    e.preventDefault();
-
-    if (window.confirm("Bạn muốn huỷ đơn hàng " + e.target.id)) {
-      orderApi.cancelByAdmin(e.target.id).then((res) => {
-        if (res.code === 200) {
-          alert("Huỷ đơn hàng thành công!");
-          props.switch(43);
-        } else {
-          alert("Huỷ đơn hàng thất bại!");
-        }
-      });
-    }
-  };
-
   useEffect(() => {
     orderApi.getAll().then((res) => {
-      let filterData = res.data.filter((x) => x.status === "Đang giao hàng");
+      let filterData = res.data.filter((x) => x.status === "Đã huỷ");
+      console.log(filterData);
       filterData = filterData.filter(
         (x) =>
           new Date(x.orderTime.split("T")[0]) >= startDate &&
@@ -41,7 +31,7 @@ function CompletedOrder(props) {
           x.name.toLowerCase().includes(search.toLowerCase()) ||
           x.id.toString().includes(search)
       );
-      if (currentPage * 5 - 1 > filterData.length) {
+      if (currentPage * 5 - 1 > res.data.length) {
         setOrders(filterData.slice((currentPage - 1) * 5));
       } else {
         setOrders(filterData.slice((currentPage - 1) * 5, currentPage * 5));
@@ -57,6 +47,7 @@ function CompletedOrder(props) {
   const changeCurrentPage = (numPage) => {
     setCurrentPage(numPage);
   };
+
   return (
     <div>
       <section className="pageAdmin">
@@ -64,7 +55,7 @@ function CompletedOrder(props) {
           <div className="order-management">
             <div className="container-fluid">
               <h4 className="c-grey-900 mT-10 mB-30">
-                QUẢN LÝ ĐƠN HÀNG ĐANG GIAO
+                QUẢN LÝ ĐƠN HÀNG ĐÃ HUỶ
               </h4>
               <div className="row">
                 <div className="col-md-12">
@@ -95,17 +86,18 @@ function CompletedOrder(props) {
                         </div>
                         <div
                           id="dataTable_filter"
-                          className=" dataTables_filter"
+                          className="dataTables_filter"
                         >
                           <input
                             type="search"
-                            className="inputSearch"
                             onChange={(e) => setSearch(e.target.value)}
+                            className="inputSearch"
                             placeholder="Bạn cần tìm..."
                             aria-controls="dataTable"
                           />
                         </div>
                       </div>
+
                       <table className="table table-striped table-bordered dataTable">
                         <thead>
                           <tr role="row">
@@ -164,16 +156,6 @@ function CompletedOrder(props) {
                                 <td>{item.status}</td>
                                 <td>
                                   <button
-                                    onClick={(e) => handleCancelOrder(e)}
-                                    className="iconCancel"
-                                    id={item.id}
-                                  >
-                                    <i
-                                      id={item.id}
-                                      className="fas fa-window-close"
-                                    ></i>
-                                  </button>
-                                  <button
                                     onClick={() => {
                                       props.setOrder(item);
                                       props.switch(30);
@@ -207,8 +189,11 @@ function CompletedOrder(props) {
           </div>
         </div>
       </section>
+      <Modal isOpen={modal} style={customStyles}>
+        <CancelOrder onCLose={() => setModal(false)} />
+      </Modal>
     </div>
   );
 }
 
-export default CompletedOrder;
+export default CanceledOrder;
