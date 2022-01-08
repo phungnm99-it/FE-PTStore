@@ -59,6 +59,7 @@ function DetailAccount(props) {
               </div>
             </div>
           </div>
+          
           <div className="btn-detailAccount">
             {props.account.isDisable === true ? (
               <button
@@ -93,6 +94,9 @@ function DetailAccount(props) {
                 Quay trở lại danh sách
               </button>
             )}
+            <button type="submit" className="btn-resetPass">
+                Khôi phục mật khẩu mặc định
+            </button>
           </div>
         </div>
       </div>

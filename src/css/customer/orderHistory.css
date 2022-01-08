@@ -9,6 +9,7 @@
 
 .orderHistory .box-order {
   padding: 20px;
+  
 }
 
 .orderHistory .body-content .account-layout .box-order .box-order-header {
@@ -55,25 +56,36 @@
   border-collapse: separate;
   border-spacing: 0;
   width: 100%;
+  text-align: center;
 }
 
 #History-IDOrderCol {
   width: 10%;
+  text-align: center;
 }
 #History-ProductCol {
-  width: 43%;
+  width: 37%;
+  text-align: center;
 }
 #History-DateCol {
-  width: 15%;
+  width: 12%;
+  text-align: center;
 }
 #History-TotalCol {
   width: 12%;
+  text-align: center;
+}
+#History-PaymentMethodCol{
+  width: 12%;
+  text-align: center;
 }
 #History-StatusCol {
-  width: 15%;
+  width: 12%;
+  text-align: center;
 }
 #History-Control{
   width: 5%;
+  text-align: center;
 }
 
 .orderHistory .table{
@@ -84,6 +96,7 @@
 
 .orderHistory table thead {
   width: 100%;
+  text-align: center;
 }
 
 .orderHistory .iconDetail{

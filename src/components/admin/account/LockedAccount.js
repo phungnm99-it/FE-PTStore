@@ -62,30 +62,43 @@ function LockedAccount(props) {
                 <div className="col-md-12">
                   <div className="bgc-white bd bdrs-3 p-20 mB-20">
                     <div className="dataTables_wrapper">
-                      <div className="dataTables_length" id="dataTable_length">
-                        {/* <label>
-                          Hiển thị:
-                          <select
-                            name="dataTable_length"
-                            aria-controls="dataTable"
-                            className=""
+                      <div className="row">
+                          <div className=" filterOrder">
+                          <label>
+                            Trạng thái
+                            <select
+                              name="dataTable_length"
+                              aria-controls="dataTable"
+                              className="form-control select-Status"
+                              id="select"
+                              
+                            >
+                              <option value="">Tất cả</option>
+                              <option value="Admin">Admin</option>
+                              <option value="User">
+                                User
+                              </option>
+                              <option value="Shipper">
+                                Shipper
+                              </option>
+                              
+                            </select>
+                          </label>
+                          </div>
+                          <div
+                            id="dataTable_filter"
+                            className="dataTables_filter"
                           >
-                            <option value="10">10</option>
-                            <option value="25">25</option>
-                            <option value="50">50</option>
-                            <option value="100">100</option>
-                          </select>
-                        </label> */}
+                            <input
+                              type="search"
+                              onChange={(e) => setSearch(e.target.value)}
+                              className="inputSearch"
+                              placeholder="Bạn cần tìm..."
+                              aria-controls="dataTable"
+                            />
+                          </div>
                       </div>
-                      <div id="dataTable_filter" className="dataTables_filter">
-                        <input
-                          type="search"
-                          className="inputSearch"
-                          placeholder="Bạn cần tìm..."
-                          onChange={(e) => setSearch(e.target.value)}
-                          aria-controls="dataTable"
-                        />
-                      </div>
+                      
                       <table className="table table-striped table-bordered dataTable">
                         <thead>
                           <tr role="row">

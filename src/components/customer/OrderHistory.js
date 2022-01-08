@@ -79,13 +79,16 @@ function OrderHistory() {
                             Mã đơn hàng
                           </th>
                           <th className="sorting" id="History-DateCol">
-                            Ngày mua
+                            Ngày đặt hàng
                           </th>
                           <th className="sorting" id="History-ProductCol">
                             Sản phẩm
                           </th>
                           <th className="sorting" id="History-TotalCol">
                             Tổng tiền
+                          </th>
+                          <th className="sorting" id="History-PaymentMethodCol">
+                            Hình thức thanh toán
                           </th>
                           <th className="sorting" id="History-StatusCol">
                             Trạng thái đơn hàng
@@ -109,6 +112,7 @@ function OrderHistory() {
                                 })}
                               </td>
                               <td>{priceFormat(item?.totalCost)}</td>
+                              <td>{item.paymentMethod}</td>
                               <td>
                                 {item.status === "1"
                                   ? "Đặt hàng thành công"

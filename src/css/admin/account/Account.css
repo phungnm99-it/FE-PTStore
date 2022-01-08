@@ -387,3 +387,7 @@ table.dataTable tbody tr {
     border-radius: 3px; 
 }
 
+.account-management .select-Status{
+    width: 150px;
+}
+

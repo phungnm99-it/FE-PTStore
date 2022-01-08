@@ -98,12 +98,14 @@ function EditProductStatus(props) {
                   />
                 </div>
               </div>
-              <div className="mb-3">
-                <label className="form-label">Tình trạng</label>
-                <select id="inputStatusProduct">
-                  <option value="Đang kinh doanh">Đang kinh doanh</option>
-                  <option value="Ngừng kinh doanh">Ngừng kinh doanh</option>
-                </select>
+              <div className="row">
+                <div className="mb-3 col-md-6">
+                  <label className="form-label">Tình trạng</label>
+                  <select id="inputStatusProduct">
+                    <option value="Đang kinh doanh">Đang kinh doanh</option>
+                    <option value="Ngừng kinh doanh">Ngừng kinh doanh</option>
+                  </select>
+                </div>
               </div>
               <div className="mb-3 checkbox-featuredProduct">
                 <input type="checkbox" id="checkbox-featuredProduct" name="" />

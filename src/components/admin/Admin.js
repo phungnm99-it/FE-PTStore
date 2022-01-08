@@ -57,6 +57,7 @@ import AddShipperAccount from "./account/AddShipperAccount";
 import CancelOrder from "./order/CancelOrder";
 import CanceledOrder from "./order/CanceledOrder";
 import DetailOrderForAll from "./order/DetailOrderForAll";
+import SendNotification from "./subscriber/SendNotification";
 
 function Admin(props) {
   const context = useContext(AdminContext);
@@ -222,7 +223,8 @@ function Admin(props) {
       case 26:
         return <DetailFeedback switch={(e) => setForm(e)} feedback={item} />;
       case 27:
-        return <Subscriber />;
+        return <Subscriber switch={(e) => setForm(e)}
+                          setFeedback={(e) => setItem(e)}/>;
       case 28:
         return (
           <FeedbackHasBeenReplied
@@ -285,6 +287,8 @@ function Admin(props) {
 
       case 44:
         return <DetailOrderForAll switch={(e) => setForm(e)} order={item} />;
+      case 45:
+        return <SendNotification switch={(e) => setForm(e)} subscribers={item} />;
       default:
         return null;
     }

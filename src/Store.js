@@ -22,6 +22,7 @@ import BrandPage from "./components/common/product/BrandPage";
 import CustomProductPage from "./components/common/product/CustomProductPage";
 import SearchPage from "./components/common/product/SearchPage";
 import SaleProductPage from "./components/common/product/SaleProductPage";
+import StopSubscribe from "./components/common/StopSubscribe";
 
 function App() {
   return (
@@ -103,6 +104,9 @@ function App() {
 
           <Route path="/dienthoai">
             <CustomProductPage />
+          </Route>
+          <Route path="/stopSubscribe/:id">
+            <StopSubscribe />
           </Route>
         </Switch>
         <Footer />

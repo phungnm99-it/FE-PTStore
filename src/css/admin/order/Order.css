@@ -200,13 +200,13 @@ table.dataTable, table.dataTable th, table.dataTable td {
     width: 8%;
 }
 #Order-NameUserCol{
-    width: 20%;
+    width: 18%;
 }
 #Order-ProductOrderCol{
     width: 23%;
 }
 #Order-StockCol{
-    width: 5%;
+    width: 4%;
 }
 #Order-TotalCostCol{
     width: 10%;
@@ -215,10 +215,13 @@ table.dataTable, table.dataTable th, table.dataTable td {
     width: 10%;
 }
 #Order-StatusCol{
-    width: 15%;
+    width: 9%;
+}
+#Order-TimeCol{
+    width: 10%;
 }
 #Order-ControlCol{
-    width: 9%;
+    width: 8%;
 }
 
 .table > tbody {
@@ -359,7 +362,7 @@ table.dataTable tbody tr {
 
 .order-management .iconConfirm{
     font-size: 13px;
-    margin-right: 2px;
+    
     color: green;
 }
 
