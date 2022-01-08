@@ -11,6 +11,16 @@ function AddProduct(props) {
       setBrand(res.data);
     });
   }, []);
+
+  const handleChange = () => {
+    const [file] = document.getElementById("chooseImg").files;
+    if (file) {
+      let url = URL.createObjectURL(file);
+      let show = document.getElementById("imgShow");
+      show.src = url;
+    }
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -156,6 +166,7 @@ function AddProduct(props) {
                   <input
                     type="file"
                     className="form-control"
+                    onChange={() => handleChange()}
                     id="chooseImg"
                     accept="image/png, image/jpeg"
                     placeholder="Chọn hình ảnh"
@@ -165,7 +176,12 @@ function AddProduct(props) {
                   <label className="form-label" for="chooseImg">
                     Hiển thị ảnh
                   </label>
-                  <img className="UploadImg" src="http://res.cloudinary.com/dobsh4rbw/image/upload/v1639403956/commom/no-avt121321085832.png" alt="UploadImg"></img>
+                  <img
+                    className="UploadImg"
+                    src="http://res.cloudinary.com/dobsh4rbw/image/upload/v1639403956/commom/no-avt121321085832.png"
+                    alt="UploadImg"
+                    id="imgShow"
+                  ></img>
                 </div>
               </div>
               <div className="mb-3">
@@ -357,7 +373,7 @@ function AddProduct(props) {
                   required
                 />
               </div>
-              
+
               <div className="mb-3">
                 <label className=" form-title">DUNG LƯỢNG PIN</label>
               </div>

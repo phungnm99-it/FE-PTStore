@@ -16,6 +16,15 @@ function AddBrand(props) {
       alert("Vui lòng nhập đầy đủ thông tin");
     }
   };
+
+  const handleChange = () => {
+    const [file] = document.getElementById("chooseImg").files;
+    if (file) {
+      let url = URL.createObjectURL(file);
+      let show = document.getElementById("imgShow");
+      show.src = url;
+    }
+  };
   return (
     <div>
       <div className="addBrand">
@@ -46,6 +55,7 @@ function AddBrand(props) {
                     type="file"
                     className="form-control"
                     id="chooseImg"
+                    onChange={() => handleChange()}
                     placeholder="Chọn hình ảnh"
                   />
                 </div>
@@ -53,7 +63,12 @@ function AddBrand(props) {
                   <label className="form-label" for="chooseImg">
                     Hiển thị ảnh
                   </label>
-                  <img className="UploadImg" src="http://res.cloudinary.com/dobsh4rbw/image/upload/v1639403956/commom/no-avt121321085832.png" alt="UploadImg"></img>
+                  <img
+                    className="UploadImg"
+                    src="http://res.cloudinary.com/dobsh4rbw/image/upload/v1639403956/commom/no-avt121321085832.png"
+                    alt="UploadImg"
+                    id="imgShow"
+                  ></img>
                 </div>
               </div>
 
