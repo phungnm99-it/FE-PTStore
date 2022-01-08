@@ -3,7 +3,7 @@ import "../../../css/admin/order/DetailOrder.css";
 import { timeFormat, timeFormatDetail } from "../../../utils/dateUtils";
 import { priceFormat } from "../../../utils/priceFormat";
 import ProductItem from "./ProductItem";
-function DetailOrder(props) {
+function DetailOrderForAll(props) {
   return (
     <div>
       <div className="detailOrder">
@@ -77,42 +77,12 @@ function DetailOrder(props) {
               </table>
             </div>
             <div className="mb-3">
-              {props.order.status === "Đặt hàng thành công" ? (
-                <button
-                  onClick={() => props.switch(39)}
-                  className="btn btn-primary btn-color btn-comeback"
-                >
-                  Quay trở lại danh sách
-                </button>
-              ) : props.order.status === "Đã xác nhận" ? (
-                <button
-                  onClick={() => props.switch(38)}
-                  className="btn btn-primary btn-color btn-comeback"
-                >
-                  Quay trở lại danh sách
-                </button>
-              ) : props.order.status === "Đang giao hàng" ? (
-                <button
-                  onClick={() => props.switch(37)}
-                  className="btn btn-primary btn-color btn-comeback"
-                >
-                  Quay trở lại danh sách
-                </button>
-              ) : props.order.status === "Giao hàng thành công" ? (
-                <button
-                  onClick={() => props.switch(23)}
-                  className="btn btn-primary btn-color btn-comeback"
-                >
-                  Quay trở lại danh sách
-                </button>
-              ) : (
-                <button
-                  onClick={() => props.switch(43)}
-                  className="btn btn-primary btn-color btn-comeback"
-                >
-                  Quay trở lại danh sách
-                </button>
-              )}
+              <button
+                onClick={() => props.switch(21)}
+                className="btn btn-primary btn-color btn-comeback"
+              >
+                Quay trở lại danh sách
+              </button>
             </div>
           </div>
         </div>
@@ -121,4 +91,4 @@ function DetailOrder(props) {
   );
 }
 
-export default DetailOrder;
+export default DetailOrderForAll;

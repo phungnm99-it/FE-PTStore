@@ -1,30 +1,53 @@
 import React, { useState, useEffect } from "react";
+import orderApi from "../../../api/orderApi";
 import "../../../css/admin/order/Order.css";
 import { priceFormat } from "../../../utils/priceFormat";
-import orderApi from "../../../api/orderApi";
+
 import Pagination from "react-pagination-library";
-import ModalChangeStatus from "./ModalChangeStatus";
-import Modal from "react-modal/lib/components/Modal";
 import { customStyles } from "../../../utils/cssUtils";
-function CompletedOrder(props) {
+import CancelOrder from "./CancelOrder";
+import Modal from "react-modal/lib/components/Modal";
+function WaitConfirmOrder(props) {
   const [orders, setOrders] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPage, setTotalPage] = useState(1);
   const [modal, setModal] = useState(false);
+
+  const [startDate, setStartDate] = useState(new Date("2000-01-01"));
+  const [endDate, setEndDate] = useState(new Date("2099-01-01"));
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     orderApi.getAll().then((res) => {
       let filterData = res.data.filter(
         (x) => x.status === "Đặt hàng thành công"
       );
-      if (currentPage * 5 - 1 > filterData.length) {
+      filterData = filterData.filter(
+        (x) =>
+          new Date(x.orderTime.split("T")[0]) >= startDate &&
+          new Date(x.orderTime.split("T")[0]) <= endDate
+      );
+      filterData = filterData.filter(
+        (x) =>
+          x.name.toLowerCase().includes(search.toLowerCase()) ||
+          x.id.toString().includes(search)
+      );
+      if (currentPage * 5 - 1 > res.data.length) {
         setOrders(filterData.slice((currentPage - 1) * 5));
       } else {
         setOrders(filterData.slice((currentPage - 1) * 5, currentPage * 5));
       }
-      setTotalPage(Math.round(filterData.length / 5) + 1);
+      if (filterData.length % 5 === 0) {
+        setTotalPage(filterData.length / 5);
+      } else {
+        setTotalPage(Math.floor(filterData.length / 5) + 1);
+      }
     });
-  }, [currentPage]);
+  }, [currentPage, search, startDate, endDate]);
+
+  const changeCurrentPage = (numPage) => {
+    setCurrentPage(numPage);
+  };
 
   const handleVerifyOrder = (e) => {
     e.preventDefault();
@@ -39,10 +62,6 @@ function CompletedOrder(props) {
         }
       });
     }
-  };
-
-  const changeCurrentPage = (numPage) => {
-    setCurrentPage(numPage);
   };
 
   const handleCancelOrder = (e) => {
@@ -77,6 +96,9 @@ function CompletedOrder(props) {
                         <div className=" filterOrder">
                           <p className="label-filterOrder">Từ ngày:</p>
                           <input
+                            onChange={(e) =>
+                              setStartDate(new Date(e.target.value))
+                            }
                             type="date"
                             className="form-control start"
                             id="startDay"
@@ -85,6 +107,9 @@ function CompletedOrder(props) {
                           <p className="label-filterOrder">Đến ngày:</p>
                           <input
                             type="date"
+                            onChange={(e) =>
+                              setEndDate(new Date(e.target.value))
+                            }
                             className="form-control end"
                             id="endDay"
                             placeholder="Ngày kết thúc"
@@ -92,16 +117,18 @@ function CompletedOrder(props) {
                         </div>
                         <div
                           id="dataTable_filter"
-                          className=" dataTables_filter"
+                          className="dataTables_filter"
                         >
                           <input
                             type="search"
+                            onChange={(e) => setSearch(e.target.value)}
                             className="inputSearch"
                             placeholder="Bạn cần tìm..."
                             aria-controls="dataTable"
                           />
                         </div>
                       </div>
+
                       <table className="table table-striped table-bordered dataTable">
                         <thead>
                           <tr role="row">
@@ -160,17 +187,20 @@ function CompletedOrder(props) {
                                 <td>{item.status}</td>
                                 <td>
                                   <button
-                                    id={item.id}
                                     onClick={(e) => handleVerifyOrder(e)}
                                     className="iconConfirm"
+                                    id={item.id}
                                   >
                                     <i
-                                      className="fas fa-check"
                                       id={item.id}
+                                      className="fas fa-check"
                                     ></i>
                                   </button>
                                   <button
-                                    onClick={() => props.switch(30)}
+                                    onClick={() => {
+                                      props.setOrder(item);
+                                      props.switch(30);
+                                    }}
                                     className="iconDetail"
                                   >
                                     <i className="fas fa-list"></i>
@@ -211,10 +241,10 @@ function CompletedOrder(props) {
         </div>
       </section>
       <Modal isOpen={modal} style={customStyles}>
-        <ModalChangeStatus onCLose={() => setModal(false)} />
+        <CancelOrder onCLose={() => setModal(false)} />
       </Modal>
     </div>
   );
 }
 
-export default CompletedOrder;
+export default WaitConfirmOrder;

@@ -56,6 +56,7 @@ import AddAdminAccount from "./account/AddAdminAccount";
 import AddShipperAccount from "./account/AddShipperAccount";
 import CancelOrder from "./order/CancelOrder";
 import CanceledOrder from "./order/CanceledOrder";
+import DetailOrderForAll from "./order/DetailOrderForAll";
 
 function Admin(props) {
   const context = useContext(AdminContext);
@@ -281,6 +282,9 @@ function Admin(props) {
             setOrder={(e) => setItem(e)}
           />
         );
+
+      case 44:
+        return <DetailOrderForAll switch={(e) => setForm(e)} order={item} />;
       default:
         return null;
     }

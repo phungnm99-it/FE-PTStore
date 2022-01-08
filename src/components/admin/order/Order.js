@@ -209,7 +209,7 @@ function Order(props) {
                                   <button
                                     onClick={() => {
                                       props.setOrder(item);
-                                      props.switch(30);
+                                      props.switch(44);
                                     }}
                                     className="iconDetail"
                                   >
