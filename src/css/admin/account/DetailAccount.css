@@ -96,3 +96,19 @@
     font-size: 15px;
     margin-bottom: 10px;
 }
+
+.detailAccount .btn-resetPass{
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    right: 0;
+    position: absolute;
+    margin-right: 40px;
+    margin-top: 15px;
+    border: none;
+    background-color: #3c4b64;
+    color: white;
+    border-radius: 8px;
+    font-size: 15x;
+}

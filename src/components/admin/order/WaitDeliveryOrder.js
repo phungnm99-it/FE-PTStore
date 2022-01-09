@@ -104,6 +104,9 @@ function CompletedOrder(props) {
                             <th className="sorting" id="Order-StatusCol">
                               Tình trạng
                             </th>
+                            <th className="sorting" id="Order-TimeCol">
+                              Thời gian xác nhận
+                            </th>
                             <th className="sorting" id="Order-ControlCol">
                               Tác vụ
                             </th>
@@ -136,6 +139,7 @@ function CompletedOrder(props) {
                                 <td>{priceFormat(item?.totalCost)}</td>
                                 <td>{item.paymentMethod}</td>
                                 <td>{item.status}</td>
+                                <td>19/12/2021</td>
                                 <td>
                                   <button
                                     onClick={() => props.switch(30)}
