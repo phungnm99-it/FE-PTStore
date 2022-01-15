@@ -118,7 +118,7 @@ function CommonTotal(props) {
         labels: props.month,
         datasets: [
           {
-            label: "Doanh thu (triệu đồng)",
+            label: "Doanh thu (đồng)",
             backgroundColor: "blue",
             borderColor: "blue",
             pointBackgroundColor: "blue",

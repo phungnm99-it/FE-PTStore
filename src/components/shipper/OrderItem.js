@@ -72,6 +72,12 @@ function OrderItem(props) {
                   <span className="textOrder">{props.detail.address}</span>
                 </p>
                 <p className="labelOrder">
+                  Phương thức thanh toán:
+                  <span className="textOrder">
+                    {props.detail.paymentMethod}
+                  </span>
+                </p>
+                <p className="labelOrder">
                   Tổng đơn:
                   <span className="textOrder">
                     {priceFormat(props.detail.totalCost || 0)}

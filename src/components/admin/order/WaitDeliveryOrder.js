@@ -16,7 +16,11 @@ function CompletedOrder(props) {
       } else {
         setOrders(filterData.slice((currentPage - 1) * 5, currentPage * 5));
       }
-      setTotalPage(Math.round(filterData.length / 5) + 1);
+      if (filterData.length % 5 === 0) {
+        setTotalPage(filterData.length / 5);
+      } else {
+        setTotalPage(Math.floor(filterData.length / 5) + 1);
+      }
     });
   }, [currentPage]);
 
