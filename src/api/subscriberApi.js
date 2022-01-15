@@ -10,6 +10,11 @@ const subscriberApi = {
     const url = "/subscriber/add";
     return axiosClient.post(url, formData);
   },
+
+  sendNew: (formData) => {
+    const url = "/subscriber/sendNews";
+    return axiosClient.post(url, formData);
+  },
 };
 
 export default subscriberApi;
