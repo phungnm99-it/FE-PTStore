@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import orderApi from "../../../api/orderApi";
 import "../../../css/admin/order/Order.css";
 import { priceFormat } from "../../../utils/priceFormat";
+import { timeFormat } from "../../../utils/dateUtils";
 
 import Pagination from "react-pagination-library";
 import { customStyles } from "../../../utils/cssUtils";
@@ -159,7 +160,7 @@ function CompletedOrder(props) {
                                 <td>{priceFormat(item?.totalCost)}</td>
                                 <td>{item.paymentMethod}</td>
                                 <td>{item.status}</td>
-                                <td>{item.updateTime}</td>
+                                <td>{timeFormat(item.updatedTime)}</td>
                                 <td>
                                   <button
                                     onClick={() => {
