@@ -1,9 +1,20 @@
 import React from "react";
+import userApi from "../../../api/userApi";
 import "../../../css/admin/account/DetailAccount.css";
 import { timeFormat } from "../../../utils/dateUtils";
 
 function DetailAccount(props) {
-  console.log(props.account);
+  const handleResetPassword = (e) => {
+    e.preventDefault();
+    userApi.resetPassword(props.account.id).then((res) => {
+      if (res.code === 401) {
+        alert("Reset password tài khoản này thất bại!");
+      } else {
+        alert("Reset password tài khoản này thành công!");
+      }
+    });
+  };
+
   return (
     <div>
       <div className="detailAccount">
@@ -59,7 +70,7 @@ function DetailAccount(props) {
               </div>
             </div>
           </div>
-          
+
           <div className="btn-detailAccount">
             {props.account.isDisable === true ? (
               <button
@@ -94,9 +105,15 @@ function DetailAccount(props) {
                 Quay trở lại danh sách
               </button>
             )}
-            <button type="submit" className="btn-resetPass">
+            {props.account.roleName === "Admin" ||
+            props.account.roleName === "Shipper" ? (
+              <button
+                onClick={(e) => handleResetPassword(e)}
+                className="btn-resetPass"
+              >
                 Khôi phục mật khẩu mặc định
-            </button>
+              </button>
+            ) : null}
           </div>
         </div>
       </div>

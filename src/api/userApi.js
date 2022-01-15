@@ -125,6 +125,11 @@ const userApi = {
     const url = "/common/caculateOrder";
     return axiosClient.get(url);
   },
+
+  resetPassword: (id) => {
+    const url = "/user/resetPassword/" + id;
+    return axiosClient.get(url);
+  },
 };
 
 export default userApi;
