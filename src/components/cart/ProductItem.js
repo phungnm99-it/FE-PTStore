@@ -23,6 +23,19 @@ function ProductItem(props) {
     context.addToCart({ product });
   };
 
+  const handleMinus = () => {
+    setQuantities(quantities - 1);
+    let product = {
+      id: props.id,
+      name: props.name,
+      imageUrl: props.imageUrl,
+      price: props.price,
+      currentPrice: props.currentPrice,
+      quantity: quantities - 1,
+    };
+    context.addToCart({ product });
+  };
+
   return (
     <li className="product-item">
       <div className="imgsp">
@@ -56,7 +69,7 @@ function ProductItem(props) {
           <div className="choosenumber">
             <div
               className={"minus" + (quantities < 2 ? " disable-button" : "")}
-              onClick={() => setQuantities(quantities - 1)}
+              onClick={handleMinus}
             >
               <i></i>
             </div>

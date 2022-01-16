@@ -8,7 +8,7 @@ import ProductFrame from "../../common/ProductFrame";
 import productApi from "../../../api/productApi";
 import Pagination from "react-pagination-library";
 import "react-pagination-library/build/css/index.css";
-import "../../../css/common/Filter.css"
+import "../../../css/common/Filter.css";
 function CustomProductPage() {
   const { filter } = useParams();
   const history = useHistory();
@@ -86,7 +86,9 @@ function CustomProductPage() {
   const getProduct = async () => {
     productApi.getByFilter(filter).then((response) => {
       setProduct(response.data);
-      setTotalPage(Math.floor(response.count / 12));
+      if (response.count % 12 === 0) {
+        setTotalPage(response.count / 12);
+      } else setTotalPage(Math.floor(response.count / 12) + 1);
     });
   };
 
@@ -207,17 +209,21 @@ function CustomProductPage() {
       </section>
       <section>
         <div className="row">
-          <select id="mySelect" onChange={() => handleClickSortType()}>
+          <select
+            id="mySelect"
+            style={{ marginLeft: "190px" }}
+            onChange={() => handleClickSortType()}
+          >
             <option value="">Sắp xếp</option>
             <option value="ascending">Giá thấp đến cao</option>
             <option value="descending">Giá cao đến thấp</option>
           </select>
           <select id="mySelectPrice" onChange={() => handleClickFilterPrice()}>
-          <option value="">Giá</option>
-          <option value="duoi5trieu">Dưới 5 triệu</option>
-          <option value="5trieutoi10trieu">5 triệu tới 10 triệu</option>
-          <option value="10trieutoi20trieu">10 triệu tới 20 triệu</option>
-          <option value="tren20trieu">Trên 20 triệu</option>
+            <option value="">Giá</option>
+            <option value="duoi5trieu">Dưới 5 triệu</option>
+            <option value="5trieutoi10trieu">5 triệu tới 10 triệu</option>
+            <option value="10trieutoi20trieu">10 triệu tới 20 triệu</option>
+            <option value="tren20trieu">Trên 20 triệu</option>
           </select>
         </div>
       </section>

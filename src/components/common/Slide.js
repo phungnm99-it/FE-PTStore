@@ -32,7 +32,7 @@ function Slide() {
                       <button
                         type="button"
                         className="btn btn-default get"
-                        onClick={() => history.push("/")}
+                        onClick={() => history.push("/dienthoai")}
                       >
                         Mua ngay
                       </button>

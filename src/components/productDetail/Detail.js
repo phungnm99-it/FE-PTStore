@@ -13,6 +13,9 @@ function Detail() {
   const [info, setInfo] = useState({});
   useEffect(() => {
     productApi.getAll(id).then((response) => {
+      if (response.data === null) {
+        window.location.href = "http://localhost:3000/";
+      }
       setInfo(response.data);
     });
   }, [id]);
