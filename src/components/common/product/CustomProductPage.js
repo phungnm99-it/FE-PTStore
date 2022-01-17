@@ -251,7 +251,7 @@ function CustomProductPage() {
       {totalPage === 1 ? (
         <div></div>
       ) : (
-        <div style={{ margin: "auto", width: "50%" }}>
+        <div style={{ margin: "auto", width: "20%" }}>
           <Pagination
             currentPage={currentPage}
             totalPages={totalPage}

@@ -37,7 +37,7 @@ function SendNotification(props) {
                   <label className="form-label" for="inputTopic">
                     Chủ đề
                   </label>
-                  <input id="emailSubject" type="text" placeholder="Chủ đề" />
+                  <input className="form-control" id="emailSubject" type="text" placeholder="Chủ đề" />
                 </div>
               </div>
 
